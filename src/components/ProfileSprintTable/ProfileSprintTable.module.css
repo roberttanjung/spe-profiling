@@ -1,0 +1,62 @@
+.section {
+  --surface: #ffffff;
+  --surface-soft: #eff6f2;
+  --ink: #15231b;
+  --ink-muted: #4b6255;
+  --border: #cfe0d4;
+
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: clamp(16px, 2.2vw, 24px);
+  background: color-mix(in srgb, var(--surface-soft) 70%, white 30%);
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+  color: var(--ink);
+}
+
+.tableScroller {
+  margin-top: 14px;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+  background: color-mix(in srgb, var(--surface) 90%, white 10%);
+}
+
+.table th,
+.table td {
+  padding: 12px 14px;
+  border: 1px solid color-mix(in srgb, var(--border) 72%, white 28%);
+  text-align: left;
+  color: var(--ink);
+}
+
+.table thead th {
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  background: color-mix(in srgb, var(--surface) 78%, #e6efe9 22%);
+}
+
+.numberCell {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.table td.lowValueCell {
+  color: #b42318;
+  font-weight: 700;
+}
+
+.emptyCell {
+  text-align: center;
+  color: var(--ink-muted);
+  font-style: italic;
+}
