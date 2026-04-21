@@ -4,6 +4,17 @@
 
 - Pengerjaan 2 framework berbeda
 - Untuk convert TS, apakah menggunakan AI?
+- Bertindak seperti player
+- Gaya penulisan belum baik
+- Belum ada inovasi
+- Perfeksionis
+  - Terpaku pada pola
+  - Terpaku pada stabilitas
+    - Backlog harus clear
+- Mengikuti 3 Course Online dan mendapatkan sertifikasi, diantaranya:
+  - Fullstack Web
+  - Javascript & JQuery
+  - HTML, CSS & Javascript
 
 ## Soft Skills
 

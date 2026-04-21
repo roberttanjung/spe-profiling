@@ -3,6 +3,14 @@
 ## POINTS
 
 - Mengerjakan 3 Guild: Dynamic Dashboard, Atomic Design dan SPEInside
+- Implementasi Obfuscator
+- Peringkat satu dalam hal jumlah task di bulan ...
+- Kerap memberikan inovasi:
+  - Self Code Review
+  - Tasks Checker
+- Bertinda seperti solver dan enabler
+- Menjaga rata-rata unit test di kisaran 80%
+- Mengikuti Course Online terkait AI dan mendapatkan Sertifikasi
 
 ## Soft Skills
 
