@@ -15,6 +15,9 @@
   - Fullstack Web
   - Javascript & JQuery
   - HTML, CSS & Javascript
+- Rework Table View beserta implement di modul baru dan existing
+  - Mempercepat proses development
+  - [need-confirm] Standarisasi AI agar lebih cepat
 
 ## Soft Skills
 
