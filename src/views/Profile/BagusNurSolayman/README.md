@@ -34,14 +34,6 @@
 
 - `Kurang empati`: Empati yang dimiliki oleh ybs belum terlalu jelas terlihat terutama pada saat menghadapi masalah. Kekhawatiran selalu menjadi respon utama yang ditunjukan oleh ybs alih-alih memahami dan menerima mengapa masalah tersebut dapat terjadi. Ybs memiliki kekhawatiran apabila adanya: hal yang belum jelas (clear) dan perubahan terhadap hal yang sudah stabil. Belum ada dampak yang terjadi terhadap kekhawatiran beliau tetapi hal tersebut tetap harus diperbaiki guna meningkatkan kualitas terhadap diri ybs. Dengan meningkatkan rasa empati, diharapkan ybs dapat menjadi pribadi yang berwibawa sehingga bukan hanya dapat memahami dan menyelesaikan masalah tetapi dapat pula menanggulangi masalah bahkan memiliki inovasi.
 
-## Projects
+## QRISAN x Jateng
 
-### QRISAN x Jateng
-
-#### Kesulitan
-
-### QRISAN x KB Bank
-
-#### Kesulitan
-
-#### Inovasi / Achievement
+## QRISAN x KB Bank

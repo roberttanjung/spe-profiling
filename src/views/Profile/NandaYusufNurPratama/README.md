@@ -13,5 +13,3 @@
 - `Baik dalam berkolaborasi`
 
 ### Needs Improve
-
-## Projects

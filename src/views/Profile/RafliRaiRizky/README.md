@@ -15,5 +15,3 @@
 ### Needs Improve
 
 - `Kolaborasi kurang baik`
-
-## Projects

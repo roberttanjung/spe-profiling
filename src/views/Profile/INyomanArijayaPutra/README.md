@@ -22,5 +22,3 @@
 
 - `Kurang pandai dalam beragumen`
 - `Sulit menjaga fokus`
-
-## Projects
