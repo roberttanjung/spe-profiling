@@ -38,6 +38,8 @@
 
 Mempelajari model bahasa dari OpenAI ke dalam aplikasi Node.js serta mendapatkan sertifikasi sebagai bukti telah berhasil mengikuti course online tersebut. Materi yang dipelajari selaras dengan tujuan SPE yaitu menerapkan Aplikasi berbasis AI guna mempercepat proses development serta meningkatkan kualitas aplikasi. Fundamental yang dipelajari dijadikan materi dalam Sharing Session "FE Day" guna meningkatkan pengetahuan rekan sesama Frontend Engingeer tentang cara kerja AI.
 
+**Link**: [Build AI-Powered Apps with OpenAI and Node.js](https://solusipembayaranelektronik-my.sharepoint.com/:f:/r/personal/robert_tanjung_spesolution_com/Documents/Reports/SPV/Raker/2025/evidences/Certificate?csf=1&web=1&e=CIz1nv)
+
 ## Ide Self Code Review
 
 Sebuah tools yang berguna untuk melakukan Review Code secara mandiri sebelum melakukan Push dan Merge Request. Menghindari Churn Code serta dapat mencegah Code Reviewer dalam kesalahan dalam melakukan reviewing code.
