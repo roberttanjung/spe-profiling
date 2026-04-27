@@ -162,10 +162,10 @@
     "employee_name": "I Nyoman Arijaya Putra",
     "total_task": 41,
     "total_weights": 41,
-    "total_bugs": 0,
+    "total_bugs": 1,
     "total_est_hour": 41,
-    "finish_rate": 0,
-    "done_rate": 8049
+    "finish_rate": 100,
+    "done_rate": 100
   },
   {
     "project_name": "CRING",
@@ -508,12 +508,12 @@
     "sprint_name": "Sprint 6 - 2026",
     "month": "April",
     "employee_name": "Agmar Putra",
-    "total_task": 3,
-    "total_weights": 3,
+    "total_task": 7,
+    "total_weights": 7,
     "total_bugs": 0,
-    "total_est_hour": 14,
-    "finish_rate": 3333,
-    "done_rate": 3333
+    "total_est_hour": 18,
+    "finish_rate": 100,
+    "done_rate": 100
   },
   {
     "project_name": "CRING! Point",
@@ -604,12 +604,12 @@
     "sprint_name": "Sprint 7 2026",
     "month": "April",
     "employee_name": "Rafli Rai Rizky",
-    "total_task": 5,
-    "total_weights": 5,
+    "total_task": 7,
+    "total_weights": 7,
     "total_bugs": 0,
-    "total_est_hour": 11,
-    "finish_rate": 40,
-    "done_rate": 40
+    "total_est_hour": 13,
+    "finish_rate": 5714,
+    "done_rate": 7143
   },
   {
     "project_name": "SPE Inside",
@@ -812,7 +812,7 @@
     "total_weights": 20,
     "total_bugs": 0,
     "total_est_hour": 39,
-    "finish_rate": 3333,
+    "finish_rate": 100,
     "done_rate": 100
   },
   {
@@ -940,10 +940,22 @@
     "sprint_name": "April 2026",
     "month": "April",
     "employee_name": "Agmar Putra",
-    "total_task": 34,
-    "total_weights": 38,
+    "total_task": 38,
+    "total_weights": 42,
     "total_bugs": 0,
-    "total_est_hour": 39,
+    "total_est_hour": 43,
+    "finish_rate": 100,
+    "done_rate": 100
+  },
+  {
+    "project_name": "Front End Non Development",
+    "sprint_name": "April 2026",
+    "month": "April",
+    "employee_name": "Nanda Yusuf Nur Pratama",
+    "total_task": 9,
+    "total_weights": 9,
+    "total_bugs": 0,
+    "total_est_hour": 13,
     "finish_rate": 100,
     "done_rate": 100
   },
@@ -1156,10 +1168,10 @@
     "sprint_name": "Sprint #02-2026",
     "month": "April",
     "employee_name": "Nanda Yusuf Nur Pratama",
-    "total_task": 8,
-    "total_weights": 8,
+    "total_task": 16,
+    "total_weights": 18,
     "total_bugs": 0,
-    "total_est_hour": 10,
+    "total_est_hour": 26,
     "finish_rate": 100,
     "done_rate": 100
   },
@@ -1168,10 +1180,10 @@
     "sprint_name": "Sprint #02-2026",
     "month": "April",
     "employee_name": "I Nyoman Arijaya Putra",
-    "total_task": 40,
-    "total_weights": 46,
+    "total_task": 44,
+    "total_weights": 50,
     "total_bugs": 0,
-    "total_est_hour": 45,
+    "total_est_hour": 49,
     "finish_rate": 100,
     "done_rate": 100
   },

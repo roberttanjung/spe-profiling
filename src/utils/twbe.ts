@@ -25,19 +25,26 @@ interface MonthlyAccumulator {
   totalFinishRate: number;
 }
 
+const monthToYear: Record<string, number> = {
+  september: 2025,
+  october: 2025,
+  november: 2025,
+  december: 2025,
+  january: 2026,
+  february: 2026,
+  march: 2026,
+  april: 2026,
+};
+
 const monthSortOrder: Record<string, number> = {
-  january: 0,
-  february: 1,
-  march: 2,
-  april: 3,
-  may: 4,
-  june: 5,
-  july: 6,
-  august: 7,
-  september: 8,
-  october: 9,
-  november: 10,
-  december: 11,
+  'september 2025': 0,
+  'october 2025': 1,
+  'november 2025': 2,
+  'december 2025': 3,
+  'january 2026': 4,
+  'february 2026': 5,
+  'march 2026': 6,
+  'april 2026': 7,
 };
 
 function normalizeRateValue(rate: number): number {
@@ -46,6 +53,13 @@ function normalizeRateValue(rate: number): number {
   }
 
   return rate;
+}
+
+function formatMonthWithYear(month: string): string {
+  const monthLower = month.toLowerCase();
+  const year = monthToYear[monthLower] ?? 2025;
+  const capitalizedMonth = month.charAt(0).toUpperCase() + month.slice(1);
+  return `${capitalizedMonth} ${year}`;
 }
 
 function toBugsRatio(totalBugs: number, totalTask: number): number {
@@ -59,7 +73,8 @@ function toBugsRatio(totalBugs: number, totalTask: number): number {
 const twbeRecords = twbeData as TwbeRecord[];
 
 function toMonthSortValue(month: string): number {
-  return monthSortOrder[month.toLowerCase()] ?? Number.MAX_SAFE_INTEGER;
+  const formattedMonth = formatMonthWithYear(month).toLowerCase();
+  return monthSortOrder[formattedMonth] ?? Number.MAX_SAFE_INTEGER;
 }
 
 export function getTwbeSprintRowsByEmployeeName(
@@ -69,7 +84,7 @@ export function getTwbeSprintRowsByEmployeeName(
     .filter((record) => record.employee_name === employeeName)
     .map((record) => ({
       projectName: record.project_name,
-      month: record.month,
+      month: formatMonthWithYear(record.month),
       sprintName: record.sprint_name,
       totalTask: record.total_task,
       totalWeights: record.total_weights,
@@ -117,7 +132,7 @@ export function getTwbeMonthlyRowsByEmployeeName(
       return toMonthSortValue(left.month) - toMonthSortValue(right.month);
     })
     .map((row) => ({
-      month: row.month,
+      month: formatMonthWithYear(row.month),
       totalTask: row.totalTask,
       totalWeight: row.totalWeight,
       bugsRatio: row.totalBugsRatio / row.sprintCount,

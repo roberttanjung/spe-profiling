@@ -3,6 +3,8 @@ import type { ProfileMonthlyTableProps } from './ProfileMonthlyTable.types';
 
 const MAX_BUGS_RATIO = 0.3;
 const MIN_RATE = 95;
+const MIN_TOTAL_TASK = 40;
+const MIN_TOTAL_WEIGHT = 60;
 
 const numberFormatter = new Intl.NumberFormat('id-ID', {
   minimumFractionDigits: 0,
@@ -54,10 +56,16 @@ export default function ProfileMonthlyTable({
               rows.map((row, index) => (
                 <tr key={`${row.month}-${index}`}>
                   <td>{row.month}</td>
-                  <td className={styles.numberCell}>
+                  <td
+                    className={toCellClassName(row.totalTask < MIN_TOTAL_TASK)}
+                  >
                     {numberFormatter.format(row.totalTask)}
                   </td>
-                  <td className={styles.numberCell}>
+                  <td
+                    className={toCellClassName(
+                      row.totalWeight < MIN_TOTAL_WEIGHT,
+                    )}
+                  >
                     {numberFormatter.format(row.totalWeight)}
                   </td>
                   <td
