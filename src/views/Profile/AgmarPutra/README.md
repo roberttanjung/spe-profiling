@@ -1,37 +1,41 @@
 # Agmar Putra
 
-## POINTS
-
-- [done] Mengerjakan 4 Guild:
-  - DRONT Vault
-    - Original ide
-    - Butuh konfirmasi, apakah ini dianggap sebagai guild
-  - Dynamic Dashboard
-  - SPEInside
-  - Atomic Design
-- [done] Implementasi Obfuscator
-- Peringkat satu dalam hal jumlah task di bulan ...
-- [done] Kerap memberikan ide:
-  - Self Code Review
-  - Tasks Checker
-- [kesimpulan] Bertindak seperti solver dan enabler
-- [done] Menjaga rata-rata unit test di kisaran 80%
-- [done] Mengikuti Course Online terkait AI dan mendapatkan Sertifikasi
-- [done] Research:
-  - OpenSpec
-  - Rust Kill Token
-- Minus:
-  - Detail Pengerjaan Atomic Design
-
-## QRISAN (All Variant)
+## QRISAN All Variant
 
 - Menangani 8 Repo berbeda dengan tema design yang sama. Jika ada 1 perubahan di salah satu repo maka 7 repo lainnya harus dilakukan perubahan.
 - Mampu menjaga Unit Test Coverage Area untuk semua variant pada kisaran 80%
 
+## QRISAN (Core)
+
+Walaupun sudah tidak ada modul baru untuk dikerjakan tetapi ybs tetap aktif melakukan support terhadap perubahan yang terjadi pada bisnis ataupun request / response API. Namun selain itu, ybs juga aktif dalam beberapa tindakan, diantaranya:
+
+- `Coverage Unit Test Area`: Menjaga Coverage Unit Test Area setelah dilakukannya perubahan-perubahan agar selalu ada diatas 80%.
+- `Upgrade Versi MUI`: Melakukan upgrade versi MUI menjadi 7 agar terhindar dari vulnerability dan juga meningkatkan performa aplikasi web.
+- `SonarQube`: Selalu menjaga kualitas kode dengan cara memperbaiki issue yang muncul di SonarQube.
+- `Menghindari Issue CVE`: Menjaga keamanan aplikasi web dengan cara melakukan upgrade versi Axios menjadi v1.15 karena versi dibawah itu terkena issue yang cukup berbahaya yaitu: terdapat attack-surface dari Axios yang mengijinkan attacker untuk mengeksekusi kode lain yang berbahaya didalam aplikasi web.
+- `Konversi ke Typescript`: Juga melakukan konversi terhadap file-file Javascript menjadi Typescript guna menerapkan Type-Safe (pengamanan tipe) agar terhindar dari kesalahan tipe yang dapat menyebabkan aplikasi error.
+
 ## QRISAN x Kaltimtara
 
-- Implementasi Fingerprint JS yang berguna untuk menangani issue double login di 2 perangkat berbeda. Dan, menghemat biaya operasional karena tidak perlu menggunakan versi Pro dari Fingerprint JS.
-- Implementasi Obfuscator yang berguna untuk menangani issue tereksposnya variabel rahasia yang dapat menjadi attack-surface.
+Tidak ada modul baru yang dikerjakan, tetapi ybs tetap aktif melakukan support terutama untuk melakukan implementasi Encrypt & Decrypt menggunakan AES. Namun, tak hanya itu, ybs juga turut memiliki aktifitas lain, diantaranya:
+
+- `Fingerprint JS`: Implementasi Fingerprint JS yang berguna untuk menangani issue double login di 2 perangkat berbeda. Dan, menghemat biaya operasional karena tidak perlu menggunakan versi Pro dari Fingerprint JS.
+- `Obfuscator`: Implementasi Obfuscator yang berguna untuk menangani issue tereksposnya variabel rahasia yang dapat menjadi attack-surface.
+- `Penerapan AES`: Menerapkan Encrypt & Decrypt terhadap request dan response API.
+- `Implementasi Tooltip`: Melakukan impelemtasi Tooltip guna memberikan penjelasan terhadap konten yang perlu untuk dijelaskan seperti Card, Icon & Status dalam bentuk wadah melayang yang akan muncul ketika dilakukan hover pada konten.
+
+## QRISAN x KB Bank
+
+QRISAN x KB Bank merupakan variant yang baru muncul ditahun 2025. Ybs sebagai Frontend bertugas untuk membangun beberapa backlog diantaranya: membuat UI untuk Syarat & Ketentuan sebelum melakukan Onboarding, Membuat halaman Informasi Ketentuan Settlemen dan Membuat halaman Settlemen dan sub-backlognya berupa Penambahan Settlemen, Detail Settlemen dan History Settlemen.
+
+Adapun aktifitas lain yang dilakukan oleh ybs adalah sebagai berikut:
+
+- `Coverage Unit Testing Area`: Melakukan penyesuaian terhadap beberapa unit test guna menjaga nilai coverage tetap dikisaran 80%.
+- `Upgrade MUI ke v7`: Upgrade versi MUI ke v7 guna menghindari vulnerability dimasa depan serta meningkatkan performa aplikasi web.
+- `Konversi ke Typescript`: Melakukan konversi terhadap beberapa backlog dari Javascript menjadi Typescript guna menjaga Type-Safe (keamanan tipe data) untuk menghindari error pada saat aplikasi dibuka.
+- `Fixing SonarQube`: Meningkatkan kualitas kode dari issue yang muncul di SonarQube agar kualitas kode tetap baik.
+
+## [progress] Front End Non Development
 
 ## DRONT Vault
 

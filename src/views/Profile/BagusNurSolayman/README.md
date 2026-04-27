@@ -21,14 +21,16 @@
 - Minus:
   - Detail Pengerjaan Atomic Design
 
-## Adaptasi yang baik
-
-Ybs mampu mengerjakan 2 Project berbeda walaupun kedua project tersebut memiliki struktur dan sintaks yang berbeda.
-
 ## QRISAN x Jateng
 
 - Mengembangkan Table View component untuk tujuan mempercepat proses development dengan implementasi yang mudah serta didukung dengan penggunaan AI agar proses pengerjaan menjadi lebih cepat
 - Melakukan konversi Superset dari Javascript menjadi Typescript dengan bantuan AI agar proses konversi menjadi lebih baik secara kualitas dan stabil secara performa
+
+## [next] QRISAN x KB Bank
+
+## [next] DKI QRIS
+
+## [next] SPD
 
 ## Course online - Fundamental Web Aplikasi
 
