@@ -6,9 +6,7 @@
 - Belum ada inovasi
 - Mengikuti Course Online terkait Web App Accessibility dan mendapatkan sertifikasi
 
-## Project Allocation
-
-### CRING!
+## CRING!
 
 Mengerjakan CRING!...
 

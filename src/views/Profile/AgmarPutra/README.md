@@ -23,33 +23,6 @@
 - Minus:
   - Detail Pengerjaan Atomic Design
 
-## Course Online Build AI-Powered Apps with OpenAI and Node.js
-
-Mempelajari model bahasa dari OpenAI ke dalam aplikasi Node.js serta mendapatkan sertifikasi sebagai bukti telah berhasil mengikuti course online tersebut. Materi yang dipelajari selaras dengan tujuan SPE yaitu menerapkan Aplikasi berbasis AI guna mempercepat proses development serta meningkatkan kualitas aplikasi. Fundamental yang dipelajari dijadikan materi dalam Sharing Session "FE Day" guna meningkatkan pengetahuan rekan sesama Frontend Engingeer tentang cara kerja AI.
-
-**Link**: [Build AI-Powered Apps with OpenAI and Node.js](https://solusipembayaranelektronik-my.sharepoint.com/:f:/r/personal/robert_tanjung_spesolution_com/Documents/Reports/SPV/Raker/2025/evidences/Certificate?csf=1&web=1&e=CIz1nv)
-
-## Ide Self Code Review
-
-Sebuah tools yang berguna untuk melakukan Review Code secara mandiri sebelum melakukan Push dan Merge Request. Menghindari Churn Code serta dapat mencegah Code Reviewer dalam kesalahan dalam melakukan reviewing code.
-
-Ide ini belum dapat dilanjutkan karena:
-
-- Menyebabkan penggunaan Request Prompt AI menjadi lebih boros
-- Harus melakukan setup tambahan untuk menggunakan tools ini
-
-## Ide Tasks Checker
-
-Mengajukan pembuatan progam untuk menyaring task yang layak dimasukan ke SPEctrum. Task akan dilakukan pemeriksaan oleh SPV lalu dengan persetujuan SPV maka task dinyatakan layak untuk dimasukan ke SPEctrum. Ide tersebut lahir berkat analisa ybs dalam melihat banyaknya task yang menurutnya tidak layak untuk dijadikan task karena terlalu kecil secara bobot (remeh) tetapi hal tersebut dapat meningkatkan KPI.
-
-## Research OpenSpec
-
-Sebuah Tools AI yang berguna untuk menentukan Spesifikasi sebuah Aplikasi untuk meningkatkan akurasi penggunakan AI Agent sehingga Request akan menjadi lebih hemat. Spesifikasi digenerate dengan pengawasan user agar spesifikasi tetap selaras dan sesuai dengan apa yang dideskripsikan oleh OpenSpec.
-
-## Research Rust Kill Token
-
-Tools AI yang berguna untuk mempersingkat sebuah prompt tanpa mengurangi akurasi dari maksud prompt tersebut agar penggunaan Token (mata uang LLM) menjadi jauh lebih hemat. Namun, Research tersebut tidak dilanjutkan karena penggunaan GitHub Copilot menggunakan request prompt sebagai mata uang dengan maksimal 300 request prompt setiap bulan. Sehingga penggunaan Rust Kill Token menjadi tidak relevan.
-
 ## QRISAN (All Variant)
 
 - Menangani 8 Repo berbeda dengan tema design yang sama. Jika ada 1 perubahan di salah satu repo maka 7 repo lainnya harus dilakukan perubahan.
@@ -92,6 +65,33 @@ Adapun component yang telah ia buat adalah sebagai berikut:
 - `Alert`: Feedback pesan yang tampil setelah melakukan aktitifas
 - `Theme Manager`: Mengatur tema dengan mudah
 - `Time Machine`: Kolom pengisian tanggal yang dapat diimplementasi dengan mudah
+
+## Course Online Build AI-Powered Apps with OpenAI and Node.js
+
+Mempelajari model bahasa dari OpenAI ke dalam aplikasi Node.js serta mendapatkan sertifikasi sebagai bukti telah berhasil mengikuti course online tersebut. Materi yang dipelajari selaras dengan tujuan SPE yaitu menerapkan Aplikasi berbasis AI guna mempercepat proses development serta meningkatkan kualitas aplikasi. Fundamental yang dipelajari dijadikan materi dalam Sharing Session "FE Day" guna meningkatkan pengetahuan rekan sesama Frontend Engingeer tentang cara kerja AI.
+
+**Link**: [Build AI-Powered Apps with OpenAI and Node.js](https://solusipembayaranelektronik-my.sharepoint.com/:f:/r/personal/robert_tanjung_spesolution_com/Documents/Reports/SPV/Raker/2025/evidences/Certificate?csf=1&web=1&e=CIz1nv)
+
+## Ide Self Code Review
+
+Sebuah tools yang berguna untuk melakukan Review Code secara mandiri sebelum melakukan Push dan Merge Request. Menghindari Churn Code serta dapat mencegah Code Reviewer dalam kesalahan dalam melakukan reviewing code.
+
+Ide ini belum dapat dilanjutkan karena:
+
+- Menyebabkan penggunaan Request Prompt AI menjadi lebih boros
+- Harus melakukan setup tambahan untuk menggunakan tools ini
+
+## Ide Tasks Checker
+
+Mengajukan pembuatan progam untuk menyaring task yang layak dimasukan ke SPEctrum. Task akan dilakukan pemeriksaan oleh SPV lalu dengan persetujuan SPV maka task dinyatakan layak untuk dimasukan ke SPEctrum. Ide tersebut lahir berkat analisa ybs dalam melihat banyaknya task yang menurutnya tidak layak untuk dijadikan task karena terlalu kecil secara bobot (remeh) tetapi hal tersebut dapat meningkatkan KPI.
+
+## Research OpenSpec
+
+Sebuah Tools AI yang berguna untuk menentukan Spesifikasi sebuah Aplikasi untuk meningkatkan akurasi penggunakan AI Agent sehingga Request akan menjadi lebih hemat. Spesifikasi digenerate dengan pengawasan user agar spesifikasi tetap selaras dan sesuai dengan apa yang dideskripsikan oleh OpenSpec.
+
+## Research Rust Kill Token
+
+Tools AI yang berguna untuk mempersingkat sebuah prompt tanpa mengurangi akurasi dari maksud prompt tersebut agar penggunaan Token (mata uang LLM) menjadi jauh lebih hemat. Namun, Research tersebut tidak dilanjutkan karena penggunaan GitHub Copilot menggunakan request prompt sebagai mata uang dengan maksimal 300 request prompt setiap bulan. Sehingga penggunaan Rust Kill Token menjadi tidak relevan.
 
 ## Soft Skills
 
