@@ -4,6 +4,15 @@
 
 - Menangani 8 Repo berbeda dengan tema design yang sama. Jika ada 1 perubahan di salah satu repo maka 7 repo lainnya harus dilakukan perubahan.
 - Mampu menjaga Unit Test Coverage Area untuk semua variant pada kisaran 80%
+- QRISAN Monorepo
+- Research NX
+
+Sebagai inisiator arsitektur QRISAN, ybs bertanggung jawab atas 8 repo dari keseluruhan semua project QRISAN yaitu: QRISAN (Core) Admin & Merchant, QRISAN x Kaltimtara Admin & Merchant, QRISAN x Jateng Admin & Merchant dan QRISAN x KB Bank Admin & Merchant. Meski ybs menangani 8 repo, ybs tetap bertanggung jawab atas kualitas kode dari project-project tersebut, diantaranya:
+
+- `Unit Test Coverage Area`: Menjaga Unit Test Coverage Area di kisaran 80%.
+- `SonarQube`: Menjaga kualitas kode dari issue yang muncul di SonarQube.
+
+Pada saat ini ybs dalam tahap pengembangan Monorepo guna mempermudah proses development dimasa depan walaupun harus menangani 8 repo berbeda karena semua repo akan disatukan menjadi 1 kesatuan dengan tujuan yang berbeda-beda. Ybs juga berkolaborasi dengan Tim DevOps untuk menangani masalah CI/CD ketika menggunakan Monorepo. Ybs juga membantu dalam penyelesaian masalah Multiple Versi dalam satu repo yang menjadi kekhawatiran dari pihak Tim DevOps.
 
 ## QRISAN (Core)
 
@@ -34,8 +43,6 @@ Adapun aktifitas lain yang dilakukan oleh ybs adalah sebagai berikut:
 - `Upgrade MUI ke v7`: Upgrade versi MUI ke v7 guna menghindari vulnerability dimasa depan serta meningkatkan performa aplikasi web.
 - `Konversi ke Typescript`: Melakukan konversi terhadap beberapa backlog dari Javascript menjadi Typescript guna menjaga Type-Safe (keamanan tipe data) untuk menghindari error pada saat aplikasi dibuka.
 - `Fixing SonarQube`: Meningkatkan kualitas kode dari issue yang muncul di SonarQube agar kualitas kode tetap baik.
-
-## [progress] Front End Non Development
 
 ## DRONT Vault
 
