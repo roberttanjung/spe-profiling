@@ -23,6 +23,10 @@
 
 ## QRISAN x Jateng
 
+- Sprint 15 - 2025
+  - Tambah halaman Transaction API Log
+  - Tambah halaman Callback Log
+
 - Mengembangkan Table View component untuk tujuan mempercepat proses development dengan implementasi yang mudah serta didukung dengan penggunaan AI agar proses pengerjaan menjadi lebih cepat
 - Melakukan konversi Superset dari Javascript menjadi Typescript dengan bantuan AI agar proses konversi menjadi lebih baik secara kualitas dan stabil secara performa
 
