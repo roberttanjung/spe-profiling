@@ -1,26 +1,5 @@
 # Bagus Nur Solayman
 
-## POINTS
-
-- [done] Pengerjaan 2 framework berbeda
-- [done] Untuk convert TS, apakah menggunakan AI?
-- [kesimpulan] Bertindak seperti player
-- [kesimpulan] Gaya penulisan belum baik
-- [kesimpulan] Belum ada inovasi
-- [done] Perfeksionis
-  - Terpaku pada pola
-  - Terpaku pada stabilitas
-    - Backlog harus clear
-- [done] Mengikuti 3 Course Online dan mendapatkan sertifikasi, diantaranya:
-  - Fullstack Web
-  - Javascript & JQuery
-  - HTML, CSS & Javascript
-- [done] Rework Table View beserta implement di modul baru dan existing
-  - Mempercepat proses development
-  - [need-confirm] Standarisasi AI agar lebih cepat
-- Minus:
-  - Detail Pengerjaan Atomic Design
-
 ## QRISAN x Jateng
 
 Pada project ini ybs bertanggung jawab untuk mengerjakan modul Transaction API Log dan Callback Log. Pengerjaan dikerjakan dengan cara yang baru yaitu menggunakan Table component yang telah dikembangkan oleh ybs untuk mempermudah serta mempercepat proses development. Bukan hanya itu, ybs juga membuat Prompt AI khusus untuk modul yang menggunakan Table component tersebut agar pengerjaan bukan hanya mudah dan cepat, namun otomatis. Ybs juga bertanggung jawab dalam pengerjaan backlog Konfigurasi Close Merchant yang memiliki sub-backlog kompleks seperti: membuat halaman List Konfigurasi Close Merchant, membuat halaman Penambahan, Detail serta Edit Konfigurasi Close Merchant. Juga, membantu melakukan perubahan terhadap beberapa backlog agar sesuai dengan kebutuhan Sprint.
@@ -37,11 +16,25 @@ Selain itu, ybs juga memiliki beberapa aktifitas lain guna meningkatkan kualitas
 
 Pada project ini, ybs bertanggung jawab atas pengerjaan di Portal Merchant. Ybs bertanggung jawab atas pengerjaan OTP untuk verifikasi 2 langkah. Ybs juga bertanggung jawan atas pengerjaan Modul Konfiguarsi Close Merchant beserta sub-modul yang cukup kompleks yaitu: membuat halaman List Konfigurasi Close Merchant dan membuat halaman Tambah, Detail serta ubah Konfigurasi Merchant. Ybs juga bertanggung jawab atas penyesuaian sesuai kebutuhan bisnis.
 
-## [progress] DKI QRIS
+## DKI QRIS
 
-## [next] SPD
+Walaupun tidak ada aktifitas Sprint, ybs tetap aktif terutama dalam melakukan perubahan-perubahan kode guna menyesuaikan kebutuhan bisnis.
 
-## [next] Atomic Design
+## SPD
+
+Walaupun tidak ada aktifitas Sprint, ybs tetap aktif untuk meningkatkan Unit Testing Coverage Area hingga 72%. Juga, melakukan perbaikan issue yang muncul di SonarQube guna menjaga kualitas kode tetap baik dan terhindar dari error. Ybs juga berperan aktif dalam melakukan perubahan-perubahan kode dibeberapa modul guna menyesuaikan terhadap kebutuhan bisnis.
+
+## Atomic Design
+
+Ybs ikut berkontribusi dalam membangun Guild Atomic Design terutama terhadap hal-hal yang berhubungan dengan halaman pengisian formulir. Berikut adalah beberapa component-component yang sudah dibangun oleh ybs, diantaranya:
+
+- `Button`: Sebuah UI yang menampilkan `Button` yang telah disesuaikan penggunaannya demi kebutuhan klien serta implementasi aksesibilitas.
+- `Progress Bar`: Menampilkan tampilan proses dalam bentuk batang yang berguna untuk melihat seberapa jauh proses telah berjalan.
+- `Progress Circle`: Menampilkan tampilan proses dalam bentuk lingkaran yang berguna untuk melihat seberapa lama proses telah berjalan.
+- `Progress Tracker`: Menampilkan tahapan-tahapan yang harus dilewati oleh klien dalam mengisi formulir.
+- `Upload Documentation`: Sebuah kolom input yang dapat menerima lampiran dan mudah untuk dilakukan pergantian lampira, kosongkan lampiran atau kunci lampiran.
+
+Semua pengerjaan sudah dikerjakan sesuai kebutuhan dengan mengutamakan kemudahan implementasi serta kemudahan penggunaan dengan cara menyediakan dokumentasi lengkap di Atomic Design.
 
 ## Course online - Fundamental Web Aplikasi
 
