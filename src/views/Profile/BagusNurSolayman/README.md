@@ -33,11 +33,15 @@ Selain itu, ybs juga memiliki beberapa aktifitas lain guna meningkatkan kualitas
 - `Penanggulangan CVE`: Melakukan penanggulangan dini terhadap issue CVE di package Axios dan CASL serta secara cepat memberitahukan kabar tersebut kepada Tim agar lekas dilakukan Hotfix.
 - `Konversi kode ke Typescript`: Melakukan konversi beberapa modul yang sebelumnya masih menggunakan Javascript menjadi Typescript guna menjaga Type-Safe agar terhindar dari error tipe data sehingga aplikasi web terhindar dari app-crash. Konversi tersebut dilakukan dengan menggunakan AI yang Prompt nya ia buat sendiri guna mempermudah dan mempercepat pengerjaan serta pengerjaan dapat dilakukan secara otomatis.
 
-## [next] QRISAN x KB Bank
+## QRISAN x KB Bank
 
-## [next] DKI QRIS
+Pada project ini, ybs bertanggung jawab atas pengerjaan di Portal Merchant. Ybs bertanggung jawab atas pengerjaan OTP untuk verifikasi 2 langkah. Ybs juga bertanggung jawan atas pengerjaan Modul Konfiguarsi Close Merchant beserta sub-modul yang cukup kompleks yaitu: membuat halaman List Konfigurasi Close Merchant dan membuat halaman Tambah, Detail serta ubah Konfigurasi Merchant. Ybs juga bertanggung jawab atas penyesuaian sesuai kebutuhan bisnis.
+
+## [progress] DKI QRIS
 
 ## [next] SPD
+
+## [next] Atomic Design
 
 ## Course online - Fundamental Web Aplikasi
 
