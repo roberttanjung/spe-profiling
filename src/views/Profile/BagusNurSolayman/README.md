@@ -23,47 +23,15 @@
 
 ## QRISAN x Jateng
 
-- Sprint 15 - 2025
-  - Tambah halaman Transaction API Log
-  - Tambah halaman Callback Log
-- Sprint 16 - 2025
-  - Enhancement
-- Sprint 17 - 2025
-  - Support
-- Sprint 18 - 2025
-  - Enhancement
-- Sprint 19 - 2025
-  - Enhancement
-- Sprint 20 - 2025
-  - Enhancement
-- Sprint 21 - 2025
-  - Enhancement
-- Sprint 1 - 2026
-  - Tambah halaman Konfigurasi Close Merchant: Index, Add, Detail, Edit
-- Sprint 2 - 2026
-  - Pembuatan reuseable component
-    - [?] Detail Collapse Generic Log Module
-    - [?] BriefActivity Generic Log Module
-    - [?] Pagination & total data Generic Log Module
-  - SonarQube
-- Sprint 3 - 2026
-  - Unit Testing
-  - Convert to TS
-- Sprint 4 - 2026
-  - Convert to TS
-- Sprint 5 - 2026
-  - Upgrade MUI to v7
-  - Fixing CVE on CASL & Axios
-  - SonarQube
-  - Convert to TS
-- Sprint 6 - 2026
-  - Convert to TS
-  - Unit Testing
+Pada project ini ybs bertanggung jawab untuk mengerjakan modul Transaction API Log dan Callback Log. Pengerjaan dikerjakan dengan cara yang baru yaitu menggunakan Table component yang telah dikembangkan oleh ybs untuk mempermudah serta mempercepat proses development. Bukan hanya itu, ybs juga membuat Prompt AI khusus untuk modul yang menggunakan Table component tersebut agar pengerjaan bukan hanya mudah dan cepat, namun otomatis. Ybs juga bertanggung jawab dalam pengerjaan backlog Konfigurasi Close Merchant yang memiliki sub-backlog kompleks seperti: membuat halaman List Konfigurasi Close Merchant, membuat halaman Penambahan, Detail serta Edit Konfigurasi Close Merchant. Juga, membantu melakukan perubahan terhadap beberapa backlog agar sesuai dengan kebutuhan Sprint.
 
-- Mengembangkan Table View component untuk tujuan mempercepat proses development dengan implementasi yang mudah serta didukung dengan penggunaan AI agar proses pengerjaan menjadi lebih cepat
-- Melakukan konversi Superset dari Javascript menjadi Typescript dengan bantuan AI agar proses konversi menjadi lebih baik secara kualitas dan stabil secara performa
+Selain itu, ybs juga memiliki beberapa aktifitas lain guna meningkatkan kualitas kode, diantaranya:
 
-Ybs dialokasikan untuk pengerjaan QRISAN x Jateng pada periode tersebut.
+- `Unit Testing Coverage Area`: Menjaga Coverage Area pada Unit Testing dikisaran 80%.
+- `Monitoring SonarQube`: Menjaga serta meningkatkan kualitas kode dari issue yang muncul di SonarQube.
+- `Upgrade MUI version ke v7`: Meningkatkan versi MUI menjadi versi 7 guna meningkatkan perfoma aplikasi web serta terhindar dari versi yang rentan.
+- `Penanggulangan CVE`: Melakukan penanggulangan dini terhadap issue CVE di package Axios dan CASL serta secara cepat memberitahukan kabar tersebut kepada Tim agar lekas dilakukan Hotfix.
+- `Konversi kode ke Typescript`: Melakukan konversi beberapa modul yang sebelumnya masih menggunakan Javascript menjadi Typescript guna menjaga Type-Safe agar terhindar dari error tipe data sehingga aplikasi web terhindar dari app-crash. Konversi tersebut dilakukan dengan menggunakan AI yang Prompt nya ia buat sendiri guna mempermudah dan mempercepat pengerjaan serta pengerjaan dapat dilakukan secara otomatis.
 
 ## [next] QRISAN x KB Bank
 
