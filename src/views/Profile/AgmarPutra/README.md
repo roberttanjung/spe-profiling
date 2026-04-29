@@ -44,6 +44,8 @@ Adapun aktifitas lain yang dilakukan oleh ybs adalah sebagai berikut:
 - `Konversi ke Typescript`: Melakukan konversi terhadap beberapa backlog dari Javascript menjadi Typescript guna menjaga Type-Safe (keamanan tipe data) untuk menghindari error pada saat aplikasi dibuka.
 - `Fixing SonarQube`: Meningkatkan kualitas kode dari issue yang muncul di SonarQube agar kualitas kode tetap baik.
 
+## [next] QRISAN x Jateng
+
 ## DRONT Vault
 
 Sebuah App Web yang berguna untuk centralize projects monitoring. App Web ini merupakan ide original yang dikembangkan oleh Agmar Putra sendiri sebagai inovasi. Ybs merasa cukup memakan waktu apabila Frontend Engineer mendapat mandat untuk melakukan pengisian informasi terkini dari masing-masing project seperti: Unit Test Coverage, Status SonarQube, Status Sentry dll. Menurut ybs, hal tersebut mudah untuk dilakukan tetapi cukup memakang waktu karena tidak semua Frontend Engineer memiliki waktu luang untuk melakukan pengisian informasi tersebut dan akhirnya untuk mendapatkan semua informasi akan memakan waktu setidaknya satu hari. Dengan adanya DRONT Vault, diharapkan proses tersebut dapat dilakukan hanya dalam hitungan menit.

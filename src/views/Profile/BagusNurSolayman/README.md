@@ -26,9 +26,44 @@
 - Sprint 15 - 2025
   - Tambah halaman Transaction API Log
   - Tambah halaman Callback Log
+- Sprint 16 - 2025
+  - Enhancement
+- Sprint 17 - 2025
+  - Support
+- Sprint 18 - 2025
+  - Enhancement
+- Sprint 19 - 2025
+  - Enhancement
+- Sprint 20 - 2025
+  - Enhancement
+- Sprint 21 - 2025
+  - Enhancement
+- Sprint 1 - 2026
+  - Tambah halaman Konfigurasi Close Merchant: Index, Add, Detail, Edit
+- Sprint 2 - 2026
+  - Pembuatan reuseable component
+    - [?] Detail Collapse Generic Log Module
+    - [?] BriefActivity Generic Log Module
+    - [?] Pagination & total data Generic Log Module
+  - SonarQube
+- Sprint 3 - 2026
+  - Unit Testing
+  - Convert to TS
+- Sprint 4 - 2026
+  - Convert to TS
+- Sprint 5 - 2026
+  - Upgrade MUI to v7
+  - Fixing CVE on CASL & Axios
+  - SonarQube
+  - Convert to TS
+- Sprint 6 - 2026
+  - Convert to TS
+  - Unit Testing
 
 - Mengembangkan Table View component untuk tujuan mempercepat proses development dengan implementasi yang mudah serta didukung dengan penggunaan AI agar proses pengerjaan menjadi lebih cepat
 - Melakukan konversi Superset dari Javascript menjadi Typescript dengan bantuan AI agar proses konversi menjadi lebih baik secara kualitas dan stabil secara performa
+
+Ybs dialokasikan untuk pengerjaan QRISAN x Jateng pada periode tersebut.
 
 ## [next] QRISAN x KB Bank
 
