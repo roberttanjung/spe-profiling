@@ -8,6 +8,10 @@
 - Pandai berkalimat
 - Cepat menyimpulkan dan kurang kritis
 
+## Atomic Design
+
+- Gantt Chart
+
 ## Soft Skills
 
 ### Good

@@ -26,7 +26,21 @@ Selain menyelesaikan tanggung jawab tersebut, ybs juga reaktif dalam perubahan-p
 
 ## [progress] Atomic Design
 
-Ybs berkontribusi dalam pengerjaan Atomic Design dan bertanggung jawab atas Component MVP yaitu Chart untuk melihat data dengan grafik agar mudah dilakukan komparasi.
+Ybs berkontribusi dalam pengerjaan Atomic Design dan bertanggung jawab atas Component MVP yaitu Chart untuk melihat data dengan grafik agar mudah dilakukan komparasi. Chart grafik yang dibuat oleh ybs adalah sebagai berikut:
+
+- `Radar Chart`: Grafik yang menampilkan data kumulatif dari waktu ke waktu.
+- `Bar Chart`: Grafik yang menampilkan komparasi data berdasarkan kategori dengan interface berbentuk batang.
+- `Donut Chart`: Grafik yang menampilkan relasi data dalam bentuk bulat seperti halnya Donat.
+- `Heatmap Chart`: Grafik yang menampilkan data dalam bentuk Grid dengan intesitas warna sebagai indikator.
+- `Line Chart`: Grafik yang menampilkan data interval tren dalam bentuk garis.
+- `Radar Chart`: Grafik yang menampilkan multi-data dalam bentuk jaring laba-laba.
+- `Sankey Chart`: Grafik yang menampilkan alur data dari berbagai macam sumber bak percabangan pada sungai.
+- `Sunburst Chart`: Grafik yang menampilkan hirarki data dalam bentuk lingkaran.
+
+Selain berfokus untuk mengerjakan Component MVP, ybs juga membuat beberapa component lain agar memperkaya component di Atomic Design, diantaranya:
+
+- `Chip`: Sebuah component yang berguna untuk menampilkan text sebagai penanda sebuah tanda atau aksi.
+- `QRCode`: Component yang menampilkan QRCode dengan integrasi yang mudah.
 
 ## [wait] Non Development
 

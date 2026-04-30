@@ -116,5 +116,5 @@ Tools AI yang berguna untuk mempersingkat sebuah prompt tanpa mengurangi akurasi
 
 ### Needs Improve
 
-- `Kurang percaya diri`: Sifat hormat ybs terhadap orang lain sangat baik sehingga ybs sukar untuk menuangkan ide dengan percaya diri karena acap kali mengatakan "Mohon dikoreksi apabila salah". Hal tersebut harus diarahkan agar rasa hormat tetap ada tetapi dengan percaya diri. Apabila hal tersebut tidak diarahkan maka akan dikhawatirkan, ybs tidak mampu dalam bernegosiasi yang dapat berdampak pada performa.
+- [cari pov lain] `Kurang percaya diri`: Sifat hormat ybs terhadap orang lain sangat baik sehingga ybs sukar untuk menuangkan ide dengan percaya diri karena acap kali mengatakan "Mohon dikoreksi apabila salah". Hal tersebut harus diarahkan agar rasa hormat tetap ada tetapi dengan percaya diri. Apabila hal tersebut tidak diarahkan maka akan dikhawatirkan, ybs tidak mampu dalam bernegosiasi yang dapat berdampak pada performa.
 - `Pemikiran sangat teknis`: Cara berpikir ybs sangat teknis yang dapat dilihat dari setiap argumen yang ia tulis. Argumen yang ia tulis selalu memiliki format _why_, _what_ dan _how_. Dikhawatirkan ybs tidak dapat membuat argumen secara lisan karena selalu terpaku dengan pola teknis sehingga perlu dilatih untuk membuat argumen yang memiliki narasi sehingga dapat dipahami dengan mudah oleh semua pihak.
