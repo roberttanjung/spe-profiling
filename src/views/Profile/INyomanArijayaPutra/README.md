@@ -3,16 +3,32 @@
 ## POINTS
 
 - BNI QRIS V2
-- [done] PenTest Automation
 - [kesimpulan] Bertindak seperti player
-- Fokus kurang baik
-  - Inovasi yang dikerjakan tidak pernah diselesaikan
-  - Tertarik kepada banyak hal terutama hal baru yang sedang hype
-- Perfeksionis
-  - Memikirkan semua posibilitas sehingga pengerjaan tertunda
-- Mengikuti Course Online terkait Javascript Animation dan mendapatkan sertifikasi
-- Minus:
-  - Detail Pengerjaan Atomic Design
+
+## BNI QRIS
+
+Ybs dialokasikan di Project BNI QRIS dan bertanggung jawab atas beberapa modul baru. Modul-modul baru tersebut dibangun dengan penggunaan beberapa component-component reusebable seperti: Table View, Detail Data, Tab Table View dll untuk mempermudah dan mempercepat proses development. Ybs bertanggung jawab atas pengerjaan modul-modul baru, diantaranya:
+
+- `Detail Merchant`: Untuk melihat Merchant secara detail.
+- `Audit Trail Merchant`: Untuk melihat aktifitas Merchant.
+- `NFC Transaction Report`: Daftar transaksi NFC beserta detail nya.
+- `Service Log Callback`: Monitoring aktifitas Callback Log.
+- `Service Log API Mobile`: Monitoring aktifitas Service API yang digunakan oleh Mobile.
+- `Master BC/KO`: Membuat halaman List Master BC/KO beserta halaman untuk menambahkan dan mengubah data tersebut.
+- `Master CMER`: Membuat halaman List Master CMER beserta halaman untuk menambahkan dan mengubah data tersebut.
+
+Selain menyelesaikan tanggung jawab tersebut, ybs juga reaktif dalam perubahan-perubahan bisnis serta ybs juga aktif dalam hal lain seperti:
+
+- `Fixing Sentry`: Memperbaiki error dari aplikasi BNI QRIS melalui monitoring error di Sentry.
+- `Fixing SonarQube`: Menjaga kualitas kode dari issue yang muncul di SonarQube.
+- `Unit Testing Coverage Area`: Menjaga Unit Testing Coverage Area sebesar 75%. Walaupun angka tersebut masih dibawah dari minimal target yaitu 80%.
+- `Security`: Ybs juga melakukan integrasi Security Headers dan Fingerprint JS untuk menanggulangi issue di masa depan.
+
+## [progress] Atomic Design
+
+Ybs berkontribusi dalam pengerjaan Atomic Design dan bertanggung jawab atas Component MVP yaitu Chart untuk melihat data dengan grafik agar mudah dilakukan komparasi.
+
+## [wait] Non Development
 
 ## PenTest Automation
 
