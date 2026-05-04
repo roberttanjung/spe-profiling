@@ -9,6 +9,13 @@
 - Cepat menyimpulkan dan kurang kritis
 - Pembuatan judul task sulit dipahami
 
+## Personal
+
+- Terlalu cepat menyimpulkan sesuatu
+- Pernah melakukan riset terhadap aksesibilitas, namun melewatkan poin penting yaitu fundamental aksesibilitas dan jenis-jenisnya seperti aria-label, aria-description dll
+- Pandai dalam menyusun kalimat
+- Pandai dalam berstrategi
+
 ## [progress] CRING! Point
 
 - Simulator

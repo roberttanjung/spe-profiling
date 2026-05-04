@@ -1,5 +1,11 @@
 # I Nyoman Arijaya Putra
 
+## Personal
+
+- Mudah termotivasi
+- Memahami informasi dengan baik
+- Baik dalam melakukan riset
+
 ## BNI QRIS
 
 Ybs dialokasikan di Project BNI QRIS dan bertanggung jawab atas beberapa modul baru. Modul-modul baru tersebut dibangun dengan penggunaan beberapa component-component reusebable seperti: Table View, Detail Data, Tab Table View dll untuk mempermudah dan mempercepat proses development. Ybs bertanggung jawab atas pengerjaan modul-modul baru, diantaranya:

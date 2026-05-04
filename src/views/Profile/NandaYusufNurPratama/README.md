@@ -1,5 +1,9 @@
 # Nanda Yusuf Nur Pratama
 
+## Personal
+
+- Kurang terekspose
+
 ## CRING!
 
 Ybs bertanggung jawab dalam pengerjaan CRING!. Beberapa modul telah ia selesaikan diantaranya:

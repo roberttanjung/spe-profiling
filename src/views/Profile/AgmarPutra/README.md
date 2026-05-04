@@ -1,5 +1,14 @@
 # Agmar Putra
 
+## Personal
+
+- Aktif bertanya
+- Mengeksekusi perintah dengan cepat
+- Gaya pengetikan kerap diawal dengan mengucapkan "pagi" lalu ke inti percakapan
+- Sering mengabari tentang update terkini
+- Pandai dalam menjelaskan sesuatu
+- Menganggapi masalah dengan cepat
+
 ## QRISAN All Variant
 
 - Menangani 8 Repo berbeda dengan tema design yang sama. Jika ada 1 perubahan di salah satu repo maka 7 repo lainnya harus dilakukan perubahan.

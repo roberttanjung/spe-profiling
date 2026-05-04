@@ -1,5 +1,13 @@
 # Bagus Nur Solayman
 
+## Personal
+
+- Gaya penulisan kurang formal dalam beberapa pengisian form
+- Menganggapi masalah dengan cepat
+- Menerima masukan
+- Cepat dalam meminta konfirmasi kepada tim
+- Humoris
+
 ## QRISAN x Jateng
 
 Pada project ini ybs bertanggung jawab untuk mengerjakan modul Transaction API Log dan Callback Log. Pengerjaan dikerjakan dengan cara yang baru yaitu menggunakan Table component yang telah dikembangkan oleh ybs untuk mempermudah serta mempercepat proses development. Bukan hanya itu, ybs juga membuat Prompt AI khusus untuk modul yang menggunakan Table component tersebut agar pengerjaan bukan hanya mudah dan cepat, namun otomatis. Ybs juga bertanggung jawab dalam pengerjaan backlog Konfigurasi Close Merchant yang memiliki sub-backlog kompleks seperti: membuat halaman List Konfigurasi Close Merchant, membuat halaman Penambahan, Detail serta Edit Konfigurasi Close Merchant. Juga, membantu melakukan perubahan terhadap beberapa backlog agar sesuai dengan kebutuhan Sprint.
