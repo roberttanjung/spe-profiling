@@ -1,5 +1,6 @@
 import twbeData from '@/db/twbe.json';
 
+import type { ChartMonthlyRow } from '@/components/ProfileChartSection/ProfileChartSection.types';
 import type { MonthlyPerformanceRow } from '@/components/ProfileMonthlyTable/ProfileMonthlyTable.types';
 import type { SprintPerformanceRow } from '@/components/ProfileSprintTable/ProfileSprintTable.types';
 
@@ -139,4 +140,17 @@ export function getTwbeMonthlyRowsByEmployeeName(
       doneRate: row.totalDoneRate / row.sprintCount,
       finishRate: row.totalFinishRate / row.sprintCount,
     }));
+}
+
+export function getTwbeChartRowsByEmployeeName(
+  employeeName: string,
+): ChartMonthlyRow[] {
+  const monthlyRows = getTwbeMonthlyRowsByEmployeeName(employeeName);
+  return monthlyRows.map((row) => ({
+    month: row.month,
+    totalTask: row.totalTask,
+    totalWeight: row.totalWeight,
+    bugsRatio: row.bugsRatio,
+    finishRate: row.finishRate,
+  }));
 }

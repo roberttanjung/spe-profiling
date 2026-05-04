@@ -1,8 +1,10 @@
 import type { ProfileInfoRow } from '@/components/ProfileInfoTable';
 import ProfileInfoTable from '@/components/ProfileInfoTable';
+import ProfileChartSection from '@/components/ProfileChartSection';
 import ProfileMonthlyTable from '@/components/ProfileMonthlyTable';
 import ProfileSprintTable from '@/components/ProfileSprintTable';
 import {
+  getTwbeChartRowsByEmployeeName,
   getTwbeMonthlyRowsByEmployeeName,
   getTwbeSprintRowsByEmployeeName,
 } from '@/utils/twbe';
@@ -51,6 +53,7 @@ export default function ProfileView({ profile, headingId }: ProfileViewProps) {
   const joinedDate = parseDateInDdMmYyyy(profile.joinedDate);
   const twbeRows = getTwbeSprintRowsByEmployeeName(profile.name);
   const twbeMonthlyRows = getTwbeMonthlyRowsByEmployeeName(profile.name);
+  const twbeChartRows = getTwbeChartRowsByEmployeeName(profile.name);
   const profileRows: ProfileInfoRow[] = [
     {
       label: 'Nama Lengkap',
@@ -101,9 +104,11 @@ export default function ProfileView({ profile, headingId }: ProfileViewProps) {
 
       <ProfileInfoTable rows={profileRows} />
 
-      <ProfileSprintTable rows={twbeRows} />
+      <ProfileChartSection rows={twbeChartRows} />
 
       <ProfileMonthlyTable rows={twbeMonthlyRows} />
+
+      <ProfileSprintTable rows={twbeRows} />
     </section>
   );
 }
