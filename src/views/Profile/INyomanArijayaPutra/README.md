@@ -1,10 +1,5 @@
 # I Nyoman Arijaya Putra
 
-## POINTS
-
-- BNI QRIS V2
-- [kesimpulan] Bertindak seperti player
-
 ## BNI QRIS
 
 Ybs dialokasikan di Project BNI QRIS dan bertanggung jawab atas beberapa modul baru. Modul-modul baru tersebut dibangun dengan penggunaan beberapa component-component reusebable seperti: Table View, Detail Data, Tab Table View dll untuk mempermudah dan mempercepat proses development. Ybs bertanggung jawab atas pengerjaan modul-modul baru, diantaranya:
@@ -23,6 +18,10 @@ Selain menyelesaikan tanggung jawab tersebut, ybs juga reaktif dalam perubahan-p
 - `Fixing SonarQube`: Menjaga kualitas kode dari issue yang muncul di SonarQube.
 - `Unit Testing Coverage Area`: Menjaga Unit Testing Coverage Area sebesar 75%. Walaupun angka tersebut masih dibawah dari minimal target yaitu 80%.
 - `Security`: Ybs juga melakukan integrasi Security Headers dan Fingerprint JS untuk menanggulangi issue di masa depan.
+
+## BNI QRIS V2
+
+Ybs menyadari bahwa pada saat ini BNI QRIS sudah menggunakan versi Vue 2 yang telah usang layaknya mobil dengan mesin sudah tua dan sering mendapat masalah seperti mogok. Bahkan pihak Vue sendiri telah menyatakan bahwa Vue 2 tidak akan lagi ada perbaruan sehingga rentan apabila terjadi ancaman-ancaman baru yang ada di browser. Pada saat ini ybs telah merundingkan hal tersebut kepada Tim berupa membuat Timeline apabila dilakukan perubahan versi dan Tim telah menyetujui untuk dilakukan perubahan.
 
 ## Atomic Design
 
@@ -66,6 +65,6 @@ Mengikuti Course Online dengan tema Animasi di Javascript guna memperdalam apa y
 
 ## Needs Improve
 
-- `Kurang pandai dalam menyampaikan informasi`: Informasi yang disampaikan dapat dipahami namun, cara penyampaian terlihat berulang seperti belum terangkai.
+- `Kurang pandai dalam menyampaikan informasi`: Informasi yang disampaikan dapat dipahami namun, cara penyampaian terlihat seperti belum terangkai.
 - `Sulit menjaga fokus`: Memiliki banyak ketertarikan terhadap ide / inovasi yang ia temukan. Tetapi, kerap meninggalkan ide / inovasi yang tengah dikerjakan untuk mengerjakan ide / inovasi lain. Harus selalu diingatkan tentang hasil yang akan diperoleh apabila ide / inovasi tersebut berhasil diselesaikan agar ketertarikan ybs berubah dari ke menemukan hal baru menjadi fokus ke hasil.
 - `Perfeksionis`: Terlalu memikirkan semua posibilitas sehingga pengerjaan kerap tertunda. Pada saat ini belum ada dampak dari hal tersebut, namun hal ini tetap harus diperbaiki agar ybs dapat menjadi pribadi yang agile.
