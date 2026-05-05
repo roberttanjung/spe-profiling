@@ -23,6 +23,10 @@
   color: var(--ink);
 }
 
+.appShellCollapsed {
+  grid-template-columns: 88px minmax(0, 1fr);
+}
+
 .header {
   grid-area: header;
   position: fixed;
@@ -31,11 +35,41 @@
   height: 76px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   padding: 0 24px;
   border-bottom: 1px solid var(--border);
   background: color-mix(in srgb, var(--surface) 92%, white 8%);
   backdrop-filter: blur(8px);
+}
+
+.brandCluster {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.sidebarToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid color-mix(in srgb, var(--accent) 24%, white 76%);
+  background: color-mix(in srgb, var(--accent-soft) 72%, white 28%);
+  color: var(--accent);
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.toggleSvg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .brand {
@@ -69,11 +103,21 @@
   position: fixed;
   top: 76px;
   left: 0;
+  z-index: 25;
   width: 276px;
   height: calc(100vh - 76px);
   padding: 20px;
   border-right: 1px solid var(--border);
   background: color-mix(in srgb, var(--surface) 90%, #f8fbf8 10%);
+  overflow: visible;
+  transition:
+    width 0.2s ease,
+    padding 0.2s ease;
+}
+
+.sidebarCollapsed {
+  width: 88px;
+  padding: 20px 12px;
 }
 
 .menuList,
@@ -87,14 +131,34 @@
 }
 
 .menuLink {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
   border-radius: 12px;
   padding: 12px 14px;
   font-size: 0.93rem;
   font-weight: 500;
+  text-align: left;
   transition:
     background-color 0.2s ease,
     color 0.2s ease;
+}
+
+.menuLinkText {
+  display: inline;
+}
+
+.menuLinkCompact {
+  display: none;
+}
+
+.iconSvg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  display: block;
+  margin: 0 auto;
 }
 
 .menuLinkActive {
@@ -129,9 +193,18 @@
   border-radius: 10px;
   padding: 9px 12px;
   font-size: 0.86rem;
+  text-align: left;
   transition:
     background-color 0.2s ease,
     color 0.2s ease;
+}
+
+.submenuItemText {
+  display: inline;
+}
+
+.submenuItemCompact {
+  display: none;
 }
 
 .submenuItemInactive {
@@ -153,13 +226,87 @@
 
 .content {
   grid-area: content;
+  min-width: 0;
   min-height: calc(100vh - 76px);
   padding: var(--content-gap);
+  overflow-x: hidden;
+}
+
+.appShellCollapsed .menuLink {
+  padding: 12px 8px;
+  justify-content: center;
+}
+
+.appShellCollapsed .menuLinkText,
+.appShellCollapsed .submenuItemText {
+  display: none;
+}
+
+.appShellCollapsed .menuLinkCompact,
+.appShellCollapsed .submenuItemCompact {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.appShellCollapsed .submenuList {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: calc(100% + 2px);
+  width: 220px;
+  margin-top: 0;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--surface) 96%, #f8fbf8 4%);
+  box-shadow: 0 18px 32px rgba(19, 32, 25, 0.12);
+  z-index: 60;
+}
+
+.appShellCollapsed .submenuItem {
+  padding: 9px 8px;
+  text-align: center;
+}
+
+.appShellCollapsed .menuGroup {
+  position: relative;
+}
+
+.appShellCollapsed .menuGroup::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 14px;
+  height: 100%;
+}
+
+.appShellCollapsed .menuGroup:hover .submenuList,
+.appShellCollapsed .menuGroup:focus-within .submenuList {
+  display: grid;
+}
+
+.appShellCollapsed .submenuItemText {
+  display: inline;
+}
+
+.appShellCollapsed .submenuItem {
+  padding: 10px 12px;
+  text-align: left;
+}
+
+.appShellCollapsed .submenuItemCompact {
+  display: none;
 }
 
 @media (max-width: 1080px) {
   .sidebar {
     width: 232px;
+  }
+
+  .appShellCollapsed {
+    grid-template-columns: 88px minmax(0, 1fr);
   }
 }
 
@@ -177,6 +324,11 @@
     padding: 12px 16px;
   }
 
+  .brandCluster {
+    width: 100%;
+    justify-content: space-between;
+  }
+
   .sidebar {
     position: fixed;
     top: 76px;
@@ -187,6 +339,11 @@
     border-bottom: 1px solid var(--border);
     padding: 12px 16px;
     z-index: 20;
+  }
+
+  .sidebarCollapsed {
+    width: 100%;
+    padding: 12px 16px;
   }
 
   .menuList {
@@ -204,6 +361,28 @@
   .submenuList,
   .submenuItem {
     display: none;
+  }
+
+  .sidebarToggle {
+    padding: 8px 12px;
+  }
+
+  .appShellCollapsed .menuLinkText {
+    display: inline;
+  }
+
+  .appShellCollapsed .menuLinkCompact {
+    display: none;
+  }
+
+  .appShellCollapsed .menuGroup:hover .submenuList,
+  .appShellCollapsed .menuGroup:focus-within .submenuList {
+    display: none;
+  }
+
+  .toggleSvg {
+    width: 14px;
+    height: 14px;
   }
 
   .content {

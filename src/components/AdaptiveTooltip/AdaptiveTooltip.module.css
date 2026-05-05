@@ -1,0 +1,22 @@
+.trigger {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tooltip {
+  position: fixed;
+  z-index: 200;
+  pointer-events: auto;
+  visibility: visible;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 0.74rem;
+  line-height: 1.55;
+  white-space: normal;
+  overflow-y: auto;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.24);
+  background: #1a1a2e;
+  color: #f0f0f0;
+}

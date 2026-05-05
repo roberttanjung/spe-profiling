@@ -56,14 +56,31 @@ Mengikuti 3 Course Online guna memahami Fundamental Web Aplikasi serta mendapat 
 
 ## Good
 
-- `Tidak menunda-nunda`: Delegasi yang diberikan selalu dikerjakan tanpa penundaan. Konfirmasi yang ia butuhkan pun langsung dibahas diwaktu yang sama sehingga proses Sprint tetap berjalan lancar.
-- `Mampu beradaptasi`: Mampu mengerjakan lebih dari project walaupun berbeda Framework.
-- `Berkolaborasi dengan baik`: Secara komunikasi, ybs aktif dalam Tim dan juga Department. Ybs tidak ragu untuk menyampaikan issue apa yang sedang terjadi agar issue tersebut dapat diatasi dengan cepat.
-- `Penerapan AI`: Menerapkan AI agar pengerjaan lebih baik secara kualitas dan cepat seperti melakukan migrasi Javascript ke Typescript.
-- `Berpikir maju`:
-  - Melakukan pembaharuan terhadap beberapa component di QRISAN x Jateng berupa pembaharuan Table View yang mana ini dapat mempercepat proses development dengan penggunaan yang sangat mudah.
+- `Eksekusi tanpa menunda`: Delegasi langsung dikerjakan dan kebutuhan klarifikasi cepat dikonfirmasi sehingga sprint tetap bergerak.
+- `Adaptif lintas konteks`: Mampu berpindah project dan menyesuaikan pendekatan kerja saat menghadapi kebutuhan teknis yang berbeda.
+- `Kolaboratif dan responsif`: Aktif menyampaikan kendala ke tim sehingga isu bisa ditangani sebelum membesar.
+- `Memanfaatkan AI secara praktis`: Menggunakan AI untuk percepatan migrasi Javascript ke Typescript dan otomasi task repetitif.
+- `Berorientasi efisiensi`: Menginisiasi Table View reusable yang mempercepat delivery modul dengan implementasi yang lebih sederhana.
 
 ## Needs Improve
 
-- `Kurang empati`: Empati yang dimiliki oleh ybs belum terlalu jelas terlihat terutama pada saat menghadapi masalah. Kekhawatiran selalu menjadi respon utama yang ditunjukan oleh ybs alih-alih memahami dan menerima mengapa masalah tersebut dapat terjadi. Ybs memiliki kekhawatiran apabila adanya: hal yang belum jelas (clear) dan perubahan terhadap hal yang sudah stabil. Belum ada dampak yang terjadi terhadap kekhawatiran beliau tetapi hal tersebut tetap harus diperbaiki guna meningkatkan kualitas terhadap diri ybs. Dengan meningkatkan rasa empati, diharapkan ybs dapat menjadi pribadi yang berwibawa sehingga bukan hanya dapat memahami dan menyelesaikan masalah tetapi dapat pula menanggulangi masalah bahkan memiliki inovasi.
-- `Terpaku Oleh Stabilitas`: Selalu menginginkan hal yang stabil dalam hal pekerjaan dan pembelajaran. Dalam hal pekerjaan, menginginkan apa yang sedang disampaikan sudah 100% jelas dan tidak ada penambahan dimasa mendatang. Dalam hal pembelajaran, menginginkan sumber 1 sumber yang harus jelas dan tepat tentang apa yang sedang diajarkan. Kedua hal tersebut harus diperbaiki karena membuat ybs menjadi tidak Agile dan selalu dihantui oleh ketakutan akan ketidak stabilan yang sebenarnya akan sering kita jumpai dalam kehidupan sehari-hari.
+- `Empati saat eskalasi masalah perlu ditingkatkan`: Respons awal cenderung berfokus pada kekhawatiran teknis, sehingga perlu lebih menonjolkan pemahaman terhadap konteks tim dan pengguna.
+- `Perlu lebih nyaman dengan perubahan`: Preferensi terhadap kondisi yang sangat stabil perlu diseimbangkan agar tetap agile saat requirement berkembang.
+
+## Aktivitas yang Sudah Dilakukan
+
+- Menyelesaikan modul kompleks di QRISAN x Jateng dan QRISAN x KB Bank, termasuk Close Merchant dengan alur list, tambah, detail, dan ubah.
+- Menjaga kualitas engineering melalui coverage unit test, monitoring SonarQube, upgrade MUI v7, serta mitigasi CVE pada Axios dan CASL.
+- Mendorong efisiensi delivery dengan membangun Table component reusable dan prompt AI khusus untuk modul tabel.
+- Berkontribusi aktif di Atomic Design untuk komponen form dan progress dengan fokus aksesibilitas serta dokumentasi implementasi.
+- Menuntaskan rangkaian pembelajaran fundamental web melalui tiga course online bersertifikat.
+
+## Aspek Profil Soft
+
+- `Tipe kolaborasi`: Aktif-komunikatif; cepat meminta konfirmasi dan menjaga alur koordinasi saat eksekusi sprint.
+- `Gaya kerja`: Action-oriented dan pragmatis; fokus menyelesaikan pekerjaan dengan pendekatan yang bisa langsung dipakai tim.
+- `Kelebihan utama`: Cepat eksekusi, adaptif lintas project, kolaboratif, dan mampu meningkatkan produktivitas lewat AI.
+- `Area pengembangan`: Penguatan empati pada saat tekanan tinggi dan peningkatan fleksibilitas terhadap dinamika perubahan.
+- `Arah karir berbasis roadmap`: Berpotensi naik ke `Senior Front End Engineer (II/4)` dengan jalur keahlian delivery optimization dan component architecture.
+- `Potensi / unique selling point`: Kombinasi kecepatan delivery dan otomasi berbasis AI yang langsung berdampak pada waktu pengerjaan tim.
+- `Bare minimum Front End Engineer`: Menyelesaikan mandat tepat waktu, aktif bertanya saat ada ambiguity, dan menjaga kualitas dasar pada test serta code quality.

@@ -67,10 +67,30 @@ Mengikuti Course Online dengan tema Animasi di Javascript guna memperdalam apa y
 
 ## Good
 
-- `Memiliki rasa empati`: Selalu menunjukan sisi kepedulian terhadap kenyamanan user (User Experience) sebelum mengerjakan sebuah modul.
+- `Peduli pada pengalaman pengguna`: Selalu mempertimbangkan dampak ke user experience sebelum memulai implementasi modul.
+- `Cepat memahami konteks teknis`: Informasi baru dapat ditangkap dengan baik sehingga proses eksekusi modul berjalan lancar.
+- `Kuat di area riset`: Aktif melakukan eksplorasi teknis dan menyiapkan arah perbaikan jangka menengah, termasuk usulan modernisasi platform.
 
 ## Needs Improve
 
-- `Kurang pandai dalam menyampaikan informasi`: Informasi yang disampaikan dapat dipahami namun, cara penyampaian terlihat seperti belum terangkai.
-- `Sulit menjaga fokus`: Memiliki banyak ketertarikan terhadap ide / inovasi yang ia temukan. Tetapi, kerap meninggalkan ide / inovasi yang tengah dikerjakan untuk mengerjakan ide / inovasi lain. Harus selalu diingatkan tentang hasil yang akan diperoleh apabila ide / inovasi tersebut berhasil diselesaikan agar ketertarikan ybs berubah dari ke menemukan hal baru menjadi fokus ke hasil.
-- `Perfeksionis`: Terlalu memikirkan semua posibilitas sehingga pengerjaan kerap tertunda. Pada saat ini belum ada dampak dari hal tersebut, namun hal ini tetap harus diperbaiki agar ybs dapat menjadi pribadi yang agile.
+- `Penyampaian informasi perlu lebih runtut`: Isi pesan sudah benar, namun struktur komunikasinya perlu lebih ringkas agar cepat dipahami tim lintas fungsi.
+- `Fokus eksekusi perlu dijaga`: Ketertarikan pada banyak ide baru perlu diimbangi dengan disiplin menyelesaikan prioritas utama terlebih dahulu.
+- `Perfeksionisme perlu dibatasi`: Evaluasi terlalu banyak kemungkinan membuat keputusan teknis melambat; perlu batas waktu keputusan yang jelas.
+
+## Aktivitas yang Sudah Dilakukan
+
+- Menyelesaikan berbagai modul baru di BNI QRIS dengan pemanfaatan komponen reusable untuk mempercepat delivery.
+- Aktif merespons perubahan bisnis sambil menjaga kualitas melalui perbaikan Sentry, SonarQube, dan peningkatan coverage testing.
+- Menginisiasi penguatan security lewat integrasi security headers dan Fingerprint JS.
+- Menyusun rencana transisi dari Vue 2 ke stack yang lebih modern melalui diskusi timeline bersama tim.
+- Berkontribusi besar pada Atomic Design, khususnya komponen chart MVP dan komponen utilitas tambahan.
+
+## Aspek Profil Soft
+
+- `Tipe kolaborasi`: Explorative-collaborative; aktif riset, terbuka diskusi, dan memiliki kepedulian pada kebutuhan pengguna.
+- `Gaya kerja`: Analyst-builder; cenderung memvalidasi banyak opsi sebelum implementasi.
+- `Kelebihan utama`: Empati pengguna, kemampuan memahami konteks, kekuatan riset, dan kontribusi teknis yang variatif.
+- `Area pengembangan`: Komunikasi yang lebih terstruktur, ketegasan prioritas, dan disiplin terhadap batas waktu keputusan.
+- `Arah karir berbasis roadmap`: Jalur terbaik ke `Middle Front End Engineer (II/3)` menuju spesialisasi UI engineering (data visualization dan interaction).
+- `Potensi / unique selling point`: Kombinasi empati UX dan kemampuan membangun komponen visual kompleks yang reusable.
+- `Bare minimum Front End Engineer`: Menuntaskan tugas prioritas sprint, menjaga kualitas kode dasar, dan memastikan komunikasi progres dapat ditindaklanjuti tim.

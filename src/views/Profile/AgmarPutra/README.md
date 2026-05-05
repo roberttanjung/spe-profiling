@@ -118,11 +118,30 @@ Tools AI yang berguna untuk mempersingkat sebuah prompt tanpa mengurangi akurasi
 
 ## Good
 
-- `Tidak menunda-nunda`: Memulai mandat sedini mungkin sehingga apa yang telah didelegasikan dapat dicapai sesuai deadline dan optimal.
-- `Memiliki Fokus yang baik`: Tetap dapat menjaga fokus walaupun terdistraksi oleh hal lain seperti: membalasa pesan, mengisi form hingga diskusi daring. Dengan fokus yang baik ini, semua tugas dan KPI mampu ia capai dengan baik.
-- `Research Skill`: Riset yang dilakukan rinci beserta penyediaan POC sehingga Tim dapat mempertimbangan hasil riset tersebut dengan baik.
-- `Menerima Masukan`: Ybs menerima kritik dan masukan secara terbuka dengan memberitahukan kepada Tim apabila ia melakukan kesalahan. Namun, ybs tidak menerima secara buta, ia juga membutuhkan alasan yang empiris sehingga ybs mengetahui maksud serta tujuan dari hal tersebut.
+- `Eksekusi cepat dan konsisten`: Mandat langsung dikerjakan sejak awal sprint sehingga progres stabil dan target lebih mudah tercapai tepat waktu.
+- `Fokus kerja kuat`: Tetap menjaga ritme kerja meskipun ada distraksi operasional seperti chat, diskusi, dan update administratif.
+- `Riset berbasis bukti`: Hasil riset disertai POC sehingga tim bisa menilai kelayakan implementasi dengan data yang jelas.
+- `Terbuka pada masukan`: Menerima kritik secara profesional, lalu mengonfirmasi alasan dan dampaknya agar perbaikan yang diambil benar-benar tepat.
 
 ## Needs Improve
 
-- `Pemikiran sangat teknis`: Cara berpikir ybs sangat teknis yang dapat dilihat dari setiap argumen yang ia tulis. Argumen yang ia tulis selalu memiliki format _why_, _what_ dan _how_. Dikhawatirkan ybs tidak dapat membuat argumen secara lisan karena selalu terpaku dengan pola teknis sehingga perlu dilatih untuk membuat argumen yang memiliki narasi sehingga dapat dipahami dengan mudah oleh semua pihak.
+- `Komunikasi perlu lebih kontekstual`: Gaya penyampaian yang sangat teknis sudah kuat untuk tim engineering, namun perlu lebih disederhanakan saat berkomunikasi dengan pihak non-teknis.
+- `Narasi lisan perlu diperkuat`: Pola komunikasi tertulis sudah rapi, tetapi penyampaian verbal perlu lebih terstruktur agar poin penting cepat dipahami lintas fungsi.
+
+## Aktivitas yang Sudah Dilakukan
+
+- Menangani 8 repository QRISAN sekaligus dengan standar kualitas yang konsisten, termasuk coverage unit test dan perbaikan SonarQube.
+- Mendorong inisiatif monorepo QRISAN dan berkolaborasi dengan DevOps untuk isu CI/CD serta manajemen multi versi.
+- Melakukan upgrade teknologi penting seperti MUI v7, Axios aman dari CVE, dan migrasi Javascript ke Typescript.
+- Berkontribusi di lintas inisiatif strategis: SPEInside, Dynamic Dashboard, Atomic Design, dan sharing AI pada FE Day.
+- Menghasilkan inovasi internal seperti DRONT Vault untuk mempercepat monitoring status engineering lintas project.
+
+## Aspek Profil Soft
+
+- `Tipe kolaborasi`: Koordinatif-proaktif; aktif memberi update, cepat merespons isu, dan menjaga sinkronisasi lintas tim.
+- `Gaya kerja`: Fast executor dengan orientasi kualitas; bekerja cepat tanpa melepas kontrol terhadap standar teknis.
+- `Kelebihan utama`: Disiplin eksekusi, fokus tinggi, kemampuan riset, komunikasi sopan, dan ownership pada sistem besar.
+- `Area pengembangan`: Penyederhanaan bahasa teknis dan penguatan storytelling saat menyampaikan argumen secara lisan.
+- `Arah karir berbasis roadmap`: Kandidat kuat menuju `Senior Front End Engineer (II/4)` dengan jalur spesialisasi arsitektur frontend dan AI-enabled engineering.
+- `Potensi / unique selling point`: Mampu menggabungkan stabilitas delivery harian dengan inovasi arsitektural yang berdampak langsung ke efisiensi tim.
+- `Bare minimum Front End Engineer`: Menjaga kualitas kode, menyelesaikan task tepat waktu, aktif komunikasi, dan merespons perubahan bisnis secara cepat.

@@ -6,9 +6,13 @@
 
 ## To Do
 
-[] Penambahan QRISAN x Jateng di Agmar Putra
-[] Tambahkan issue di Agmar Putra
-[] Tambahkan issue di Bagus Nur Solayman
-[] Tambahkan issue di I Nyoman Arijaya Putra
-[] Tambahkan issue di Nanda Yusuf Nur Pratama
-[] Tambahkan issue di Rafli Rai Rizky
+[ ] Penambahan QRISAN x Jateng di Agmar Putra
+[ ] Penambahan FE Day di Agmar Putra
+[ ] Tambahkan issue di Agmar Putra
+[ ] Tambahkan issue di Bagus Nur Solayman
+[ ] Tambahkan issue di I Nyoman Arijaya Putra
+[ ] Penambahan FE Day di I Nyoman Arijaya Putra
+[ ] Tambahkan issue di Nanda Yusuf Nur Pratama
+[ ] Tambahkan issue di Rafli Rai Rizky
+[ ] Penambahan FE Day di Rafli Rai Rizky
+[x] Roadmap belum sesuai

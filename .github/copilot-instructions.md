@@ -100,3 +100,7 @@ Selalu sesuai data di ./src/app/page.tsx setelah prompting. Data dapat diambil d
 
 - `src/db/`
 - `src/views/Profile/`
+
+## Takeaway
+
+- Berikan tanda X untuk setiap task yang sudah selesai contoh [x]

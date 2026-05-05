@@ -46,3 +46,376 @@
   color: var(--ink-muted);
   line-height: 1.6;
 }
+
+/* ─── Soft Profile Sections ─────────────────────────────── */
+
+.sectionCard {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: clamp(16px, 2.5vw, 26px);
+  background: var(--surface);
+}
+
+.sectionTitle {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+
+/* Good / Needs Improve cards */
+.evalGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+.evalItem {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  background: var(--surface-soft);
+}
+
+.evalItem--good {
+  border-left: 3px solid #1d6e49;
+}
+
+.evalItem--improve {
+  border-left: 3px solid #b85c00;
+}
+
+.evalItemTitle {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.evalItemDesc {
+  font-size: 0.82rem;
+  color: var(--ink-muted);
+  line-height: 1.55;
+}
+
+/* Activities list */
+.activityGroups {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.activityGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.activityGroupTitle {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.activityGroupDesc {
+  font-size: 0.83rem;
+  color: var(--ink-muted);
+  line-height: 1.6;
+}
+
+.activityList {
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.activityItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.82rem;
+  color: var(--ink-muted);
+  line-height: 1.55;
+}
+
+.activityItem::before {
+  content: '';
+  flex-shrink: 0;
+  margin-top: 7px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* Career roadmap */
+.roadmapGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 12px;
+}
+
+.roadmapGoalCard {
+  margin-bottom: 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: color-mix(in srgb, var(--accent) 8%, white 92%);
+}
+
+.roadmapGoalLabel {
+  margin-bottom: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.roadmapGoalText {
+  font-size: 0.82rem;
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+.roadmapCard {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  background: var(--surface-soft);
+}
+
+.roadmapPeriod {
+  display: inline-block;
+  margin-bottom: 8px;
+  border-radius: 999px;
+  padding: 4px 8px;
+  font-size: 0.73rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, white 88%);
+}
+
+.roadmapObjective {
+  margin-bottom: 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+.roadmapBacklogLabel {
+  margin-bottom: 6px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: 0.02em;
+}
+
+.roadmapBacklogList {
+  margin: 0;
+  padding-left: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.roadmapBacklogItem {
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+  line-height: 1.5;
+}
+
+.roadmapSuccess {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+  line-height: 1.5;
+}
+
+/* Soft profile aspect table */
+.softTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.83rem;
+}
+
+.softTable tr {
+  border-bottom: 1px solid var(--border);
+}
+
+.softTable tr:last-child {
+  border-bottom: none;
+}
+
+.softTableKey {
+  width: 38%;
+  padding: 9px 12px 9px 0;
+  font-weight: 600;
+  color: var(--ink);
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.softTableVal {
+  padding: 9px 0;
+  color: var(--ink-muted);
+  line-height: 1.5;
+}
+
+.kpiSummaryText {
+  margin: -2px 0 12px;
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+  line-height: 1.55;
+}
+
+/* Bare minimum section (transposed star-rating table) */
+.bmScroll {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: visible;
+}
+
+.bmTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+  table-layout: fixed;
+}
+
+.bmTable th,
+.bmTable td {
+  border-right: 1px solid var(--border);
+  padding: 10px 12px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.bmTable th:last-child,
+.bmTable td:last-child {
+  border-right: none;
+}
+
+.bmTable thead th {
+  background: color-mix(in srgb, var(--accent) 10%, white 90%);
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  padding: 12px 10px;
+}
+
+.bmTable tbody td {
+  background: var(--surface-soft);
+}
+
+/* Aspect column header */
+.bmAspectHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+/* Info icon + tooltip wrapper */
+.bmInfoWrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.bmInfoIcon {
+  cursor: default;
+  color: var(--accent);
+  font-size: 0.82rem;
+  line-height: 1;
+  opacity: 0.8;
+}
+
+.bmTooltip {
+  background: #1a1a2e;
+  color: #f0f0f0;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bmTooltipRow {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.bmTooltipLabel {
+  font-weight: 700;
+  color: #ffd700;
+  font-size: 0.72rem;
+}
+
+/* Star rating cell */
+.bmStarRating {
+  display: inline-flex;
+  gap: 2px;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.bmStarWrap {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+}
+
+.bmStarTooltip {
+  background: #1a1a2e;
+  color: #f0f0f0;
+  border: 1px solid transparent;
+  text-align: left;
+}
+
+.bmStarTooltipLabel {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 700;
+  color: #ffd700;
+}
+
+.bmStarTooltip--1 {
+  background: #4a1d1f;
+  border-color: #b33a3a;
+}
+
+.bmStarTooltip--2 {
+  background: #5a3316;
+  border-color: #d17b28;
+}
+
+.bmStarTooltip--3 {
+  background: #183b46;
+  border-color: #2f95b5;
+}
+
+.bmStarTooltip--4 {
+  background: #17442e;
+  border-color: #2f9d65;
+}
+
+.bmStarTooltip--5 {
+  background: #3f3210;
+  border-color: #d7af2f;
+}
+
+.bmStarFilled {
+  color: #f5a623;
+}
+
+.bmStarEmpty {
+  color: #ccc;
+}

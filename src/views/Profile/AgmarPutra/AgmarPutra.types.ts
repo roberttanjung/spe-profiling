@@ -1,8 +1,1 @@
-export interface EngineerProfileData {
-  name: string;
-  dateOfBirth: string;
-  levelGrade: string;
-  joinedDate: string;
-  projects: string[];
-  guilds: string[];
-}
+export type { EngineerProfileData } from '@/views/Profile/ProfileView';

@@ -157,6 +157,7 @@
   display: grid;
   gap: 18px;
   align-content: start;
+  min-width: 0;
 }
 
 .kpiGrid {
@@ -195,6 +196,8 @@
   border: 1px solid var(--border);
   border-radius: 18px;
   padding: 18px;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .panelHeader {
@@ -218,13 +221,14 @@
 
 .tableWrap {
   margin-top: 14px;
+  max-width: 100%;
   overflow-x: auto;
 }
 
 .table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 620px;
+  min-width: 0;
 }
 
 .table thead {
@@ -237,10 +241,149 @@
   text-align: left;
   padding: 12px;
   font-size: 0.88rem;
+  vertical-align: top;
 }
 
 .table tbody th {
   font-weight: 600;
+}
+
+.table tbody th,
+.table thead th:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  background: var(--surface);
+}
+
+.table thead th:first-child {
+  z-index: 2;
+  background: color-mix(in srgb, var(--accent-soft) 55%, white 45%);
+}
+
+.bareMinimumTable {
+  min-width: 0;
+  table-layout: fixed;
+}
+
+.starsCell {
+  white-space: nowrap;
+  font-family: 'Segoe UI Symbol', 'Noto Sans Symbols', sans-serif;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.panelBareMinimum {
+  position: relative;
+  z-index: 5;
+  overflow: visible;
+}
+
+.tableWrapBareMinimum {
+  position: relative;
+  z-index: 6;
+  overflow: visible;
+}
+
+.bmAspectHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.bmInfoWrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.bmInfoIcon {
+  cursor: default;
+  color: var(--accent);
+  font-size: 0.82rem;
+  line-height: 1;
+  opacity: 0.8;
+}
+
+.bmTooltip {
+  background: #1a1a2e;
+  color: #f0f0f0;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bmTooltipRow {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.bmTooltipLabel {
+  font-weight: 700;
+  color: #ffd700;
+  font-size: 0.72rem;
+}
+
+.bmStarWrap {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+}
+
+.bmStarRating {
+  display: inline-flex;
+  gap: 2px;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.bmStarTooltip {
+  background: #1a1a2e;
+  color: #f0f0f0;
+  border: 1px solid transparent;
+  text-align: left;
+}
+
+.bmStarTooltipLabel {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 700;
+  color: #ffd700;
+}
+
+.bmStarTooltip--1 {
+  background: #4a1d1f;
+  border-color: #b33a3a;
+}
+
+.bmStarTooltip--2 {
+  background: #5a3316;
+  border-color: #d17b28;
+}
+
+.bmStarTooltip--3 {
+  background: #183b46;
+  border-color: #2f95b5;
+}
+
+.bmStarTooltip--4 {
+  background: #17442e;
+  border-color: #2f9d65;
+}
+
+.bmStarTooltip--5 {
+  background: #3f3210;
+  border-color: #d7af2f;
+}
+
+.bmStarFilled {
+  color: #f5a623;
+}
+
+.bmStarEmpty {
+  color: #ccc;
 }
 
 .statusBadge {
@@ -341,6 +484,50 @@
     height: 76px;
     padding: 12px 16px;
     position: fixed;
+  }
+
+  .mainContent {
+    gap: 14px;
+  }
+
+  .panel {
+    padding: 14px;
+    border-radius: 16px;
+  }
+
+  .panelHeader {
+    display: grid;
+    gap: 6px;
+  }
+
+  .panelHeader h1,
+  .panelHeader h2 {
+    font-size: 0.98rem;
+  }
+
+  .panelHeader p {
+    font-size: 0.82rem;
+  }
+
+  .tableWrap {
+    margin-top: 12px;
+    margin-inline: -14px;
+    padding-inline: 14px;
+  }
+
+  .table th,
+  .table td {
+    padding: 10px;
+    font-size: 0.81rem;
+  }
+
+  .bareMinimumTable {
+    min-width: 0;
+  }
+
+  .starsCell {
+    font-size: 0.8rem;
+    letter-spacing: 0.02em;
   }
 
   .headerMeta {

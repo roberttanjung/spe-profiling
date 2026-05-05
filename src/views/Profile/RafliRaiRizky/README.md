@@ -65,7 +65,30 @@ Melakukan Research tentang Aksesibilitas di browser serta melakukan sharing know
 
 ## Good
 
+- `Produktivitas eksekusi tinggi`: Mampu menyelesaikan banyak task sprint, termasuk inisiasi portal baru dan penyesuaian modul berjalan.
+- `Komunikasi tulisan kuat`: Mampu menyusun kalimat dengan jelas saat membuat penjelasan teknis.
+- `Memiliki pola pikir strategis`: Dapat melihat langkah implementasi secara bertahap saat membangun modul baru.
+
 ## Needs Improve
 
-- `Kolaborasi kurang baik`: Kolaborasi kurang baik sehingga berdampak pada Finish Rate. Kejadian yang kerap terjadi adalah task dependensi yang tidak dapat di selesaikan karena harus menunggu tim lain untuk menyelesaikan task dependensi tersebut. Seharusnya dengan kolaborasi yang baik hal tersebut dapat diatasi.
-- `Impulsif`: Mudah membuat kesimpulan terhadap sumber issue dan informasi tanpa melakukan konfirmasi terlebih dahulu.
+- `Kolaborasi dependensi perlu diperkuat`: Koordinasi pada task lintas tim perlu lebih dini agar bottleneck dependensi tidak menurunkan finish rate.
+- `Perlu validasi sebelum menyimpulkan`: Keputusan awal kadang terlalu cepat; perlu kebiasaan konfirmasi data agar akar masalah lebih akurat.
+- `Kedisiplinan komunikasi operasional`: Respons pada kanal grup dan konsistensi format update perlu ditingkatkan agar sinkronisasi tim lebih lancar.
+
+## Aktivitas yang Sudah Dilakukan
+
+- Berkontribusi pada inisiasi portal baru CRING! Point (Simulator) beserta berbagai kebutuhan setup teknis.
+- Menangani modul CRING! Suspicious Transaction dan History, termasuk penyesuaian terhadap perubahan bisnis.
+- Membangun ulang modul Role dan User berbasis Typescript untuk peningkatan kualitas serta maintainability.
+- Menerapkan unit test pada modul prioritas serta ikut menjaga kualitas kode secara bertahap.
+- Berkontribusi di Atomic Design dan melakukan sharing terkait aksesibilitas frontend.
+
+## Aspek Profil Soft
+
+- `Tipe kolaborasi`: Individual contributor dengan potensi kolaboratif; kuat di eksekusi, perlu peningkatan sinkronisasi dependensi lintas tim.
+- `Gaya kerja`: Cepat bergerak dan result-oriented; efektif untuk delivery cepat jika ada guardrail validasi yang jelas.
+- `Kelebihan utama`: Produktivitas tinggi, komunikasi tulisan baik, dan kemampuan menyusun strategi implementasi.
+- `Area pengembangan`: Penguatan critical thinking berbasis verifikasi, disiplin komunikasi tim, dan kolaborasi dependensi.
+- `Arah karir berbasis roadmap`: Menguatkan fondasi `Middle Front End Engineer (II/3)` melalui peningkatan reliability kolaborasi dan kualitas keputusan teknis.
+- `Potensi / unique selling point`: Kombinasi kecepatan delivery dan kemampuan menyusun narasi teknis yang mudah dipahami.
+- `Bare minimum Front End Engineer`: Menyelesaikan task sesuai scope, melakukan verifikasi sebelum eksekusi perubahan, dan menjaga komunikasi progres yang konsisten.

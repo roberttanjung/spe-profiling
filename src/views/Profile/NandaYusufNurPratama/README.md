@@ -54,6 +54,30 @@ Mengikuti Course Online dengan Tema Aksesibilitas pada Aplikasi Web guna memaham
 
 ## Good
 
-- `Baik dalam berkolaborasi`: Ybs aktif didalam Tim karena sering melakukan diskusi antar Tim guna memperjelas scope pengerjaan agar kualitas pengerjaan tetap baik.
+- `Kolaborasi lintas tim berjalan baik`: Aktif berdiskusi untuk memperjelas scope sehingga pengerjaan modul lebih tepat dan minim miskomunikasi.
+- `Ownership pada modul kompleks`: Mampu mengeksekusi banyak modul dengan integrasi API dan perubahan struktur kode yang signifikan.
+- `Peduli kualitas teknis`: Konsisten meningkatkan coverage, menutup CVE, serta merapikan kualitas kode melalui SonarQube.
 
 ## Needs Improve
+
+- `Eksposur kontribusi perlu ditingkatkan`: Dampak pekerjaan sudah besar, namun visibilitas progres dan hasil kerja ke tim yang lebih luas masih bisa diperkuat.
+- `Coverage testing belum mencapai standar`: Peningkatan sudah baik, tetapi masih perlu dorongan bertahap hingga mencapai target minimum 80%.
+- `Perlu standardisasi dokumentasi teknis`: Perubahan besar di modul kompleks akan lebih mudah ditransfer jika dokumentasi keputusan teknis dibuat lebih konsisten.
+
+## Aktivitas yang Sudah Dilakukan
+
+- Menyelesaikan banyak modul inti CRING! seperti Summary Fee Aggregator, FDS Configuration, Config Service, dan alur rekonsiliasi.
+- Melakukan penyesuaian besar pada modul onboarding dan product agar selaras dengan kebutuhan bisnis yang berubah.
+- Menjalankan inisiatif engineering penting: dynamic environment, perbaikan Pentest, mitigasi CVE React/Next/Axios, dan perbaikan SonarQube.
+- Berkontribusi pada CRING! Point dalam transisi brand dan penanganan isu teknis kritikal.
+- Berkontribusi di Dynamic Dashboard (integrasi AI di N8N), Atomic Design, serta menjadi mentor SPEAcademy.
+
+## Aspek Profil Soft
+
+- `Tipe kolaborasi`: Problem-solver kolaboratif; aktif di diskusi teknis untuk menjaga ketepatan scope dan kualitas hasil.
+- `Gaya kerja`: High ownership dengan orientasi delivery; nyaman menangani modul besar dari implementasi hingga stabilisasi.
+- `Kelebihan utama`: Koordinasi tim baik, eksekusi modul kompleks, ketahanan terhadap isu teknis kritis, dan kepedulian kualitas.
+- `Area pengembangan`: Peningkatan visibilitas kontribusi, akselerasi coverage ke 80%+, dan penguatan dokumentasi keputusan teknis.
+- `Arah karir berbasis roadmap`: Penguatan posisi `Senior Front End Engineer (II/4)` menuju peran technical lead pada domain integrasi dan reliability.
+- `Potensi / unique selling point`: Mampu menangani kombinasi modul bisnis kompleks dan isu engineering kritikal dalam waktu yang berdekatan.
+- `Bare minimum Front End Engineer`: Menjaga kejelasan scope, menyelesaikan mandat prioritas, dan memastikan keamanan serta kualitas kode dasar tetap terjaga.

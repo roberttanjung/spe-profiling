@@ -1,0 +1,54 @@
+.section {
+  --surface: #ffffff;
+  --surface-soft: #eff6f2;
+  --ink: #15231b;
+  --ink-muted: #4b6255;
+  --border: #cfe0d4;
+
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: clamp(16px, 2.2vw, 24px);
+  background: color-mix(in srgb, var(--surface-soft) 70%, white 30%);
+}
+
+.title {
+  margin: 0 0 4px;
+  font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+  color: var(--ink);
+}
+
+.subtitle {
+  margin: 0 0 20px;
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.chartCard {
+  background: var(--surface);
+  border: 1px solid color-mix(in srgb, var(--border) 60%, white 40%);
+  border-radius: 12px;
+  min-height: 420px;
+  padding: 16px 12px 12px;
+  overflow: hidden;
+}
+
+.chartTitle {
+  margin: 0 0 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
