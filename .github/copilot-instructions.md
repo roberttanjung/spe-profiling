@@ -4,6 +4,16 @@
 
 Ini adalah App Web yang dibangun untuk monitoring bagi para SPV Frontend Engineer. Profiling dilakukan dalam periode September 2025 hingga April 2026.
 
+## Purpose
+
+Aplikasi ini mampu menunjukan alasan mengapa seorang Front End Engineer layak untuk berada di perusahaan ini yang bernama SPE. Adapun alasan yang dimaksud adalah:
+
+- `Discipline`: Kemampuan untuk bekerja dengan disiplin tinggi, termasuk manajemen waktu yang baik dan konsistensi dalam menyelesaikan tugas.
+- `Resilience`: Kemampuan untuk tetap tenang dan fokus dalam menghadapi tekanan atau tantangan, serta kemampuan untuk bangkit kembali setelah mengalami kegagalan.
+- `Collaboration`: Kemampuan untuk bekerja sama dengan baik dalam tim, termasuk kemampuan untuk berkomunikasi secara efektif, mendengarkan orang lain, dan memberikan kontribusi yang berarti dalam proyek bersama.
+- `Smart Working`: Kemampuan untuk bekerja dengan cerdas, termasuk kemampuan untuk memprioritaskan tugas, menggunakan alat dan teknologi yang tepat, serta mencari cara untuk meningkatkan efisiensi kerja.
+- `Growth Mindset`: Kemampuan untuk terus belajar dan berkembang, serta kemampuan untuk menerima kritik dan menggunakan umpan balik untuk meningkatkan diri.
+
 ### Hal yang dimonitoring
 
 - Profiling Frontend Engineer

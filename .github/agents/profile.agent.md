@@ -3,6 +3,7 @@
 ## Agents
 
 **Component Agent:** `./.github/agents/component.agent.md`
+**Data Agent:** `./.github/agents/data.agent.md`
 
 ## Purpose
 

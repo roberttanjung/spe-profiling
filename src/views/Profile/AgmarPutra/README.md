@@ -8,6 +8,7 @@
 - Sering mengabari tentang update terkini
 - Pandai dalam menjelaskan sesuatu
 - Menganggapi masalah dengan cepat
+- Komunikasi terkesan sopan dan ramah
 
 ## QRISAN All Variant
 

@@ -8,6 +8,8 @@
 - Pandai berkalimat
 - Cepat menyimpulkan dan kurang kritis
 - Pembuatan judul task sulit dipahami
+- Saat membuat penjelasan di Chat Teams, ybs sering menggunakan Enter berkali-kali
+- Cukup jarang membaca pesan di group, beberapa kali perlu di Tag terlebih dahulu agar responnya terlihat
 
 ## Personal
 

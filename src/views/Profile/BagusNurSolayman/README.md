@@ -6,7 +6,9 @@
 - Menganggapi masalah dengan cepat
 - Menerima masukan
 - Cepat dalam meminta konfirmasi kepada tim
-- Humoris
+- Memiliki sifat humoris
+- Saat membuat penjelasan di Chat Teams, ybs sering menggunakan Enter berkali-kali
+- Request cuti sering dilakukan tidak sesuai prosedur seperti melakukan request h-3 sebelum cuti yang seharusnya dilakukan pada h-7
 
 ## QRISAN x Jateng
 
