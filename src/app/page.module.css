@@ -266,6 +266,10 @@
   table-layout: fixed;
 }
 
+.profileAspectTable {
+  min-width: 1320px;
+}
+
 .starsCell {
   white-space: nowrap;
   font-family: 'Segoe UI Symbol', 'Noto Sans Symbols', sans-serif;

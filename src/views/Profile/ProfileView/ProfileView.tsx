@@ -346,7 +346,7 @@ const BARE_MINIMUM_MATRIX = [
 function SoftProfileSection({ data }: { data: ProfileSoftAspect }) {
   return (
     <div className={styles.sectionCard}>
-      <p className={styles.sectionTitle}>Aspek Profil Soft</p>
+      <p className={styles.sectionTitle}>Aspek Profil</p>
       <table className={styles.softTable}>
         <tbody>
           {SOFT_PROFILE_TEXT_KEYS.map((key) => (

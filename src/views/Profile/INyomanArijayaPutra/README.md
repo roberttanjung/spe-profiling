@@ -67,6 +67,7 @@ Mengikuti Course Online dengan tema Animasi di Javascript guna memperdalam apa y
 
 ## Good
 
+- `Kolaborasi yang baik`: Ybs aktif dalam berkolaborasi terutama pada saat pengajuan pembangunan BNI QRIS V2. Ybs membuat artikel yang berisi alasan mengapa perlu dilakukan perubahan dari Vue 2 ke Next JS beserta Timeline lalu mengumumkannya kepada Tim hingga pada akhirnya mendapat persetujuan untuk memulai pembangunan BNI QRIS V2.
 - `Peduli pada pengalaman pengguna`: Selalu mempertimbangkan dampak ke user experience sebelum memulai implementasi modul.
 - `Cepat memahami konteks teknis`: Informasi baru dapat ditangkap dengan baik sehingga proses eksekusi modul berjalan lancar.
 - `Kuat di area riset`: Aktif melakukan eksplorasi teknis dan menyiapkan arah perbaikan jangka menengah, termasuk usulan modernisasi platform.

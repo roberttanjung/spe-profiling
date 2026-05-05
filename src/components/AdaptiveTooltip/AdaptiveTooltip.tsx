@@ -8,6 +8,7 @@ import {
   useRef,
   useState,
 } from 'react';
+import { createPortal } from 'react-dom';
 import type { CSSProperties, ReactNode } from 'react';
 import styles from './AdaptiveTooltip.module.css';
 
@@ -34,8 +35,6 @@ export default function AdaptiveTooltip({
   const triggerRef = useRef<HTMLSpanElement>(null);
   const tooltipRef = useRef<HTMLSpanElement>(null);
   const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const hoveringTriggerRef = useRef(false);
-  const hoveringTooltipRef = useRef(false);
   const [open, setOpen] = useState(false);
   const [style, setStyle] = useState<CSSProperties>({
     top: -9999,
@@ -150,63 +149,46 @@ export default function AdaptiveTooltip({
 
   const handleOpen = () => {
     clearCloseTimeout();
+    setStyle({ top: -9999, left: -9999, maxWidth });
     setOpen(true);
   };
 
-  const handleCloseWithDelay = () => {
+  const handleClose = () => {
     clearCloseTimeout();
     closeTimeoutRef.current = setTimeout(() => {
-      if (!hoveringTriggerRef.current && !hoveringTooltipRef.current) {
-        setOpen(false);
-      }
+      setOpen(false);
       closeTimeoutRef.current = null;
     }, CLOSE_DELAY_MS);
   };
 
-  const handleTriggerPointerEnter = () => {
-    hoveringTriggerRef.current = true;
-    handleOpen();
-  };
-
-  const handleTriggerPointerLeave = () => {
-    hoveringTriggerRef.current = false;
-    handleCloseWithDelay();
-  };
-
-  const handleTooltipPointerEnter = () => {
-    hoveringTooltipRef.current = true;
-    handleOpen();
-  };
-
-  const handleTooltipPointerLeave = () => {
-    hoveringTooltipRef.current = false;
-    handleCloseWithDelay();
-  };
-
   return (
-    <span
-      ref={triggerRef}
-      className={styles.trigger}
-      onPointerEnter={handleTriggerPointerEnter}
-      onPointerLeave={handleTriggerPointerLeave}
-      onFocus={handleOpen}
-      onBlur={handleCloseWithDelay}
-      aria-describedby={open ? tooltipId : undefined}
-    >
-      {trigger}
-      {open && (
-        <span
-          id={tooltipId}
-          ref={tooltipRef}
-          role={role}
-          className={tooltipClassName}
-          style={style}
-          onPointerEnter={handleTooltipPointerEnter}
-          onPointerLeave={handleTooltipPointerLeave}
-        >
-          {content}
-        </span>
-      )}
-    </span>
+    <>
+      <span
+        ref={triggerRef}
+        className={styles.trigger}
+        onMouseEnter={handleOpen}
+        onMouseLeave={handleClose}
+        onFocus={handleOpen}
+        onBlur={handleClose}
+        aria-describedby={open ? tooltipId : undefined}
+      >
+        {trigger}
+      </span>
+      {open &&
+        createPortal(
+          <span
+            id={tooltipId}
+            ref={tooltipRef}
+            role={role}
+            className={tooltipClassName}
+            style={style}
+            onMouseEnter={clearCloseTimeout}
+            onMouseLeave={handleClose}
+          >
+            {content}
+          </span>,
+          document.body,
+        )}
+    </>
   );
 }

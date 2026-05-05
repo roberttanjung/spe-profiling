@@ -14,6 +14,8 @@ Aplikasi ini mampu menunjukan alasan mengapa seorang Front End Engineer layak un
 - `Smart Working`: Kemampuan untuk bekerja dengan cerdas, termasuk kemampuan untuk memprioritaskan tugas, menggunakan alat dan teknologi yang tepat, serta mencari cara untuk meningkatkan efisiensi kerja.
 - `Growth Mindset`: Kemampuan untuk terus belajar dan berkembang, serta kemampuan untuk menerima kritik dan menggunakan umpan balik untuk meningkatkan diri.
 
+Atau dapat disingkat menjadi **DR Cosma Grom** (Discipline, Resilience, Collaboration, Smart Working, Growth Mindset).
+
 ### Hal yang dimonitoring
 
 - Profiling Frontend Engineer

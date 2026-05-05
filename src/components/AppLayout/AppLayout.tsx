@@ -31,6 +31,14 @@ function PersonIcon() {
   );
 }
 
+function RoadmapIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className={styles.iconSvg}>
+      <path d="M17 3H7a2 2 0 0 0-2 2v16l7-3 7 3V5a2 2 0 0 0-2-2Zm0 15-5-2.18L7 18V5h10v13Z" />
+    </svg>
+  );
+}
+
 function ToggleIcon({ collapsed }: { collapsed: boolean }) {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" className={styles.toggleSvg}>
@@ -44,6 +52,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(true);
   const isDashboardRoute = pathname === '/';
   const isProfileRoute = pathname.startsWith('/profile');
+  const isRoadmapRoute = pathname.startsWith('/roadmap');
 
   return (
     <div
@@ -142,6 +151,23 @@ export default function AppLayout({ children }: AppLayoutProps) {
                   </li>
                 ))}
               </ul>
+            </li>
+            <li>
+              <Link
+                className={`${styles.menuLink} ${
+                  isRoadmapRoute
+                    ? styles.menuLinkActive
+                    : styles.menuLinkInactive
+                }`}
+                href="/roadmap"
+                aria-current={isRoadmapRoute ? 'page' : undefined}
+                title="Roadmap"
+              >
+                <span className={styles.menuLinkText}>Roadmap</span>
+                <span className={styles.menuLinkCompact} aria-hidden="true">
+                  <RoadmapIcon />
+                </span>
+              </Link>
             </li>
           </ul>
         </nav>

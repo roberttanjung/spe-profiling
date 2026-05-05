@@ -11,6 +11,11 @@ export const iNyomanArijayaPutraProfileData: EngineerProfileData = {
   guilds: ['Atomic Design'],
   good: [
     {
+      title: 'Kolaborasi yang baik',
+      description:
+        'Aktif berkolaborasi terutama saat pengajuan pembangunan BNI QRIS V2 melalui artikel justifikasi migrasi dari Vue 2 ke Next JS beserta timeline hingga mendapat persetujuan tim.',
+    },
+    {
       title: 'Peduli pada pengalaman pengguna',
       description:
         'Selalu mempertimbangkan dampak ke user experience sebelum memulai implementasi modul.',
@@ -197,7 +202,7 @@ export const iNyomanArijayaPutraProfileData: EngineerProfileData = {
     fundamentalFrontend: 3,
     kualitasKode: 3,
     testingReliability: 2,
-    kolaborasiKomunikasi: 2,
+    kolaborasiKomunikasi: 3,
     deliveryBisnis: 3,
     securityObservability: 3,
     aiProduktivitas: 3,
@@ -210,7 +215,7 @@ export const iNyomanArijayaPutraProfileData: EngineerProfileData = {
     testingReliability:
       'Skor testing ditahan lebih konservatif karena coverage masih di sekitar 75% dan belum mencapai baseline reliability 80% secara konsisten.',
     kolaborasiKomunikasi:
-      'Terbuka terhadap diskusi, namun untuk level dan masa kerja saat ini struktur komunikasi operasional masih perlu dibuat lebih runtut dan konsisten.',
+      'Skor kolaborasi dinaikkan karena ybs menunjukkan inisiatif kolaborasi yang baik pada pengajuan BNI QRIS V2 melalui artikel justifikasi dan timeline sampai mendapat persetujuan tim.',
     deliveryBisnis:
       'Delivery bisnis sudah cukup baik karena mampu menyelesaikan beberapa modul baru secara mandiri pada project utama sambil tetap responsif terhadap perubahan bisnis.',
     securityObservability:
@@ -263,7 +268,7 @@ export const iNyomanArijayaPutraProfileData: EngineerProfileData = {
     workStyle:
       'Analyst-builder; cenderung memvalidasi banyak opsi sebelum implementasi.',
     strengths:
-      'Empati pengguna, kemampuan memahami konteks, kekuatan riset, dan kontribusi teknis yang variatif.',
+      'Kolaborasi yang baik, empati pengguna, kemampuan memahami konteks, kekuatan riset, dan kontribusi teknis yang variatif.',
     developmentAreas:
       'Komunikasi yang lebih terstruktur, ketegasan prioritas, dan disiplin terhadap batas waktu keputusan.',
     uniqueSellingPoint:
