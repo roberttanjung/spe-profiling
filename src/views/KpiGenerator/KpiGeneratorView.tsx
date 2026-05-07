@@ -543,7 +543,7 @@ export default function KpiGeneratorView() {
             <Stack
               direction={{ xs: 'column', sm: 'row' }}
               spacing={2}
-              sx={{ mt: 2 }}
+              sx={{ mt: 6 }}
             >
               <Button
                 variant="contained"
