@@ -6,14 +6,17 @@
   --accent: #1d6e49;
   --border: #cde0d2;
 
+  width: min(1200px, 100%);
+  margin-inline: auto;
+  padding-inline: clamp(6px, 1.4vw, 14px);
   display: grid;
-  gap: 20px;
+  gap: clamp(16px, 2.2vw, 26px);
 }
 
 .hero {
   border: 1px solid var(--border);
   border-radius: 16px;
-  padding: clamp(20px, 3vw, 30px);
+  padding: clamp(20px, 3.2vw, 34px);
   background:
     radial-gradient(circle at 12% 18%, #eef8e4 0, transparent 28%),
     radial-gradient(circle at 86% 20%, #d8eee0 0, transparent 34%),
@@ -31,23 +34,30 @@
   margin-top: 12px;
   max-width: 72ch;
   color: var(--ink-muted);
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 .badges {
-  margin-top: 16px;
+  margin-top: 18px;
   display: flex;
-  gap: 8px;
+  gap: 10px;
   flex-wrap: wrap;
+}
+
+.topActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
 }
 
 .block {
   border: 1px solid var(--border);
   border-radius: 14px;
-  padding: clamp(16px, 2.5vw, 24px);
+  padding: clamp(18px, 2.8vw, 28px);
   background: var(--surface);
   display: grid;
-  gap: 16px;
+  gap: 18px;
 }
 
 .blockTitle {
@@ -64,12 +74,12 @@
   color: var(--ink-muted);
   font-size: 0.9rem;
   line-height: 1.6;
-  margin-top: 4px;
+  margin-top: 2px;
 }
 
 .fieldsContainer {
   display: grid;
-  gap: 16px;
+  gap: 20px;
 }
 
 .sectionHeader {
@@ -78,15 +88,15 @@
   color: var(--accent);
   text-transform: uppercase;
   letter-spacing: 0.6px;
-  margin-top: 4px;
-  margin-bottom: 12px;
+  margin-top: 0;
+  margin-bottom: 14px;
   padding-bottom: 10px;
   border-bottom: 2px solid var(--border);
 }
 
 .fieldGrid {
   display: grid;
-  gap: 14px;
+  gap: 16px;
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
@@ -95,11 +105,11 @@
   min-width: 0;
   border: 1px solid color-mix(in srgb, var(--border) 85%, white 15%);
   border-radius: 10px;
-  padding: 16px;
+  padding: 18px;
   background: var(--surface-soft);
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
   transition:
     border-color 0.2s ease,
     box-shadow 0.2s ease;
@@ -114,7 +124,7 @@
   font-weight: 700;
   font-size: 0.88rem;
   color: var(--ink);
-  line-height: 1.5;
+  line-height: 1.55;
   /* Prevent text overflow in narrow grid cells */
   overflow-wrap: break-word;
   word-break: break-word;
@@ -123,13 +133,13 @@
 .fieldDescription {
   color: var(--ink-muted);
   font-size: 0.8rem;
-  line-height: 1.55;
+  line-height: 1.6;
   overflow-wrap: break-word;
   word-break: break-word;
 }
 
 .textFieldsSection {
-  margin-top: 24px;
+  margin-top: 10px;
   padding-top: 24px;
   border-top: 1px dashed var(--border);
 }
@@ -145,7 +155,7 @@
 
 .textFieldsGrid {
   display: grid;
-  gap: 16px;
+  gap: 18px;
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
@@ -160,8 +170,69 @@
 .actions {
   margin-top: 16px;
   display: flex;
-  gap: 12px;
+  gap: 14px;
   flex-wrap: wrap;
+  align-items: center;
+}
+
+.fieldCard :global(.MuiFormControl-root),
+.fieldCard :global(.MuiTextField-root),
+.textFieldsGrid :global(.MuiFormControl-root),
+.textFieldsGrid :global(.MuiTextField-root) {
+  width: 100%;
+}
+
+.fieldCard :global(.MuiInputBase-root.MuiOutlinedInput-root) {
+  min-height: 46px;
+}
+
+.fieldCard :global(.MuiInputBase-input.MuiOutlinedInput-input) {
+  padding-block: 12px;
+}
+
+.metricInput :global(.MuiOutlinedInput-root) {
+  min-height: 50px;
+}
+
+.metricInput :global(.MuiInputBase-input.MuiOutlinedInput-input) {
+  padding: 14px 14px;
+}
+
+.engineerControl :global(.MuiOutlinedInput-root) {
+  min-height: 50px;
+}
+
+.engineerControl :global(.MuiSelect-select.MuiInputBase-input) {
+  padding: 14px 42px 14px 14px;
+  display: flex;
+  align-items: center;
+}
+
+.engineerControl :global(.MuiSelect-icon) {
+  right: 12px;
+}
+
+.textFieldsGrid :global(.MuiInputBase-root.MuiOutlinedInput-root) {
+  background: #fff;
+  min-height: 122px;
+}
+
+.textFieldsGrid :global(textarea.MuiInputBase-input) {
+  line-height: 1.6;
+  padding: 14px;
+  box-sizing: border-box;
+}
+
+.actions :global(.MuiButton-root),
+.topActions :global(.MuiButton-root) {
+  min-height: 44px;
+  padding-inline: 18px;
+  border-radius: 10px;
+}
+
+.actions :global(.MuiButton-contained),
+.topActions :global(.MuiButton-contained) {
+  box-shadow: none;
 }
 
 .successAlert {
@@ -182,11 +253,24 @@
 
   .section {
     gap: 16px;
+    padding-inline: 0;
   }
 
   .block {
     padding: 16px;
     gap: 14px;
+  }
+
+  .topActions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .topActions :global(.MuiButton-root),
+  .actions :global(.MuiButton-root) {
+    width: 100%;
+    justify-content: center;
   }
 
   .fieldCard {

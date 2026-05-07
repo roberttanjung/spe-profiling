@@ -1,7 +1,6 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import Link from 'next/link';
 import {
   Alert,
   Box,
@@ -28,12 +27,14 @@ import type { KpiFormState, KpiTemplateParsed } from './KpiGeneratorView.types';
 import KpiPreviewPanel from './KpiPreviewPanel';
 import { exportKpiAction } from '@/app/(admin)/kpi-generator/actions';
 
-const DEFAULT_TEMPLATE_URL = '/documents/KPI.xlsx';
-
 type GeneratorStatus = 'idle' | 'ready' | 'preview' | 'completed';
 
 function downloadArrayBuffer(filename: string, data: Uint8Array): void {
-  const blob = new Blob([data], {
+  const arrayBuffer = data.buffer.slice(
+    data.byteOffset,
+    data.byteOffset + data.byteLength,
+  ) as ArrayBuffer;
+  const blob = new Blob([arrayBuffer], {
     type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
   });
   const url = URL.createObjectURL(blob);
@@ -68,16 +69,12 @@ export default function KpiGeneratorView() {
 
   const [status, setStatus] = useState<GeneratorStatus>('idle');
   const [template, setTemplate] = useState<KpiTemplateParsed | null>(null);
-  const [templateName, setTemplateName] = useState('');
   const [form, setForm] = useState<KpiFormState>(emptyForm(''));
   const [errors, setErrors] = useState<string[]>([]);
 
   const isReady = status === 'ready' && template !== null;
 
-  const handleTemplateApply = (
-    parsedTemplate: KpiTemplateParsed,
-    name: string,
-  ) => {
+  const handleTemplateApply = (parsedTemplate: KpiTemplateParsed) => {
     // Check template validation
     if (parsedTemplate.validation.errors.length > 0) {
       setErrors(parsedTemplate.validation.errors);
@@ -91,7 +88,6 @@ export default function KpiGeneratorView() {
     }
 
     setTemplate(parsedTemplate);
-    setTemplateName(name);
     setStatus('ready');
 
     if (form.engineerName) {
@@ -129,14 +125,7 @@ export default function KpiGeneratorView() {
 
     const arrayBuffer = await readFileAsArrayBuffer(uploadedFile);
     const parsed = parseKpiTemplate(arrayBuffer);
-    handleTemplateApply(parsed, uploadedFile.name);
-  };
-
-  const handleLoadDefaultTemplate = async () => {
-    const response = await fetch(DEFAULT_TEMPLATE_URL);
-    const arrayBuffer = await response.arrayBuffer();
-    const parsed = parseKpiTemplate(arrayBuffer);
-    handleTemplateApply(parsed, 'KPI.xlsx (default)');
+    handleTemplateApply(parsed);
   };
 
   const handleEngineerChange = (event: SelectChangeEvent<string>) => {
@@ -257,7 +246,11 @@ export default function KpiGeneratorView() {
         <Typography className={styles.blockTitle}>
           1. Upload Template
         </Typography>
-        <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
+        <Stack
+          direction={{ xs: 'column', sm: 'row' }}
+          spacing={2}
+          className={styles.topActions}
+        >
           <Button variant="outlined" component="label">
             Upload KPI .xlsx
             <input
@@ -267,12 +260,6 @@ export default function KpiGeneratorView() {
               onChange={handleUploadTemplate}
             />
           </Button>
-          <Button variant="text" onClick={handleLoadDefaultTemplate}>
-            Gunakan KPI.xlsx Default
-          </Button>
-          {templateName ? (
-            <Chip color="success" label={`Template: ${templateName}`} />
-          ) : null}
         </Stack>
 
         {template?.validation && (
@@ -304,7 +291,11 @@ export default function KpiGeneratorView() {
           <Typography className={styles.blockTitle}>
             2. Pilih Engineer
           </Typography>
-          <FormControl fullWidth size="small">
+          <FormControl
+            fullWidth
+            size="small"
+            className={styles.engineerControl}
+          >
             <InputLabel id="engineer-select-label">Daftar Engineer</InputLabel>
             <Select
               labelId="engineer-select-label"
@@ -353,6 +344,8 @@ export default function KpiGeneratorView() {
                       <TextField
                         label="Actual"
                         size="small"
+                        className={styles.metricInput}
+                        fullWidth
                         value={form.metricValues[field.row] ?? ''}
                         onChange={(event) =>
                           handleMetricChange(field.row, event.target.value)
@@ -384,6 +377,8 @@ export default function KpiGeneratorView() {
                       <TextField
                         label="Actual"
                         size="small"
+                        className={styles.metricInput}
+                        fullWidth
                         value={form.metricValues[field.row] ?? ''}
                         onChange={(event) =>
                           handleMetricChange(field.row, event.target.value)
@@ -406,6 +401,7 @@ export default function KpiGeneratorView() {
                 placeholder="Hal-hal baik yang telah dilakukan..."
                 multiline
                 minRows={4}
+                fullWidth
                 value={form.success}
                 onChange={(event) =>
                   handleTextFieldChange('success', event.target.value)
@@ -416,6 +412,7 @@ export default function KpiGeneratorView() {
                 placeholder="Kelebihan dan kekuatan yang dimiliki..."
                 multiline
                 minRows={4}
+                fullWidth
                 value={form.strengthArea}
                 onChange={(event) =>
                   handleTextFieldChange('strengthArea', event.target.value)
@@ -426,6 +423,7 @@ export default function KpiGeneratorView() {
                 placeholder="Area yang perlu ditingkatkan..."
                 multiline
                 minRows={4}
+                fullWidth
                 value={form.developmentArea}
                 onChange={(event) =>
                   handleTextFieldChange('developmentArea', event.target.value)
@@ -436,6 +434,7 @@ export default function KpiGeneratorView() {
                 placeholder="Kompetensi yang direkomendasikan..."
                 multiline
                 minRows={4}
+                fullWidth
                 value={form.competenciesSuggested}
                 onChange={(event) =>
                   handleTextFieldChange(
@@ -449,6 +448,7 @@ export default function KpiGeneratorView() {
                 placeholder="Aktifitas detail untuk peningkatan..."
                 multiline
                 minRows={4}
+                fullWidth
                 value={form.activity}
                 onChange={(event) =>
                   handleTextFieldChange('activity', event.target.value)
@@ -459,6 +459,7 @@ export default function KpiGeneratorView() {
                 placeholder="Target yang diharapkan..."
                 multiline
                 minRows={4}
+                fullWidth
                 value={form.target}
                 onChange={(event) =>
                   handleTextFieldChange('target', event.target.value)
@@ -492,7 +493,7 @@ export default function KpiGeneratorView() {
             spacing={2}
             className={styles.actions}
           >
-            <Button variant="contained" onClick={handleGenerate}>
+            <Button variant="contained" size="large" onClick={handleGenerate}>
               Preview & Generate KPI (.xlsx)
             </Button>
           </Stack>
@@ -508,10 +509,18 @@ export default function KpiGeneratorView() {
             className={styles.actions}
             sx={{ mt: 3 }}
           >
-            <Button variant="contained" onClick={handleDownloadKpi}>
+            <Button
+              variant="contained"
+              size="large"
+              onClick={handleDownloadKpi}
+            >
               Download KPI (.xlsx)
             </Button>
-            <Button variant="outlined" onClick={() => setStatus('ready')}>
+            <Button
+              variant="outlined"
+              size="large"
+              onClick={() => setStatus('ready')}
+            >
               Kembali ke Form
             </Button>
           </Stack>
@@ -519,15 +528,37 @@ export default function KpiGeneratorView() {
       ) : null}
 
       {status === 'completed' ? (
-        <Alert severity="success" className={styles.successAlert}>
-          KPI berhasil digenerate dan diunduh. Silakan review hasil file untuk
-          memastikan data sudah sesuai, lalu kembali ke halaman utama.
-          <Box mt={2}>
-            <Button component={Link} href="/" variant="outlined" size="small">
-              Kembali ke Halaman Utama
-            </Button>
-          </Box>
-        </Alert>
+        <Paper className={styles.block} elevation={0}>
+          <Stack spacing={2} sx={{ alignItems: 'center', textAlign: 'center' }}>
+            <Typography variant="h5" sx={{ fontWeight: 600 }}>
+              KPI berhasil dibuat!
+            </Typography>
+            <Typography color="textSecondary">
+              File KPI untuk {form.engineerName} telah diunduh.
+            </Typography>
+            <Alert severity="success">
+              Template berhasil diisi dengan data TWBE dan profile engineer.
+              Semua formula dan formatting telah dipertahankan.
+            </Alert>
+            <Stack
+              direction={{ xs: 'column', sm: 'row' }}
+              spacing={2}
+              sx={{ mt: 2 }}
+            >
+              <Button
+                variant="contained"
+                size="large"
+                onClick={() => {
+                  setStatus('idle');
+                  setTemplate(null);
+                  setForm(emptyForm(''));
+                }}
+              >
+                Buat KPI Baru
+              </Button>
+            </Stack>
+          </Stack>
+        </Paper>
       ) : null}
     </section>
   );
