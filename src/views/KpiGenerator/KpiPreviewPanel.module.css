@@ -1,0 +1,124 @@
+.previewPanel {
+  --surface: #ffffff;
+  --surface-soft: #f2f8f4;
+  --ink: #122117;
+  --ink-muted: #476052;
+  --accent: #1d6e49;
+  --border: #cde0d2;
+
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: clamp(14px, 2vw, 20px);
+  background: var(--surface);
+  display: grid;
+  gap: 14px;
+  margin-top: 14px;
+  page-break-inside: avoid;
+}
+
+.previewHeader {
+  display: grid;
+  gap: 6px;
+}
+
+.previewTitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.previewSubtitle {
+  font-size: 0.95rem;
+  color: var(--ink-muted);
+  font-weight: 500;
+}
+
+.section {
+  display: grid;
+  gap: 10px;
+}
+
+.sectionTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tableHeader {
+  background-color: color-mix(in srgb, var(--accent) 10%, white 90%);
+}
+
+.table thead th {
+  padding: 10px 8px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  border-bottom: 2px solid var(--border);
+  color: var(--ink);
+}
+
+.table tbody td {
+  padding: 8px;
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 70%, white 30%);
+  font-size: 0.9rem;
+  color: var(--ink);
+}
+
+.table tbody tr:hover {
+  background-color: color-mix(in srgb, var(--surface-soft) 100%, white 0%);
+}
+
+.label {
+  max-width: 300px;
+  word-wrap: break-word;
+  font-weight: 500;
+}
+
+.textSection {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  margin-top: 14px;
+}
+
+.textBlock {
+  border: 1px solid color-mix(in srgb, var(--border) 80%, white 20%);
+  border-radius: 10px;
+  padding: 12px;
+  background: color-mix(in srgb, var(--surface-soft) 100%, white 0%);
+  display: grid;
+  gap: 8px;
+}
+
+.textTitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ink);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.textContent {
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-family: 'Monaco', 'Courier New', monospace;
+}
+
+@media (max-width: 900px) {
+  .textSection {
+    grid-template-columns: 1fr;
+  }
+
+  .previewPanel {
+    padding: 12px;
+  }
+}

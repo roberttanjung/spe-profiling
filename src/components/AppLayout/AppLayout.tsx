@@ -39,6 +39,14 @@ function RoadmapIcon() {
   );
 }
 
+function KpiIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className={styles.iconSvg}>
+      <path d="M4 20h16v-2H4v2Zm1-4h3V9H5v7Zm5 0h3V4h-3v12Zm5 0h3v-9h-3v9Z" />
+    </svg>
+  );
+}
+
 function ToggleIcon({ collapsed }: { collapsed: boolean }) {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" className={styles.toggleSvg}>
@@ -53,6 +61,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
   const isDashboardRoute = pathname === '/';
   const isProfileRoute = pathname.startsWith('/profile');
   const isRoadmapRoute = pathname.startsWith('/roadmap');
+  const isKpiRoute = pathname.startsWith('/kpi-generator');
 
   return (
     <div
@@ -166,6 +175,21 @@ export default function AppLayout({ children }: AppLayoutProps) {
                 <span className={styles.menuLinkText}>Roadmap</span>
                 <span className={styles.menuLinkCompact} aria-hidden="true">
                   <RoadmapIcon />
+                </span>
+              </Link>
+            </li>
+            <li>
+              <Link
+                className={`${styles.menuLink} ${
+                  isKpiRoute ? styles.menuLinkActive : styles.menuLinkInactive
+                }`}
+                href="/kpi-generator"
+                aria-current={isKpiRoute ? 'page' : undefined}
+                title="KPI Generator"
+              >
+                <span className={styles.menuLinkText}>KPI Generator</span>
+                <span className={styles.menuLinkCompact} aria-hidden="true">
+                  <KpiIcon />
                 </span>
               </Link>
             </li>

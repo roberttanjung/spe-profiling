@@ -1,0 +1,200 @@
+.section {
+  --surface: #ffffff;
+  --surface-soft: #f2f8f4;
+  --ink: #122117;
+  --ink-muted: #476052;
+  --accent: #1d6e49;
+  --border: #cde0d2;
+
+  display: grid;
+  gap: 20px;
+}
+
+.hero {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: clamp(20px, 3vw, 30px);
+  background:
+    radial-gradient(circle at 12% 18%, #eef8e4 0, transparent 28%),
+    radial-gradient(circle at 86% 20%, #d8eee0 0, transparent 34%),
+    var(--surface);
+}
+
+.title {
+  font-size: clamp(1.5rem, 2.3vw, 2.2rem);
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0;
+}
+
+.description {
+  margin-top: 12px;
+  max-width: 72ch;
+  color: var(--ink-muted);
+  line-height: 1.6;
+}
+
+.badges {
+  margin-top: 16px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.block {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: clamp(16px, 2.5vw, 24px);
+  background: var(--surface);
+  display: grid;
+  gap: 16px;
+}
+
+.blockTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.blockDesc {
+  color: var(--ink-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-top: 4px;
+}
+
+.fieldsContainer {
+  display: grid;
+  gap: 16px;
+}
+
+.sectionHeader {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-top: 4px;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+}
+
+.fieldGrid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.fieldCard {
+  /* min-width: 0 prevents grid blowout from long text */
+  min-width: 0;
+  border: 1px solid color-mix(in srgb, var(--border) 85%, white 15%);
+  border-radius: 10px;
+  padding: 16px;
+  background: var(--surface-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.fieldCard:hover {
+  border-color: var(--accent);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.fieldLabel {
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--ink);
+  line-height: 1.5;
+  /* Prevent text overflow in narrow grid cells */
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.fieldDescription {
+  color: var(--ink-muted);
+  font-size: 0.8rem;
+  line-height: 1.55;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.textFieldsSection {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px dashed var(--border);
+}
+
+.textFieldsTitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 16px;
+}
+
+.textFieldsGrid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.errorList {
+  margin-top: 16px;
+  padding: 12px;
+  background: rgba(229, 57, 53, 0.04);
+  border-radius: 8px;
+  border-left: 4px solid #e53935;
+}
+
+.actions {
+  margin-top: 16px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.successAlert {
+  border-radius: 12px;
+  margin-top: 20px;
+}
+
+@media (max-width: 1200px) {
+  .textFieldsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .fieldGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    gap: 16px;
+  }
+
+  .block {
+    padding: 16px;
+    gap: 14px;
+  }
+
+  .fieldCard {
+    padding: 14px;
+  }
+
+  .textFieldsSection {
+    margin-top: 20px;
+    padding-top: 20px;
+  }
+}
