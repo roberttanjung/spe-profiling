@@ -13,29 +13,31 @@ const roadmapStages: RoadmapStage[] = [
   {
     id: 1,
     title: 'Fondasi Kepemimpinan Manajerial',
-    period: 'Jun W1 - Jun W2 2026',
+    period: 'Jun W1 - Jun W3 2026',
     focus:
       'Membangun pola pikir manajerial yang lebih abstrak dan adaptif, bergerak dari mindset teknis menuju perspektif kepemimpinan.',
     pillars: ['Growth Mindset', 'Discipline'],
     activities: [
       {
         platform: 'Udemy',
-        courseTitle: 'Leadership: Practical Leadership Skills',
-        courseUrl: 'https://www.udemy.com/course/practical-leadership/',
-        courseHours: 3,
+        courseTitle:
+          'Leadership Mastery for Strong Leaders (Kepemimpinan Efektif)',
+        courseUrl:
+          'https://www.udemy.com/course/leadership-mastery-for-supervisor-kepemimpinan-supervisory/',
+        courseHours: 4,
       },
       {
         platform: 'Udemy',
-        courseTitle: 'Leadership: Leading When You Are Not In Charge!',
+        courseTitle: 'Leadership Guide for First Time Leader',
         courseUrl:
-          'https://www.udemy.com/course/leadership-leading-not-in-charge/',
-        courseHours: 3,
+          'https://www.udemy.com/course/leadership-guide-for-first-time-leader/',
+        courseHours: 0.5,
       },
     ],
     outputs: [
       {
         type: 'certificate',
-        label: 'Leadership: Practical Leadership Skills Certificate',
+        label: 'Sertifikat Course Kepemimpinan Dasar',
         issuer: 'Udemy',
       },
     ],
@@ -44,31 +46,29 @@ const roadmapStages: RoadmapStage[] = [
   {
     id: 2,
     title: 'Komunikasi & Terminologi Manajerial',
-    period: 'Jun W3 - Sep W3 2026',
+    period: 'Jun W4 - Agu W3 2026',
     focus:
       'Memperkaya kosakata dan pemahaman terminologi manajerial agar komunikasi dan pengambilan keputusan menjadi lebih presisi.',
     pillars: ['Collaboration', 'Smart Working'],
     activities: [
       {
         platform: 'Udemy',
-        courseTitle: 'The Complete Communication Skills Master Class for Life',
+        courseTitle: 'Interpersonal dan Komunikasi Bisnis',
         courseUrl:
-          'https://www.udemy.com/course/the-complete-communication-skills-master-class-for-life/',
-        courseHours: 36.5,
+          'https://www.udemy.com/course/interpersonal-dan-komunikasi-bisnis/',
+        courseHours: 12.5,
       },
       {
         platform: 'Udemy',
-        courseTitle:
-          'Management Skills Training for New & Experienced Managers',
-        courseUrl:
-          'https://www.udemy.com/course/the-new-manager-managing-people-teams-processes/',
-        courseHours: 12,
+        courseTitle: 'Manajemen Tim dan Karyawan',
+        courseUrl: 'https://www.udemy.com/course/manajemen-tim-dan-karyawan/',
+        courseHours: 1.5,
       },
     ],
     outputs: [
       {
         type: 'certificate',
-        label: 'Communication Skills Certificate',
+        label: 'Sertifikat Komunikasi & Manajemen Tim',
         issuer: 'Udemy',
       },
     ],
@@ -77,29 +77,30 @@ const roadmapStages: RoadmapStage[] = [
   {
     id: 3,
     title: 'Analytical Thinking & Keputusan Strategis',
-    period: 'Sep W4 - Okt W2 2026',
+    period: 'Agu W4 - Agu W5 2026',
     focus:
       'Meningkatkan kemampuan analytical thinking untuk pengambilan keputusan strategis yang lebih terstruktur dan berbasis data.',
     pillars: ['Smart Working', 'Growth Mindset'],
     activities: [
       {
         platform: 'Udemy',
-        courseTitle: 'Master Your Decision Making and Critical Thinking Skills',
+        courseTitle: 'Fundamental Critical Thinking (Bahasa Indonesia)',
         courseUrl:
-          'https://www.udemy.com/course/leadership-science-for-decision-making/',
-        courseHours: 5.5,
+          'https://www.udemy.com/course/fundamental-critical-thinking-bahasa/',
+        courseHours: 1,
       },
       {
         platform: 'Udemy',
-        courseTitle: 'Critical Thinking Strategies For Better Decisions',
-        courseUrl: 'https://www.udemy.com/course/critical-thinking-strategies/',
-        courseHours: 1,
+        courseTitle: 'Berfikir Kritis dan Efektif Dalam Pengambilan Keputusan',
+        courseUrl:
+          'https://www.udemy.com/course/berfikir-kritis-dan-efektif-dalam-pengambilan-keputusan/',
+        courseHours: 2,
       },
     ],
     outputs: [
       {
         type: 'certificate',
-        label: 'Critical Thinking Masterclass Certificate',
+        label: 'Sertifikat Critical Thinking Bahasa Indonesia',
         issuer: 'Udemy',
       },
       {
@@ -113,30 +114,31 @@ const roadmapStages: RoadmapStage[] = [
   {
     id: 4,
     title: 'Kepemimpinan Tim & Agile Leadership',
-    period: 'Okt W3 - Nov W2 2026',
+    period: 'Sep W1 - Okt W1 2026',
     focus:
       'Mematangkan transisi dari fokus teknis ke perspektif kepemimpinan yang lebih luas dengan pendekatan Agile.',
     pillars: ['Discipline', 'Resilience', 'Collaboration'],
     activities: [
       {
         platform: 'Udemy',
-        courseTitle: 'Management Skills Certification Course (Now with AI!)',
-        courseUrl: 'https://www.udemy.com/course/new-manager-training/',
-        courseHours: 5,
+        courseTitle: 'Menguasai Scrum untuk Remote Worker Indonesia',
+        courseUrl:
+          'https://www.udemy.com/course/menguasai-scrum-untuk-remote-worker-indonesia/',
+        courseHours: 6,
       },
       {
         platform: 'Udemy',
-        courseTitle: 'Scrum Master Certification: Agile Project Management',
+        courseTitle: 'Pengelolaan Project Management dengan Agile Development',
         courseUrl:
-          'https://www.udemy.com/course/scrum-training-scrum-master-certification-agile-project-management/',
-        courseHours: 5.5,
+          'https://www.udemy.com/course/lebih-dalam-praktek-agile-development-untuk-organisasi/',
+        courseHours: 3,
       },
     ],
     outputs: [
       {
         type: 'certificate',
-        label: 'Professional Scrum Master I (PSM I)',
-        issuer: 'Scrum.org',
+        label: 'Sertifikat Agile & Scrum Bahasa Indonesia',
+        issuer: 'Udemy',
       },
     ],
     status: 'upcoming',
@@ -144,7 +146,7 @@ const roadmapStages: RoadmapStage[] = [
   {
     id: 5,
     title: 'Konsolidasi & Portfolio Kepemimpinan',
-    period: 'Nov W3 - Des W4 2026',
+    period: 'Okt W2 - Nov W4 2026',
     focus:
       'Mengintegrasikan seluruh kompetensi yang dibangun sepanjang 2026 ke dalam portfolio kepemimpinan yang terukur dan terdokumentasi.',
     pillars: [
@@ -157,10 +159,19 @@ const roadmapStages: RoadmapStage[] = [
     activities: [
       {
         platform: 'Udemy',
-        courseTitle: 'MBA in a Box: Business Lessons from a CEO',
+        courseTitle:
+          'Belajar Bisnis Lengkap dan Praktis Melalui Kursus Mini MBA',
         courseUrl:
-          'https://www.udemy.com/course/mba-in-a-box-business-lessons-from-a-ceo/',
-        courseHours: 11.5,
+          'https://www.udemy.com/course/belajar-fundamental-bisnis-kursus-mini-mba/',
+        courseHours: 8.5,
+      },
+      {
+        platform: 'Udemy',
+        courseTitle:
+          'Jurus Jitu dalam Menyusun Strategi Bisnis dan Implementasi',
+        courseUrl:
+          'https://www.udemy.com/course/jurus-jitu-dalam-menyusun-strategi-bisnis-dan-implementasi/',
+        courseHours: 2.5,
       },
       {
         platform: 'Internal',
@@ -175,7 +186,7 @@ const roadmapStages: RoadmapStage[] = [
       },
       {
         type: 'certificate',
-        label: 'Strategic Planning & Management Certificate',
+        label: 'Sertifikat Mini MBA & Strategi Bisnis',
         issuer: 'Udemy',
       },
     ],
@@ -183,8 +194,8 @@ const roadmapStages: RoadmapStage[] = [
   },
 ];
 
-const WEEKLY_STUDY_HOURS = 3;
-const TOTAL_TIMELINE_WEEKS = 30;
+const WEEKLY_STUDY_HOURS = 1.8;
+const TOTAL_TIMELINE_WEEKS = 25;
 const MONTH_BANDS: Array<{ label: string; span: number }> = [
   { label: 'Jun', span: 4 },
   { label: 'Jul', span: 4 },
@@ -192,7 +203,6 @@ const MONTH_BANDS: Array<{ label: string; span: number }> = [
   { label: 'Sep', span: 4 },
   { label: 'Okt', span: 4 },
   { label: 'Nov', span: 4 },
-  { label: 'Des', span: 5 },
 ];
 
 function getStageUdemyHours(stage: RoadmapStage): number {
