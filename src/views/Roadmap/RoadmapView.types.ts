@@ -12,6 +12,9 @@ export interface RoadmapActivity {
   courseTitle: string;
   courseUrl?: string;
   courseHours?: number;
+  coursePrice?: string;
+  totalVideos?: number;
+  downloadableVideos?: number;
 }
 
 export interface RoadmapOutput {

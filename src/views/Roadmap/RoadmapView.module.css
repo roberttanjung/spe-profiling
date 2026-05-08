@@ -298,8 +298,9 @@
 }
 
 .activityLink {
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
   gap: 8px;
   text-decoration: none;
   padding: 8px 10px;
@@ -316,8 +317,7 @@
 }
 
 .activityItem {
-  display: flex;
-  align-items: center;
+  display: grid;
   gap: 8px;
   padding: 8px 10px;
   border-radius: 8px;
@@ -325,10 +325,49 @@
 }
 
 .activityContent {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.activityMainRow {
   display: flex;
   align-items: center;
   gap: 8px;
-  flex: 1;
+  min-width: 0;
+}
+
+.activityMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.metaItem {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 3px 8px;
+  font-size: 0.69rem;
+  color: var(--ink-muted);
+  border: 1px solid var(--border);
+  background: var(--surface-soft);
+}
+
+.priceMetaItem {
+  color: #166534;
+  border-color: color-mix(in srgb, #16a34a 38%, #bbf7d0 62%);
+  background: color-mix(in srgb, #dcfce7 85%, white 15%);
+  font-weight: 700;
+}
+
+.priceValue {
+  color: #15803d;
+  font-weight: 800;
+  white-space: nowrap;
 }
 
 .platformBadge {
@@ -356,14 +395,7 @@
   font-size: 0.85rem;
   color: var(--ink);
   line-height: 1.4;
-}
-
-.externalIcon {
-  width: 13px;
-  height: 13px;
-  fill: var(--ink-muted);
-  flex-shrink: 0;
-  margin-left: auto;
+  min-width: 0;
 }
 
 /* ─── Output List ───────────────────────────────────────── */
@@ -556,6 +588,8 @@
   font-size: 0.75rem;
   color: var(--ink-muted);
 }
+
+/* ─── Course Overview ──────────────────────────────────── */
 
 /* ─── Responsive ────────────────────────────────────────── */
 

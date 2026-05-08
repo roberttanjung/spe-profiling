@@ -25,6 +25,7 @@ const roadmapStages: RoadmapStage[] = [
         courseUrl:
           'https://www.udemy.com/course/leadership-mastery-for-supervisor-kepemimpinan-supervisory/',
         courseHours: 4,
+        coursePrice: 'Rp129.000',
       },
       {
         platform: 'Udemy',
@@ -32,6 +33,7 @@ const roadmapStages: RoadmapStage[] = [
         courseUrl:
           'https://www.udemy.com/course/leadership-guide-for-first-time-leader/',
         courseHours: 0.5,
+        coursePrice: 'Rp129.000',
       },
     ],
     outputs: [
@@ -57,12 +59,14 @@ const roadmapStages: RoadmapStage[] = [
         courseUrl:
           'https://www.udemy.com/course/interpersonal-dan-komunikasi-bisnis/',
         courseHours: 12.5,
+        coursePrice: 'Rp149.000',
       },
       {
         platform: 'Udemy',
         courseTitle: 'Manajemen Tim dan Karyawan',
         courseUrl: 'https://www.udemy.com/course/manajemen-tim-dan-karyawan/',
         courseHours: 1.5,
+        coursePrice: 'Rp129.000',
       },
     ],
     outputs: [
@@ -88,6 +92,7 @@ const roadmapStages: RoadmapStage[] = [
         courseUrl:
           'https://www.udemy.com/course/fundamental-critical-thinking-bahasa/',
         courseHours: 1,
+        coursePrice: 'Rp129.000',
       },
       {
         platform: 'Udemy',
@@ -95,6 +100,7 @@ const roadmapStages: RoadmapStage[] = [
         courseUrl:
           'https://www.udemy.com/course/berfikir-kritis-dan-efektif-dalam-pengambilan-keputusan/',
         courseHours: 2,
+        coursePrice: 'Rp129.000',
       },
     ],
     outputs: [
@@ -125,6 +131,7 @@ const roadmapStages: RoadmapStage[] = [
         courseUrl:
           'https://www.udemy.com/course/menguasai-scrum-untuk-remote-worker-indonesia/',
         courseHours: 6,
+        coursePrice: 'Rp149.000',
       },
       {
         platform: 'Udemy',
@@ -132,6 +139,7 @@ const roadmapStages: RoadmapStage[] = [
         courseUrl:
           'https://www.udemy.com/course/lebih-dalam-praktek-agile-development-untuk-organisasi/',
         courseHours: 3,
+        coursePrice: 'Rp129.000',
       },
     ],
     outputs: [
@@ -164,6 +172,7 @@ const roadmapStages: RoadmapStage[] = [
         courseUrl:
           'https://www.udemy.com/course/belajar-fundamental-bisnis-kursus-mini-mba/',
         courseHours: 8.5,
+        coursePrice: 'Rp149.000',
       },
       {
         platform: 'Udemy',
@@ -172,6 +181,7 @@ const roadmapStages: RoadmapStage[] = [
         courseUrl:
           'https://www.udemy.com/course/jurus-jitu-dalam-menyusun-strategi-bisnis-dan-implementasi/',
         courseHours: 2.5,
+        coursePrice: 'Rp129.000',
       },
       {
         platform: 'Internal',
@@ -209,6 +219,34 @@ function getStageUdemyHours(stage: RoadmapStage): number {
   return stage.activities
     .filter((activity) => activity.platform === 'Udemy')
     .reduce((sum, activity) => sum + (activity.courseHours ?? 0), 0);
+}
+
+function estimateVideoCount(hours?: number): number {
+  if (!hours || hours <= 0) {
+    return 0;
+  }
+
+  return Math.max(1, Math.round((hours * 60) / 12));
+}
+
+function resolveVideoCount(
+  activity: RoadmapStage['activities'][number],
+): number {
+  return activity.totalVideos ?? estimateVideoCount(activity.courseHours);
+}
+
+function resolveDownloadableVideos(
+  activity: RoadmapStage['activities'][number],
+): number {
+  return activity.downloadableVideos ?? resolveVideoCount(activity);
+}
+
+function formatHourLabel(hours?: number): string {
+  if (!hours || hours <= 0) {
+    return '-';
+  }
+
+  return `${hours.toFixed(1)} jam`;
 }
 
 function GanttChart() {
@@ -318,19 +356,42 @@ function ActivityItem({
 }: {
   activity: RoadmapStage['activities'][number];
 }) {
+  const downloadableVideos = resolveDownloadableVideos(activity);
+
   const content = (
-    <span className={styles.activityContent}>
-      <span
-        className={`${styles.platformBadge} ${
-          activity.platform === 'Udemy'
-            ? styles.platformUdemy
-            : styles.platformInternal
-        }`}
-      >
-        {activity.platform}
+    <>
+      <span className={styles.activityContent}>
+        <span
+          className={`${styles.platformBadge} ${
+            activity.platform === 'Udemy'
+              ? styles.platformUdemy
+              : styles.platformInternal
+          }`}
+        >
+          {activity.platform}
+        </span>
+        <span className={styles.activityMainRow}>
+          <span className={styles.activityTitle}>{activity.courseTitle}</span>
+          {activity.platform === 'Udemy' && (
+            <span className={`${styles.metaItem} ${styles.priceMetaItem}`}>
+              <strong className={styles.priceValue}>
+                {activity.coursePrice ?? 'Rp 129.000'}
+              </strong>
+            </span>
+          )}
+        </span>
       </span>
-      <span className={styles.activityTitle}>{activity.courseTitle}</span>
-    </span>
+      {activity.platform === 'Udemy' && (
+        <span className={styles.activityMeta}>
+          <span className={styles.metaItem}>
+            {formatHourLabel(activity.courseHours)}
+          </span>
+          <span className={styles.metaItem}>
+            {downloadableVideos} Video Download
+          </span>
+        </span>
+      )}
+    </>
   );
 
   if (activity.courseUrl) {
@@ -343,13 +404,6 @@ function ActivityItem({
         aria-label={`Buka kursus: ${activity.courseTitle}`}
       >
         {content}
-        <svg
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-          className={styles.externalIcon}
-        >
-          <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42L17.59 5H14V3ZM5 5h6V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-6h-2v6H5V5Z" />
-        </svg>
       </a>
     );
   }
