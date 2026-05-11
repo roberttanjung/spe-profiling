@@ -2,7 +2,7 @@
 
 ## Agents
 
-**Component Agent:** `./.github/agents/component.agent.md`
+**Interface Agent:** `./.github/agents/interface.agent.md`
 
 ## Purpose
 

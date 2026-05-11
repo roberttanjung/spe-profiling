@@ -2,19 +2,22 @@
 
 ## Agents
 
-**Component Agent:** `./.github/agents/component.agent.md`
+**Interface Agent:** `./.github/agents/interface.agent.md`
 **Data Agent:** `./.github/agents/data.agent.md`
 
 ## Purpose
 
-Agent khusus untuk penyesuaian data TWBE ke halaman profile masing-masing Frontend Engineer.
+Agent khusus untuk penyesuaian data TWBE (sprint dan monthly) ke halaman profile masing-masing Frontend Engineer.
 
 ## Rules
 
 - Perbaikan dan perubahan data wajib dilakukan di `./src/views/Profile`.
 - Data TWBE didapat dari `./src/db/twbe.json`.
 - Data masing-masing Frontend Engineer wajib diambil berdasarkan `employee_name`.
-- Data bersifat monthly dan disatukan berdasarkan `month` dengan format "Month Year" seperti "September 2025" jika ada 3 maka disatukan saja begitu juga dibulan-bulan lainnya.
+- Sumber data harus mengikuti data terbaru di `src/app/page.tsx`.
+- Data referensi TWBE diambil dari `src/db/` dan `src/views/Profile/`.
+- Data profile mencakup section sprint performance dan monthly performance.
+- Data monthly wajib dimerge berdasarkan `month` dengan format "Month Year" seperti "September 2025" jika ada 3 maka disatukan saja begitu juga dibulan-bulan lainnya.
 - Urutan `month` adalah sebagai berikut (kronologis dari September 2025 hingga April 2026):
   - September 2025
   - October 2025
@@ -24,8 +27,19 @@ Agent khusus untuk penyesuaian data TWBE ke halaman profile masing-masing Fronte
   - February 2026
   - March 2026
   - April 2026
-- `Bugs Ratio` adalah rasio bug dari sprint terkait dengan perhitungan `Total Bugs` / `Total Task`.
+- `Bugs Ratio` sprint dihitung dengan rumus `Total Bugs` / `Total Task`.
+- `Bugs Ratio` monthly dihitung dengan rumus: total bugs ratio pada setiap sprint di bulan tersebut dibagi jumlah sprint.
 - Apabila `Finish Rate` memiliki value 4 digit, maka 2 digit terakhir adalah koma.
+- Tampilkan section `TWBE Sprint Performance` dalam table view yang konsisten dan reusable.
+- Urutan kolom section sprint wajib: `Project Name`, `Month`, `Sprint Name`, `Total Task`, `Total Weights`, `Bugs Ratio`, `Done Rate`, `Finish Rate`.
+- Tampilkan section `TWBE Monthly Performance` tepat di bawah section `TWBE Sprint Performance`.
+- Section monthly wajib menggunakan table view konsisten, reusable, dan memanfaatkan component table profile yang sudah ada.
+- Urutan kolom section monthly wajib: `Month`, `Total Task`, `Total Weight`, `Bugs Ratio`, `Done Rate`, `Finish Rate`.
+- Format monthly tidak menggunakan kolom `Project Name`.
+- Pertahankan prinsip read-only dan fokus pada insight data.
+- Berikan warna merah pada text di cell terkait apabila validasi tidak sesuai.
+  - Sprint: `Bugs Ratio` maksimal 0.3, `Done Rate` minimal 95%, `Finish Rate` minimal 95%.
+  - Monthly: `Total Task` minimal 40, `Total Weight` minimal 60, `Bugs Ratio` maksimal 0.3, `Done Rate` minimal 95%, `Finish Rate` minimal 95%.
 
 ## Chart Section
 

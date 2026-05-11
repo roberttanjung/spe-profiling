@@ -1,49 +1,39 @@
-# Prompt: Profile PR
+# Prompt: Profile Update PR
 
 ## Objective
 
-Buat halaman baru untuk menampilkan profil dari seorang Frontend Engineer.
+Fokus sesi ini adalah melakukan update pada profile Frontend Engineer yang sudah ada.
 
-## Variabel
+## Scope
 
-- `name`: Nama lengkap dari Frontend Engineer.
-- `date_of_birth`: Tanggal lahir dari Frontend Engineer.
-- `level_grade`: Tingkat atau grade dari Frontend Engineer dalam perusahaan.
-- `joined_date`: Tanggal bergabung dengan perusahaan.
-- `projects`: Daftar proyek yang saat sedang dikerjakan oleh Frontend Engineer.
-- `guilds`: Daftar guild yang saat sedang dikerjakan oleh Frontend Engineer.
+- Hanya mode Update/Edit.
+- Tidak membuat halaman profile baru.
+- Tidak mengubah struktur routing profile.
 
-## Navigasi
+## Rules
 
-- **Path**: `/profile/{name}`
+- Gunakan file README.md di `./src/views/Profile/` berdasarkan nama engineer sebagai referensi utama.
+- Ubah kalimat agar lebih mudah dipahami, spesifik, dan konsisten.
+- Prioritaskan perbaikan data/isi di area profile yang sudah ada.
+- Untuk aturan teknis TWBE, chart, monthly, dan validasi, ikuti source of truth di `./.github/agents/profile.agent.md`.
 
-### Rules
+## Aspek yang dicari
 
-- Path url berformat kebab-case dengan nama lengkap dari Frontend Engineer.
+- Tipe kolaborasi
+- Gaya kerja
+- Daftar kelebihan dari `Good`
+- Daftar kekurangan dari `Needs Improve`
+- Arah karir berbasis roadmap
+- Potensi atau unique selling point
+- Bare minimum sebagai Front End Engineer
 
-## Conditions
+## To Do
 
-- Jika nama telah digunakan maka akan menjadi mode Edit, jika belum maka akan menjadi mode Create.
-- Edit Flow akan dijalankan jika mode adalah Edit
-- Create Flow akan dijalankan jika mode adalah Create
-- Sesuaikan tampilan apabila mode Edit tidak sesuai dengan hasil Create Flow
-
-## Create Flow
-
-- Tambahkan halaman baru dengan cara membuat file baru di `/src/app/(admin)/profile/{name}.tsx` dengan format nama file menggunakan kebab-case.
-- Daftarkan halaman profil baru ini ke dalam sidebar menu Profil.
-- Gunakan folder `/src/views/Profile/{name}/` dengan format PascalCase untuk menyimpan komponen-komponen yang digunakan di halaman profil.
-- Gunakan component reusable `/src/components/ProfileInfoTable/` untuk menampilkan data profil dalam format tabel vertikal.
-- Tampilkan informasi yang relevan seperti nama, tanggal lahir, umur, tingkat atau grade, tanggal bergabung, lama bekerja di perusahaan, proyek yang sedang dikerjakan, dan guilds yang sedang dikerjakan di halaman profil dalam bentuk yang mudah dibaca dan menarik secara visual.
-- Tambahkan file README.md di dalam folder profil yang berisi dokumentasi singkat tentang halaman profil tersebut, termasuk informasi tentang data yang ditampilkan dan cara menggunakannya.
-
-## Edit Flow
-
-- Berfokus terhadap apa yang ingin di ubah
-
-## Interface
-
-- Tampilan berbentuk Table view dalam dalam mode vertikal dengan informasi yang ditampilkan secara jelas dan terstruktur
-- Judul row (kolom label) wajib rata kiri.
-- Jika value berisi multiple item (contoh: projects atau guilds), tampilkan secara horizontal menggunakan chip/list item dan harus otomatis pindah baris (wrap) saat melewati lebar wadah.
-- Untuk value multiple, kirim data dalam bentuk array agar dirender konsisten oleh component reusable table.
+- [ ] Jalankan penyesuaian perubahan yang dibutuhkan pada mode Update/Edit.
+- [ ] Ubah kalimat Kelebihan dan Kekurangan agar lebih mudah dipahami dan lebih spesifik.
+- [ ] Gunakan `Personal` di README.md untuk menggali tambahan konteks kelebihan dan kekurangan.
+- [ ] Generate informasi dari bagian README.md selain `Personal`, `Good`, dan `Needs Improve` untuk menjelaskan aktivitas engineer.
+- [ ] Generate `Aspek yang dicari` berdasarkan data yang sudah didapatkan.
+- [ ] Lakukan perubahan terhadap sesi yang meiliki tanda `[updated]` di README.md. Lalu hapus tanda `[updated]` apabila telah selesai diperbarui.
+- [ ] Pada sesi `POINTS`, apabila terjadi perubahan dan sudah dilakukan implementasi, pastikan untuk memperbarui informasi yang relevan dan hapus isi yang di `POINTS`.
+- [ ] Pastikan lakukan penyesuaian apabila terjadi perubahan data di setiap `README.md`. Lakukan penyesuaian disetiap Halaman atau Modul terdampak.
