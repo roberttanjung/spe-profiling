@@ -1,15 +1,8 @@
 # Rafli Rai Rizky
 
-## POINTS
+## [updated] POINTS
 
-- Belum ada inovasi
-- Bertindak sebagai player
-- Peringkat 1 di bulan ... dalam segi jumlah task
-- Pandai berkalimat
-- Cepat menyimpulkan dan kurang kritis
-- Pembuatan judul task sulit dipahami
-- Saat membuat penjelasan di Chat Teams, ybs sering menggunakan Enter berkali-kali
-- Cukup jarang membaca pesan di group, beberapa kali perlu di Tag terlebih dahulu agar responnya terlihat
+- Cepat menyadari kekurangan
 
 ## Personal
 
@@ -18,28 +11,26 @@
 - Pandai dalam menyusun kalimat
 - Pandai dalam berstrategi
 
-## [progress] CRING! Point
+## [updated] CRING! Point
 
-- Simulator
-  - [need-ask] Setup Portal Simulator
-  - [apakah-di-simulator] Page Active Account
-  - Page Forgot Password
-  - Page Create New Password
-  - Implement Docker
-- Admin
-  - Page User: List, Detail
-    - [need-ask] Create, Update
-    - ada di portal admin dan customer?
-- Setup SonarQube
-- Enhancement
-- Adjustment
-- [need-ask] Refactor Structure Code
-  - Kenapa? Berapa lama?
-- Implement Sentry
-- Unit Testing
-- Fixing CVE: Axios
-
-Bertanggung jawab dalam pengerjaan berbagai macam modul terutama dalam inisiasi pembuatan Portal baru Simulator. Adapun modul lain yang dikerjakan adalah sebagai berikut:
+- Pengerjaan di Portal Simulator terkait:
+  - Inisiasi dan setup konfigurasi Portal Simulator dengan menggunakan Next JS
+  - Mengerjaan Modul Simulator Pembayaran QRIS walaupun pada saat ini modul tersebut sedang dalam status non-aktif
+  - Mengerjaan Modul Simulator Pembayaran VA
+  - Implementiasi Docker
+- Pengerjaan di Portal Admin terkait penambahan Modul User besarta sub-modulnya berupa: List User, Detail User, Tambah User dan Ubah User
+- Pengerjaan di Portal Customer terkait pengerjaan di Modul autentikasi, seperti:
+  - Halaman untuk Active Account yang berguna untuk mengaktifkan status user
+  - Halaman Forgot Password agar mempermudah user untuk melakukan pengambilan password yang dilupakan
+  - Halama Create New Password untuk membantu user untuk membuat password baru
+- Aktif dalam menangani perubahan Bisnis dan diimplementasikan di Project
+- Melakukan Refactor Structure Code untuk menghindari `Props Drilling` atau penempatan file didalam folder yang berlapis-lapis serta meningkatkan efisiensi kode di Modul Fee Merchant beserta sub-modulnya: List Fee Merchant, Detail Fee Merchant dan Ubah Fee Merchant
+- Melakukan Implement Sentry untuk monitoring Issue yang terjadi di sisi Client
+- Meningkatkan Unit Testing Coverage area di semua Portal, yaitu:
+  - Di Portal Simulator dari 0% menjadi 33.94%
+  - Di Portal Admin menjadi 94.01%
+  - Di Portal Customer dari 92% menjadi 98.69%
+    Melakukan fixing issue CVE yang muncul dari package bernama Axios. Issue tersebut dapat mengijinkan aplikasi untuk menjalankan kode berbahaya yang ditanam oleh Attackers.
 
 ## CRING!
 
