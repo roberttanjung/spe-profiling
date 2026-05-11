@@ -364,7 +364,7 @@ export default function ProfileView({ profile, headingId }: ProfileViewProps) {
 
       <ProfileInfoTable rows={profileRows} />
 
-      <ProfileChartSection rows={twbeChartRows} />
+      {profile.softProfile && <SoftProfileSection data={profile.softProfile} />}
 
       {adjustedRatings && (
         <BareMinimumSection
@@ -386,8 +386,6 @@ export default function ProfileView({ profile, headingId }: ProfileViewProps) {
         />
       )}
 
-      {profile.softProfile && <SoftProfileSection data={profile.softProfile} />}
-
       {profile.careerRoadmap && profile.careerRoadmap.length > 0 && (
         <CareerRoadmapSection
           goal={profile.careerRoadmapGoal}
@@ -398,6 +396,8 @@ export default function ProfileView({ profile, headingId }: ProfileViewProps) {
       {profile.activities && profile.activities.length > 0 && (
         <ActivitiesSection items={profile.activities} />
       )}
+
+      <ProfileChartSection rows={twbeChartRows} />
 
       <ProfileMonthlyTable rows={twbeMonthlyRows} />
 

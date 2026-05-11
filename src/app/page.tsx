@@ -1,6 +1,8 @@
+import Link from 'next/link';
 import EngineerComparisonChartSection from '@/components/EngineerComparisonChartSection';
 import AdaptiveTooltip from '@/components/AdaptiveTooltip';
 import { getTwbeMonthlyRowsByEmployeeName } from '@/utils/twbe';
+import { engineerNavigationItems } from '@/utils/navigation';
 import { allEngineerProfiles } from '@/views/Profile';
 import {
   BARE_MINIMUM_MATRIX,
@@ -104,6 +106,24 @@ function StarRating({ count, reason }: { count: number; reason: string }) {
 }
 
 export default function Home() {
+  const engineerPathByName = new Map(
+    engineerNavigationItems.map((item) => [item.name, item.path]),
+  );
+
+  const renderEngineerName = (name: string) => {
+    const path = engineerPathByName.get(name);
+
+    if (!path) {
+      return name;
+    }
+
+    return (
+      <Link href={path} className={styles.engineerNameLink}>
+        {name}
+      </Link>
+    );
+  };
+
   const summaryRows = allEngineerProfiles.map((profile) => {
     const monthlyRows = getTwbeMonthlyRowsByEmployeeName(profile.name);
     const totalTask = monthlyRows.reduce((sum, row) => sum + row.totalTask, 0);
@@ -139,6 +159,9 @@ export default function Home() {
       bareMinimumAvg: getAverageBareMinimumScore(adjustedRatings),
       bareMinimumRatings: adjustedRatings,
       bareMinimumReasons: profile.bareMinimumReasons,
+      good: profile.good ?? [],
+      needsImprove: profile.needsImprove ?? [],
+      careerRoadmapGoal: profile.careerRoadmapGoal,
       softProfile: {
         collaborationType: profile.softProfile?.collaborationType ?? '-',
         workStyle: profile.softProfile?.workStyle ?? '-',
@@ -159,7 +182,86 @@ export default function Home() {
 
   return (
     <main className={styles.mainContent}>
-      <EngineerComparisonChartSection rows={comparisonChartRows} />
+      <section className={styles.panel} aria-labelledby="comparison-title">
+        <div className={styles.panelHeader}>
+          <h1 id="comparison-title">Summary Komparasi</h1>
+          <p>
+            Ringkasan komparasi identitas, level, umur, lama bekerja, dan skor
+            evaluasi kualitas setiap engineer.
+          </p>
+        </div>
+        <div className={styles.tableWrap}>
+          <table className={styles.table}>
+            <caption className={styles.srOnly}>
+              Tabel komparasi identitas dan skor evaluasi seluruh engineer
+              frontend
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Nama Engineer</th>
+                <th scope="col">Level/Grade</th>
+                <th scope="col">Umur</th>
+                <th scope="col">Lama bekerja</th>
+                <th scope="col" className={styles.whiteSpaceNowrap}>
+                  Bare Minimum Avg
+                </th>
+                <th scope="col">Kelebihan Utama</th>
+              </tr>
+            </thead>
+            <tbody>
+              {summaryRows.map((row) => (
+                <tr key={row.name}>
+                  <th scope="row">{renderEngineerName(row.name)}</th>
+                  <td>{row.levelGrade}</td>
+                  <td className={styles.whiteSpaceNowrap}>{row.age} tahun</td>
+                  <td className={styles.whiteSpaceNowrap}>{row.tenure}</td>
+                  <td className={styles.whiteSpaceNowrap}>
+                    {row.bareMinimumAvg.toFixed(2)} / 5
+                  </td>
+                  <td>{row.softProfile.strengths}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section className={styles.panel} aria-labelledby="aspek-profil-title">
+        <div className={styles.panelHeader}>
+          <h2 id="aspek-profil-title">Aspek Profil Komparasi</h2>
+          <p>
+            Karakteristik kerja dan potensi kontribusi setiap engineer melalui
+            profil soft skill, gaya kolaborasi, dan unique selling point.
+          </p>
+        </div>
+        <div className={styles.tableWrap}>
+          <table className={`${styles.table} ${styles.profileAspectTable}`}>
+            <caption className={styles.srOnly}>
+              Tabel komparasi aspek profil seluruh engineer frontend
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Nama Engineer</th>
+                {SOFT_PROFILE_TEXT_KEYS.map((key) => (
+                  <th key={key} scope="col">
+                    {SOFT_PROFILE_TEXT_LABELS[key]}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {summaryRows.map((row) => (
+                <tr key={`${row.name}-aspek-profil`}>
+                  <th scope="row">{renderEngineerName(row.name)}</th>
+                  {SOFT_PROFILE_TEXT_KEYS.map((key) => (
+                    <td key={key}>{row.softProfile[key]}</td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
 
       <section
         className={`${styles.panel} ${styles.panelBareMinimum}`}
@@ -168,8 +270,8 @@ export default function Home() {
         <div className={styles.panelHeader}>
           <h2 id="bare-minimum-title">Bare Minimum Frontend Engineer</h2>
           <p>
-            Komparasi nilai Bare Minimum setiap engineer berdasarkan tujuh aspek
-            penilaian.
+            Evaluasi kualitas kompeten setiap engineer berdasarkan tujuh aspek
+            penilaian fundamental frontend.
           </p>
         </div>
         <div className={`${styles.tableWrap} ${styles.tableWrapBareMinimum}`}>
@@ -224,7 +326,7 @@ export default function Home() {
             <tbody>
               {summaryRows.map((row) => (
                 <tr key={`${row.name}-bare-minimum`}>
-                  <th scope="row">{row.name}</th>
+                  <th scope="row">{renderEngineerName(row.name)}</th>
                   {BARE_MINIMUM_MATRIX.map((column) => (
                     <td key={column.ratingKey} className={styles.starsCell}>
                       {row.bareMinimumRatings ? (
@@ -247,36 +349,43 @@ export default function Home() {
         </div>
       </section>
 
-      <section className={styles.panel} aria-labelledby="aspek-profil-title">
+      <section className={styles.panel} aria-labelledby="kelebihan-title">
         <div className={styles.panelHeader}>
-          <h2 id="aspek-profil-title">Aspek Profil Komparasi</h2>
+          <h2 id="kelebihan-title">Kelebihan Komparasi</h2>
           <p>
-            Komparasi aspek profil soft masing-masing engineer untuk melihat
-            pola kerja dan potensi kontribusi.
+            Daftar kelebihan utama setiap engineer berdasarkan evaluasi kinerja
+            dan pola kontribusi selama periode profiling.
           </p>
         </div>
         <div className={styles.tableWrap}>
-          <table className={`${styles.table} ${styles.profileAspectTable}`}>
+          <table className={styles.table}>
             <caption className={styles.srOnly}>
-              Tabel komparasi aspek profil seluruh engineer frontend
+              Tabel kelebihan seluruh engineer frontend
             </caption>
             <thead>
               <tr>
                 <th scope="col">Nama Engineer</th>
-                {SOFT_PROFILE_TEXT_KEYS.map((key) => (
-                  <th key={key} scope="col">
-                    {SOFT_PROFILE_TEXT_LABELS[key]}
-                  </th>
-                ))}
+                <th scope="col">Kelebihan</th>
               </tr>
             </thead>
             <tbody>
               {summaryRows.map((row) => (
-                <tr key={`${row.name}-aspek-profil`}>
-                  <th scope="row">{row.name}</th>
-                  {SOFT_PROFILE_TEXT_KEYS.map((key) => (
-                    <td key={key}>{row.softProfile[key]}</td>
-                  ))}
+                <tr key={`${row.name}-good`}>
+                  <th scope="row">{renderEngineerName(row.name)}</th>
+                  <td>
+                    {row.good.length > 0 ? (
+                      <ul className={styles.evalList}>
+                        {row.good.map((item) => (
+                          <li key={item.title} className={styles.evalListItem}>
+                            <strong>{item.title}</strong>
+                            <span>{item.description}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      '-'
+                    )}
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -284,43 +393,93 @@ export default function Home() {
         </div>
       </section>
 
-      <section className={styles.panel} aria-labelledby="comparison-title">
+      <section className={styles.panel} aria-labelledby="needs-improve-title">
         <div className={styles.panelHeader}>
-          <h1 id="comparison-title">Summary Komparasi</h1>
+          <h2 id="needs-improve-title">Area Pengembangan Komparasi</h2>
           <p>
-            Ringkasan komparasi aspek profil menggunakan referensi level, umur,
-            dan lama bekerja.
+            Hal-hal yang perlu ditingkatkan setiap engineer sebagai bagian dari
+            rencana pengembangan diri yang berkelanjutan.
           </p>
         </div>
         <div className={styles.tableWrap}>
           <table className={styles.table}>
             <caption className={styles.srOnly}>
-              Tabel komparasi aspek profil seluruh engineer frontend
+              Tabel area pengembangan seluruh engineer frontend
             </caption>
             <thead>
               <tr>
                 <th scope="col">Nama Engineer</th>
-                <th scope="col">Level/Grade</th>
-                <th scope="col">Umur</th>
-                <th scope="col">Lama bekerja</th>
-                <th scope="col">Bare Minimum Avg</th>
-                <th scope="col">Kelebihan Utama</th>
+                <th scope="col">Perlu Ditingkatkan</th>
               </tr>
             </thead>
             <tbody>
               {summaryRows.map((row) => (
-                <tr key={row.name}>
-                  <th scope="row">{row.name}</th>
-                  <td>{row.levelGrade}</td>
-                  <td>{row.age} tahun</td>
-                  <td>{row.tenure}</td>
-                  <td>{row.bareMinimumAvg.toFixed(2)} / 5</td>
-                  <td>{row.softProfile.strengths}</td>
+                <tr key={`${row.name}-improve`}>
+                  <th scope="row">{renderEngineerName(row.name)}</th>
+                  <td>
+                    {row.needsImprove.length > 0 ? (
+                      <ul className={styles.evalList}>
+                        {row.needsImprove.map((item) => (
+                          <li key={item.title} className={styles.evalListItem}>
+                            <strong>{item.title}</strong>
+                            <span>{item.description}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      '-'
+                    )}
+                  </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
+      </section>
+
+      <section className={styles.panel} aria-labelledby="roadmap-title">
+        <div className={styles.panelHeader}>
+          <h2 id="roadmap-title">Career Trajectory Komparasi</h2>
+          <p>
+            Tujuan karir setiap engineer sebagai gambaran arah pengembangan
+            jangka menengah dalam periode profiling.
+          </p>
+        </div>
+        <div className={styles.tableWrap}>
+          <table className={styles.table}>
+            <caption className={styles.srOnly}>
+              Tabel career trajectory seluruh engineer frontend
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Nama Engineer</th>
+                <th scope="col">Tujuan Karir</th>
+              </tr>
+            </thead>
+            <tbody>
+              {summaryRows.map((row) => (
+                <tr key={`${row.name}-roadmap`}>
+                  <th scope="row">{renderEngineerName(row.name)}</th>
+                  <td>{row.careerRoadmapGoal ?? '-'}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section
+        className={`${styles.panel} ${styles.panelComparison}`}
+        aria-labelledby="chart-comparison-title"
+      >
+        <div className={styles.panelHeader}>
+          <h2 id="chart-comparison-title">Performa TWBE Komparasi</h2>
+          <p>
+            Data performa TWBE setiap engineer periode September 2025 - April
+            2026 dalam komparasi visual.
+          </p>
+        </div>
+        <EngineerComparisonChartSection rows={comparisonChartRows} />
       </section>
     </main>
   );

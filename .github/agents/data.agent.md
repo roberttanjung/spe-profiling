@@ -75,3 +75,34 @@ Dashboard dan Profile View keduanya derive tabel Aspek Profil dari konstanta ini
 ### Reference Date
 
 Konstanta `REFERENCE_DATE` di `src/db/constants.ts` menetapkan baseline untuk kalkulasi umur dan lama bekerja (5 Mei 2026, akhir periode profiling). Dashboard dan Profile View keduanya menggunakan date yang sama, sehingga umur dan tenure engineer identik di semua halaman.
+
+## Dashboard Section Ordering
+
+Urutan section di Dashboard (`src/app/page.tsx`) dirancang untuk memandu pembaca melalui profiling dari yang umum ke spesifik: **Identitas → Karakteristik → Kualitas → Performa**.
+
+### Urutan Section
+
+1. **Summary Komparasi** (Identitas)
+   - Biodata dasar setiap engineer: nama, level/grade, umur, lama bekerja
+   - Overview score: Bare Minimum Avg dan kelebihan utama
+   - Tujuan: Pembaca langsung kenal siapa engineers, level berapa, score berapa
+
+2. **Aspek Profil Komparasi** (Karakteristik)
+   - Soft profile setiap engineer: tipe kolaborasi, gaya kerja, kelebihan, area pengembangan, USP
+   - Tujuan: Pembaca memahami karakteristik kerja dan cara mereka berkontribusi
+
+3. **Bare Minimum Frontend Engineer** (Kualitas)
+   - Evaluasi kualitas kompeten per 7 aspek fundamental frontend
+   - Rating disesuaikan dengan KPI achievement TWBE monthly
+   - Tujuan: Pembaca tahu kualitas evaluasi setiap engineer secara mendetail
+
+4. **Performa TWBE Komparasi** (Performa)
+   - Data performa TWBE dalam bentuk visual chart
+   - Metrik: total task, total weight, bugs ratio, finish rate per engineer
+   - Tujuan: Pembaca yang ingin deep dive ke data aktual TWBE
+
+### Prinsip Ordering
+
+- Navigasi dari identitas (siapa?) → karakteristik (bagaimana cara kerjanya?) → kualitas (seberapa baik?) → performa (data apa saja?)
+- Setiap section berdiri sendiri tapi saling melengkapi narasi profiling
+- Title dan description setiap section jelas menyebutkan tujuan setiap tahap evaluasi
