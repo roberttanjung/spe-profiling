@@ -67,6 +67,60 @@ Fokus sesi ini adalah memperbarui profile Frontend Engineer yang sudah ada secar
 7. Jika `POINTS` sudah selesai diimplementasikan, pindahkan dampaknya ke sesi yang relevan lalu kosongkan isi `POINTS`.
 8. Lakukan pengecekan akhir untuk memastikan tidak ada evidence penting yang hilang akibat peringkasan narasi.
 
+## Career Roadmap Update
+
+Sesi ini mengelola pembaruan career roadmap Engineer yang fokus pada Peningkatan dan Arah Karir.
+
+### Objectives
+
+- Buat atau sesuaikan career roadmap Engineer tahun 2026 berdasarkan area peningkatan dan arah karir personal
+- Tampilkan roadmap dalam bentuk 5 tahap dengan timeline kuartal (Juni-November 2026)
+- Integrasikan aktivitas course online dari platform terpercaya sebagai bagian roadmap
+- Tentukan output fisik yang terukur dan realistis untuk setiap tahap
+
+### Source
+
+- Gunakan referensi dari `./src/views/Profile/<EngineerName>/README.md` sebagai sumber area peningkatan dan arah karir
+- Gunakan `./src/views/Profile/<EngineerName>/` sebagai lokasi data career roadmap
+- Gunakan `./.github/agents/profile.agent.md` untuk aturan teknis career roadmap section
+
+### Tasks Career Roadmap
+
+- Identifikasi area peningkatan utama Engineer berdasarkan bagian `DEVELOPMENT` di README.md
+- Sesuaikan atau buat 5 tahap roadmap yang runtut dengan focus dan learning objectives yang jelas
+- Tambahkan aktivitas course online dengan metadata lengkap: `courseTitle`, `courseUrl`, `courseHours`
+- Gunakan hanya course dari platform terpercaya (preferensi: Udemy) yang tersedia dan valid
+- Gunakan hanya course berbahasa Indonesia
+- Hitung estimasi timeline berdasarkan total durasi course agar dasar penentuan waktunya jelas
+- Tentukan output per tahap: sertifikat, dokumen keputusan, design proposal, presentasi, atau portfolio pengembangan
+- Batasi deadline roadmap sampai November 2026
+- Pastikan timeline responsive dan terbaca pada layar kecil dengan scroll horizontal jika diperlukan
+- Pastikan tujuan roadmap selaras dengan DR Cosma Grom dan kemampuan Learning yang perlu ditingkatkan
+
+### Rules Career Roadmap Update
+
+- Tujuan roadmap wajib selaras dengan `DR Cosma Grom` (Discipline, Resilience, Collaboration, Smart Working, Growth Mindset)
+- Roadmap harus realistis berdasarkan proses dan hasil yang bisa dilihat secara fisik (course completion, dokumentasi, presentasi)
+- Pada sesi Timeline, tampilkan hanya judul tahap karena detail lengkap sudah tersedia di card tahap di bawahnya
+- Timeline harus sejajar secara visual antara label bulan, grid background, nomor minggu, dan bar tahap
+- Setiap tahap wajib memiliki aktivitas yang jelas dan terukur
+- Jika ada aktivitas internal, aktivitas tersebut dapat ditampilkan tanpa link course
+- Grid timeline hanya mencakup bulan Juni sampai November
+- Validasi: deadline tidak melampaui November 2026
+
+### Checklist Career Roadmap
+
+- [ ] Baca bagian DEVELOPMENT di README engineer untuk identifikasi area peningkatan utama
+- [ ] Tentukan 5 tahap roadmap yang runtut dengan alignment jelas terhadap DR Cosma Grom
+- [ ] Verifikasi semua course online tersedia dan valid di platform yang dipilih
+- [ ] Verifikasi semua course berbahasa Indonesia
+- [ ] Hitung estimasi minggu berdasarkan durasi course Udemy per tahap dengan standar study hours
+- [ ] Tentukan output fisik yang spesifik dan terukur untuk setiap tahap
+- [ ] Pastikan timeline responsive pada berbagai ukuran layar
+- [ ] Perbarui object career roadmap di file `.tsx` engineer yang relevan
+- [ ] Verifikasi komponen `CareerRoadmapSection` merender timeline dan tahap dengan benar
+- [ ] Jika timeline berubah, sinkronkan data durasi, label periode, dan konsistensi visual
+
 ## Checklist Eksekusi
 
 - [ ] Jalankan penyesuaian perubahan yang dibutuhkan pada mode Update/Edit.
@@ -81,3 +135,11 @@ Fokus sesi ini adalah memperbarui profile Frontend Engineer yang sudah ada secar
 - [ ] Pastikan semua evidence valid tetap ada setelah perombakan kalimat, termasuk aktivitas nyata, nama modul, nama portal/project, dan semua angka penting.
 - [ ] Pastikan tidak ada sesi dashboard atau modul turunan yang tertinggal apabila membaca data dari object profile engineer yang sama.
 - [ ] Setelah implementasi selesai, cek ulang apakah ada informasi penting yang hilang akibat peringkasan narasi. Jika ada, kembalikan ke versi akhir yang tetap mudah dipahami.
+- [ ] **Career Roadmap:** Identifikasi area peningkatan dari bagian DEVELOPMENT di README engineer
+- [ ] **Career Roadmap:** Buat atau sesuaikan 5 tahap roadmap dengan tujuan jelas dan selaras dengan DR Cosma Grom
+- [ ] **Career Roadmap:** Verifikasi semua course online tersedia, valid, dan berbahasa Indonesia
+- [ ] **Career Roadmap:** Hitung estimasi timeline berdasarkan durasi course dengan standar study hours per minggu
+- [ ] **Career Roadmap:** Tentukan output fisik terukur untuk setiap tahap (sertifikat, dokumen, presentasi, dll)
+- [ ] **Career Roadmap:** Perbarui object career roadmap di file `.tsx` engineer
+- [ ] **Career Roadmap:** Verifikasi `CareerRoadmapSection` merender timeline dan tahap dengan benar
+- [ ] **Career Roadmap:** Sinkronkan konsistensi visual dan data durasi timeline
