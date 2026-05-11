@@ -128,9 +128,10 @@ Section "Roadmap Karir" menampilkan rencana pengembangan dan arah karir Engineer
 ### Struktur dan Konten
 
 - Career roadmap ditampilkan menggunakan komponen `CareerRoadmapSection` di `src/components/CareerRoadmapSection/`
-- Roadmap terdiri dari 5 tahap yang runtut dengan skema: `id`, `title`, `focus`, `learning`, `pillars`, `activities`, `outputs`
-- Timeline berbasis kuartal (quarter-based) dengan 4 minggu per tahap, mulai Juni 2026 hingga November 2026
-- Sesi `Timeline` diletakkan di atas detail Tahap 1 sampai Tahap 5, menampilkan hanya judul tahap tanpa detail lengkap
+- Roadmap terdiri dari **6 tahap** — satu tahap per bulan, mulai Juni 2026 hingga November 2026
+- Schema setiap tahap: `period` (string), `objective` (string), `courseOnline` (array `{ title, url? }`), `successIndicator` (string)
+- TypeScript types lengkap ada di `src/views/Profile/ProfileView/ProfileView.types.ts` (`ProfileRoadmapStage`, `ProfileRoadmapCourse`) dan `src/components/CareerRoadmapSection/CareerRoadmapSection.types.ts` (`CareerRoadmapStage`, `CareerRoadmapCourse`)
+- Sesi `Timeline` diletakkan di atas detail Tahap 1 sampai Tahap 6, menampilkan hanya judul tahap tanpa detail lengkap
 - Grid timeline mencakup bulan Juni sampai November 2026
 - Bar tahap ditampilkan sejajar dengan header bulan, nomor minggu, dan background grid
 
@@ -138,10 +139,10 @@ Section "Roadmap Karir" menampilkan rencana pengembangan dan arah karir Engineer
 
 - Referensi course online wajib valid dan tersedia di platform yang tepat (preferensi: Udemy)
 - Course online yang digunakan wajib berbahasa Indonesia
-- Setiap course wajib memiliki metadata: `courseTitle`, `courseUrl`, `courseHours`
+- Setiap course menggunakan field `title` (wajib) dan `url` (opsional) — **bukan** `courseTitle`/`courseUrl`/`courseHours`
+- Badge "Course Online" hanya ditampilkan pada item yang memiliki field `url`
+- Aktivitas internal cukup mengisi field `title` tanpa `url`
 - Estimasi waktu pengerjaan roadmap memiliki dasar jelas dari durasi course online dengan standar study hours per minggu
-- Aktivitas dapat berupa course online atau aktivitas internal (dokumentasi, presentasi, review, dll)
-- Aktivitas internal tidak memerlukan link course, cukup deskripsi jelas
 
 ### Rules Perubahan
 

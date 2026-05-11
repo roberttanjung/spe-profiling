@@ -227,39 +227,76 @@ export const iNyomanArijayaPutraProfileData: EngineerProfileData = {
     'Menuntaskan penguatan fondasi Middle staff Frontend Engineer melalui disiplin prioritas, reliability engineering, dan spesialisasi UI interaction.',
   careerRoadmap: [
     {
-      period: 'Q2 2026',
+      period: 'Juni 2026',
       objective:
-        'Penguatan disiplin prioritas dan struktur komunikasi operasional.',
-      backlogs: [
-        'Menerapkan format update harian ringkas berbasis prioritas sprint.',
-        'Membatasi work-in-progress agar fokus penyelesaian task utama terjaga.',
-        'Menggunakan template keputusan teknis sederhana untuk mempercepat align.',
+        'Penguatan struktur komunikasi, disiplin prioritas, dan pengambilan keputusan teknis yang cepat.',
+      courseOnline: [
+        {
+          title: 'Technical Writing untuk Dokumentasi Frontend',
+        },
       ],
       successIndicator:
-        'Prioritas kerja lebih konsisten dan penyampaian progres lebih runtut untuk tim lintas fungsi.',
+        'Template update harian berbasis prioritas sprint tersedia dan format keputusan teknis sederhana diterapkan untuk mempercepat align.',
     },
     {
-      period: 'Q3 2026',
-      objective: 'Peningkatan reliability dan kualitas implementasi modul.',
-      backlogs: [
-        'Mendorong coverage unit test menuju minimal 80% pada modul prioritas.',
-        'Menuntaskan backlog hardening security headers dan observability.',
-        'Menutup issue SonarQube kritikal secara konsisten.',
+      period: 'Juli 2026',
+      objective:
+        'Spesialisasi data visualization dan pengembangan komponen chart reusable di Atomic Design.',
+      courseOnline: [
+        {
+          title: 'Data Visualization Engineering dengan React Charts',
+        },
       ],
       successIndicator:
-        'Stabilitas modul meningkat dan risiko regresi menurun pada area penting.',
+        'Komponen chart MVP yang diperbarui selesai didokumentasikan di Atomic Design dan dapat dipakai lintas project.',
     },
     {
-      period: 'Q4 2026',
+      period: 'Agustus 2026',
       objective:
-        'Penguatan spesialisasi UI engineering pada data visualization dan interaction.',
-      backlogs: [
-        'Menuntaskan 2 modul visual kompleks berbasis reusable chart components.',
-        'Meningkatkan aksesibilitas komponen visual di Atomic Design.',
-        'Menyusun dokumentasi implementasi komponen visual untuk reuse tim.',
+        'Persiapan modernisasi BNI QRIS – penyusunan rencana migrasi dari Vue 2 ke stack modern.',
+      courseOnline: [
+        {
+          title: 'Migrasi Vue ke Next.js untuk Aplikasi Enterprise',
+        },
       ],
       successIndicator:
-        'Kapabilitas UI engineering semakin matang dengan dampak nyata pada pengalaman pengguna.',
+        'Dokumen rencana migrasi BNI QRIS V2 yang merinci timeline, risiko, dan strategi eksekusi telah disusun dan disetujui tim.',
+    },
+    {
+      period: 'September 2026',
+      objective:
+        'Penguatan aksesibilitas komponen dan peningkatan reliability melalui observability.',
+      courseOnline: [
+        {
+          title: 'Web Accessibility Fundamental untuk Engineer Frontend',
+        },
+      ],
+      successIndicator:
+        'Audit aksesibilitas komponen Atomic Design selesai disertai dokumen perbaikan yang dapat ditindaklanjuti tim.',
+    },
+    {
+      period: 'Oktober 2026',
+      objective:
+        'Peningkatan coverage unit test pada modul prioritas BNI QRIS hingga mencapai baseline tim.',
+      courseOnline: [
+        {
+          title: 'Unit Testing React untuk Mencapai Coverage 80 Plus',
+        },
+      ],
+      successIndicator:
+        'Coverage unit test modul prioritas meningkat secara terukur menuju target 80%.',
+    },
+    {
+      period: 'November 2026',
+      objective:
+        'Konsolidasi kualitas kode dengan penurunan issue kritikal dan peningkatan reliability rilis.',
+      courseOnline: [
+        {
+          title: 'Quality Gate SonarQube untuk Frontend Enterprise',
+        },
+      ],
+      successIndicator:
+        'Issue SonarQube kritikal menurun konsisten dan kualitas rilis akhir periode lebih stabil.',
     },
   ],
   softProfile: {

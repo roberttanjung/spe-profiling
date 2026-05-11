@@ -162,40 +162,76 @@ export const bagusNurSolaymanProfileData: EngineerProfileData = {
     'Memperkuat kesiapan menuju Senior staff Frontend Engineer melalui peningkatan adaptabilitas perubahan, kualitas delivery, dan stabilitas komunikasi lintas fungsi.',
   careerRoadmap: [
     {
-      period: 'Q2 2026',
+      period: 'Juni 2026',
       objective:
-        'Penguatan adaptabilitas perubahan requirement dan peningkatan empati saat eskalasi.',
-      backlogs: [
-        'Menerapkan format analisis perubahan sebelum estimasi ulang backlog.',
-        'Membuat pola komunikasi eskalasi yang menekankan konteks pengguna.',
-        'Melakukan retrospective pribadi untuk 3 insiden eskalasi utama.',
+        'Penguatan empati saat eskalasi dan adaptabilitas terhadap perubahan requirement.',
+      courseOnline: [
+        {
+          title: 'Debugging Frontend Modern dengan DevTools',
+        },
       ],
       successIndicator:
-        'Respons perubahan lebih agile dan kualitas komunikasi saat tekanan meningkat.',
+        'Format komunikasi eskalasi yang menonjolkan konteks pengguna tersedia dan retrospective pribadi untuk insiden eskalasi dilakukan.',
     },
     {
-      period: 'Q3 2026',
+      period: 'Juli 2026',
       objective:
-        'Penguatan delivery optimization melalui reusable component dan automation.',
-      backlogs: [
-        'Ekspansi reusable table view ke modul yang memiliki pola serupa.',
-        'Standarisasi prompt AI untuk migrasi dan refactor berulang.',
-        'Peningkatan coverage testing pada modul prioritas.',
+        'Penguatan adaptabilitas dan pengelolaan perubahan scope dalam sprint.',
+      courseOnline: [
+        {
+          title: 'Pattern Adaptif untuk Requirement Dinamis di React',
+        },
       ],
       successIndicator:
-        'Waktu implementasi modul menurun dan kualitas output tetap terjaga.',
+        'Format analisis perubahan backlog sebelum estimasi ulang tersedia dan respons terhadap perubahan lebih agile.',
     },
     {
-      period: 'Q4 2026',
+      period: 'Agustus 2026',
       objective:
-        'Konsolidasi kapabilitas sebagai Senior-ready staff Frontend Engineer.',
-      backlogs: [
-        'Menyelesaikan 1 backlog kompleks end-to-end dengan dependency lintas tim.',
-        'Menjaga konsistensi kualitas SonarQube dan security hardening per sprint.',
-        'Menyusun dokumentasi implementasi komponen kritikal.',
+        'Penguatan arsitektur component reusable dan optimasi delivery modul.',
+      courseOnline: [
+        {
+          title: 'Arsitektur Komponen Reusable dan Design System',
+        },
       ],
       successIndicator:
-        'Kinerja delivery dan kualitas teknis stabil pada skenario backlog kompleks.',
+        'Ekspansi table view component ke modul dengan pola serupa selesai disertai dokumentasi implementasi.',
+    },
+    {
+      period: 'September 2026',
+      objective:
+        'Standarisasi prompt AI untuk otomasi task repetitif dan percepatan migrasi kode.',
+      courseOnline: [
+        {
+          title: 'Prompt Engineering untuk Refactor dan Testing Frontend',
+        },
+      ],
+      successIndicator:
+        'Standarisasi prompt AI untuk migrasi dan refactor berulang terdokumentasi dan waktu implementasi modul menurun.',
+    },
+    {
+      period: 'Oktober 2026',
+      objective:
+        'Penyelesaian backlog kompleks end-to-end dengan koordinasi dependency lintas tim.',
+      courseOnline: [
+        {
+          title: 'Testing React Lanjutan dengan Jest dan RTL',
+        },
+      ],
+      successIndicator:
+        'Backlog kompleks lintas dependency selesai dengan kualitas implementasi yang terjaga.',
+    },
+    {
+      period: 'November 2026',
+      objective:
+        'Finalisasi konsistensi kualitas teknis pada SonarQube, test coverage, dan security hardening.',
+      courseOnline: [
+        {
+          title: 'Hardening Kualitas Frontend untuk Rilis Produksi',
+        },
+      ],
+      successIndicator:
+        'Kualitas teknis stabil hingga akhir periode dengan metrik SonarQube dan testing yang konsisten.',
     },
   ],
   softProfile: {

@@ -246,40 +246,76 @@ export const agmarPutraProfileData: EngineerProfileData = {
     'Mencapai konsistensi performa Senior staff Frontend Engineer pada domain arsitektur, reliability delivery, dan AI-enabled productivity.',
   careerRoadmap: [
     {
-      period: 'Q2 2026',
+      period: 'Juni 2026',
       objective:
         'Penguatan komunikasi teknis-ke-bisnis dan konsistensi delivery lintas repo.',
-      backlogs: [
-        'Membuat template status mingguan non-teknis untuk stakeholder.',
-        'Melakukan 2 sesi demo bulanan dengan narasi dampak bisnis.',
-        'Menetapkan checklist release readiness lintas variant QRISAN.',
+      courseOnline: [
+        {
+          title: 'TypeScript API Contract dan Error Handling Frontend',
+        },
       ],
       successIndicator:
-        'Komunikasi progres lebih mudah dipahami lintas fungsi dan delivery lintas repo tetap stabil.',
+        'Template status update non-teknis tersedia dan komunikasi progres lebih mudah dipahami lintas fungsi.',
     },
     {
-      period: 'Q3 2026',
+      period: 'Juli 2026',
       objective:
-        'Stabilisasi arsitektur monorepo dan peningkatan efisiensi pengembangan.',
-      backlogs: [
-        'Menyelesaikan migrasi repo prioritas ke struktur monorepo.',
-        'Merapikan shared component dan shared utility agar reusable.',
-        'Mengurangi waktu setup pengembangan project baru.',
+        'Stabilisasi arsitektur monorepo dan peningkatan efisiensi pengembangan lintas variant QRISAN.',
+      courseOnline: [
+        {
+          title: 'Monorepo NX untuk Frontend Multi-Portal',
+        },
       ],
       successIndicator:
-        'Lead time pengembangan menurun dan konsistensi implementasi lintas project meningkat.',
+        'Dokumen panduan migrasi monorepo tersedia dan repo prioritas mulai proses migrasi ke struktur NX.',
     },
     {
-      period: 'Q4 2026',
+      period: 'Agustus 2026',
+      objective:
+        'Peningkatan konsistensi kualitas kode dan standar release lintas variant.',
+      courseOnline: [
+        {
+          title: 'Code Review dan Refactoring React TypeScript',
+        },
+      ],
+      successIndicator:
+        'Checklist release readiness lintas variant QRISAN terdokumentasi dan diterapkan secara konsisten.',
+    },
+    {
+      period: 'September 2026',
       objective:
         'Akselerasi AI-enabled engineering untuk peningkatan kualitas dan kecepatan delivery.',
-      backlogs: [
-        'Membuat guideline penggunaan AI untuk task coding rutin.',
-        'Menguji workflow self code review berbasis AI di project pilot.',
-        'Memonitor dampak AI terhadap kecepatan delivery dan defect.',
+      courseOnline: [
+        {
+          title: 'Otomasi Development Workflow dengan AI untuk Frontend',
+        },
       ],
       successIndicator:
-        'Workflow AI terukur, lebih efisien, dan berdampak nyata pada kualitas hasil kerja.',
+        'Guideline penggunaan AI untuk coding rutin tersedia dan workflow self code review berbasis AI diuji di project pilot.',
+    },
+    {
+      period: 'Oktober 2026',
+      objective:
+        'Konsolidasi arsitektur cross-project untuk standardisasi implementasi lintas variant.',
+      courseOnline: [
+        {
+          title: 'Dokumentasi Teknis dan Knowledge Transfer untuk Engineer',
+        },
+      ],
+      successIndicator:
+        'Dokumen konsolidasi arsitektur cross-variant QRISAN tersedia dan siap digunakan lintas tim.',
+    },
+    {
+      period: 'November 2026',
+      objective:
+        'Transfer knowledge dan finalisasi praktik AI workflow ke seluruh tim frontend.',
+      courseOnline: [
+        {
+          title: 'Playbook Implementasi AI Workflow untuk Tim Frontend',
+        },
+      ],
+      successIndicator:
+        'Sesi sharing AI workflow terlaksana dan playbook implementasi diadopsi oleh tim.',
     },
   ],
   softProfile: {

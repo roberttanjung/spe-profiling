@@ -34,10 +34,15 @@ export interface BareMinimumReasons {
   aiProduktivitas: string;
 }
 
+export interface ProfileRoadmapCourse {
+  title: string;
+  url?: string;
+}
+
 export interface ProfileRoadmapStage {
   period: string;
   objective: string;
-  backlogs: string[];
+  courseOnline: ProfileRoadmapCourse[];
   successIndicator: string;
 }
 

@@ -87,12 +87,12 @@ Sesi ini mengelola pembaruan career roadmap Engineer yang fokus pada Peningkatan
 ### Tasks Career Roadmap
 
 - Identifikasi area peningkatan utama Engineer berdasarkan bagian `DEVELOPMENT` di README.md
-- Sesuaikan atau buat 5 tahap roadmap yang runtut dengan focus dan learning objectives yang jelas
-- Tambahkan aktivitas course online dengan metadata lengkap: `courseTitle`, `courseUrl`, `courseHours`
+- Sesuaikan atau buat **6 tahap** roadmap (satu per bulan, Juni–November 2026) yang runtut dengan focus dan learning objectives yang jelas
+- Tambahkan aktivitas course online dengan field `title` (wajib) dan `url` (opsional) — **bukan** `courseTitle`/`courseUrl`/`courseHours`
 - Gunakan hanya course dari platform terpercaya (preferensi: Udemy) yang tersedia dan valid
 - Gunakan hanya course berbahasa Indonesia
 - Hitung estimasi timeline berdasarkan total durasi course agar dasar penentuan waktunya jelas
-- Tentukan output per tahap: sertifikat, dokumen keputusan, design proposal, presentasi, atau portfolio pengembangan
+- Tentukan output per tahap berupa `successIndicator` yang spesifik: sertifikat, dokumen keputusan, design proposal, presentasi, atau portfolio pengembangan
 - Batasi deadline roadmap sampai November 2026
 - Pastikan timeline responsive dan terbaca pada layar kecil dengan scroll horizontal jika diperlukan
 - Pastikan tujuan roadmap selaras dengan DR Cosma Grom dan kemampuan Learning yang perlu ditingkatkan
@@ -100,24 +100,28 @@ Sesi ini mengelola pembaruan career roadmap Engineer yang fokus pada Peningkatan
 ### Rules Career Roadmap Update
 
 - Tujuan roadmap wajib selaras dengan `DR Cosma Grom` (Discipline, Resilience, Collaboration, Smart Working, Growth Mindset)
+- Roadmap tidak boleh berfokus pada kepemimpinan (leadership) atau manajemen tim — fokus pada peningkatan teknis dan kualitas deliverable engineer
 - Roadmap harus realistis berdasarkan proses dan hasil yang bisa dilihat secara fisik (course completion, dokumentasi, presentasi)
+- Schema per tahap: `period` (string), `objective` (string), `courseOnline: { title, url? }[]`, `successIndicator` (string)
 - Pada sesi Timeline, tampilkan hanya judul tahap karena detail lengkap sudah tersedia di card tahap di bawahnya
 - Timeline harus sejajar secara visual antara label bulan, grid background, nomor minggu, dan bar tahap
 - Setiap tahap wajib memiliki aktivitas yang jelas dan terukur
-- Jika ada aktivitas internal, aktivitas tersebut dapat ditampilkan tanpa link course
+- Aktivitas internal cukup mengisi `title` tanpa `url` — badge "Course Online" hanya muncul jika `url` ada
 - Grid timeline hanya mencakup bulan Juni sampai November
 - Validasi: deadline tidak melampaui November 2026
 
 ### Checklist Career Roadmap
 
 - [ ] Baca bagian DEVELOPMENT di README engineer untuk identifikasi area peningkatan utama
-- [ ] Tentukan 5 tahap roadmap yang runtut dengan alignment jelas terhadap DR Cosma Grom
+- [ ] Tentukan 6 tahap roadmap (satu per bulan, Juni–November 2026) yang runtut dengan alignment jelas terhadap DR Cosma Grom
 - [ ] Verifikasi semua course online tersedia dan valid di platform yang dipilih
 - [ ] Verifikasi semua course berbahasa Indonesia
 - [ ] Hitung estimasi minggu berdasarkan durasi course Udemy per tahap dengan standar study hours
-- [ ] Tentukan output fisik yang spesifik dan terukur untuk setiap tahap
+- [ ] Tentukan `successIndicator` yang spesifik dan terukur untuk setiap tahap
+- [ ] Pastikan field yang diisi adalah `title` dan `url?` — bukan `courseTitle`/`courseUrl`/`courseHours`
+- [ ] Aktivitas internal hanya mengisi `title` tanpa `url` (badge "Course Online" tidak muncul)
 - [ ] Pastikan timeline responsive pada berbagai ukuran layar
-- [ ] Perbarui object career roadmap di file `.tsx` engineer yang relevan
+- [ ] Perbarui field `careerRoadmap` dan `careerRoadmapGoal` di file `.tsx` engineer yang relevan
 - [ ] Verifikasi komponen `CareerRoadmapSection` merender timeline dan tahap dengan benar
 - [ ] Jika timeline berubah, sinkronkan data durasi, label periode, dan konsistensi visual
 

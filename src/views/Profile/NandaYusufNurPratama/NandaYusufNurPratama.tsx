@@ -183,40 +183,76 @@ export const nandaYusufNurPratamaProfileData: EngineerProfileData = {
     'Menjaga performa unggul sebagai Senior staff Frontend Engineer pada backlog kompleks dengan fokus reliability, quality governance, dan security hardening.',
   careerRoadmap: [
     {
-      period: 'Q2 2026',
+      period: 'Juni 2026',
       objective:
-        'Penguatan reliability engineering dan dokumentasi teknis pada modul kompleks.',
-      backlogs: [
-        'Meningkatkan coverage unit test bertahap menuju minimal 80%.',
-        'Membuat template dokumentasi keputusan teknis untuk modul kritikal.',
-        'Menyelesaikan stabilisasi regresi pada flow bisnis prioritas.',
+        'Peningkatan coverage testing dan penguatan reliability engineering pada modul CRING!.',
+      courseOnline: [
+        {
+          title: 'Testing Strategy untuk Modul Frontend Kompleks',
+        },
       ],
       successIndicator:
-        'Transfer knowledge membaik dan risiko implementasi ulang menurun pada modul kompleks.',
+        'Coverage unit test pada modul CRING! naik dari 73.89% menuju minimal 80% dan template dokumentasi keputusan teknis tersedia.',
     },
     {
-      period: 'Q3 2026',
+      period: 'Juli 2026',
       objective:
-        'Konsolidasi kualitas delivery pada backlog bernilai bisnis tinggi.',
-      backlogs: [
-        'Menuntaskan backlog integrasi API kompleks end-to-end.',
-        'Menjaga konsistensi SonarQube dan hardening dependency per sprint.',
-        'Menyelaraskan modul perubahan bisnis besar tanpa menurunkan kualitas.',
+        'Standarisasi dokumentasi teknis untuk transfer knowledge yang lebih efektif.',
+      courseOnline: [
+        {
+          title: 'Dokumentasi Teknis Frontend yang Konsisten dan Ringkas',
+        },
       ],
       successIndicator:
-        'Delivery backlog prioritas tetap cepat dan kualitas teknis tetap stabil.',
+        'Template dokumentasi keputusan teknis diterapkan pada minimal 3 modul kritikal CRING! dan panduan dokumentasi tersedia untuk tim.',
     },
     {
-      period: 'Q4 2026',
+      period: 'Agustus 2026',
       objective:
-        'Penguatan posisi Senior staff IC pada domain integrasi dan security reliability.',
-      backlogs: [
-        'Menyelesaikan 1 inisiatif hardening security berdampak lintas modul.',
-        'Meningkatkan observability untuk mempercepat deteksi dan resolusi isu.',
-        'Menjaga performa delivery tinggi pada perubahan bisnis kuartal akhir.',
+        'Penguatan visibilitas kontribusi dan komunikasi progres ke tim yang lebih luas.',
+      courseOnline: [
+        {
+          title: 'Observability Frontend dan Analisis Error Produksi',
+        },
       ],
       successIndicator:
-        'Performa engineering tetap unggul pada kombinasi scope besar, risiko tinggi, dan perubahan cepat.',
+        'Format laporan sprint lebih terstruktur dan dampak kontribusi engineering lebih tersampaikan kepada tim lintas fungsi.',
+    },
+    {
+      period: 'September 2026',
+      objective:
+        'Penguatan security hardening dan observability lintas modul CRING!.',
+      courseOnline: [
+        {
+          title: 'Web Security Frontend Berdasarkan OWASP Top 10',
+        },
+      ],
+      successIndicator:
+        'Checklist security hardening berbasis OWASP diterapkan lintas modul dan inisiatif observability untuk percepatan deteksi isu selesai.',
+    },
+    {
+      period: 'Oktober 2026',
+      objective:
+        'Konsolidasi kapabilitas integrasi API dan reliability pada modul prioritas CRING!.',
+      courseOnline: [
+        {
+          title: 'Arsitektur Aplikasi Frontend yang Scalable dan Maintainable',
+        },
+      ],
+      successIndicator:
+        'Reliability modul prioritas meningkat dan pola integrasi API terdokumentasi lebih rapi.',
+    },
+    {
+      period: 'November 2026',
+      objective:
+        'Finalisasi portofolio kontribusi Senior IC dan stabilisasi performa delivery akhir periode.',
+      courseOnline: [
+        {
+          title: 'Portfolio Engineering untuk Dampak Lintas Modul',
+        },
+      ],
+      successIndicator:
+        'Portofolio kontribusi lintas modul CRING! lengkap dan performa delivery akhir periode tetap unggul.',
     },
   ],
   softProfile: {

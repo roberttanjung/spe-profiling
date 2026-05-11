@@ -1,0 +1,18 @@
+.root {
+  display: grid;
+  gap: 1.5rem;
+  margin-block: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .root {
+    gap: 2rem;
+  }
+}
+
+.emptyState {
+  font-size: 0.875rem;
+  color: var(--mui-palette-text-disabled, #999);
+  font-style: italic;
+  padding: 1rem 0;
+}

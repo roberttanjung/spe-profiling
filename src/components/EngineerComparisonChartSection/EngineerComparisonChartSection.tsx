@@ -72,7 +72,7 @@ export default function EngineerComparisonChartSection({
         height: 84,
         tickLabelStyle: {
           angle: -35,
-          textAnchor: 'end',
+          textAnchor: 'end' as const,
           fontSize: 11,
           fontStyle: 'italic',
         },

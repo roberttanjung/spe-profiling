@@ -96,6 +96,49 @@ src/
 - Pastikan component mudah digunakan tanpa memerlukan pelatihan khusus
 - Selalu update file agents dan prompts sesuai dengan perubahan
 
+## Career Roadmap Section
+
+Section "Roadmap Karir" menampilkan rencana pengembangan dan arah karir Engineer fokus pada Peningkatan dan Arah Karir dengan timeline tahapan, aktivitas course online, dan output fisik.
+
+### Tujuan dan Alignment
+
+- Tujuan roadmap karir wajib selaras dengan `DR Cosma Grom` (Discipline, Resilience, Collaboration, Smart Working, Growth Mindset)
+- Roadmap harus realistis dan berorientasi pada proses serta hasil fisik seperti sertifikat, dokumen internal, atau portfolio pengembangan kemampuan
+
+### Struktur dan Konten
+
+- Career roadmap ditampilkan menggunakan komponen `CareerRoadmapSection` di `src/components/CareerRoadmapSection/`
+- Roadmap terdiri dari 5 tahap yang runtut dengan skema: `period`, `objective`, `courseOnline`, `successIndicator`
+- Timeline berbasis kuartal (quarter-based) dengan 4 minggu per tahap, mulai Juni 2026 hingga November 2026
+- Sesi `Timeline` diletakkan di atas detail Tahap 1 sampai Tahap 5, menampilkan hanya judul tahap tanpa detail lengkap
+- Grid timeline mencakup bulan Juni sampai November 2026
+- Bar tahap ditampilkan sejajar dengan header bulan, nomor minggu, dan background grid
+
+### Aktivitas dan Course Online
+
+- Referensi course online wajib valid dan tersedia di platform yang tepat (preferensi: Udemy)
+- Course online yang digunakan wajib berbahasa Indonesia
+- Setiap course wajib memiliki metadata: `title`, `url` (opsional untuk aktivitas internal)
+- Estimasi waktu pengerjaan roadmap memiliki dasar jelas dari durasi course online dengan standar study hours per minggu
+- Aktivitas dapat berupa course online atau aktivitas internal (dokumentasi, presentasi, review, dll)
+- Aktivitas internal tidak memerlukan link course, cukup deskripsi jelas di field `title`
+
+### Rules Perubahan Chart
+
+- Perbaikan dan perubahan career roadmap wajib dilakukan di `./src/views/Profile/<EngineerName>/`
+- Setiap engineer memiliki roadmap yang dikurasi berdasarkan area peningkatan dan arah karir individual
+- Untuk mengubah timeline atau tahap, edit schema di file engineer yang relevan, maka `CareerRoadmapSection` akan otomatis render perubahan
+- Untuk mengubah styling atau layout timeline, edit `src/components/CareerRoadmapSection/` dan `src/views/Roadmap/RoadmapView.module.css`
+- Jika mengubah struktur schema roadmap, pastikan konsistensi dengan TypeScript types di `src/components/CareerRoadmapSection/CareerRoadmapSection.types.ts`
+- Perubahan data roadmap di satu file engineer otomatis tampil di halaman profile engineer tersebut
+
+### Output Expectations
+
+- Setiap tahap roadmap wajib memiliki output yang spesifik dan terukur (field `successIndicator`)
+- Output tahap dapat berupa: sertifikat course, dokumen keputusan, proposal, design proposal, presentasi teknis, atau portfolio pengembangan kemampuan
+- Timeline roadmap wajib responsif dan tetap terbaca pada layar kecil dengan scroll horizontal jika diperlukan
+- Validasi: deadline roadmap tidak melampaui November 2026
+
 ## Tasks
 
 Selalu sesuai data di ./src/app/page.tsx setelah prompting. Data dapat diambil dari:

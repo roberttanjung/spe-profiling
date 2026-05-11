@@ -437,7 +437,9 @@ export function initializeKpiForm(
     profile?.needsImprove?.slice(0, 3).map((item) => item.title) ?? [];
 
   const competenciesSources = [
-    ...(profile?.careerRoadmap?.[0]?.backlogs ?? []).slice(0, 3),
+    ...(profile?.careerRoadmap?.[0]?.courseOnline ?? [])
+      .slice(0, 3)
+      .map((c) => c.title),
     ...needsImproveItems,
   ].slice(0, 4);
 

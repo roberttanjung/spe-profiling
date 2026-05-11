@@ -137,41 +137,76 @@ export const rafliRaiRizkyProfileData: EngineerProfileData = {
     'Menguatkan fondasi menuju Middle staff Frontend Engineer melalui peningkatan kualitas keputusan, kolaborasi lintas tim, pendalaman fundamental aksesibilitas, dan reliability delivery lintas 3 portal.',
   careerRoadmap: [
     {
-      period: 'Q2 2026',
+      period: 'Juni 2026',
       objective:
-        'Penguatan verifikasi analisis, fundamental aksesibilitas, dan kedisiplinan komunikasi operasional.',
-      backlogs: [
-        'Menerapkan format update status harian yang konsisten di kanal tim.',
-        'Memperdalam fundamental aksesibilitas seperti struktur semantik dan atribut bantu yang relevan.',
-        'Melakukan konfirmasi dependency lintas tim sebelum eksekusi task kritikal.',
-        'Membuat checklist validasi akar masalah sebelum eskalasi issue.',
+        'Penguatan verifikasi analisis, critical thinking, dan kedisiplinan komunikasi operasional.',
+      courseOnline: [
+        {
+          title: 'Analisis Akar Masalah untuk Incident Frontend',
+        },
       ],
       successIndicator:
-        'Analisis masalah menjadi lebih akurat, praktik aksesibilitas lebih matang, dan sinkronisasi kerja lintas tim lebih lancar.',
+        'Checklist validasi akar masalah sebelum eskalasi tersedia dan format update status harian di kanal tim diterapkan secara konsisten.',
     },
     {
-      period: 'Q3 2026',
+      period: 'Juli 2026',
       objective:
-        'Peningkatan reliability delivery melalui test, observability, dan quality hardening.',
-      backlogs: [
-        'Menambah cakupan unit test pada modul baru dan modul hasil rebuild.',
-        'Menjaga temuan SonarQube prioritas tetap rendah per sprint.',
-        'Memonitor issue produksi melalui Sentry secara lebih disiplin.',
+        'Pendalaman fundamental aksesibilitas web dan audit komponen lintas portal CRING! Point.',
+      courseOnline: [
+        {
+          title: 'Aksesibilitas Web Fundamental untuk Aplikasi React',
+        },
       ],
       successIndicator:
-        'Kualitas rilis meningkat dengan regresi yang lebih rendah pada modul aktif.',
+        'Audit aksesibilitas pada 3 portal CRING! Point selesai disertai dokumen perbaikan terstruktur mencakup struktur semantik dan atribut bantu yang relevan.',
     },
     {
-      period: 'Q4 2026',
+      period: 'Agustus 2026',
       objective:
-        'Penguatan fondasi Middle staff IC dengan fokus delivery dan kualitas keputusan teknis.',
-      backlogs: [
-        'Menyelesaikan 1 backlog kompleks end-to-end dengan dependency lintas fungsi.',
-        'Meningkatkan kualitas analisis solusi sebelum implementasi.',
-        'Menyusun dokumentasi singkat arsitektur modul yang dikerjakan.',
+        'Peningkatan reliability delivery melalui testing yang lebih komprehensif.',
+      courseOnline: [
+        {
+          title: 'Reliability Testing Frontend End to End',
+        },
       ],
       successIndicator:
-        'Kematangan eksekusi meningkat pada aspek kecepatan delivery dan ketepatan keputusan teknis.',
+        'Coverage Portal Simulator naik ke minimal 60%, Portal Admin dan Customer tetap di atas 90% dan issue SonarQube prioritas tetap rendah per sprint.',
+    },
+    {
+      period: 'September 2026',
+      objective:
+        'Penguatan koordinasi lintas tim dan manajemen dependency agar finish rate meningkat.',
+      courseOnline: [
+        {
+          title: 'Dependency Mapping untuk Delivery Lintas Portal',
+        },
+      ],
+      successIndicator:
+        'Framework koordinasi dependency lintas tim diterapkan di 3 portal dan konfirmasi dependency dilakukan sebelum eksekusi task kritikal.',
+    },
+    {
+      period: 'Oktober 2026',
+      objective:
+        'Penyelesaian backlog kompleks end-to-end dengan kontrol kualitas implementasi lintas fungsi.',
+      courseOnline: [
+        {
+          title: 'Dokumentasi Arsitektur dan Best Practices Frontend',
+        },
+      ],
+      successIndicator:
+        'Backlog kompleks end-to-end selesai dengan kualitas implementasi yang konsisten.',
+    },
+    {
+      period: 'November 2026',
+      objective:
+        'Finalisasi portofolio delivery lintas 3 portal dengan dokumentasi metrik kualitas yang terukur.',
+      courseOnline: [
+        {
+          title: 'Ringkasan Delivery dan Quality Metrics Frontend',
+        },
+      ],
+      successIndicator:
+        'Portofolio delivery lintas 3 portal terdokumentasi lengkap dengan quality metrics akhir periode.',
     },
   ],
   softProfile: {

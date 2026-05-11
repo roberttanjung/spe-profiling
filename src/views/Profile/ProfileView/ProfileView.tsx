@@ -4,6 +4,7 @@ import ProfileChartSection from '@/components/ProfileChartSection';
 import ProfileMonthlyTable from '@/components/ProfileMonthlyTable';
 import ProfileSprintTable from '@/components/ProfileSprintTable';
 import AdaptiveTooltip from '@/components/AdaptiveTooltip';
+import CareerRoadmapSectionComponent from '@/components/CareerRoadmapSection';
 import {
   getTwbeChartRowsByEmployeeName,
   getTwbeMonthlyRowsByEmployeeName,
@@ -131,42 +132,16 @@ function CareerRoadmapSection({
 }: {
   goal?: string;
   items: ProfileRoadmapStage[];
+  name: string;
 }) {
-  const roadmapGoal =
-    goal ??
-    `Mencapai ${items[items.length - 1]?.objective.toLowerCase() ?? 'target pengembangan karir yang terukur'}.`;
-
   return (
-    <div className={styles.sectionCard}>
-      <p className={styles.sectionTitle}>Roadmap Karir</p>
-      <div className={styles.roadmapGoalCard}>
-        <p className={styles.roadmapGoalLabel}>Tujuan Utama</p>
-        <p className={styles.roadmapGoalText}>{roadmapGoal}</p>
-      </div>
-      <div className={styles.roadmapGrid}>
-        {items.map((stage, idx) => (
-          <div key={stage.period} className={styles.roadmapCard}>
-            <p
-              className={styles.roadmapPeriod}
-            >{`Tahap ${idx + 1} • ${stage.period}`}</p>
-            <p className={styles.roadmapObjective}>
-              <strong>Tujuan Tahap:</strong> {stage.objective}
-            </p>
-            <p className={styles.roadmapBacklogLabel}>Backlog Tahap:</p>
-            <ul className={styles.roadmapBacklogList}>
-              {stage.backlogs.map((backlog) => (
-                <li key={backlog} className={styles.roadmapBacklogItem}>
-                  {backlog}
-                </li>
-              ))}
-            </ul>
-            <p className={styles.roadmapSuccess}>
-              <strong>Target Hasil:</strong> {stage.successIndicator}
-            </p>
-          </div>
-        ))}
-      </div>
-    </div>
+    <CareerRoadmapSectionComponent
+      headingLevel="h3"
+      heading={`Roadmap Karir`}
+      goal={goal}
+      items={items}
+      description=""
+    />
   );
 }
 
@@ -390,6 +365,7 @@ export default function ProfileView({ profile, headingId }: ProfileViewProps) {
         <CareerRoadmapSection
           goal={profile.careerRoadmapGoal}
           items={profile.careerRoadmap}
+          name={profile.name}
         />
       )}
 
