@@ -69,13 +69,12 @@ Section "Bare Minimum Frontend Engineer" ditampilkan di antara `ProfileChartSect
 ### Struktur
 
 - **Tabel transposed**: setiap aspek menjadi kolom header, terdapat satu baris data berisi bintang (★/☆).
-- **Star rating** per kolom ditentukan dari `levelGrade` engineer:
-  - II/2 → ★★☆☆☆
-  - II/3 → ★★★☆☆
-  - II/4 → ★★★★☆
-  - II/5 → ★★★★★
-- Semua aspek menampilkan jumlah bintang yang sama (sesuai level engineer).
-- Data aspek diambil dari konstanta `BARE_MINIMUM_MATRIX` di `ProfileView.tsx`.
+- **Star rating** per kolom setelah di-adjust dengan KPI achievement dari data TWBE monthly engineer:
+  - Base rating dari `profile.bareMinimumRatings`
+  - Di-adjust per fungsi `withKpiAdjustedRatings()` di `src/db/bareMinimum.ts`
+  - Tampilkan rating yang sudah di-adjust (bukan raw)
+- Nilai adjusted rating identik antara Profile View dan Dashboard — keduanya menerapkan logika KPI adjustment yang sama
+- Data aspek diambil dari konstanta `BARE_MINIMUM_MATRIX` di `src/db/bareMinimum.ts`.
 
 ### Tooltip ⓘ
 
@@ -85,8 +84,34 @@ Section "Bare Minimum Frontend Engineer" ditampilkan di antara `ProfileChartSect
 
 ### Rules Perubahan
 
-- Untuk mengubah isi aspek (deskripsi per level), edit konstanta `BARE_MINIMUM_MATRIX` di `ProfileView.tsx`.
-- Untuk menambah aspek baru, tambahkan objek baru di `BARE_MINIMUM_MATRIX` dengan key `aspect`, `junior`, `middle`, `senior`, `highSenior`.
+- Untuk mengubah isi aspek (deskripsi per level), edit konstanta `BARE_MINIMUM_MATRIX` di `src/db/bareMinimum.ts` — **bukan** di `ProfileView.tsx`.
+- Untuk menambah aspek baru, tambahkan objek baru di `BARE_MINIMUM_MATRIX` (`src/db/bareMinimum.ts`) dengan key `aspect`, `ratingKey`, `level1`, `level2`, `level3`, `level4`, `level5`.
 - Untuk mengubah tampilan, edit class `bm*` di `ProfileCommon.module.css`.
 - Field `bareMinimum` **tidak ada** di `ProfileSoftAspect` dan tidak perlu diisi di masing-masing engineer file.
 - Posisi section: setelah `ProfileChartSection`, sebelum `ProfileMonthlyTable`.
+- `BARE_MINIMUM_MATRIX` dan `BARE_MINIMUM_TOOLTIP_LEVELS` dipakai bersama oleh Dashboard dan Profile View — perubahan di sini otomatis memperbarui kedua halaman.
+- **KPI Adjustment**: Fungsi `withKpiAdjustedRatings()` dan `getKpiAchievement()` di `src/db/bareMinimum.ts` menerapkan adjustment untuk setiap engineer. Dashboard dan Profile View keduanya menerapkan adjustment sebelum display, menjamin nilai Bare Minimum identik.
+
+## Aspek Profil
+
+Section "Aspek Profil" menampilkan soft aspect profile (collaborationType, workStyle, strengths, developmentAreas, uniqueSellingPoint) dengan tabel vertikal di halaman profile individual engineer.
+
+### Label Konsistensi
+
+- Label kolom Aspek Profil tersentralisasi di `src/db/softProfile.ts`:
+  - `SOFT_PROFILE_TEXT_KEYS`: 5 key soft profile
+  - `SOFT_PROFILE_TEXT_LABELS`: Mapping key → label Indonesia
+- Profile View dan Dashboard keduanya derive tabel Aspek Profil dari konstanta ini
+- Perubahan label otomatis sync di semua halaman tanpa manual update
+
+## Reference Date (Kalkulasi Umur & Tenure)
+
+Konstanta `REFERENCE_DATE` di `src/db/constants.ts` (5 Mei 2026, akhir periode profiling) digunakan sebagai baseline kalkulasi umur dan lama bekerja di semua halaman.
+
+### Rules
+
+- Profile View dan Dashboard keduanya import dan menggunakan `REFERENCE_DATE` yang sama
+- Umur engineer = selisih tahun dari REFERENCE_DATE ke dateOfBirth, adjusted per bulan/tanggal
+- Tenure engineer = selisih tahun/bulan dari REFERENCE_DATE ke joinedDate
+- Jangan gunakan `new Date()` untuk kalkulasi umur/tenure — selalu gunakan `REFERENCE_DATE`
+- Perubahan reference date di satu file otomatis memperbarui nilai di Dashboard dan semua Profile engineer

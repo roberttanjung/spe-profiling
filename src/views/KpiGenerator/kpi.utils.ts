@@ -1,15 +1,9 @@
 import * as XLSX from 'xlsx';
 
 import { getTwbeMonthlyRowsByEmployeeName } from '@/utils/twbe';
-import { agmarPutraProfileData } from '@/views/Profile/AgmarPutra/AgmarPutra';
-import { bagusNurSolaymanProfileData } from '@/views/Profile/BagusNurSolayman/BagusNurSolayman';
-import { iNyomanArijayaPutraProfileData } from '@/views/Profile/INyomanArijayaPutra/INyomanArijayaPutra';
-import { nandaYusufNurPratamaProfileData } from '@/views/Profile/NandaYusufNurPratama/NandaYusufNurPratama';
-import { rafliRaiRizkyProfileData } from '@/views/Profile/RafliRaiRizky/RafliRaiRizky';
-import type {
-  BareMinimumRatings,
-  EngineerProfileData,
-} from '@/views/Profile/ProfileView/ProfileView.types';
+import { allEngineerProfiles } from '@/views/Profile';
+import type { EngineerProfileData } from '@/views/Profile';
+import type { BareMinimumRatings } from '@/views/Profile/ProfileView/ProfileView.types';
 import type {
   EngineerMetrics,
   KpiFormState,
@@ -29,13 +23,7 @@ const MAIN_SECTION_TITLE = 'Main (80%)';
 const DEVELOPMENT_SECTION_TITLE = 'Development (20%)';
 const SUCCESS_SECTION_TITLE = 'Success';
 
-const ENGINEER_PROFILES: EngineerProfileData[] = [
-  agmarPutraProfileData,
-  bagusNurSolaymanProfileData,
-  iNyomanArijayaPutraProfileData,
-  nandaYusufNurPratamaProfileData,
-  rafliRaiRizkyProfileData,
-];
+const ENGINEER_PROFILES: EngineerProfileData[] = allEngineerProfiles;
 
 const ENGINEER_PROFILE_MAP = new Map(
   ENGINEER_PROFILES.map((profile) => [profile.name, profile]),

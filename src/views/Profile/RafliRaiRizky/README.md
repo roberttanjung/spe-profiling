@@ -1,8 +1,8 @@
 # Rafli Rai Rizky
 
-## [updated] POINTS
+## POINTS
 
-- Cepat menyadari kekurangan
+Rafli menunjukkan sikap reflektif dalam bekerja karena cepat menyadari kekurangan diri dan terbuka terhadap evaluasi. Sikap ini membantu proses perbaikan berjalan lebih cepat dan membuat kualitas kerja meningkat dari waktu ke waktu.
 
 ## Personal
 
@@ -11,26 +11,9 @@
 - Pandai dalam menyusun kalimat
 - Pandai dalam berstrategi
 
-## [updated] CRING! Point
+## CRING! Point
 
-- Pengerjaan di Portal Simulator terkait:
-  - Inisiasi dan setup konfigurasi Portal Simulator dengan menggunakan Next JS
-  - Mengerjaan Modul Simulator Pembayaran QRIS walaupun pada saat ini modul tersebut sedang dalam status non-aktif
-  - Mengerjaan Modul Simulator Pembayaran VA
-  - Implementiasi Docker
-- Pengerjaan di Portal Admin terkait penambahan Modul User besarta sub-modulnya berupa: List User, Detail User, Tambah User dan Ubah User
-- Pengerjaan di Portal Customer terkait pengerjaan di Modul autentikasi, seperti:
-  - Halaman untuk Active Account yang berguna untuk mengaktifkan status user
-  - Halaman Forgot Password agar mempermudah user untuk melakukan pengambilan password yang dilupakan
-  - Halama Create New Password untuk membantu user untuk membuat password baru
-- Aktif dalam menangani perubahan Bisnis dan diimplementasikan di Project
-- Melakukan Refactor Structure Code untuk menghindari `Props Drilling` atau penempatan file didalam folder yang berlapis-lapis serta meningkatkan efisiensi kode di Modul Fee Merchant beserta sub-modulnya: List Fee Merchant, Detail Fee Merchant dan Ubah Fee Merchant
-- Melakukan Implement Sentry untuk monitoring Issue yang terjadi di sisi Client
-- Meningkatkan Unit Testing Coverage area di semua Portal, yaitu:
-  - Di Portal Simulator dari 0% menjadi 33.94%
-  - Di Portal Admin menjadi 94.01%
-  - Di Portal Customer dari 92% menjadi 98.69%
-    Melakukan fixing issue CVE yang muncul dari package bernama Axios. Issue tersebut dapat mengijinkan aplikasi untuk menjalankan kode berbahaya yang ditanam oleh Attackers.
+Pada project CRING! Point, Rafli menyiapkan portal baru Simulator dari tahap inisiasi dan konfigurasi awal, termasuk pengembangan simulasi pembayaran QRIS (meski saat ini non-aktif) dan simulasi pembayaran VA, serta implementasi Docker untuk mendukung kestabilan proses kerja. Kontribusinya berjalan di 3 portal utama, yaitu Simulator, Admin, dan Customer. Di Portal Admin, ia menangani pengembangan modul pengguna secara menyeluruh, meliputi daftar user, detail user, tambah user, dan ubah user. Di Portal Customer, ia mengerjakan alur autentikasi yang mencakup aktivasi akun, lupa kata sandi, dan pembuatan kata sandi baru. Selain pengembangan fitur, Rafli juga aktif menyesuaikan perubahan kebutuhan bisnis, merapikan struktur kode agar lebih efisien (termasuk pengurangan ketergantungan antar-komponen) pada modul Fee Merchant beserta submodul daftar, detail, dan ubah, serta memperkuat pemantauan issue melalui Sentry. Dari sisi kualitas, hasil pengujian meningkat secara terukur: coverage Portal Simulator naik dari 0% ke 33.94%, Portal Admin mencapai 94.01%, dan Portal Customer naik dari 92% ke 98.69%. Ia juga turut menangani perbaikan risiko keamanan dari paket Axios (CVE) agar aplikasi tetap aman dan stabil.
 
 ## CRING!
 
@@ -58,7 +41,7 @@ Melakukan Research tentang Aksesibilitas di browser serta melakukan sharing know
 
 - `Produktivitas eksekusi tinggi`: Mampu menyelesaikan banyak task sprint, termasuk inisiasi portal baru dan penyesuaian modul berjalan.
 - `Komunikasi tulisan kuat`: Mampu menyusun kalimat dengan jelas saat membuat penjelasan teknis.
-- `Memiliki pola pikir strategis`: Dapat melihat langkah implementasi secara bertahap saat membangun modul baru.
+- `Strategis dan reflektif`: Dapat melihat langkah implementasi secara bertahap saat membangun modul baru sekaligus cepat menerima evaluasi untuk memperbaiki kualitas kerja.
 
 ## Needs Improve
 
@@ -68,18 +51,18 @@ Melakukan Research tentang Aksesibilitas di browser serta melakukan sharing know
 
 ## Aktivitas yang Sudah Dilakukan
 
-- Berkontribusi pada inisiasi portal baru CRING! Point (Simulator) beserta berbagai kebutuhan setup teknis.
-- Menangani modul CRING! Suspicious Transaction dan History, termasuk penyesuaian terhadap perubahan bisnis.
-- Membangun ulang modul Role dan User berbasis Typescript untuk peningkatan kualitas serta maintainability.
-- Menerapkan unit test pada modul prioritas serta ikut menjaga kualitas kode secara bertahap.
-- Berkontribusi di Atomic Design dan melakukan sharing terkait aksesibilitas frontend.
+- Menyiapkan portal baru CRING! Point (Simulator), termasuk simulasi pembayaran QRIS yang saat ini non-aktif, simulasi pembayaran VA, dan implementasi Docker.
+- Menangani pengembangan modul user di Portal Admin dan alur autentikasi di Portal Customer, meliputi aktivasi akun, lupa kata sandi, dan pembuatan kata sandi baru.
+- Menyesuaikan perubahan kebutuhan bisnis, merapikan struktur kode pada modul Fee Merchant, memperkuat monitoring issue melalui Sentry, dan menangani perbaikan keamanan Axios (CVE).
+- Meningkatkan coverage pengujian secara terukur: Simulator dari 0% ke 33.94%, Admin mencapai 94.01%, dan Customer dari 92% ke 98.69%.
+- Menangani modul CRING! Suspicious Transaction dan History, membangun ulang modul Role dan User berbasis Typescript, berkontribusi di Atomic Design, serta melakukan sharing terkait aksesibilitas frontend.
 
 ## Aspek Profil Soft
 
-- `Tipe kolaborasi`: Individual contributor dengan potensi kolaboratif; kuat di eksekusi, perlu peningkatan sinkronisasi dependensi lintas tim.
-- `Gaya kerja`: Cepat bergerak dan result-oriented; efektif untuk delivery cepat jika ada guardrail validasi yang jelas.
-- `Kelebihan utama`: Produktivitas tinggi, komunikasi tulisan baik, dan kemampuan menyusun strategi implementasi.
-- `Area pengembangan`: Penguatan critical thinking berbasis verifikasi, disiplin komunikasi tim, dan kolaborasi dependensi.
-- `Arah karir berbasis roadmap`: Menguatkan fondasi `Middle Front End Engineer (II/3)` melalui peningkatan reliability kolaborasi dan kualitas keputusan teknis.
-- `Potensi / unique selling point`: Kombinasi kecepatan delivery dan kemampuan menyusun narasi teknis yang mudah dipahami.
-- `Bare minimum Front End Engineer`: Menyelesaikan task sesuai scope, melakukan verifikasi sebelum eksekusi perubahan, dan menjaga komunikasi progres yang konsisten.
+- `Tipe kolaborasi`: Individual contributor dengan eksposur kerja lintas 3 portal; kuat di eksekusi dan adaptif, namun masih perlu peningkatan sinkronisasi dependensi lintas tim.
+- `Gaya kerja`: Cepat bergerak, result-oriented, dan cukup responsif terhadap evaluasi; efektif untuk delivery cepat jika ada guardrail validasi yang jelas.
+- `Kelebihan utama`: Produktivitas tinggi, komunikasi tulisan baik, kemampuan menyusun strategi implementasi bertahap, dan cepat berbenah setelah menerima evaluasi.
+- `Area pengembangan`: Penguatan critical thinking berbasis verifikasi, pendalaman fundamental aksesibilitas, disiplin komunikasi tim, dan kolaborasi dependensi.
+- `Arah karir berbasis roadmap`: Menguatkan fondasi `Middle Front End Engineer (II/3)` melalui peningkatan kualitas keputusan, kolaborasi lintas tim, pendalaman aksesibilitas, dan reliability delivery lintas 3 portal.
+- `Potensi / unique selling point`: Kombinasi kecepatan delivery lintas 3 portal, kemampuan menyusun narasi teknis yang mudah dipahami, dan kesadaran cepat terhadap area perbaikan.
+- `Bare minimum Front End Engineer`: Menunjukkan fondasi frontend yang baik melalui delivery lintas 3 portal, disertai kebutuhan untuk menjaga verifikasi, kualitas komunikasi, kedalaman testing, dan konsistensi kualitas implementasi.

@@ -106,3 +106,4 @@ Selalu sesuai data di ./src/app/page.tsx setelah prompting. Data dapat diambil d
 ## Takeaway
 
 - Berikan tanda X untuk setiap task yang sudah selesai contoh [x]
+- Lakukan adjustment di setiap file yang ada di `.github/` apabila ada perubahan-perubahan yang berdampak dari sesi prompting, terutama di file `data.agent.md` dan `profile.agent.md` untuk penyesuaian data profile engineer.

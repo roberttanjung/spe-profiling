@@ -21,9 +21,9 @@ export const rafliRaiRizkyProfileData: EngineerProfileData = {
         'Mampu menyusun kalimat dengan jelas saat membuat penjelasan teknis.',
     },
     {
-      title: 'Memiliki pola pikir strategis',
+      title: 'Strategis dan reflektif',
       description:
-        'Dapat melihat langkah implementasi secara bertahap saat membangun modul baru.',
+        'Mampu melihat langkah implementasi secara bertahap saat membangun modul baru sekaligus cepat menerima evaluasi untuk memperbaiki kualitas kerja.',
     },
   ],
   needsImprove: [
@@ -47,7 +47,7 @@ export const rafliRaiRizkyProfileData: EngineerProfileData = {
     {
       project: 'CRING! Point',
       description:
-        'Bertanggung jawab dalam pengerjaan berbagai macam modul terutama dalam inisiasi pembuatan Portal baru Simulator. Adapun aktifitas yang dikerjakan meliputi: Setup Portal Simulator, Page Active Account, Page Forgot Password, Page Create New Password, Implement Docker, Setup SonarQube, Enhancement, Adjustment, Implement Sentry, Unit Testing, dan Fixing CVE Axios.',
+        'Menyiapkan portal baru Simulator dari tahap inisiasi dan konfigurasi awal, termasuk pengembangan simulasi pembayaran QRIS (saat ini non-aktif), simulasi pembayaran VA, dan implementasi Docker. Kontribusi berjalan di 3 portal utama, yaitu Simulator, Admin, dan Customer. Di Portal Admin, mengerjakan modul pengguna secara menyeluruh (daftar, detail, tambah, ubah user). Di Portal Customer, mengerjakan alur autentikasi (aktivasi akun, lupa kata sandi, pembuatan kata sandi baru). Aktif menyesuaikan kebutuhan bisnis, merapikan struktur kode pada modul Fee Merchant (daftar, detail, ubah), memperkuat monitoring issue melalui Sentry, meningkatkan coverage pengujian (Simulator 0% ke 33.94%, Admin 94.01%, Customer 92% ke 98.69%), dan ikut menangani perbaikan risiko keamanan Axios (CVE).',
     },
     {
       project: 'CRING!',
@@ -119,39 +119,40 @@ export const rafliRaiRizkyProfileData: EngineerProfileData = {
   },
   bareMinimumReasons: {
     fundamentalFrontend:
-      'Pada usia 23 tahun, level II/3, dan masa kerja yang masih sekitar 7 bulan dengan 2 project aktif serta 1 guild aktif, fondasi frontend ybs sudah baik namun masih dalam fase penguatan stabilitas.',
+      'Fondasi frontend sudah terlihat melalui kontribusi lintas 3 portal utama, termasuk simulasi pembayaran, modul user, dan alur autentikasi, namun stabilitas penguasaan teknis masih perlu terus dimatangkan.',
     kualitasKode:
-      'Kualitas implementasi sudah cukup baik melalui setup SonarQube, refactor ke Typescript, dan perbaikan modul, tetapi konsistensi kedalaman kualitas masih perlu diperkuat.',
+      'Kualitas implementasi cukup baik melalui refactor struktur kode, rebuild berbasis Typescript, serta perapihan modul Fee Merchant, namun konsistensi kedalaman kualitas masih perlu diperkuat.',
     testingReliability:
-      'Skor testing dibuat lebih konservatif karena unit test sudah mulai diterapkan, namun coverage dan kedalaman reliability masih belum kuat untuk masa kerja saat ini.',
+      'Unit test sudah memberi dampak yang terukur, dengan coverage Simulator naik dari 0% ke 33.94%, Admin mencapai 94.01%, dan Customer naik dari 92% ke 98.69%, namun kedalaman reliability masih perlu diperkuat agar lebih konsisten.',
     kolaborasiKomunikasi:
-      'Komunikasi tulisan cukup jelas, namun koordinasi dependensi lintas tim dan disiplin update operasional masih menjadi area penguatan utama.',
+      'Komunikasi tulisan cukup jelas dan sudah terlihat melalui sharing aksesibilitas, namun sinkronisasi dependensi lintas tim dan disiplin update operasional masih menjadi area penguatan utama.',
     deliveryBisnis:
-      'Delivery bisnis tetap baik untuk masa kerja yang singkat, namun skor disesuaikan agar lebih proporsional dengan kebutuhan penguatan konsistensi finish dan koordinasi lintas dependensi.',
+      'Delivery bisnis sudah cukup kuat melalui penyesuaian kebutuhan di 3 portal utama dan beberapa modul penting, namun konsistensi finish rate dan koordinasi lintas dependensi masih perlu diperkuat.',
     securityObservability:
-      'Kontribusi pada security dan observability sudah cukup baik melalui penanganan CVE Axios, implementasi Sentry, dan observability dasar.',
+      'Kontribusi pada security dan observability sudah cukup baik melalui implementasi Sentry dan penanganan risiko keamanan Axios (CVE), sehingga layanan lebih aman dan mudah dimonitor.',
     aiProduktivitas:
       'Aspek AI dibuat lebih konservatif karena pemanfaatannya masih berada pada level dasar dan belum menjadi pembeda yang konsisten pada delivery.',
   },
   careerRoadmapGoal:
-    'Meningkatkan kematangan eksekusi menuju Middle staff Frontend Engineer melalui penguatan kolaborasi lintas tim, kualitas delivery, dan ketepatan keputusan teknis.',
+    'Menguatkan fondasi menuju Middle staff Frontend Engineer melalui peningkatan kualitas keputusan, kolaborasi lintas tim, pendalaman fundamental aksesibilitas, dan reliability delivery lintas 3 portal.',
   careerRoadmap: [
     {
       period: 'Q2 2026',
       objective:
-        'Penguatan kolaborasi dependensi dan kedisiplinan komunikasi operasional.',
+        'Penguatan verifikasi analisis, fundamental aksesibilitas, dan kedisiplinan komunikasi operasional.',
       backlogs: [
         'Menerapkan format update status harian yang konsisten di kanal tim.',
+        'Memperdalam fundamental aksesibilitas seperti struktur semantik dan atribut bantu yang relevan.',
         'Melakukan konfirmasi dependency lintas tim sebelum eksekusi task kritikal.',
         'Membuat checklist validasi akar masalah sebelum eskalasi issue.',
       ],
       successIndicator:
-        'Sinkronisasi kerja lintas tim lebih lancar dan bottleneck dependency berkurang.',
+        'Analisis masalah menjadi lebih akurat, praktik aksesibilitas lebih matang, dan sinkronisasi kerja lintas tim lebih lancar.',
     },
     {
       period: 'Q3 2026',
       objective:
-        'Peningkatan reliability delivery melalui test dan quality hardening.',
+        'Peningkatan reliability delivery melalui test, observability, dan quality hardening.',
       backlogs: [
         'Menambah cakupan unit test pada modul baru dan modul hasil rebuild.',
         'Menjaga temuan SonarQube prioritas tetap rendah per sprint.',
@@ -175,15 +176,15 @@ export const rafliRaiRizkyProfileData: EngineerProfileData = {
   ],
   softProfile: {
     collaborationType:
-      'Individual contributor dengan potensi kolaboratif; kuat di eksekusi, perlu peningkatan sinkronisasi dependensi lintas tim.',
+      'Individual contributor dengan eksposur kerja lintas 3 portal; kuat di eksekusi dan adaptif, namun masih perlu peningkatan sinkronisasi dependensi lintas tim.',
     workStyle:
-      'Cepat bergerak dan result-oriented; efektif untuk delivery cepat jika ada guardrail validasi yang jelas.',
+      'Cepat bergerak, result-oriented, dan cukup responsif terhadap evaluasi; efektif untuk delivery cepat jika ada guardrail validasi yang jelas.',
     strengths:
-      'Produktivitas tinggi, komunikasi tulisan baik, dan kemampuan menyusun strategi implementasi.',
+      'Produktivitas tinggi, komunikasi tulisan baik, kemampuan menyusun strategi implementasi bertahap, dan cepat berbenah setelah menerima evaluasi.',
     developmentAreas:
-      'Penguatan critical thinking berbasis verifikasi, disiplin komunikasi tim, dan kolaborasi dependensi.',
+      'Penguatan critical thinking berbasis verifikasi, pendalaman fundamental aksesibilitas, disiplin komunikasi tim, dan kolaborasi dependensi.',
     uniqueSellingPoint:
-      'Kombinasi kecepatan delivery dan kemampuan menyusun narasi teknis yang mudah dipahami.',
+      'Kombinasi kecepatan delivery lintas 3 portal, kemampuan menyusun narasi teknis yang mudah dipahami, dan kesadaran cepat terhadap area perbaikan.',
   },
 };
 
