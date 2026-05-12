@@ -186,6 +186,11 @@ export default function Home() {
     finishRate: row.avgFinishRate,
   }));
 
+  const maxGoodCount = Math.max(
+    ...summaryRows.map((row) => row.good.length),
+    1,
+  );
+
   const timelineGridTemplate = `repeat(${TOTAL_TIMELINE_WEEKS}, minmax(var(--roadmap-week-min), 1fr))`;
 
   return (
@@ -361,83 +366,44 @@ export default function Home() {
         <div className={styles.panelHeader}>
           <h2 id="kelebihan-title">Kelebihan Komparasi</h2>
           <p>
-            Daftar kelebihan utama setiap engineer berdasarkan evaluasi kinerja
-            dan pola kontribusi selama periode profiling.
+            Komparasi kelebihan utama setiap engineer dalam format tabel
+            terstruktur untuk memudahkan perbandingan antar profil.
           </p>
         </div>
         <div className={styles.tableWrap}>
-          <table className={styles.table}>
+          <table className={`${styles.table} ${styles.profileAspectTable}`}>
             <caption className={styles.srOnly}>
               Tabel kelebihan seluruh engineer frontend
             </caption>
             <thead>
               <tr>
-                <th scope="col">Nama Engineer</th>
-                <th scope="col">Kelebihan</th>
+                {summaryRows.map((row) => (
+                  <th key={`${row.name}-good-header`} scope="col">
+                    {renderEngineerName(row.name)}
+                  </th>
+                ))}
               </tr>
             </thead>
             <tbody>
-              {summaryRows.map((row) => (
-                <tr key={`${row.name}-good`}>
-                  <th scope="row">{renderEngineerName(row.name)}</th>
-                  <td>
-                    {row.good.length > 0 ? (
-                      <ul className={styles.evalList}>
-                        {row.good.map((item) => (
-                          <li key={item.title} className={styles.evalListItem}>
-                            <strong>{item.title}</strong>
-                            <span>{item.description}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    ) : (
-                      '-'
-                    )}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
+              {Array.from({ length: maxGoodCount }, (_, pointIndex) => (
+                <tr key={`good-point-row-${pointIndex + 1}`}>
+                  {summaryRows.map((row) => {
+                    const item = row.good[pointIndex];
 
-      <section className={styles.panel} aria-labelledby="needs-improve-title">
-        <div className={styles.panelHeader}>
-          <h2 id="needs-improve-title">Area Pengembangan Komparasi</h2>
-          <p>
-            Hal-hal yang perlu ditingkatkan setiap engineer sebagai bagian dari
-            rencana pengembangan diri yang berkelanjutan.
-          </p>
-        </div>
-        <div className={styles.tableWrap}>
-          <table className={styles.table}>
-            <caption className={styles.srOnly}>
-              Tabel area pengembangan seluruh engineer frontend
-            </caption>
-            <thead>
-              <tr>
-                <th scope="col">Nama Engineer</th>
-                <th scope="col">Perlu Ditingkatkan</th>
-              </tr>
-            </thead>
-            <tbody>
-              {summaryRows.map((row) => (
-                <tr key={`${row.name}-improve`}>
-                  <th scope="row">{renderEngineerName(row.name)}</th>
-                  <td>
-                    {row.needsImprove.length > 0 ? (
-                      <ul className={styles.evalList}>
-                        {row.needsImprove.map((item) => (
-                          <li key={item.title} className={styles.evalListItem}>
-                            <strong>{item.title}</strong>
-                            <span>{item.description}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    ) : (
-                      '-'
-                    )}
-                  </td>
+                    if (!item) {
+                      return (
+                        <td key={`${row.name}-good-empty-${pointIndex}`}>-</td>
+                      );
+                    }
+
+                    return (
+                      <td key={`${row.name}-good-${pointIndex}`}>
+                        <strong>{item.title}</strong>
+                        <br />
+                        {item.description}
+                      </td>
+                    );
+                  })}
                 </tr>
               ))}
             </tbody>

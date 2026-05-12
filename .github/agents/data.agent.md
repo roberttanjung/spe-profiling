@@ -86,7 +86,7 @@ Konstanta `REFERENCE_DATE` di `src/db/constants.ts` menetapkan baseline untuk ka
 
 ## Dashboard Section Ordering
 
-Urutan section di Dashboard (`src/app/page.tsx`) dirancang untuk memandu pembaca melalui profiling dari yang umum ke spesifik: **Identitas → Karakteristik → Kualitas → Performa**.
+Urutan section di Dashboard (`src/app/page.tsx`) dirancang untuk memandu pembaca melalui profiling dari yang umum ke spesifik: **Identitas -> Karakteristik -> Kualitas -> Kelebihan -> Roadmap -> Performa**.
 
 ### Urutan Section
 
@@ -104,10 +104,23 @@ Urutan section di Dashboard (`src/app/page.tsx`) dirancang untuk memandu pembaca
    - Rating disesuaikan dengan KPI achievement TWBE monthly
    - Tujuan: Pembaca tahu kualitas evaluasi setiap engineer secara mendetail
 
-4. **Performa TWBE Komparasi** (Performa)
+4. **Kelebihan Komparasi** (Strength Highlights)
+   - Tabel komparatif transposed
+   - Header kolom adalah nama engineer
+   - Poin kelebihan ditampilkan vertikal per baris berdasarkan urutan item `good`
+
+5. **Roadmap Karir Komparasi** (Roadmap)
+   - Timeline Gantt roadmap engineer Juni-November 2026
+   - Data bersumber dari `allEngineerProfiles` via `getEngineerRoadmapRows()`
+
+6. **Performa TWBE Komparasi** (Performa)
    - Data performa TWBE dalam bentuk visual chart
    - Metrik: total task, total weight, bugs ratio, finish rate per engineer
    - Tujuan: Pembaca yang ingin deep dive ke data aktual TWBE
+
+### Section Nonaktif
+
+- `Area Pengembangan Komparasi` tidak termasuk section aktif Dashboard saat ini.
 
 ### Prinsip Ordering
 

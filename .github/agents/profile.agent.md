@@ -180,6 +180,22 @@ Section roadmap di Dashboard (`src/app/page.tsx`) menampilkan komparasi roadmap 
   - seluruh elemen background kolom dan bar stage harus berada pada baris grid yang sama (single row track)
   - jangan biarkan auto-placement CSS Grid mendorong bar ke implicit row kedua
 
+## Dashboard Kelebihan Komparasi
+
+Section `Kelebihan Komparasi` di Dashboard (`src/app/page.tsx`) menampilkan kelebihan engineer dalam tabel komparatif transposed.
+
+### Rules
+
+- Nama engineer ditampilkan sebagai header kolom.
+- Poin kelebihan ditampilkan vertikal per baris berdasarkan index item `good`.
+- Tidak menggunakan kolom label tambahan seperti `Poin Kelebihan`.
+- Jika jumlah poin antar engineer berbeda, cell yang tidak memiliki data diisi `-`.
+
+## Dashboard Area Pengembangan Komparasi
+
+- Section `Area Pengembangan Komparasi` di Dashboard telah dihapus dari scope tampilan aktif.
+- Jangan menambahkan kembali section ini kecuali ada instruksi eksplisit dari user.
+
 ### Rules Perubahan Dashboard Roadmap
 
 - Untuk perubahan data roadmap engineer: edit hanya di `src/views/Profile/<EngineerName>/`.

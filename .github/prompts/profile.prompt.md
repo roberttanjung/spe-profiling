@@ -53,6 +53,8 @@ Fokus sesi ini adalah memperbarui profile Frontend Engineer yang sudah ada secar
   - `TWBE Total Comparison Chart`
   - `Bare Minimum Frontend Engineer`
   - `Aspek Profil Komparasi`
+  - `Kelebihan Komparasi`
+  - `Roadmap Karir Komparasi`
   - `Summary Komparasi`
 - Modul turunan lain yang membaca object profile engineer yang sama, termasuk generator atau utilitas yang mengambil `good`, `needsImprove`, `softProfile`, `activities`, `careerRoadmap`, atau `bareMinimumReasons`.
 
@@ -142,6 +144,8 @@ Sesi ini mengelola pembaruan career roadmap Engineer yang fokus pada Peningkatan
 - [ ] Jika `POINTS` berubah dan sudah diimplementasikan, perbarui sesi yang relevan lalu kosongkan isi `POINTS`.
 - [ ] Pastikan perubahan README telah disinkronkan ke object profile engineer pada file `.tsx` yang relevan.
 - [ ] Pastikan seluruh halaman atau modul terdampak ikut diperiksa dan disesuaikan.
+- [ ] Untuk Dashboard, pastikan section `Kelebihan Komparasi` menggunakan format transposed (Nama Engineer sebagai header kolom, poin kelebihan vertikal per baris).
+- [ ] Untuk Dashboard, pastikan section `Area Pengembangan Komparasi` tidak ditampilkan (sesuai scope aktif saat ini).
 - [ ] Pastikan semua evidence valid tetap ada setelah perombakan kalimat, termasuk aktivitas nyata, nama modul, nama portal/project, dan semua angka penting.
 - [ ] Pastikan tidak ada sesi dashboard atau modul turunan yang tertinggal apabila membaca data dari object profile engineer yang sama.
 - [ ] Setelah implementasi selesai, cek ulang apakah ada informasi penting yang hilang akibat peringkasan narasi. Jika ada, kembalikan ke versi akhir yang tetap mudah dipahami.
