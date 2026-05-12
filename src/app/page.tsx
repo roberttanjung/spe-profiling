@@ -5,6 +5,12 @@ import { getTwbeMonthlyRowsByEmployeeName } from '@/utils/twbe';
 import { engineerNavigationItems } from '@/utils/navigation';
 import { allEngineerProfiles } from '@/views/Profile';
 import {
+  getEngineerRoadmapRows,
+  MONTH_BANDS,
+  TOTAL_TIMELINE_WEEKS,
+  WEEKS_PER_MONTH,
+} from '@/utils/roadmap';
+import {
   BARE_MINIMUM_MATRIX,
   BARE_MINIMUM_TOOLTIP_LEVELS,
   getKpiAchievement,
@@ -179,6 +185,8 @@ export default function Home() {
     bugsRatio: row.avgBugsRatio,
     finishRate: row.avgFinishRate,
   }));
+
+  const timelineGridTemplate = `repeat(${TOTAL_TIMELINE_WEEKS}, minmax(var(--roadmap-week-min), 1fr))`;
 
   return (
     <main className={styles.mainContent}>
@@ -439,32 +447,144 @@ export default function Home() {
 
       <section className={styles.panel} aria-labelledby="roadmap-title">
         <div className={styles.panelHeader}>
-          <h2 id="roadmap-title">Career Trajectory Komparasi</h2>
+          <h2 id="roadmap-title">Roadmap Karir Komparasi</h2>
           <p>
-            Tujuan karir setiap engineer sebagai gambaran arah pengembangan
-            jangka menengah dalam periode profiling.
+            Timeline pengembangan karir setiap engineer untuk periode
+            Juni-November 2026 dalam format Gantt chart.
           </p>
         </div>
-        <div className={styles.tableWrap}>
-          <table className={styles.table}>
-            <caption className={styles.srOnly}>
-              Tabel career trajectory seluruh engineer frontend
-            </caption>
-            <thead>
-              <tr>
-                <th scope="col">Nama Engineer</th>
-                <th scope="col">Tujuan Karir</th>
-              </tr>
-            </thead>
-            <tbody>
-              {summaryRows.map((row) => (
-                <tr key={`${row.name}-roadmap`}>
-                  <th scope="row">{renderEngineerName(row.name)}</th>
-                  <td>{row.careerRoadmapGoal ?? '-'}</td>
-                </tr>
+        <div className={styles.roadmapGanttWrapper}>
+          <div
+            className={styles.roadmapGanttHeaderRow}
+            style={{
+              gridTemplateColumns: `var(--roadmap-label-col) minmax(calc(var(--roadmap-week-min) * ${TOTAL_TIMELINE_WEEKS}), 1fr)`,
+            }}
+          >
+            <div className={styles.roadmapGanttLabelCell} aria-hidden="true" />
+            <div
+              className={styles.roadmapGanttHeaderGrid}
+              style={{
+                gridTemplateColumns: timelineGridTemplate,
+              }}
+            >
+              {MONTH_BANDS.map((band, monthIndex) => {
+                const monthColumnStart = monthIndex * WEEKS_PER_MONTH + 1;
+
+                return (
+                  <div
+                    key={`band-${band.month}`}
+                    className={styles.roadmapGanttHeaderCell}
+                    title={`${band.month} 2026`}
+                    style={{
+                      gridColumn: `${monthColumnStart} / span ${WEEKS_PER_MONTH}`,
+                    }}
+                  >
+                    <span className={styles.roadmapGanttHeaderMonth}>
+                      {band.label}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          <div
+            className={styles.roadmapGanttWeekRow}
+            style={{
+              gridTemplateColumns: `var(--roadmap-label-col) minmax(calc(var(--roadmap-week-min) * ${TOTAL_TIMELINE_WEEKS}), 1fr)`,
+            }}
+          >
+            <div className={styles.roadmapGanttLabelCell} aria-hidden="true" />
+            <div
+              className={styles.roadmapGanttWeekGrid}
+              style={{
+                gridTemplateColumns: timelineGridTemplate,
+              }}
+            >
+              {Array.from({ length: TOTAL_TIMELINE_WEEKS }, (_, weekIndex) => (
+                <div
+                  key={`week-${weekIndex + 1}`}
+                  className={styles.roadmapGanttWeekCell}
+                >
+                  {(weekIndex % WEEKS_PER_MONTH) + 1}
+                </div>
               ))}
-            </tbody>
-          </table>
+            </div>
+          </div>
+
+          {getEngineerRoadmapRows().map((engineerRow, engineerIndex) => (
+            <div
+              key={`engineer-${engineerRow.engineerName}`}
+              className={styles.roadmapEngineerGroup}
+            >
+              <div
+                className={styles.roadmapEngineerName}
+                style={{
+                  gridTemplateColumns: `var(--roadmap-label-col) minmax(calc(var(--roadmap-week-min) * ${TOTAL_TIMELINE_WEEKS}), 1fr)`,
+                }}
+              >
+                <div className={styles.roadmapEngineerBadge}>
+                  {renderEngineerName(engineerRow.engineerName)}
+                </div>
+                <div
+                  className={styles.roadmapEngineerSpacer}
+                  aria-hidden="true"
+                />
+              </div>
+
+              {engineerRow.stages.map((stage, stageIndex) => {
+                const monthOffset = (stage.monthNumber - 1) * WEEKS_PER_MONTH;
+                const gridColumnStart = monthOffset + stage.weekStart;
+                const gridColumnSpan = stage.weekEnd - stage.weekStart + 1;
+
+                return (
+                  <div
+                    key={`stage-${engineerRow.engineerName}-${stageIndex}`}
+                    className={styles.roadmapGanttRow}
+                    style={{
+                      gridTemplateColumns: `var(--roadmap-label-col) minmax(calc(var(--roadmap-week-min) * ${TOTAL_TIMELINE_WEEKS}), 1fr)`,
+                    }}
+                  >
+                    <div
+                      className={styles.roadmapGanttLabelCell}
+                      title={stage.objective}
+                    >
+                      <span className={styles.roadmapGanttStageLabel}>
+                        {`Tahap ${stage.stageIndex + 1}`}
+                      </span>
+                    </div>
+                    <div
+                      className={styles.roadmapGanttGrid}
+                      style={{
+                        gridTemplateColumns: timelineGridTemplate,
+                      }}
+                    >
+                      {Array.from(
+                        { length: TOTAL_TIMELINE_WEEKS },
+                        (_, index) => (
+                          <div
+                            key={`gantt-col-${engineerIndex}-${stageIndex}-${index + 1}`}
+                            className={`${styles.roadmapGanttCol} ${index % 2 === 0 ? styles.roadmapGanttColAlt : ''}`}
+                          />
+                        ),
+                      )}
+                      <div
+                        className={`${styles.roadmapGanttBar} ${styles[`roadmapBar_engineer${engineerIndex}`]}`}
+                        style={{
+                          gridColumn: `${gridColumnStart} / span ${gridColumnSpan}`,
+                        }}
+                        title={`${stage.objective} · Minggu ${stage.weekStart}-${stage.weekEnd}`}
+                      >
+                        <span className={styles.roadmapGanttBarLabel}>
+                          {stage.objective}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          ))}
         </div>
       </section>
 

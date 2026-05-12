@@ -521,6 +521,235 @@
   overflow: hidden;
 }
 
+/* Roadmap Gantt Chart Styles */
+
+.roadmapGanttWrapper {
+  margin-top: 14px;
+  max-width: 100%;
+  overflow-x: auto;
+  --roadmap-label-col: 140px;
+  --roadmap-week-min: 40px;
+  --roadmap-stage-row-min: 44px;
+  scroll-behavior: smooth;
+}
+
+.roadmapGanttHeaderRow,
+.roadmapGanttWeekRow,
+.roadmapGanttRow {
+  display: grid;
+  gap: 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.roadmapGanttRow {
+  min-height: var(--roadmap-stage-row-min);
+  align-items: stretch;
+}
+
+.roadmapGanttLabelCell {
+  display: flex;
+  align-items: flex-start;
+  padding: 12px 12px;
+  background: color-mix(in srgb, var(--surface) 85%, #f0f0f0 15%);
+  border-right: 1px solid var(--border);
+  min-height: 44px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--ink-muted);
+  word-break: break-word;
+  white-space: normal;
+  padding-top: 10px;
+}
+
+.roadmapGanttStageLabel {
+  display: block;
+  text-align: left;
+  line-height: 1.4;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.roadmapGanttHeaderMonth {
+  display: block;
+  text-align: center;
+  font-size: 0.83rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.roadmapGanttMonthGrid,
+.roadmapGanttWeekGrid,
+.roadmapGanttGrid {
+  display: grid;
+  width: 100%;
+  align-items: stretch;
+}
+
+.roadmapGanttGrid {
+  min-height: var(--roadmap-stage-row-min);
+  height: 100%;
+  grid-template-rows: 1fr;
+}
+
+.roadmapGanttHeaderGrid {
+  display: grid;
+  width: 100%;
+}
+
+.roadmapGanttHeaderCell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 6px;
+  background: linear-gradient(135deg, #d6eadf 0%, #c5dfd4 100%);
+  border-right: 1px solid var(--border);
+  border-bottom: 2px solid var(--accent);
+  min-height: 48px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-align: center;
+  cursor: default;
+  color: var(--accent);
+  letter-spacing: 0.3px;
+}
+
+.roadmapGanttWeekCell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 2px;
+  background: color-mix(in srgb, var(--surface) 95%, #f5f5f5 5%);
+  border-right: 1px solid color-mix(in srgb, var(--border) 50%, transparent 50%);
+  min-height: 32px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--ink-muted);
+}
+
+.roadmapGanttWeekCell:nth-child(4n) {
+  border-right: 2px solid color-mix(in srgb, var(--accent) 45%, white 55%);
+}
+
+.roadmapGanttWeekCell:first-child {
+  border-left: 1px solid color-mix(in srgb, var(--border) 45%, transparent 55%);
+}
+
+.roadmapGanttCol {
+  display: block;
+  grid-row: 1;
+  border-right: 1px solid color-mix(in srgb, var(--border) 30%, transparent 70%);
+  min-height: var(--roadmap-stage-row-min);
+}
+
+.roadmapGanttCol:nth-child(4n) {
+  border-right: 2px solid color-mix(in srgb, var(--accent) 30%, white 70%);
+}
+
+.roadmapGanttCol:first-child {
+  border-left: 1px solid color-mix(in srgb, var(--border) 45%, transparent 55%);
+}
+
+.roadmapGanttColAlt {
+  background: color-mix(in srgb, var(--surface) 92%, #f0f0f0 8%);
+}
+
+.roadmapGanttBar {
+  grid-column: auto;
+  grid-row: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 8px;
+  border-radius: 6px;
+  color: white;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-align: center;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1;
+  align-self: center;
+}
+
+.roadmapGanttBar:hover {
+  opacity: 0.9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.roadmapGanttBarLabel {
+  display: block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+/* Engineer group and stage styling */
+
+.roadmapEngineerGroup {
+  display: contents;
+}
+
+.roadmapEngineerName {
+  display: grid;
+  gap: 0;
+  border-bottom: 2px solid var(--accent-soft);
+  background: color-mix(in srgb, var(--surface) 95%, var(--accent-soft) 5%);
+}
+
+.roadmapEngineerBadge {
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  font-weight: 700;
+  color: var(--accent);
+  font-size: 0.9rem;
+  min-height: 44px;
+}
+
+.roadmapEngineerSpacer {
+  min-height: 44px;
+  border-right: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface) 97%, var(--accent-soft) 3%);
+}
+
+.roadmapEngineerBadge a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.roadmapEngineerBadge a:hover {
+  text-decoration: underline;
+}
+
+/* Color bars per engineer */
+
+.roadmapBar_engineer0 {
+  background: linear-gradient(120deg, #3b82f6, #2563eb);
+}
+
+.roadmapBar_engineer1 {
+  background: linear-gradient(120deg, #10b981, #059669);
+}
+
+.roadmapBar_engineer2 {
+  background: linear-gradient(120deg, #f59e0b, #d97706);
+}
+
+.roadmapBar_engineer3 {
+  background: linear-gradient(120deg, #8b5cf6, #7c3aed);
+}
+
+.roadmapBar_engineer4 {
+  background: linear-gradient(120deg, #ef4444, #dc2626);
+}
+
 @media (max-width: 1080px) {
   .sidebar {
     width: 232px;
@@ -529,6 +758,29 @@
   .kpiGrid,
   .chartGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .roadmapGanttWrapper {
+    --roadmap-label-col: 120px;
+    --roadmap-week-min: 35px;
+  }
+
+  .roadmapGanttLabelCell {
+    font-size: 0.8rem;
+    padding: 6px 10px;
+  }
+
+  .roadmapGanttHeaderCell {
+    font-size: 0.77rem;
+  }
+
+  .roadmapGanttWeekCell {
+    font-size: 0.7rem;
+  }
+
+  .roadmapGanttBar {
+    font-size: 0.7rem;
+    padding: 4px 6px;
   }
 }
 
@@ -629,5 +881,51 @@
   .kpiGrid,
   .chartGrid {
     grid-template-columns: 1fr;
+  }
+
+  .roadmapGanttWrapper {
+    --roadmap-label-col: 100px;
+    --roadmap-week-min: 30px;
+    --roadmap-stage-row-min: 36px;
+    margin-left: -14px;
+    margin-right: -14px;
+    padding-left: 0;
+  }
+
+  .roadmapGanttLabelCell {
+    font-size: 0.75rem;
+    padding: 4px 6px;
+  }
+
+  .roadmapGanttHeaderCell {
+    font-size: 0.7rem;
+    min-height: 40px;
+  }
+
+  .roadmapGanttWeekCell {
+    font-size: 0.65rem;
+    min-height: 28px;
+  }
+
+  .roadmapGanttWeekCell:nth-child(4n) {
+    border-right: 3px solid color-mix(in srgb, var(--accent) 80%, black 20%);
+  }
+
+  .roadmapGanttCol:nth-child(4n) {
+    border-right: 3px solid color-mix(in srgb, var(--accent) 75%, black 25%);
+  }
+
+  .roadmapGanttColAlt {
+    background: color-mix(in srgb, var(--surface) 86%, #e7eee9 14%);
+  }
+
+  .roadmapGanttBar {
+    font-size: 0.65rem;
+    padding: 3px 4px;
+  }
+
+  .roadmapEngineerBadge {
+    font-size: 0.85rem;
+    padding: 8px 10px;
   }
 }

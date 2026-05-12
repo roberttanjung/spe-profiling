@@ -74,7 +74,7 @@ Sesi ini mengelola pembaruan career roadmap Engineer yang fokus pada Peningkatan
 ### Objectives
 
 - Buat atau sesuaikan career roadmap Engineer tahun 2026 berdasarkan area peningkatan dan arah karir personal
-- Tampilkan roadmap dalam bentuk 5 tahap dengan timeline kuartal (Juni-November 2026)
+- Tampilkan roadmap dalam bentuk 6 tahap (satu per bulan) untuk periode Juni-November 2026
 - Integrasikan aktivitas course online dari platform terpercaya sebagai bagian roadmap
 - Tentukan output fisik yang terukur dan realistis untuk setiap tahap
 
@@ -96,6 +96,9 @@ Sesi ini mengelola pembaruan career roadmap Engineer yang fokus pada Peningkatan
 - Batasi deadline roadmap sampai November 2026
 - Pastikan timeline responsive dan terbaca pada layar kecil dengan scroll horizontal jika diperlukan
 - Pastikan tujuan roadmap selaras dengan DR Cosma Grom dan kemampuan Learning yang perlu ditingkatkan
+- Jika perubahan roadmap berdampak ke Dashboard, verifikasi section "Roadmap Karir Komparasi" tetap sinkron dengan data profile engineer (SSOT)
+- Verifikasi alignment timeline dashboard: header bulan, grid minggu, dan bar stage berada pada skala grid yang sama
+- Verifikasi tidak ada efek visual double-row pada stage timeline dashboard
 
 ### Rules Career Roadmap Update
 
@@ -109,6 +112,7 @@ Sesi ini mengelola pembaruan career roadmap Engineer yang fokus pada Peningkatan
 - Aktivitas internal cukup mengisi `title` tanpa `url` — badge "Course Online" hanya muncul jika `url` ada
 - Grid timeline hanya mencakup bulan Juni sampai November
 - Validasi: deadline tidak melampaui November 2026
+- Untuk dashboard roadmap komparasi, data wajib berasal dari `allEngineerProfiles` via `getEngineerRoadmapRows()` (tanpa hardcode stage)
 
 ### Checklist Career Roadmap
 
@@ -124,6 +128,8 @@ Sesi ini mengelola pembaruan career roadmap Engineer yang fokus pada Peningkatan
 - [ ] Perbarui field `careerRoadmap` dan `careerRoadmapGoal` di file `.tsx` engineer yang relevan
 - [ ] Verifikasi komponen `CareerRoadmapSection` merender timeline dan tahap dengan benar
 - [ ] Jika timeline berubah, sinkronkan data durasi, label periode, dan konsistensi visual
+- [ ] Verifikasi Dashboard "Roadmap Karir Komparasi" ikut sinkron terhadap update roadmap profile engineer
+- [ ] Verifikasi dashboard timeline tidak mengalami double-row dan tetap terbaca di mobile
 
 ## Checklist Eksekusi
 
@@ -140,10 +146,11 @@ Sesi ini mengelola pembaruan career roadmap Engineer yang fokus pada Peningkatan
 - [ ] Pastikan tidak ada sesi dashboard atau modul turunan yang tertinggal apabila membaca data dari object profile engineer yang sama.
 - [ ] Setelah implementasi selesai, cek ulang apakah ada informasi penting yang hilang akibat peringkasan narasi. Jika ada, kembalikan ke versi akhir yang tetap mudah dipahami.
 - [ ] **Career Roadmap:** Identifikasi area peningkatan dari bagian DEVELOPMENT di README engineer
-- [ ] **Career Roadmap:** Buat atau sesuaikan 5 tahap roadmap dengan tujuan jelas dan selaras dengan DR Cosma Grom
+- [ ] **Career Roadmap:** Buat atau sesuaikan 6 tahap roadmap (Juni-November) dengan tujuan jelas dan selaras dengan DR Cosma Grom
 - [ ] **Career Roadmap:** Verifikasi semua course online tersedia, valid, dan berbahasa Indonesia
 - [ ] **Career Roadmap:** Hitung estimasi timeline berdasarkan durasi course dengan standar study hours per minggu
 - [ ] **Career Roadmap:** Tentukan output fisik terukur untuk setiap tahap (sertifikat, dokumen, presentasi, dll)
 - [ ] **Career Roadmap:** Perbarui object career roadmap di file `.tsx` engineer
 - [ ] **Career Roadmap:** Verifikasi `CareerRoadmapSection` merender timeline dan tahap dengan benar
 - [ ] **Career Roadmap:** Sinkronkan konsistensi visual dan data durasi timeline
+- [ ] **Career Roadmap:** Verifikasi section dashboard roadmap komparasi tetap SSOT, align, responsive, dan bebas double-row

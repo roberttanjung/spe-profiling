@@ -153,6 +153,40 @@ Section "Roadmap Karir" menampilkan rencana pengembangan dan arah karir Engineer
 - Jika mengubah struktur schema roadmap, pastikan konsistensi dengan TypeScript types di `src/components/CareerRoadmapSection/CareerRoadmapSection.types.ts`
 - Perubahan data roadmap di satu file engineer otomatis tampil di halaman profile engineer tersebut
 
+## Dashboard Roadmap Komparasi
+
+Section roadmap di Dashboard (`src/app/page.tsx`) menampilkan komparasi roadmap semua engineer dalam format Gantt berbasis minggu.
+
+### Sumber Data
+
+- Dashboard roadmap **tidak boleh hardcode data stage**.
+- Data wajib diambil dari `allEngineerProfiles` melalui utilitas `getEngineerRoadmapRows()` di `src/utils/roadmap.ts`.
+- `allEngineerProfiles` wajib bersumber dari registry terpusat `src/views/Profile/index.ts`.
+- Perubahan `careerRoadmap` di file engineer (`src/views/Profile/<EngineerName>/*.tsx`) otomatis memengaruhi Profile View dan Dashboard.
+
+### Struktur Timeline Dashboard
+
+- Header bulan: Juni-November 2026.
+- Grid minggu: 24 kolom (6 bulan x 4 minggu).
+- Nomor minggu ditampilkan berulang 1-4 setiap bulan.
+- Posisi bar stage dihitung dari `monthNumber`, `weekStart`, `weekEnd`.
+
+### Rules Layout & Responsiveness
+
+- Pastikan alignment bulan, minggu, dan bar stage menggunakan satu skala grid timeline yang sama agar stabil di berbagai resolusi.
+- Timeline harus tetap terbaca pada layar kecil dengan scroll horizontal.
+- Gunakan separator bulan yang jelas pada setiap minggu ke-4 untuk meningkatkan keterbacaan.
+- Hindari efek visual double-row pada stage timeline:
+  - seluruh elemen background kolom dan bar stage harus berada pada baris grid yang sama (single row track)
+  - jangan biarkan auto-placement CSS Grid mendorong bar ke implicit row kedua
+
+### Rules Perubahan Dashboard Roadmap
+
+- Untuk perubahan data roadmap engineer: edit hanya di `src/views/Profile/<EngineerName>/`.
+- Untuk perubahan mapping data dashboard roadmap: edit `src/utils/roadmap.ts`.
+- Untuk perubahan rendering dashboard roadmap: edit `src/app/page.tsx`.
+- Untuk perubahan styling/alignment/kontras dashboard roadmap: edit `src/app/page.module.css`.
+
 ### Output Expectations
 
 - Setiap tahap roadmap wajib memiliki output yang spesifik dan terukur

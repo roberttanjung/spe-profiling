@@ -30,6 +30,7 @@ Semua data dan definisi bersama harus mengacu pada satu sumber untuk mencegah ko
 | `src/db/softProfile.ts`      | Konstanta `SOFT_PROFILE_TEXT_KEYS` dan `SOFT_PROFILE_TEXT_LABELS` untuk Aspek Profil      | Dashboard, Profile View                                                                        |
 | `src/db/ssot.guard.test.ts`  | Guard test otomatis untuk mendeteksi drift data                                           | Dijalankan via `npm run test`                                                                  |
 | `src/views/Profile/index.ts` | Registry engineer (`engineerProfileRegistry`, `allEngineerProfiles`)                      | Dashboard, navigasi, KPI Generator                                                             |
+| `src/utils/roadmap.ts`       | Mapping roadmap profile -> grid dashboard (`getEngineerRoadmapRows`, `monthNumber`)       | Dashboard roadmap komparasi (`src/app/page.tsx`)                                               |
 
 ### Registry Engineer
 
@@ -37,7 +38,14 @@ Semua data dan definisi bersama harus mengacu pada satu sumber untuk mencegah ko
 - Dashboard (`src/app/page.tsx`) mengonsumsi `allEngineerProfiles` dari registry.
 - Navigasi profile (`src/utils/navigation.ts`) mengonsumsi `engineerProfileRegistry` dari registry.
 - KPI Generator (`src/views/KpiGenerator/kpi.utils.ts`) mengonsumsi `allEngineerProfiles` dari registry.
+- Dashboard roadmap komparasi (`src/app/page.tsx`) mengonsumsi data roadmap via `getEngineerRoadmapRows()` dari `src/utils/roadmap.ts`, yang bersumber dari `allEngineerProfiles`.
 - Untuk menambah atau menghapus engineer, cukup edit registry di `src/views/Profile/index.ts`.
+
+### Roadmap Dashboard SSOT
+
+- Sumber data roadmap dashboard adalah `careerRoadmap` pada masing-masing profile engineer di `src/views/Profile/<EngineerName>/`.
+- `src/utils/roadmap.ts` bertugas melakukan transformasi periode roadmap menjadi grid minggu (Juni-November, 4 minggu per bulan).
+- Dashboard (`src/app/page.tsx`) hanya merender hasil transformasi; tidak boleh memiliki data roadmap statis/hardcoded.
 
 ### Guard Test
 
