@@ -24,6 +24,24 @@
   color: var(--ink);
 }
 
+:global([data-color-scheme='dark']) .dashboardShell {
+  --canvas: #0e1612;
+  --surface: #162018;
+  --surface-quiet: #1e2d24;
+  --ink: #e4ede7;
+  --ink-muted: #8eaa9d;
+  --accent: #4aba84;
+  --accent-soft: #1a3328;
+  --border: #2f4437;
+  --risk: #e56f60;
+  --warn: #d6a53b;
+
+  background:
+    radial-gradient(circle at 88% 12%, #1a3528 0, transparent 31%),
+    radial-gradient(circle at 15% 88%, #1c2f1e 0, transparent 26%),
+    var(--canvas);
+}
+
 .header {
   grid-area: header;
   position: fixed;
@@ -295,7 +313,7 @@
   max-width: 100%;
   display: flex;
   flex-direction: column;
-  background: #fff;
+  background: var(--surface);
   border-left: 1px solid var(--border);
   box-shadow: -18px 0 34px rgba(19, 32, 25, 0.14);
 }
@@ -342,7 +360,7 @@
   flex: 1;
   min-height: 0;
   overflow: auto;
-  background: #fff;
+  background: var(--surface);
 }
 
 .table tbody th,
@@ -392,12 +410,12 @@
 .evalListItem strong {
   font-size: 0.8125rem;
   font-weight: 600;
-  color: #1a1a1a;
+  color: var(--ink);
 }
 
 .evalListItem span {
   font-size: 0.75rem;
-  color: #555;
+  color: var(--ink-muted);
   line-height: 1.5;
 }
 
@@ -545,6 +563,21 @@
   background: #f7ddd9;
 }
 
+:global([data-color-scheme='dark']) .statusGood {
+  color: #73d9a9;
+  background: #143126;
+}
+
+:global([data-color-scheme='dark']) .statusWarn {
+  color: #f1c970;
+  background: #3a2c12;
+}
+
+:global([data-color-scheme='dark']) .statusRisk {
+  color: #f19a90;
+  background: #3a1f1b;
+}
+
 .chartGrid {
   margin-top: 14px;
   display: grid;
@@ -575,7 +608,7 @@
   width: 100%;
   height: 10px;
   border-radius: 999px;
-  background: #d6dfda;
+  background: color-mix(in srgb, var(--surface) 72%, #d6dfda 28%);
   overflow: hidden;
 }
 

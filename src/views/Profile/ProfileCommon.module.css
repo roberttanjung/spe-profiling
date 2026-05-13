@@ -10,6 +10,15 @@
   gap: 20px;
 }
 
+:global([data-color-scheme='dark']) .profileSection {
+  --surface: #162018;
+  --surface-soft: #1b2a21;
+  --ink: #e4ede7;
+  --ink-muted: #8eaa9d;
+  --accent: #4aba84;
+  --border: #2f4437;
+}
+
 .hero {
   border: 1px solid var(--border);
   border-radius: 18px;
@@ -19,6 +28,13 @@
     radial-gradient(circle at 18% 92%, #eef7de 0, transparent 24%),
     var(--surface);
   box-shadow: 0 14px 34px color-mix(in srgb, var(--accent) 11%, transparent);
+}
+
+:global([data-color-scheme='dark']) .hero {
+  background:
+    radial-gradient(circle at 78% 10%, #214536 0, transparent 34%),
+    radial-gradient(circle at 18% 92%, #263e2a 0, transparent 28%),
+    var(--surface);
 }
 
 .badge {

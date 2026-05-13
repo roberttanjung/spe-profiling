@@ -11,6 +11,14 @@
   background: color-mix(in srgb, var(--surface-soft) 70%, white 30%);
 }
 
+:global([data-color-scheme='dark']) .section {
+  --surface: #162018;
+  --surface-soft: #1b2a21;
+  --ink: #e4ede7;
+  --ink-muted: #8eaa9d;
+  --border: #2f4437;
+}
+
 .title {
   margin: 0;
   font-size: clamp(1.05rem, 1.8vw, 1.2rem);

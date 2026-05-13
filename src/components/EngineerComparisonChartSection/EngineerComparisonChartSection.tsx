@@ -23,7 +23,10 @@ export function getAdaptiveLabelPlacement(
 
 export function getAdaptiveLabelStyle(placement: 'center' | 'outside') {
   return {
-    fill: placement === 'center' ? '#ffffff' : '#1a1a1a',
+    fill:
+      placement === 'center'
+        ? 'var(--chart-label-inside, #ffffff)'
+        : 'var(--chart-label-outside, #1a1a1a)',
     fontWeight: 700,
     fontSize: 12,
   };
@@ -48,6 +51,9 @@ const numberFormatter = new Intl.NumberFormat('id-ID', {
 export default function EngineerComparisonChartSection({
   rows,
   className,
+  title = 'Chart Komparasi TWBE Total',
+  subtitle = 'Komparasi TWBE total per engineer dengan sumbu X nama engineer dan sumbu Y nilai.',
+  showHeader = true,
 }: EngineerComparisonChartSectionProps) {
   const engineers = rows.map((row) => row.engineerName);
   const totalTaskData = rows.map((row) => row.totalTask);
@@ -87,11 +93,12 @@ export default function EngineerComparisonChartSection({
     <section
       className={className ? `${styles.section} ${className}` : styles.section}
     >
-      <h2 className={styles.title}>TWBE Total Comparison Chart</h2>
-      <p className={styles.subtitle}>
-        Komparasi TWBE total per engineer dengan sumbu X nama engineer dan sumbu
-        Y nilai.
-      </p>
+      {showHeader ? (
+        <>
+          <h2 className={styles.title}>{title}</h2>
+          <p className={styles.subtitle}>{subtitle}</p>
+        </>
+      ) : null}
 
       <div className={styles.grid}>
         <div className={styles.chartCard}>

@@ -600,7 +600,10 @@ export default async function Home({
             2026 dalam komparasi visual.
           </p>
         </div>
-        <EngineerComparisonChartSection rows={comparisonChartRows} />
+        <EngineerComparisonChartSection
+          rows={comparisonChartRows}
+          showHeader={false}
+        />
       </section>
 
       {selectedEngineer ? (

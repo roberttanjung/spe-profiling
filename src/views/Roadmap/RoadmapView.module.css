@@ -10,6 +10,15 @@
   gap: 20px;
 }
 
+:global([data-color-scheme='dark']) .roadmapSection {
+  --surface: #162018;
+  --surface-soft: #1b2a21;
+  --ink: #e4ede7;
+  --ink-muted: #8eaa9d;
+  --accent: #4aba84;
+  --border: #2f4437;
+}
+
 /* ─── Hero ─────────────────────────────────────────────── */
 
 .hero {
@@ -21,6 +30,13 @@
     radial-gradient(circle at 18% 92%, #eef7de 0, transparent 24%),
     var(--surface);
   box-shadow: 0 14px 34px color-mix(in srgb, var(--accent) 11%, transparent);
+}
+
+:global([data-color-scheme='dark']) .hero {
+  background:
+    radial-gradient(circle at 78% 10%, #214536 0, transparent 34%),
+    radial-gradient(circle at 18% 92%, #263e2a 0, transparent 28%),
+    var(--surface);
 }
 
 .badge {
@@ -56,6 +72,10 @@
   border-radius: 999px;
   background: color-mix(in srgb, var(--accent) 14%, white 86%);
   overflow: hidden;
+}
+
+:global([data-color-scheme='dark']) .progressBar {
+  background: color-mix(in srgb, var(--accent) 20%, #1b2a21 80%);
 }
 
 .progressFill {
@@ -168,14 +188,28 @@
   background: color-mix(in srgb, #f0f9f4 80%, white 20%);
 }
 
+:global([data-color-scheme='dark']) .stage_completed {
+  background: color-mix(in srgb, #1b3a28 80%, #162018 20%);
+}
+
 .stage_in_progress {
   border-color: color-mix(in srgb, #b45309 35%, #cfe0d4 65%);
   background: color-mix(in srgb, #fefce8 70%, white 30%);
 }
 
+:global([data-color-scheme='dark']) .stage_in_progress {
+  border-color: color-mix(in srgb, #d6a53b 40%, #2f4437 60%);
+  background: color-mix(in srgb, #3a2c12 80%, #162018 20%);
+}
+
 .stage_upcoming {
   background: #fafcfb;
   opacity: 0.85;
+}
+
+:global([data-color-scheme='dark']) .stage_upcoming {
+  background: color-mix(in srgb, #1e2d24 85%, #162018 15%);
+  opacity: 0.88;
 }
 
 .stageHeader {
@@ -456,6 +490,10 @@
   overflow: hidden;
 }
 
+:global([data-color-scheme='dark']) .ganttSection {
+  background: color-mix(in srgb, var(--surface) 90%, #0e1612 10%);
+}
+
 .ganttBasis {
   margin: 0;
   font-size: 0.8rem;
@@ -603,4 +641,55 @@
     flex-direction: column;
     align-items: flex-start;
   }
+}
+
+:global([data-color-scheme='dark']) .dot_in_progress {
+  background: #162018;
+  border-color: #d6a53b;
+  box-shadow: 0 0 0 3px color-mix(in srgb, #d6a53b 24%, transparent);
+}
+
+:global([data-color-scheme='dark']) .dot_upcoming {
+  background: #25352c;
+  border-color: #456052;
+}
+
+:global([data-color-scheme='dark']) .connectorPending {
+  background: #2f4437;
+  background: repeating-linear-gradient(
+    to bottom,
+    #2f4437 0px,
+    #2f4437 4px,
+    transparent 4px,
+    transparent 8px
+  );
+}
+
+:global([data-color-scheme='dark']) .status_completed {
+  color: #73d9a9;
+  background: #143126;
+}
+
+:global([data-color-scheme='dark']) .status_in_progress {
+  color: #f1c970;
+  background: #3a2c12;
+}
+
+:global([data-color-scheme='dark']) .status_upcoming {
+  color: #b8c7c0;
+  background: #2a3430;
+}
+
+:global([data-color-scheme='dark']) .priceMetaItem {
+  color: #7ed5a6;
+  border-color: #2f7d54;
+  background: #153427;
+}
+
+:global([data-color-scheme='dark']) .priceValue {
+  color: #7ed5a6;
+}
+
+:global([data-color-scheme='dark']) .platformUdemy {
+  background: #7e2bb7;
 }

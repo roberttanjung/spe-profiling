@@ -13,6 +13,15 @@
   gap: clamp(16px, 2.2vw, 26px);
 }
 
+:global([data-color-scheme='dark']) .section {
+  --surface: #162018;
+  --surface-soft: #1b2a21;
+  --ink: #e4ede7;
+  --ink-muted: #8eaa9d;
+  --accent: #4aba84;
+  --border: #2f4437;
+}
+
 .hero {
   border: 1px solid var(--border);
   border-radius: 16px;
@@ -20,6 +29,13 @@
   background:
     radial-gradient(circle at 12% 18%, #eef8e4 0, transparent 28%),
     radial-gradient(circle at 86% 20%, #d8eee0 0, transparent 34%),
+    var(--surface);
+}
+
+:global([data-color-scheme='dark']) .hero {
+  background:
+    radial-gradient(circle at 12% 18%, #263e2a 0, transparent 30%),
+    radial-gradient(circle at 86% 20%, #214536 0, transparent 36%),
     var(--surface);
 }
 
@@ -213,7 +229,7 @@
 }
 
 .textFieldsGrid :global(.MuiInputBase-root.MuiOutlinedInput-root) {
-  background: #fff;
+  background: color-mix(in srgb, var(--surface) 94%, white 6%);
   min-height: 122px;
 }
 

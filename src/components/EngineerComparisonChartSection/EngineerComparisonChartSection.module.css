@@ -4,11 +4,24 @@
   --ink: #15231b;
   --ink-muted: #4b6255;
   --border: #cfe0d4;
+  --chart-label-inside: #ffffff;
+  --chart-label-outside: #1a1a1a;
 
   border: 1px solid var(--border);
   border-radius: 18px;
   padding: clamp(16px, 2.2vw, 24px);
   background: color-mix(in srgb, var(--surface-soft) 70%, white 30%);
+}
+
+:global([data-color-scheme='dark']) .section {
+  --surface: #162018;
+  --surface-soft: #1b2a21;
+  --ink: #e4ede7;
+  --ink-muted: #8eaa9d;
+  --border: #2f4437;
+  --chart-label-inside: #f5f7f6;
+  --chart-label-outside: #d9e5de;
+  background: color-mix(in srgb, var(--surface-soft) 80%, #0f1712 20%);
 }
 
 .title {

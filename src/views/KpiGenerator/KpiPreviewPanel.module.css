@@ -16,6 +16,15 @@
   page-break-inside: avoid;
 }
 
+:global([data-color-scheme='dark']) .previewPanel {
+  --surface: #162018;
+  --surface-soft: #1b2a21;
+  --ink: #e4ede7;
+  --ink-muted: #8eaa9d;
+  --accent: #4aba84;
+  --border: #2f4437;
+}
+
 .previewHeader {
   display: grid;
   gap: 6px;

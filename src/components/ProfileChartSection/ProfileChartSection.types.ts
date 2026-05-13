@@ -9,4 +9,7 @@ export interface ChartMonthlyRow {
 export interface ProfileChartSectionProps {
   rows: ChartMonthlyRow[];
   className?: string;
+  title?: string;
+  subtitle?: string;
+  showHeader?: boolean;
 }

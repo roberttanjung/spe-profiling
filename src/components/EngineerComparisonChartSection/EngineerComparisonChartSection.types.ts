@@ -9,4 +9,7 @@ export interface EngineerComparisonChartRow {
 export interface EngineerComparisonChartSectionProps {
   rows: EngineerComparisonChartRow[];
   className?: string;
+  title?: string;
+  subtitle?: string;
+  showHeader?: boolean;
 }

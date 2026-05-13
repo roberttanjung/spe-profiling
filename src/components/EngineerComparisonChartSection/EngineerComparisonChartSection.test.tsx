@@ -45,11 +45,15 @@ describe('getAdaptiveLabelPlacement', () => {
 
 describe('getAdaptiveLabelStyle', () => {
   it('uses white text for center placement', () => {
-    expect(getAdaptiveLabelStyle('center').fill).toBe('#ffffff');
+    expect(getAdaptiveLabelStyle('center').fill).toBe(
+      'var(--chart-label-inside, #ffffff)',
+    );
   });
 
   it('uses dark text for outside placement', () => {
-    expect(getAdaptiveLabelStyle('outside').fill).toBe('#1a1a1a');
+    expect(getAdaptiveLabelStyle('outside').fill).toBe(
+      'var(--chart-label-outside, #1a1a1a)',
+    );
   });
 });
 

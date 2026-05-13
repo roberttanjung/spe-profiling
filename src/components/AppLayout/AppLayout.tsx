@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import styles from './AppLayout.module.css';
 import type { AppLayoutProps } from './AppLayout.types';
 import { engineerNavigationItems } from '@/utils/navigation';
+import { useColorScheme } from '@/components/ColorSchemeProvider';
 
 function DashboardIcon() {
   return (
@@ -55,9 +56,34 @@ function ToggleIcon({ collapsed }: { collapsed: boolean }) {
   );
 }
 
+function SunIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      className={styles.themeToggleSvg}
+    >
+      <path d="M12 7a5 5 0 1 0 0 10A5 5 0 0 0 12 7Zm0-5a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1Zm0 16a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1ZM4.22 4.22a1 1 0 0 1 1.42 0l1.41 1.42a1 1 0 0 1-1.41 1.41L4.22 5.64a1 1 0 0 1 0-1.42Zm13.72 13.72a1 1 0 0 1 1.42 0 1 1 0 0 1 0 1.42l-1.42 1.41a1 1 0 0 1-1.41-1.41l1.41-1.42ZM3 12a1 1 0 0 1 1-1h2a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1Zm15 0a1 1 0 0 1 1-1h2a1 1 0 1 1 0 2h-2a1 1 0 0 1-1-1ZM4.22 19.78a1 1 0 0 1 0-1.42l1.42-1.41a1 1 0 0 1 1.41 1.41L5.64 19.78a1 1 0 0 1-1.42 0Zm13.72-13.72 1.42-1.42a1 1 0 0 1 1.41 1.42l-1.41 1.41a1 1 0 0 1-1.42-1.41Z" />
+    </svg>
+  );
+}
+
+function MoonIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      className={styles.themeToggleSvg}
+    >
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" />
+    </svg>
+  );
+}
+
 export default function AppLayout({ children }: AppLayoutProps) {
   const pathname = usePathname();
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(true);
+  const { colorScheme, toggleColorScheme } = useColorScheme();
   const isDashboardRoute = pathname === '/';
   const isProfileRoute = pathname.startsWith('/profile');
   const isRoadmapRoute = pathname.startsWith('/roadmap');
@@ -90,6 +116,18 @@ export default function AppLayout({ children }: AppLayoutProps) {
           >
             <ToggleIcon collapsed={isSidebarCollapsed} />
             {isSidebarCollapsed ? 'Expand' : 'Minimize'}
+          </button>
+          <button
+            type="button"
+            className={styles.themeToggle}
+            onClick={toggleColorScheme}
+            aria-label={
+              colorScheme === 'dark'
+                ? 'Switch to light mode'
+                : 'Switch to dark mode'
+            }
+          >
+            {colorScheme === 'dark' ? <SunIcon /> : <MoonIcon />}
           </button>
         </div>
       </header>

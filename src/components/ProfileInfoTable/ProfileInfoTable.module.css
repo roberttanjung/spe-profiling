@@ -11,6 +11,14 @@
   background: color-mix(in srgb, var(--surface-soft) 72%, white 28%);
 }
 
+:global([data-color-scheme='dark']) .tableWrapper {
+  --surface: #162018;
+  --surface-soft: #1b2a21;
+  --ink: #e4ede7;
+  --ink-muted: #8eaa9d;
+  --border: #2f4437;
+}
+
 .profileTable {
   width: 100%;
   border-collapse: collapse;

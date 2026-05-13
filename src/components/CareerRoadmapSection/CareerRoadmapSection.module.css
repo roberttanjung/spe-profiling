@@ -16,3 +16,47 @@
   font-style: italic;
   padding: 1rem 0;
 }
+
+/* ── Dark mode: forward CSS token overrides to RoadmapView styles ── */
+/*
+ * CareerRoadmapSection reuses roadmapStyles from RoadmapView.module.css.
+ * Those styles read --surface/--surface-soft/etc from their own .roadmapSection
+ * root, which is scoped to the Roadmap page.
+ * When embedded in Profile or Dashboard, we inject the same tokens here so
+ * gantt, stage cards, and hero sections all get the right dark palette.
+ */
+.root {
+  --surface: #ffffff;
+  --surface-soft: #eff6f2;
+  --ink: #15231b;
+  --ink-muted: #4b6255;
+  --accent: #1d6e49;
+  --border: #cfe0d4;
+
+  display: grid;
+  gap: 1.5rem;
+  margin-block: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .root {
+    gap: 2rem;
+  }
+}
+
+.emptyState {
+  font-size: 0.875rem;
+  color: var(--ink-muted);
+  font-style: italic;
+  padding: 1rem 0;
+}
+
+/* ── Dark mode ──────────────────────────────────────────── */
+:global([data-color-scheme='dark']) .root {
+  --surface: #162018;
+  --surface-soft: #1b2a21;
+  --ink: #e4ede7;
+  --ink-muted: #8eaa9d;
+  --accent: #4aba84;
+  --border: #2f4437;
+}

@@ -21,7 +21,10 @@ function getAdaptiveLabelPlacement(height: number): 'center' | 'outside' {
 
 function getAdaptiveLabelStyle(placement: 'center' | 'outside') {
   return {
-    fill: placement === 'center' ? '#ffffff' : '#1a1a1a',
+    fill:
+      placement === 'center'
+        ? 'var(--chart-label-inside, #ffffff)'
+        : 'var(--chart-label-outside, #1a1a1a)',
     fontWeight: 700,
     fontSize: 11,
   };
@@ -50,6 +53,9 @@ function shortMonth(month: string): string {
 export default function ProfileChartSection({
   rows,
   className,
+  title = 'Chart TWBE Bulanan',
+  subtitle = 'Visualisasi performa bulanan berdasarkan data TWBE.',
+  showHeader = true,
 }: ProfileChartSectionProps) {
   const months = rows.map((r) => shortMonth(r.month));
   const totalTaskData = rows.map((r) => r.totalTask);
@@ -74,10 +80,12 @@ export default function ProfileChartSection({
     <section
       className={className ? `${styles.section} ${className}` : styles.section}
     >
-      <h2 className={styles.title}>TWBE Monthly Chart</h2>
-      <p className={styles.subtitle}>
-        Visualisasi performa bulanan berdasarkan data TWBE.
-      </p>
+      {showHeader ? (
+        <>
+          <h2 className={styles.title}>{title}</h2>
+          <p className={styles.subtitle}>{subtitle}</p>
+        </>
+      ) : null}
 
       <div className={styles.grid}>
         <div className={styles.chartCard}>
