@@ -1,12 +1,12 @@
 .root {
   display: grid;
-  gap: 1.5rem;
-  margin-block: 1.5rem;
+  gap: var(--page-section-gap, 24px);
+  margin-block: var(--page-inner-gap, 20px);
 }
 
 @media (min-width: 768px) {
   .root {
-    gap: 2rem;
+    gap: var(--page-section-gap, 32px);
   }
 }
 
@@ -38,13 +38,13 @@
   --column-heading-accent-bg: linear-gradient(135deg, #d6eadf 0%, #c5dfd4 100%);
 
   display: grid;
-  gap: 1.5rem;
-  margin-block: 1.5rem;
+  gap: var(--page-section-gap, 24px);
+  margin-block: var(--page-inner-gap, 20px);
 }
 
 @media (min-width: 768px) {
   .root {
-    gap: 2rem;
+    gap: var(--page-section-gap, 32px);
   }
 }
 

@@ -10,7 +10,7 @@
 
   border: 1px solid var(--border);
   border-radius: 18px;
-  padding: clamp(16px, 2.2vw, 24px);
+  padding: var(--page-card-padding, clamp(20px, 2.4vw, 30px));
   background: color-mix(in srgb, var(--surface-soft) 70%, white 30%);
 }
 
@@ -33,7 +33,7 @@
 }
 
 .subtitle {
-  margin: 0 0 20px;
+  margin: 0 0 var(--page-inner-gap, 20px);
   font-size: 0.85rem;
   color: var(--ink-muted);
 }
@@ -41,7 +41,7 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  gap: var(--page-inner-gap, 20px);
 }
 
 @media (max-width: 768px) {
@@ -54,7 +54,7 @@
   background: var(--surface);
   border: 1px solid color-mix(in srgb, var(--border) 60%, white 40%);
   border-radius: 12px;
-  padding: 16px 12px 8px;
+  padding: clamp(16px, 1.8vw, 22px);
 }
 
 .chartTitle {

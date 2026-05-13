@@ -37,7 +37,7 @@
   min-width: 210px;
   vertical-align: top;
   text-align: left;
-  padding: 16px 18px;
+  padding: 18px 20px;
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -47,7 +47,7 @@
 }
 
 .valueCell {
-  padding: 16px 18px;
+  padding: 18px 20px;
   font-size: 1.05rem;
   font-weight: 600;
   color: var(--ink);
@@ -60,7 +60,7 @@
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 10px;
 }
 
 .multiValueItem {

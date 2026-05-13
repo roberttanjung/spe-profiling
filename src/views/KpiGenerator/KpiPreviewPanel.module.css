@@ -10,11 +10,11 @@
 
   border: 1px solid var(--border);
   border-radius: 14px;
-  padding: clamp(14px, 2vw, 20px);
+  padding: var(--page-card-padding, clamp(20px, 2.4vw, 30px));
   background: var(--surface);
   display: grid;
-  gap: 14px;
-  margin-top: 14px;
+  gap: var(--page-inner-gap, 18px);
+  margin-top: var(--page-inner-gap, 18px);
   page-break-inside: avoid;
 }
 
@@ -48,7 +48,7 @@
 
 .section {
   display: grid;
-  gap: 10px;
+  gap: 12px;
 }
 
 .sectionTitle {
@@ -95,15 +95,15 @@
 
 .textSection {
   display: grid;
-  gap: 14px;
+  gap: var(--page-inner-gap, 18px);
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  margin-top: 14px;
+  margin-top: var(--page-inner-gap, 18px);
 }
 
 .textBlock {
   border: 1px solid color-mix(in srgb, var(--border) 80%, white 20%);
   border-radius: 10px;
-  padding: 12px;
+  padding: clamp(14px, 1.6vw, 18px);
   background: color-mix(in srgb, var(--surface-soft) 100%, white 0%);
   display: grid;
   gap: 8px;
@@ -132,6 +132,6 @@
   }
 
   .previewPanel {
-    padding: 12px;
+    padding: 16px;
   }
 }

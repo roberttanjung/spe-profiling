@@ -181,7 +181,7 @@
 
 .mainContent {
   display: grid;
-  gap: 18px;
+  gap: var(--page-section-gap, 24px);
   align-content: start;
   min-width: 0;
 }
@@ -189,14 +189,14 @@
 .kpiGrid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
+  gap: var(--page-inner-gap, 20px);
 }
 
 .kpiCard {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 16px;
-  padding: 16px;
+  padding: var(--page-card-padding, clamp(20px, 2.4vw, 30px));
 }
 
 .kpiLabel {
@@ -221,7 +221,7 @@
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 18px;
-  padding: 18px;
+  padding: var(--page-card-padding, clamp(20px, 2.4vw, 30px));
   min-width: 0;
   overflow: hidden;
 }

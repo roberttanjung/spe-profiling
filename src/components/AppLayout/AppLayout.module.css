@@ -8,6 +8,10 @@
   --accent-soft: #d6eadf;
   --border: #cfddd3;
   --content-gap: 24px;
+  --page-section-gap: clamp(20px, 2.4vw, 32px);
+  --page-card-padding: clamp(20px, 2.4vw, 30px);
+  --page-inner-gap: clamp(14px, 1.8vw, 22px);
+  --page-inline-padding: clamp(8px, 1.6vw, 18px);
 
   min-height: 100vh;
   display: grid;
@@ -329,6 +333,10 @@
 @media (max-width: 860px) {
   .appShell {
     --content-gap: 16px;
+    --page-section-gap: 18px;
+    --page-card-padding: 18px;
+    --page-inner-gap: 14px;
+    --page-inline-padding: 0px;
     grid-template-columns: 1fr;
     grid-template-areas:
       'header'

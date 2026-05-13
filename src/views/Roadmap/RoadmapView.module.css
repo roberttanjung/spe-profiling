@@ -11,7 +11,7 @@
   --column-heading-accent-bg: linear-gradient(135deg, #d6eadf 0%, #c5dfd4 100%);
 
   display: grid;
-  gap: 20px;
+  gap: var(--page-section-gap, 24px);
 }
 
 :global([data-color-scheme='dark']) .roadmapSection {
@@ -32,7 +32,7 @@
 .hero {
   border: 1px solid var(--border);
   border-radius: 18px;
-  padding: clamp(18px, 3vw, 30px);
+  padding: var(--page-card-padding, clamp(20px, 2.4vw, 30px));
   background:
     radial-gradient(circle at 78% 10%, #d7efe0 0, transparent 30%),
     radial-gradient(circle at 18% 92%, #eef7de 0, transparent 24%),

@@ -9,7 +9,7 @@
   --column-heading-bg: color-mix(in srgb, var(--accent) 10%, white 90%);
 
   display: grid;
-  gap: 20px;
+  gap: var(--page-section-gap, 24px);
 }
 
 :global([data-color-scheme='dark']) .profileSection {
@@ -26,7 +26,7 @@
 .hero {
   border: 1px solid var(--border);
   border-radius: 18px;
-  padding: clamp(18px, 3vw, 30px);
+  padding: var(--page-card-padding, clamp(20px, 2.4vw, 30px));
   background:
     radial-gradient(circle at 78% 10%, #d7efe0 0, transparent 30%),
     radial-gradient(circle at 18% 92%, #eef7de 0, transparent 24%),
@@ -72,7 +72,7 @@
 .sectionCard {
   border: 1px solid var(--border);
   border-radius: 14px;
-  padding: clamp(16px, 2.5vw, 26px);
+  padding: var(--page-card-padding, clamp(20px, 2.4vw, 30px));
   background: var(--surface);
 }
 
@@ -89,7 +89,7 @@
 .evalGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 12px;
+  gap: var(--page-inner-gap, 18px);
 }
 
 .evalItem {
@@ -124,7 +124,7 @@
 .activityGroups {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: var(--page-inner-gap, 20px);
 }
 
 .activityGroup {
@@ -151,7 +151,7 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 10px;
 }
 
 .activityItem {

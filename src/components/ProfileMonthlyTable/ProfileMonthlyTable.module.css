@@ -9,7 +9,7 @@
 
   border: 1px solid var(--border);
   border-radius: 18px;
-  padding: clamp(16px, 2.2vw, 24px);
+  padding: var(--page-card-padding, clamp(20px, 2.4vw, 30px));
   background: color-mix(in srgb, var(--surface-soft) 70%, white 30%);
 }
 
@@ -30,7 +30,7 @@
 }
 
 .tableScroller {
-  margin-top: 14px;
+  margin-top: var(--page-inner-gap, 18px);
   overflow-x: auto;
 }
 
@@ -43,7 +43,7 @@
 
 .table th,
 .table td {
-  padding: 12px 14px;
+  padding: 14px 16px;
   border: 1px solid color-mix(in srgb, var(--border) 72%, white 28%);
   text-align: left;
   color: var(--ink);
