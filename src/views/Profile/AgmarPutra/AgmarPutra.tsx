@@ -7,7 +7,12 @@ export const agmarPutraProfileData: EngineerProfileData = {
   dateOfBirth: '04/01/2003',
   levelGrade: 'II/3',
   joinedDate: '14/01/2022',
-  projects: ['QRISAN', 'QRISAN x Kaltimtara', 'QRISAN x KB Bank'],
+  projects: [
+    'QRISAN',
+    'QRISAN x Kaltimtara',
+    'QRISAN x Jateng',
+    'QRISAN x KB Bank',
+  ],
   guilds: ['Atomic Design', 'Dynamic Dashboard', 'SPEInside'],
   good: [
     {
@@ -144,6 +149,11 @@ export const agmarPutraProfileData: EngineerProfileData = {
             'Meningkatkan kualitas kode dari issue yang muncul di SonarQube agar kualitas kode tetap baik.',
         },
       ],
+    },
+    {
+      project: 'QRISAN x Jateng',
+      description:
+        'Walaupun tidak ada fokus terhadap backlog pengerjaan, ybs tetap proaktif dalam meningkatkan kualitas kode di QRISAN x Jateng, khususnya membersihkan issue yang muncul di SonarQube. Ybs juga melakukan peningkatan tampilan terhadap sidebar dan Modal OTP agar lebih optimal untuk tampilan mobile, serta aktif menerapkan perubahan-perubahan bisnis.',
     },
     {
       project: 'DRONT Vault',

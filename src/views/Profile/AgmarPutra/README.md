@@ -54,7 +54,7 @@ Adapun aktifitas lain yang dilakukan oleh ybs adalah sebagai berikut:
 - `Konversi ke Typescript`: Melakukan konversi terhadap beberapa backlog dari Javascript menjadi Typescript guna menjaga Type-Safe (keamanan tipe data) untuk menghindari error pada saat aplikasi dibuka.
 - `Fixing SonarQube`: Meningkatkan kualitas kode dari issue yang muncul di SonarQube agar kualitas kode tetap baik.
 
-## [update] QRISAN x Jateng
+## QRISAN x Jateng
 
 Walaupun tidak ada fokus terhadap backlog pengerjaan, ybs tetap proaktif dalam meningkatkan kualitas kode di QRISAN x Jateng khusus membersihkan kode dari issue-issue yang muncul di SonarQube. Ybs juga melakukan peningkatan tampilan terhadap sidebar dan Modal OTP terutama untuk terhadap tampilan Mobile. Selain itu, ybs juga aktif dalam menerapkan perubahan-perubahan bisnis.
 
