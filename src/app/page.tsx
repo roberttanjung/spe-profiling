@@ -197,6 +197,12 @@ export default async function Home({
       good: profile.good ?? [],
       needsImprove: profile.needsImprove ?? [],
       careerRoadmapGoal: profile.careerRoadmapGoal,
+      characteristic: [
+        profile.softProfile?.collaborationType,
+        profile.softProfile?.workStyle,
+      ]
+        .filter((value): value is string => Boolean(value && value.trim()))
+        .join(' '),
       softProfile: {
         collaborationType: profile.softProfile?.collaborationType ?? '-',
         workStyle: profile.softProfile?.workStyle ?? '-',
@@ -228,8 +234,8 @@ export default async function Home({
         <div className={styles.panelHeader}>
           <h1 id="comparison-title">Summary Komparasi</h1>
           <p>
-            Ringkasan komparasi identitas, level, umur, lama bekerja, dan skor
-            evaluasi kualitas setiap engineer.
+            Ringkasan komparasi identitas, level, umur, lama bekerja, dan
+            karakteristik setiap engineer.
           </p>
         </div>
         <div className={styles.tableWrap}>
@@ -247,7 +253,7 @@ export default async function Home({
                 <th scope="col" className={styles.whiteSpaceNowrap}>
                   Bare Minimum Avg
                 </th>
-                <th scope="col">Kelebihan Utama</th>
+                <th scope="col">Karakteristik</th>
               </tr>
             </thead>
             <tbody>
@@ -260,7 +266,7 @@ export default async function Home({
                   <td className={styles.whiteSpaceNowrap}>
                     {row.bareMinimumAvg.toFixed(2)} / 5
                   </td>
-                  <td>{row.softProfile.strengths}</td>
+                  <td>{row.characteristic || '-'}</td>
                 </tr>
               ))}
             </tbody>
@@ -606,9 +612,6 @@ export default async function Home({
             aria-label={`Profile ${selectedEngineer.profile.name}`}
           >
             <div className={styles.profilePanelHeader}>
-              <h2 className={styles.profilePanelTitle}>
-                {selectedEngineer.profile.name}
-              </h2>
               <Link
                 href="/"
                 className={styles.profilePanelClose}
@@ -617,6 +620,9 @@ export default async function Home({
               >
                 X
               </Link>
+              <h2 className={styles.profilePanelTitle}>
+                {selectedEngineer.profile.name}
+              </h2>
             </div>
             <div className={styles.profilePanelBody}>
               <ProfileView
