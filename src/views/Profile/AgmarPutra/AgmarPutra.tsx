@@ -334,7 +334,7 @@ export const agmarPutraProfileData: EngineerProfileData = {
     workStyle:
       'Fast executor dengan orientasi kualitas; bekerja cepat tanpa melepas kontrol terhadap standar teknis.',
     strengths:
-      'Disiplin eksekusi, fokus tinggi, kemampuan riset, komunikasi sopan, dan ownership pada sistem besar.',
+      'Disiplin eksekusi, fokus tinggi, kemampuan riset, komunikasi sopan, dan ownership pada Project besar.',
     developmentAreas:
       'Penyederhanaan bahasa teknis dan penguatan storytelling saat menyampaikan argumen secara lisan.',
     uniqueSellingPoint:

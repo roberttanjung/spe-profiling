@@ -3,7 +3,8 @@ import EngineerComparisonChartSection from '@/components/EngineerComparisonChart
 import AdaptiveTooltip from '@/components/AdaptiveTooltip';
 import { getTwbeMonthlyRowsByEmployeeName } from '@/utils/twbe';
 import { engineerNavigationItems } from '@/utils/navigation';
-import { allEngineerProfiles } from '@/views/Profile';
+import ProfileView from '@/views/Profile/ProfileView';
+import { allEngineerProfiles, engineerProfileRegistry } from '@/views/Profile';
 import {
   getEngineerRoadmapRows,
   MONTH_BANDS,
@@ -23,6 +24,10 @@ import {
 import { REFERENCE_DATE } from '@/db/constants';
 import type { BareMinimumRatings } from '@/views/Profile/ProfileView/ProfileView.types';
 import styles from './page.module.css';
+
+type DashboardSearchParams = {
+  profile?: string;
+};
 
 function parseDate(dateText: string) {
   const [day, month, year] = dateText.split('/').map(Number);
@@ -111,20 +116,44 @@ function StarRating({ count, reason }: { count: number; reason: string }) {
   );
 }
 
-export default function Home() {
-  const engineerPathByName = new Map(
-    engineerNavigationItems.map((item) => [item.name, item.path]),
+export default async function Home({
+  searchParams,
+}: {
+  searchParams?: Promise<DashboardSearchParams> | DashboardSearchParams;
+}) {
+  const resolvedSearchParams = await searchParams;
+  const selectedSlug =
+    typeof resolvedSearchParams?.profile === 'string'
+      ? resolvedSearchParams.profile
+      : '';
+
+  const engineerSlugByName = new Map(
+    engineerNavigationItems.map((item) => [
+      item.name,
+      item.path.replace('/profile/', ''),
+    ]),
+  );
+  const selectedEngineer = engineerProfileRegistry.find(
+    (item) => item.slug === selectedSlug,
   );
 
   const renderEngineerName = (name: string) => {
-    const path = engineerPathByName.get(name);
+    const slug = engineerSlugByName.get(name);
 
-    if (!path) {
+    if (!slug) {
       return name;
     }
 
+    const isActive = selectedEngineer?.profile.name === name;
+
     return (
-      <Link href={path} className={styles.engineerNameLink}>
+      <Link
+        href={`/?profile=${encodeURIComponent(slug)}`}
+        className={`${styles.engineerNameLink} ${
+          isActive ? styles.engineerNameLinkActive : ''
+        }`}
+        scroll={false}
+      >
         {name}
       </Link>
     );
@@ -567,6 +596,37 @@ export default function Home() {
         </div>
         <EngineerComparisonChartSection rows={comparisonChartRows} />
       </section>
+
+      {selectedEngineer ? (
+        <div className={styles.profileOverlay}>
+          <section
+            className={styles.profilePanel}
+            role="dialog"
+            aria-modal="true"
+            aria-label={`Profile ${selectedEngineer.profile.name}`}
+          >
+            <div className={styles.profilePanelHeader}>
+              <h2 className={styles.profilePanelTitle}>
+                {selectedEngineer.profile.name}
+              </h2>
+              <Link
+                href="/"
+                className={styles.profilePanelClose}
+                aria-label="Tutup panel profile"
+                scroll={false}
+              >
+                X
+              </Link>
+            </div>
+            <div className={styles.profilePanelBody}>
+              <ProfileView
+                profile={selectedEngineer.profile}
+                headingId={`dashboard-profile-${selectedEngineer.slug}`}
+              />
+            </div>
+          </section>
+        </div>
+      ) : null}
     </main>
   );
 }
