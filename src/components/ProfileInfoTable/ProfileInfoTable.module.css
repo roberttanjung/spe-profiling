@@ -4,6 +4,8 @@
   --ink: #15231b;
   --ink-muted: #4b6255;
   --border: #cfe0d4;
+  --column-heading-ink: color-mix(in srgb, var(--ink-muted) 85%, white 15%);
+  --column-heading-bg: color-mix(in srgb, var(--surface) 72%, #e6efe9 28%);
 
   overflow: hidden;
   border: 1px solid var(--border);
@@ -17,6 +19,8 @@
   --ink: #e4ede7;
   --ink-muted: #8eaa9d;
   --border: #2f4437;
+  --column-heading-ink: #bfd1c8;
+  --column-heading-bg: color-mix(in srgb, var(--surface) 78%, #223228 22%);
 }
 
 .profileTable {
@@ -38,8 +42,8 @@
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: color-mix(in srgb, var(--ink-muted) 85%, white 15%);
-  background: color-mix(in srgb, var(--surface) 72%, #e6efe9 28%);
+  color: var(--column-heading-ink);
+  background: var(--column-heading-bg);
 }
 
 .valueCell {

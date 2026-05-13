@@ -32,6 +32,10 @@
   --ink-muted: #4b6255;
   --accent: #1d6e49;
   --border: #cfe0d4;
+  --column-heading-ink: color-mix(in srgb, var(--ink-muted) 92%, white 8%);
+  --column-heading-strong: color-mix(in srgb, var(--accent) 84%, black 16%);
+  --column-heading-bg: color-mix(in srgb, var(--surface) 78%, #e6efe9 22%);
+  --column-heading-accent-bg: linear-gradient(135deg, #d6eadf 0%, #c5dfd4 100%);
 
   display: grid;
   gap: 1.5rem;
@@ -59,4 +63,8 @@
   --ink-muted: #8eaa9d;
   --accent: #4aba84;
   --border: #2f4437;
+  --column-heading-ink: #bfd1c8;
+  --column-heading-strong: #7ed5a6;
+  --column-heading-bg: color-mix(in srgb, var(--surface) 78%, #223228 22%);
+  --column-heading-accent-bg: linear-gradient(135deg, #214536 0%, #1b372a 100%);
 }

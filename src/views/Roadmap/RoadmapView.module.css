@@ -5,6 +5,10 @@
   --ink-muted: #4b6255;
   --accent: #1d6e49;
   --border: #cfe0d4;
+  --column-heading-ink: color-mix(in srgb, var(--ink-muted) 92%, white 8%);
+  --column-heading-strong: color-mix(in srgb, var(--accent) 84%, black 16%);
+  --column-heading-bg: color-mix(in srgb, var(--surface) 78%, #e6efe9 22%);
+  --column-heading-accent-bg: linear-gradient(135deg, #d6eadf 0%, #c5dfd4 100%);
 
   display: grid;
   gap: 20px;
@@ -17,6 +21,10 @@
   --ink-muted: #8eaa9d;
   --accent: #4aba84;
   --border: #2f4437;
+  --column-heading-ink: #bfd1c8;
+  --column-heading-strong: #7ed5a6;
+  --column-heading-bg: color-mix(in srgb, var(--surface) 78%, #223228 22%);
+  --column-heading-accent-bg: linear-gradient(135deg, #214536 0%, #1b372a 100%);
 }
 
 /* ─── Hero ─────────────────────────────────────────────── */
@@ -231,15 +239,15 @@
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--column-heading-strong);
 }
 
 .stagePeriod {
   font-size: 0.8rem;
-  color: var(--ink-muted);
+  color: var(--column-heading-ink);
   padding: 3px 8px;
   border-radius: 6px;
-  background: var(--surface-soft);
+  background: var(--column-heading-bg);
 }
 
 .stageTitle {
@@ -317,7 +325,7 @@
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--ink-muted);
+  color: var(--column-heading-ink);
   margin: 0;
 }
 
@@ -535,7 +543,7 @@
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--ink-muted);
+  color: var(--column-heading-ink);
   text-align: center;
   border-left: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
@@ -575,7 +583,7 @@
 .ganttStageLabel {
   font-size: 0.75rem;
   font-weight: 700;
-  color: var(--ink-muted);
+  color: var(--column-heading-ink);
   white-space: nowrap;
 }
 

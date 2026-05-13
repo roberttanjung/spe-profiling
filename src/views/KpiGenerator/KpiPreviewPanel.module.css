@@ -5,6 +5,8 @@
   --ink-muted: #476052;
   --accent: #1d6e49;
   --border: #cde0d2;
+  --column-heading-ink: color-mix(in srgb, var(--ink) 92%, white 8%);
+  --column-heading-bg: color-mix(in srgb, var(--accent) 10%, white 90%);
 
   border: 1px solid var(--border);
   border-radius: 14px;
@@ -23,6 +25,8 @@
   --ink-muted: #8eaa9d;
   --accent: #4aba84;
   --border: #2f4437;
+  --column-heading-ink: #d8e4de;
+  --column-heading-bg: color-mix(in srgb, var(--accent) 16%, #1b2a21 84%);
 }
 
 .previewHeader {
@@ -50,7 +54,7 @@
 .sectionTitle {
   font-size: 1rem;
   font-weight: 700;
-  color: var(--ink);
+  color: var(--column-heading-ink);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -61,7 +65,7 @@
 }
 
 .tableHeader {
-  background-color: color-mix(in srgb, var(--accent) 10%, white 90%);
+  background-color: var(--column-heading-bg);
 }
 
 .table thead th {
@@ -69,7 +73,7 @@
   font-weight: 700;
   font-size: 0.9rem;
   border-bottom: 2px solid var(--border);
-  color: var(--ink);
+  color: var(--column-heading-ink);
 }
 
 .table tbody td {

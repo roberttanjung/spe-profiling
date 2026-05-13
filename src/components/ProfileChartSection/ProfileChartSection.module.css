@@ -6,6 +6,7 @@
   --border: #cfe0d4;
   --chart-label-inside: #ffffff;
   --chart-label-outside: #1a1a1a;
+  --column-heading-ink: color-mix(in srgb, var(--ink-muted) 92%, white 8%);
 
   border: 1px solid var(--border);
   border-radius: 18px;
@@ -21,6 +22,7 @@
   --border: #2f4437;
   --chart-label-inside: #f5f7f6;
   --chart-label-outside: #d9e5de;
+  --column-heading-ink: #bfd1c8;
   background: color-mix(in srgb, var(--surface-soft) 80%, #0f1712 20%);
 }
 
@@ -59,7 +61,7 @@
   margin: 0 0 8px;
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--ink-muted);
+  color: var(--column-heading-ink);
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }

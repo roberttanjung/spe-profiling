@@ -5,6 +5,8 @@
   --ink-muted: #4b6255;
   --accent: #1d6e49;
   --border: #cfe0d4;
+  --column-heading-ink: color-mix(in srgb, var(--ink) 90%, white 10%);
+  --column-heading-bg: color-mix(in srgb, var(--accent) 10%, white 90%);
 
   display: grid;
   gap: 20px;
@@ -17,6 +19,8 @@
   --ink-muted: #8eaa9d;
   --accent: #4aba84;
   --border: #2f4437;
+  --column-heading-ink: #d8e4de;
+  --column-heading-bg: color-mix(in srgb, var(--accent) 16%, #1b2a21 84%);
 }
 
 .hero {
@@ -234,8 +238,8 @@
 }
 
 .bmTable thead th {
-  background: color-mix(in srgb, var(--accent) 10%, white 90%);
-  color: var(--ink);
+  background: var(--column-heading-bg);
+  color: var(--column-heading-ink);
   font-weight: 700;
   font-size: 0.78rem;
   line-height: 1.4;
