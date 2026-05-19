@@ -13,8 +13,12 @@ import {
 import {
   BARE_MINIMUM_MATRIX,
   BARE_MINIMUM_TOOLTIP_LEVELS,
+  getActivityAchievement,
   getKpiAchievement,
-  withKpiAdjustedRatings,
+  getKpiBasedBareMinimumRatings,
+  getKpiBasedBareMinimumReasons,
+  getRoadmapGoalFromBareMinimumRatings,
+  type ActivityAchievement,
   type KpiAchievement,
 } from '@/db/bareMinimum';
 import {
@@ -29,7 +33,6 @@ import type {
   ProfileSoftAspect,
   ProfileActivityGroup,
   BareMinimumRatings,
-  BareMinimumReasons,
   ProfileRoadmapStage,
 } from './ProfileView.types';
 
@@ -200,21 +203,27 @@ function StarRating({ count, reason }: { count: number; reason: string }) {
 
 function BareMinimumSection({
   ratings,
-  reasons,
   kpi,
+  activity,
 }: {
   ratings: BareMinimumRatings;
-  reasons?: BareMinimumReasons;
   kpi: KpiAchievement;
+  activity: ActivityAchievement;
 }) {
+  const reasons = getKpiBasedBareMinimumReasons(kpi, activity);
+
   return (
     <div className={styles.sectionCard}>
       <p className={styles.sectionTitle}>Bare Minimum Frontend Engineer</p>
       <p className={styles.kpiSummaryText}>
-        Penilaian disesuaikan dengan KPI bulanan: Task{' '}
-        {toPercentText(kpi.taskHitRate)}, Weight{' '}
+        Penilaian bare minimum berbasis performa KPI bulanan TWBE dan Aktivitas
+        yang Sudah Dilakukan (tetap tanpa mempertimbangkan level grade maupun
+        lama bekerja): Task {toPercentText(kpi.taskHitRate)}, Weight{' '}
         {toPercentText(kpi.weightHitRate)}, Bugs Ratio{' '}
-        {toPercentText(kpi.bugsHitRate)}.
+        {toPercentText(kpi.bugsHitRate)}, Done Rate{' '}
+        {toPercentText(kpi.doneHitRate)}, Finish Rate{' '}
+        {toPercentText(kpi.finishHitRate)}, Aktivitas{' '}
+        {toPercentText(activity.overallHitRate)}.
       </p>
       <div className={styles.bmScroll}>
         <table className={styles.bmTable}>
@@ -279,16 +288,30 @@ function BareMinimumSection({
   );
 }
 
-export default function ProfileView({ profile, headingId }: ProfileViewProps) {
+export default function ProfileView({
+  profile,
+  headingId,
+  roadmapGoalOverride,
+}: ProfileViewProps) {
   const dateOfBirth = parseDateInDdMmYyyy(profile.dateOfBirth);
   const joinedDate = parseDateInDdMmYyyy(profile.joinedDate);
   const twbeRows = getTwbeSprintRowsByEmployeeName(profile.name);
   const twbeMonthlyRows = getTwbeMonthlyRowsByEmployeeName(profile.name);
   const twbeChartRows = getTwbeChartRowsByEmployeeName(profile.name);
   const kpiAchievement = getKpiAchievement(twbeMonthlyRows);
-  const adjustedRatings = profile.bareMinimumRatings
-    ? withKpiAdjustedRatings(profile.bareMinimumRatings, kpiAchievement)
-    : undefined;
+  const activityAchievement = getActivityAchievement(profile.activities);
+  const adjustedRatings = getKpiBasedBareMinimumRatings(
+    kpiAchievement,
+    activityAchievement,
+  );
+  const roadmapGoal =
+    roadmapGoalOverride ??
+    getRoadmapGoalFromBareMinimumRatings(adjustedRatings, {
+      needsImproveTitles: (profile.needsImprove ?? []).map(
+        (item) => item.title,
+      ),
+      developmentAreas: profile.softProfile?.developmentAreas,
+    });
   const profileRows: ProfileInfoRow[] = [
     {
       label: 'Nama Lengkap',
@@ -344,8 +367,8 @@ export default function ProfileView({ profile, headingId }: ProfileViewProps) {
       {adjustedRatings && (
         <BareMinimumSection
           ratings={adjustedRatings}
-          reasons={profile.bareMinimumReasons}
           kpi={kpiAchievement}
+          activity={activityAchievement}
         />
       )}
 
@@ -363,7 +386,7 @@ export default function ProfileView({ profile, headingId }: ProfileViewProps) {
 
       {profile.careerRoadmap && profile.careerRoadmap.length > 0 && (
         <CareerRoadmapSection
-          goal={profile.careerRoadmapGoal}
+          goal={roadmapGoal}
           items={profile.careerRoadmap}
           name={profile.name}
         />

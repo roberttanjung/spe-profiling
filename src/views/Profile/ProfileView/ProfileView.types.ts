@@ -74,4 +74,5 @@ export interface EngineerProfileData {
 export interface ProfileViewProps {
   profile: EngineerProfileData;
   headingId: string;
+  roadmapGoalOverride?: string;
 }

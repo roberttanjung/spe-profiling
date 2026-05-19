@@ -12,10 +12,16 @@ import {
   WEEKS_PER_MONTH,
 } from '@/utils/roadmap';
 import {
+  ALL_SPECIALIST_TRACKS,
   BARE_MINIMUM_MATRIX,
   BARE_MINIMUM_TOOLTIP_LEVELS,
+  getActivityAchievement,
   getKpiAchievement,
-  withKpiAdjustedRatings,
+  getKpiBasedBareMinimumRatings,
+  getKpiBasedBareMinimumReasons,
+  getRoadmapGoalFromBareMinimumRatings,
+  getSpecialistTrackByContext,
+  type RoadmapGoalContext,
 } from '@/db/bareMinimum';
 import {
   SOFT_PROFILE_TEXT_KEYS,
@@ -178,9 +184,25 @@ export default async function Home({
         : 0;
 
     const kpiAchievement = getKpiAchievement(monthlyRows);
-    const adjustedRatings = profile.bareMinimumRatings
-      ? withKpiAdjustedRatings(profile.bareMinimumRatings, kpiAchievement)
-      : undefined;
+    const activityAchievement = getActivityAchievement(profile.activities);
+    const adjustedRatings = getKpiBasedBareMinimumRatings(
+      kpiAchievement,
+      activityAchievement,
+    );
+    const adjustedReasons = getKpiBasedBareMinimumReasons(
+      kpiAchievement,
+      activityAchievement,
+    );
+    const roadmapContext: RoadmapGoalContext = {
+      needsImproveTitles: (profile.needsImprove ?? []).map(
+        (item) => item.title,
+      ),
+      developmentAreas: profile.softProfile?.developmentAreas,
+    };
+    const preferredSpecialistTrack = getSpecialistTrackByContext(
+      roadmapContext,
+      'fundamentalFrontend',
+    );
 
     return {
       name: profile.name,
@@ -193,10 +215,12 @@ export default async function Home({
       avgFinishRate,
       bareMinimumAvg: getAverageBareMinimumScore(adjustedRatings),
       bareMinimumRatings: adjustedRatings,
-      bareMinimumReasons: profile.bareMinimumReasons,
+      bareMinimumReasons: adjustedReasons,
       good: profile.good ?? [],
       needsImprove: profile.needsImprove ?? [],
-      careerRoadmapGoal: profile.careerRoadmapGoal,
+      careerRoadmapGoal: '',
+      roadmapContext,
+      preferredSpecialistTrack,
       characteristic: [
         profile.softProfile?.collaborationType,
         profile.softProfile?.workStyle,
@@ -213,7 +237,42 @@ export default async function Home({
     };
   });
 
-  const comparisonChartRows = summaryRows.map((row) => ({
+  const specialistTrackByEngineer = new Map<string, string>();
+  const usedSpecialistTracks = new Set<string>();
+
+  [...summaryRows]
+    .sort((left, right) => right.bareMinimumAvg - left.bareMinimumAvg)
+    .forEach((row) => {
+      const candidateTracks = [
+        row.preferredSpecialistTrack,
+        ...ALL_SPECIALIST_TRACKS,
+      ].filter((track, index, tracks) => tracks.indexOf(track) === index);
+
+      const assignedTrack =
+        candidateTracks.find((track) => !usedSpecialistTracks.has(track)) ??
+        row.preferredSpecialistTrack;
+
+      specialistTrackByEngineer.set(row.name, assignedTrack);
+      usedSpecialistTracks.add(assignedTrack);
+    });
+
+  const normalizedSummaryRows = summaryRows.map((row) => {
+    const forcedSpecialistTrack =
+      specialistTrackByEngineer.get(row.name) ?? row.preferredSpecialistTrack;
+
+    return {
+      ...row,
+      careerRoadmapGoal: getRoadmapGoalFromBareMinimumRatings(
+        row.bareMinimumRatings,
+        {
+          ...row.roadmapContext,
+          forcedSpecialistTrack,
+        },
+      ),
+    };
+  });
+
+  const comparisonChartRows = normalizedSummaryRows.map((row) => ({
     engineerName: row.name,
     totalTask: row.totalTask,
     totalWeight: row.totalWeight,
@@ -222,8 +281,11 @@ export default async function Home({
   }));
 
   const maxGoodCount = Math.max(
-    ...summaryRows.map((row) => row.good.length),
+    ...normalizedSummaryRows.map((row) => row.good.length),
     1,
+  );
+  const roadmapGoalByEngineer = new Map(
+    normalizedSummaryRows.map((row) => [row.name, row.careerRoadmapGoal]),
   );
 
   const timelineGridTemplate = `repeat(${TOTAL_TIMELINE_WEEKS}, minmax(var(--roadmap-week-min), 1fr))`;
@@ -257,7 +319,7 @@ export default async function Home({
               </tr>
             </thead>
             <tbody>
-              {summaryRows.map((row) => (
+              {normalizedSummaryRows.map((row) => (
                 <tr key={row.name}>
                   <th scope="row">{renderEngineerName(row.name)}</th>
                   <td>{row.levelGrade}</td>
@@ -298,7 +360,7 @@ export default async function Home({
               </tr>
             </thead>
             <tbody>
-              {summaryRows.map((row) => (
+              {normalizedSummaryRows.map((row) => (
                 <tr key={`${row.name}-aspek-profil`}>
                   <th scope="row">{renderEngineerName(row.name)}</th>
                   {SOFT_PROFILE_TEXT_KEYS.map((key) => (
@@ -372,7 +434,7 @@ export default async function Home({
               </tr>
             </thead>
             <tbody>
-              {summaryRows.map((row) => (
+              {normalizedSummaryRows.map((row) => (
                 <tr key={`${row.name}-bare-minimum`}>
                   <th scope="row">{renderEngineerName(row.name)}</th>
                   {BARE_MINIMUM_MATRIX.map((column) => (
@@ -412,7 +474,7 @@ export default async function Home({
             </caption>
             <thead>
               <tr>
-                {summaryRows.map((row) => (
+                {normalizedSummaryRows.map((row) => (
                   <th key={`${row.name}-good-header`} scope="col">
                     {renderEngineerName(row.name)}
                   </th>
@@ -422,7 +484,7 @@ export default async function Home({
             <tbody>
               {Array.from({ length: maxGoodCount }, (_, pointIndex) => (
                 <tr key={`good-point-row-${pointIndex + 1}`}>
-                  {summaryRows.map((row) => {
+                  {normalizedSummaryRows.map((row) => {
                     const item = row.good[pointIndex];
 
                     if (!item) {
@@ -455,6 +517,12 @@ export default async function Home({
           </p>
         </div>
         <div className={styles.roadmapGanttWrapper}>
+          <p className={styles.roadmapGoalHint}>
+            Target roadmap diturunkan dari evaluasi Bare Minimum terbaru
+            berbasis KPI TWBE dan Aktivitas yang Sudah Dilakukan (independen
+            dari level grade dan lama bekerja), serta memprioritaskan jalur
+            SPEcialist ketika engineer sudah layak.
+          </p>
           <div
             className={styles.roadmapGanttHeaderRow}
             style={{
@@ -518,6 +586,9 @@ export default async function Home({
               key={`engineer-${engineerRow.engineerName}`}
               className={styles.roadmapEngineerGroup}
             >
+              <div className={styles.roadmapEngineerGoal}>
+                {roadmapGoalByEngineer.get(engineerRow.engineerName) ?? '-'}
+              </div>
               <div
                 className={styles.roadmapEngineerName}
                 style={{
@@ -631,6 +702,9 @@ export default async function Home({
               <ProfileView
                 profile={selectedEngineer.profile}
                 headingId={`dashboard-profile-${selectedEngineer.slug}`}
+                roadmapGoalOverride={roadmapGoalByEngineer.get(
+                  selectedEngineer.profile.name,
+                )}
               />
             </div>
           </section>

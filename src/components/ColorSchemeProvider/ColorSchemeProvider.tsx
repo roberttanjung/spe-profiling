@@ -4,8 +4,8 @@ import {
   createContext,
   useContext,
   useEffect,
-  useState,
   useMemo,
+  useSyncExternalStore,
   type ReactNode,
 } from 'react';
 import { ThemeProvider } from '@mui/material/styles';
@@ -23,27 +23,64 @@ const ColorSchemeContext = createContext<ColorSchemeContextValue>({
   toggleColorScheme: () => {},
 });
 
+const STORAGE_KEY = 'color-scheme';
+const listeners = new Set<() => void>();
+
+function readStoredColorScheme(): ColorScheme {
+  if (typeof window === 'undefined') {
+    return 'light';
+  }
+
+  const stored = window.localStorage.getItem(STORAGE_KEY);
+  return stored === 'dark' ? 'dark' : 'light';
+}
+
+function subscribeColorScheme(listener: () => void): () => void {
+  listeners.add(listener);
+
+  const onStorage = (event: StorageEvent) => {
+    if (event.key === STORAGE_KEY) {
+      listener();
+    }
+  };
+
+  if (typeof window !== 'undefined') {
+    window.addEventListener('storage', onStorage);
+  }
+
+  return () => {
+    listeners.delete(listener);
+    if (typeof window !== 'undefined') {
+      window.removeEventListener('storage', onStorage);
+    }
+  };
+}
+
+function notifyColorSchemeChange() {
+  listeners.forEach((listener) => listener());
+}
+
 export function useColorScheme() {
   return useContext(ColorSchemeContext);
 }
 
 export function ColorSchemeProvider({ children }: { children: ReactNode }) {
-  const [colorScheme, setColorScheme] = useState<ColorScheme>('light');
-
-  useEffect(() => {
-    const stored = localStorage.getItem('color-scheme') as ColorScheme | null;
-    if (stored === 'dark' || stored === 'light') {
-      setColorScheme(stored);
-    }
-  }, []);
+  const colorScheme = useSyncExternalStore<ColorScheme>(
+    subscribeColorScheme,
+    readStoredColorScheme,
+    () => 'light',
+  );
 
   useEffect(() => {
     document.documentElement.setAttribute('data-color-scheme', colorScheme);
-    localStorage.setItem('color-scheme', colorScheme);
+    localStorage.setItem(STORAGE_KEY, colorScheme);
   }, [colorScheme]);
 
   const toggleColorScheme = () => {
-    setColorScheme((prev) => (prev === 'light' ? 'dark' : 'light'));
+    const nextColorScheme = colorScheme === 'light' ? 'dark' : 'light';
+    localStorage.setItem(STORAGE_KEY, nextColorScheme);
+    document.documentElement.setAttribute('data-color-scheme', nextColorScheme);
+    notifyColorSchemeChange();
   };
 
   const theme = useMemo(

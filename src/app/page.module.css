@@ -649,6 +649,12 @@
   scroll-behavior: smooth;
 }
 
+.roadmapGoalHint {
+  margin: 0 0 12px;
+  color: var(--ink-muted);
+  font-size: 0.84rem;
+}
+
 .roadmapGanttHeaderRow,
 .roadmapGanttWeekRow,
 .roadmapGanttRow {
@@ -809,6 +815,17 @@
 
 .roadmapEngineerGroup {
   display: contents;
+}
+
+.roadmapEngineerGoal {
+  grid-column: 1 / -1;
+  padding: 10px 12px;
+  border-bottom: 1px dashed
+    color-mix(in srgb, var(--accent) 30%, var(--border) 70%);
+  background: color-mix(in srgb, var(--accent-soft) 28%, var(--surface) 72%);
+  color: color-mix(in srgb, var(--ink) 88%, var(--accent) 12%);
+  font-size: 0.83rem;
+  line-height: 1.45;
 }
 
 .roadmapEngineerName {

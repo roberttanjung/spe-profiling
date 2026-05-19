@@ -69,11 +69,11 @@ Section "Bare Minimum Frontend Engineer" ditampilkan di antara `ProfileChartSect
 ### Struktur
 
 - **Tabel transposed**: setiap aspek menjadi kolom header, terdapat satu baris data berisi bintang (★/☆).
-- **Star rating** per kolom setelah di-adjust dengan KPI achievement dari data TWBE monthly engineer:
-  - Base rating dari `profile.bareMinimumRatings`
-  - Di-adjust per fungsi `withKpiAdjustedRatings()` di `src/db/bareMinimum.ts`
-  - Tampilkan rating yang sudah di-adjust (bukan raw)
-- Nilai adjusted rating identik antara Profile View dan Dashboard — keduanya menerapkan logika KPI adjustment yang sama
+- **Star rating** per kolom dihitung ulang dari kombinasi KPI achievement TWBE monthly + Aktivitas yang Sudah Dilakukan:
+  - Menggunakan `getKpiAchievement()`, `getActivityAchievement()`, dan `getKpiBasedBareMinimumRatings()` di `src/db/bareMinimum.ts`
+  - Penilaian **tidak** mempertimbangkan `Level Grade` maupun `Lama Bekerja`
+  - Alasan setiap rating menggunakan `getKpiBasedBareMinimumReasons()`
+- Nilai rating identik antara Profile View dan Dashboard — keduanya menerapkan logika KPI + aktivitas yang sama (tanpa faktor grade/tenure)
 - Data aspek diambil dari konstanta `BARE_MINIMUM_MATRIX` di `src/db/bareMinimum.ts`.
 
 ### Tooltip ⓘ
@@ -90,7 +90,7 @@ Section "Bare Minimum Frontend Engineer" ditampilkan di antara `ProfileChartSect
 - Field `bareMinimum` **tidak ada** di `ProfileSoftAspect` dan tidak perlu diisi di masing-masing engineer file.
 - Posisi section: setelah `ProfileChartSection`, sebelum `ProfileMonthlyTable`.
 - `BARE_MINIMUM_MATRIX` dan `BARE_MINIMUM_TOOLTIP_LEVELS` dipakai bersama oleh Dashboard dan Profile View — perubahan di sini otomatis memperbarui kedua halaman.
-- **KPI Adjustment**: Fungsi `withKpiAdjustedRatings()` dan `getKpiAchievement()` di `src/db/bareMinimum.ts` menerapkan adjustment untuk setiap engineer. Dashboard dan Profile View keduanya menerapkan adjustment sebelum display, menjamin nilai Bare Minimum identik.
+- **KPI + Activity Re-Scoring**: Fungsi `getKpiAchievement()`, `getActivityAchievement()`, `getKpiBasedBareMinimumRatings()`, dan `getKpiBasedBareMinimumReasons()` di `src/db/bareMinimum.ts` menghitung ulang score dan alasan dari performa TWBE monthly serta Aktivitas yang Sudah Dilakukan. Dashboard dan Profile View keduanya memakai fungsi yang sama, menjamin konsistensi nilai Bare Minimum.
 
 ## Aspek Profil
 
@@ -124,6 +124,10 @@ Section "Roadmap Karir" menampilkan rencana pengembangan dan arah karir Engineer
 
 - Tujuan roadmap karir wajib selaras dengan `DR Cosma Grom` (Discipline, Resilience, Collaboration, Smart Working, Growth Mindset)
 - Roadmap harus realistis dan berorientasi pada proses serta hasil fisik seperti sertifikat, dokumen internal, atau portfolio pengembangan kemampuan
+- Target roadmap (goal) diturunkan dari hasil Bare Minimum terbaru via `getRoadmapGoalFromBareMinimumRatings()` dengan konteks kebutuhan masing-masing engineer (`needsImprove` + `softProfile.developmentAreas`).
+- Target specialist harus **spesifik** per engineer (contoh: Specialist AI Frontend, Specialist Arsitektur Frontend, Specialist Security & Observability Frontend, dll.) berdasarkan kekuatan aspek Bare Minimum.
+- Pada dashboard komparasi, target specialist didistribusikan unik per engineer agar diferensiasi arah karir lebih jelas.
+- Potensi engineer untuk menjadi **SPEcialist** menjadi target utama apabila threshold kelayakan terpenuhi; jika belum layak, roadmap harus memprioritaskan peningkatan ke level Middle/Senior Frontend Engineer terlebih dahulu.
 
 ### Struktur dan Konten
 

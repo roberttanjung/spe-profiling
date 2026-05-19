@@ -1,4 +1,8 @@
-import type { BareMinimumRatings } from '@/views/Profile/ProfileView/ProfileView.types';
+import type {
+  BareMinimumRatings,
+  BareMinimumReasons,
+  ProfileActivityGroup,
+} from '@/views/Profile/ProfileView/ProfileView.types';
 
 export type BareMinimumLevelKey =
   | 'level1'
@@ -119,73 +123,388 @@ export const BARE_MINIMUM_TOOLTIP_LEVELS: Array<{
 ];
 
 export const KPI_TARGETS = {
-  minTask: 40,
-  maxTask: 70,
-  minWeight: 60,
-  maxWeight: 90,
+  minTask: 30,
+  minWeight: 50,
   maxBugsRatio: 0.15,
+  minDoneRate: 0.95,
+  minFinishRate: 0.95,
 } as const;
 
 export interface KpiAchievement {
   taskHitRate: number;
   weightHitRate: number;
   bugsHitRate: number;
+  doneHitRate: number;
+  finishHitRate: number;
+}
+
+export interface ActivityAchievement {
+  projectHitRate: number;
+  evidenceHitRate: number;
+  descriptionHitRate: number;
+  evidenceProjectHitRate: number;
+  overallHitRate: number;
+  totalProjects: number;
+  totalEvidenceItems: number;
+}
+
+export interface RoadmapGoalContext {
+  needsImproveTitles?: string[];
+  developmentAreas?: string;
+  forcedSpecialistTrack?: string;
 }
 
 export function getKpiAchievement(
-  rows: Array<{ totalTask: number; totalWeight: number; bugsRatio: number }>,
+  rows: Array<{
+    totalTask: number;
+    totalWeight: number;
+    bugsRatio: number;
+    doneRate: number;
+    finishRate: number;
+  }>,
 ): KpiAchievement {
   if (rows.length === 0) {
-    return { taskHitRate: 0, weightHitRate: 0, bugsHitRate: 0 };
+    return {
+      taskHitRate: 0,
+      weightHitRate: 0,
+      bugsHitRate: 0,
+      doneHitRate: 0,
+      finishHitRate: 0,
+    };
   }
 
   const taskHit = rows.filter(
-    (row) =>
-      row.totalTask >= KPI_TARGETS.minTask &&
-      row.totalTask <= KPI_TARGETS.maxTask,
+    (row) => row.totalTask >= KPI_TARGETS.minTask,
   ).length;
 
   const weightHit = rows.filter(
-    (row) =>
-      row.totalWeight >= KPI_TARGETS.minWeight &&
-      row.totalWeight <= KPI_TARGETS.maxWeight,
+    (row) => row.totalWeight >= KPI_TARGETS.minWeight,
   ).length;
 
   const bugsHit = rows.filter(
     (row) => row.bugsRatio <= KPI_TARGETS.maxBugsRatio,
   ).length;
 
+  const doneHit = rows.filter(
+    (row) => row.doneRate >= KPI_TARGETS.minDoneRate,
+  ).length;
+
+  const finishHit = rows.filter(
+    (row) => row.finishRate >= KPI_TARGETS.minFinishRate,
+  ).length;
+
   return {
     taskHitRate: taskHit / rows.length,
     weightHitRate: weightHit / rows.length,
     bugsHitRate: bugsHit / rows.length,
+    doneHitRate: doneHit / rows.length,
+    finishHitRate: finishHit / rows.length,
   };
+}
+
+function clampRate(value: number): number {
+  return Math.max(0, Math.min(1, value));
+}
+
+function average(values: number[]): number {
+  if (values.length === 0) {
+    return 0;
+  }
+
+  const total = values.reduce((sum, value) => sum + value, 0);
+  return total / values.length;
+}
+
+function toStarRate(rate: number): number {
+  const normalized = clampRate(rate);
+  return Math.max(1, Math.min(5, Math.round(normalized * 4) + 1));
+}
+
+function toHitRateText(rate: number): string {
+  return `${Math.round(clampRate(rate) * 100)}%`;
+}
+
+export const ACTIVITY_TARGETS = {
+  minProjects: 6,
+  minEvidenceItems: 10,
+  minDescriptionProjects: 6,
+  minEvidenceProjects: 4,
+} as const;
+
+export function getActivityAchievement(
+  activities?: ProfileActivityGroup[],
+): ActivityAchievement {
+  const totalProjects = activities?.length ?? 0;
+
+  if (!activities || activities.length === 0) {
+    return {
+      projectHitRate: 0,
+      evidenceHitRate: 0,
+      descriptionHitRate: 0,
+      evidenceProjectHitRate: 0,
+      overallHitRate: 0,
+      totalProjects,
+      totalEvidenceItems: 0,
+    };
+  }
+
+  const projectsWithDescription = activities.filter((activity) =>
+    Boolean(activity.description?.trim()),
+  ).length;
+  const projectsWithEvidence = activities.filter(
+    (activity) => (activity.items?.length ?? 0) > 0,
+  ).length;
+  const totalEvidenceItems = activities.reduce(
+    (total, activity) => total + (activity.items?.length ?? 0),
+    0,
+  );
+
+  const projectHitRate = clampRate(
+    totalProjects / ACTIVITY_TARGETS.minProjects,
+  );
+  const evidenceHitRate = clampRate(
+    totalEvidenceItems / ACTIVITY_TARGETS.minEvidenceItems,
+  );
+  const descriptionHitRate = clampRate(
+    projectsWithDescription / ACTIVITY_TARGETS.minDescriptionProjects,
+  );
+  const evidenceProjectHitRate = clampRate(
+    projectsWithEvidence / ACTIVITY_TARGETS.minEvidenceProjects,
+  );
+  const overallHitRate = average([
+    projectHitRate,
+    evidenceHitRate,
+    descriptionHitRate,
+    evidenceProjectHitRate,
+  ]);
+
+  return {
+    projectHitRate,
+    evidenceHitRate,
+    descriptionHitRate,
+    evidenceProjectHitRate,
+    overallHitRate,
+    totalProjects,
+    totalEvidenceItems,
+  };
+}
+
+export function getKpiBasedBareMinimumRatings(
+  kpi: KpiAchievement,
+  activity: ActivityAchievement,
+): BareMinimumRatings {
+  return {
+    fundamentalFrontend: toStarRate(
+      average([kpi.weightHitRate, kpi.finishHitRate, activity.overallHitRate]),
+    ),
+    kualitasKode: toStarRate(
+      average([kpi.bugsHitRate, kpi.finishHitRate, activity.evidenceHitRate]),
+    ),
+    testingReliability: toStarRate(
+      average([kpi.bugsHitRate, kpi.doneHitRate, activity.evidenceHitRate]),
+    ),
+    kolaborasiKomunikasi: toStarRate(
+      average([
+        kpi.doneHitRate,
+        kpi.finishHitRate,
+        activity.descriptionHitRate,
+      ]),
+    ),
+    deliveryBisnis: toStarRate(
+      average([
+        kpi.taskHitRate,
+        kpi.doneHitRate,
+        kpi.finishHitRate,
+        activity.projectHitRate,
+      ]),
+    ),
+    securityObservability: toStarRate(
+      average([kpi.bugsHitRate, kpi.finishHitRate, activity.evidenceHitRate]),
+    ),
+    aiProduktivitas: toStarRate(
+      average([kpi.taskHitRate, kpi.weightHitRate, activity.overallHitRate]),
+    ),
+  };
+}
+
+export function getKpiBasedBareMinimumReasons(
+  kpi: KpiAchievement,
+  activity: ActivityAchievement,
+): BareMinimumReasons {
+  const task = toHitRateText(kpi.taskHitRate);
+  const weight = toHitRateText(kpi.weightHitRate);
+  const bugs = toHitRateText(kpi.bugsHitRate);
+  const done = toHitRateText(kpi.doneHitRate);
+  const finish = toHitRateText(kpi.finishHitRate);
+  const activityOverall = toHitRateText(activity.overallHitRate);
+  const activityProjects = toHitRateText(activity.projectHitRate);
+  const activityEvidence = toHitRateText(activity.evidenceHitRate);
+  const activityDescriptions = toHitRateText(activity.descriptionHitRate);
+  const activityEvidenceProjects = toHitRateText(
+    activity.evidenceProjectHitRate,
+  );
+
+  return {
+    fundamentalFrontend: `Dinilai dari kestabilan hasil kerja berdasarkan Weight (${weight}), Finish Rate (${finish}), dan konsistensi aktivitas yang sudah dilakukan (${activityOverall}).`,
+    kualitasKode: `Dinilai dari seberapa kecil masalah yang muncul (Bugs Ratio ${bugs}), ketuntasan kerja (${finish}), dan kelengkapan bukti aktivitas (${activityEvidence}).`,
+    testingReliability: `Dinilai dari rendahnya masalah (Bugs Ratio ${bugs}), konsistensi pekerjaan selesai (${done}), dan bukti aktivitas yang mendukung kualitas kerja (${activityEvidence}).`,
+    kolaborasiKomunikasi: `Dinilai dari kedisiplinan menyelesaikan pekerjaan (Done Rate ${done}, Finish Rate ${finish}) dan kejelasan penjelasan aktivitas (${activityDescriptions}).`,
+    deliveryBisnis: `Dinilai dari ketercapaian target kerja (Task ${task}), konsistensi penyelesaian (${done}, ${finish}), dan cakupan aktivitas di berbagai project (${activityProjects}).`,
+    securityObservability: `Dinilai dari kemampuan menjaga agar masalah tetap rendah (Bugs Ratio ${bugs}), hasil kerja tetap stabil (${finish}), dan adanya bukti aktivitas pencegahan masalah (${activityEvidenceProjects}).`,
+    aiProduktivitas: `Dinilai dari efisiensi hasil kerja (Task ${task}, Weight ${weight}) serta konsistensi aktivitas yang terdokumentasi (${activityOverall}).`,
+  };
+}
+
+const ROADMAP_ASPECT_LABELS: Record<keyof BareMinimumRatings, string> = {
+  fundamentalFrontend: 'Fundamental Frontend',
+  kualitasKode: 'Kualitas Kode',
+  testingReliability: 'Testing & Reliability',
+  kolaborasiKomunikasi: 'Kolaborasi & Komunikasi',
+  deliveryBisnis: 'Delivery & Bisnis',
+  securityObservability: 'Security & Observability',
+  aiProduktivitas: 'AI & Produktivitas',
+};
+
+const SPECIALIST_TRACK_BY_ASPECT: Record<keyof BareMinimumRatings, string> = {
+  fundamentalFrontend: 'Specialist Arsitektur Frontend',
+  kualitasKode: 'Specialist Kualitas Kode Frontend',
+  testingReliability: 'Specialist Reliability Frontend',
+  kolaborasiKomunikasi: 'Specialist Kolaborasi Delivery Frontend',
+  deliveryBisnis: 'Specialist Delivery Produk Frontend',
+  securityObservability: 'Specialist Security & Observability Frontend',
+  aiProduktivitas: 'Specialist AI Frontend',
+};
+
+const SPECIALIST_KEYWORD_TRACKS: Array<{
+  specialistTrack: string;
+  keywords: string[];
+}> = [
+  {
+    specialistTrack: 'Specialist AI Frontend',
+    keywords: ['ai', 'copilot', 'prompt', 'automation', 'otomasi'],
+  },
+  {
+    specialistTrack: 'Specialist Arsitektur Frontend',
+    keywords: ['arsitektur', 'architecture', 'monorepo', 'scalable'],
+  },
+  {
+    specialistTrack: 'Specialist Security & Observability Frontend',
+    keywords: ['security', 'cve', 'observability', 'monitoring', 'encrypt'],
+  },
+  {
+    specialistTrack: 'Specialist Reliability Frontend',
+    keywords: ['testing', 'test', 'coverage', 'reliability', 'stabil'],
+  },
+  {
+    specialistTrack: 'Specialist Kualitas Kode Frontend',
+    keywords: ['quality', 'kualitas', 'sonarqube', 'tech debt', 'refactor'],
+  },
+  {
+    specialistTrack: 'Specialist Delivery Produk Frontend',
+    keywords: ['delivery', 'produk', 'business', 'bisnis', 'backlog'],
+  },
+  {
+    specialistTrack: 'Specialist Kolaborasi Delivery Frontend',
+    keywords: ['kolaborasi', 'komunikasi', 'lintas tim', 'sinkron'],
+  },
+];
+
+export const ALL_SPECIALIST_TRACKS = Array.from(
+  new Set([
+    ...Object.values(SPECIALIST_TRACK_BY_ASPECT),
+    ...SPECIALIST_KEYWORD_TRACKS.map((item) => item.specialistTrack),
+  ]),
+);
+
+export function getSpecialistTrackByContext(
+  context: RoadmapGoalContext | undefined,
+  fallbackAspect: keyof BareMinimumRatings,
+): string {
+  const sourceText = [
+    context?.developmentAreas ?? '',
+    ...(context?.needsImproveTitles ?? []),
+  ]
+    .join(' ')
+    .toLowerCase();
+
+  const keywordMatch = SPECIALIST_KEYWORD_TRACKS.find(({ keywords }) =>
+    keywords.some((keyword) => sourceText.includes(keyword)),
+  );
+
+  if (keywordMatch) {
+    return keywordMatch.specialistTrack;
+  }
+
+  return SPECIALIST_TRACK_BY_ASPECT[fallbackAspect];
+}
+
+export function getRoadmapGoalFromBareMinimumRatings(
+  ratings: BareMinimumRatings,
+  context?: RoadmapGoalContext,
+): string {
+  const entries = Object.entries(ratings) as Array<
+    [keyof BareMinimumRatings, number]
+  >;
+  const averageScore = average(entries.map(([, score]) => score));
+  const minScore = Math.min(...entries.map(([, score]) => score));
+  const technicalStrengthCount = [
+    ratings.fundamentalFrontend,
+    ratings.kualitasKode,
+    ratings.testingReliability,
+    ratings.securityObservability,
+  ].filter((score) => score >= 4).length;
+  const sortedByStrength = [...entries].sort(
+    (left, right) => right[1] - left[1],
+  );
+  const primaryAspect = sortedByStrength[0]?.[0] ?? 'fundamentalFrontend';
+  const targetSpecialistTrack =
+    context?.forcedSpecialistTrack ??
+    getSpecialistTrackByContext(context, primaryAspect);
+
+  const weakestAspects = [...entries]
+    .sort((left, right) => left[1] - right[1])
+    .slice(0, 2)
+    .map(([key]) => ROADMAP_ASPECT_LABELS[key])
+    .join(' dan ');
+
+  const needsImproveFocus = (context?.needsImproveTitles ?? [])
+    .map((title) => title.trim())
+    .filter((title) => title.length > 0)
+    .slice(0, 2)
+    .join(' dan ');
+
+  const developmentAreaFocus = context?.developmentAreas?.trim() ?? '';
+
+  const roadmapFocus =
+    needsImproveFocus || developmentAreaFocus || weakestAspects;
+
+  const specialistEligible =
+    averageScore >= 4.4 && minScore >= 4 && technicalStrengthCount >= 3;
+  const seniorEligible = averageScore >= 3.8 && minScore >= 3;
+
+  if (specialistEligible) {
+    return `Target utama: mencapai ${targetSpecialistTrack} (SPEcialist) dengan penguatan ${roadmapFocus}, standardisasi kualitas lintas modul, dan portfolio teknis tingkat lanjut.`;
+  }
+
+  if (seniorEligible) {
+    return `Target utama: engineer belum layak masuk jalur SPEcialist, sehingga prioritas saat ini adalah mengokohkan level Senior Frontend Engineer melalui penguatan ${roadmapFocus}; setelah stabil, lanjutkan akselerasi ke ${targetSpecialistTrack}.`;
+  }
+
+  return `Target utama: engineer belum layak masuk jalur SPEcialist, sehingga prioritas saat ini adalah mencapai stabilitas Middle Frontend Engineer terlebih dahulu melalui penguatan ${roadmapFocus}; setelah itu lanjutkan ke Senior Frontend Engineer sebelum akselerasi ke ${targetSpecialistTrack}.`;
 }
 
 export function withKpiAdjustedRatings(
   baseRatings: BareMinimumRatings,
   kpi: KpiAchievement,
+  activity: ActivityAchievement,
 ): BareMinimumRatings {
+  // Backward-compatible helper: keep base profile context but normalize with KPI+activity floor.
+  const kpiOnlyRatings = getKpiBasedBareMinimumRatings(kpi, activity);
   const adjusted = { ...baseRatings };
 
-  if (kpi.taskHitRate >= 0.5) {
-    adjusted.deliveryBisnis = Math.min(5, adjusted.deliveryBisnis + 1);
-  }
-
-  if (kpi.weightHitRate >= 0.5) {
-    adjusted.fundamentalFrontend = Math.min(
-      5,
-      adjusted.fundamentalFrontend + 1,
-    );
-  }
-
-  if (kpi.bugsHitRate >= 0.5) {
-    adjusted.testingReliability = Math.min(5, adjusted.testingReliability + 1);
-    adjusted.securityObservability = Math.min(
-      5,
-      adjusted.securityObservability + 1,
-    );
-  }
+  (Object.keys(adjusted) as Array<keyof BareMinimumRatings>).forEach((key) => {
+    adjusted[key] = Math.max(adjusted[key], kpiOnlyRatings[key]);
+  });
 
   return adjusted;
 }

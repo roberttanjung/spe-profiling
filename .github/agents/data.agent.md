@@ -22,15 +22,15 @@ Semua data dan definisi bersama harus mengacu pada satu sumber untuk mencegah ko
 
 ### File SSOT
 
-| File                         | Isi                                                                                       | Dipakai oleh                                                                                   |
-| ---------------------------- | ----------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `src/db/twbe.json`           | Raw data TWBE seluruh engineer                                                            | `src/utils/twbe.ts`                                                                            |
-| `src/db/bareMinimum.ts`      | Konstanta `BARE_MINIMUM_MATRIX`, `BARE_MINIMUM_TOOLTIP_LEVELS`, dan fungsi KPI adjustment | Dashboard, Profile View                                                                        |
-| `src/db/constants.ts`        | Konstanta global `REFERENCE_DATE` untuk kalkulasi umur & tenure                           | Dashboard (`src/app/page.tsx`), Profile View (`src/views/Profile/ProfileView/ProfileView.tsx`) |
-| `src/db/softProfile.ts`      | Konstanta `SOFT_PROFILE_TEXT_KEYS` dan `SOFT_PROFILE_TEXT_LABELS` untuk Aspek Profil      | Dashboard, Profile View                                                                        |
-| `src/db/ssot.guard.test.ts`  | Guard test otomatis untuk mendeteksi drift data                                           | Dijalankan via `npm run test`                                                                  |
-| `src/views/Profile/index.ts` | Registry engineer (`engineerProfileRegistry`, `allEngineerProfiles`)                      | Dashboard, navigasi, KPI Generator                                                             |
-| `src/utils/roadmap.ts`       | Mapping roadmap profile -> grid dashboard (`getEngineerRoadmapRows`, `monthNumber`)       | Dashboard roadmap komparasi (`src/app/page.tsx`)                                               |
+| File                         | Isi                                                                                                   | Dipakai oleh                                                                                   |
+| ---------------------------- | ----------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `src/db/twbe.json`           | Raw data TWBE seluruh engineer                                                                        | `src/utils/twbe.ts`                                                                            |
+| `src/db/bareMinimum.ts`      | Konstanta `BARE_MINIMUM_MATRIX`, `BARE_MINIMUM_TOOLTIP_LEVELS`, dan fungsi re-scoring KPI + aktivitas | Dashboard, Profile View                                                                        |
+| `src/db/constants.ts`        | Konstanta global `REFERENCE_DATE` untuk kalkulasi umur & tenure                                       | Dashboard (`src/app/page.tsx`), Profile View (`src/views/Profile/ProfileView/ProfileView.tsx`) |
+| `src/db/softProfile.ts`      | Konstanta `SOFT_PROFILE_TEXT_KEYS` dan `SOFT_PROFILE_TEXT_LABELS` untuk Aspek Profil                  | Dashboard, Profile View                                                                        |
+| `src/db/ssot.guard.test.ts`  | Guard test otomatis untuk mendeteksi drift data                                                       | Dijalankan via `npm run test`                                                                  |
+| `src/views/Profile/index.ts` | Registry engineer (`engineerProfileRegistry`, `allEngineerProfiles`)                                  | Dashboard, navigasi, KPI Generator                                                             |
+| `src/utils/roadmap.ts`       | Mapping roadmap profile -> grid dashboard (`getEngineerRoadmapRows`, `monthNumber`)                   | Dashboard roadmap komparasi (`src/app/page.tsx`)                                               |
 
 ### Registry Engineer
 
@@ -58,18 +58,25 @@ File `src/db/ssot.guard.test.ts` memverifikasi secara otomatis bahwa:
 
 Jalankan guard dengan: `npm run test -- src/db/ssot.guard.test.ts`
 
-### KPI Adjustment Logic
+### KPI + Activity Re-Scoring Logic
 
-Fungsi `getKpiAchievement()` dan `withKpiAdjustedRatings()` di `src/db/bareMinimum.ts` mengatur rating Bare Minimum berdasarkan capai KPI TWBE monthly per engineer:
+Fungsi `getKpiAchievement()`, `getActivityAchievement()`, `getKpiBasedBareMinimumRatings()`, dan `getKpiBasedBareMinimumReasons()` di `src/db/bareMinimum.ts` mengatur penilaian Bare Minimum berdasarkan capaian KPI TWBE monthly dan Aktivitas yang Sudah Dilakukan per engineer:
 
-- `KPI_TARGETS`: Threshold target KPI (minTask=40, maxTask=70, minWeight=60, maxWeight=90, maxBugsRatio=0.15).
-- `getKpiAchievement(rows)`: Menghitung hit rate per aspek (taskHitRate, weightHitRate, bugsHitRate) dari row monthly.
-- `withKpiAdjustedRatings(baseRatings, kpi)`: Menyesuaikan rating dengan logika:
-  - `taskHitRate ≥ 50%` → `deliveryBisnis + 1`
-  - `weightHitRate ≥ 50%` → `fundamentalFrontend + 1`
-  - `bugsHitRate ≥ 50%` → `testingReliability + 1` dan `securityObservability + 1`
+- `KPI_TARGETS`: Threshold target KPI (minTask=30, minWeight=50, maxBugsRatio=0.15, minDoneRate=95%, minFinishRate=95%).
+- `getKpiAchievement(rows)`: Menghitung hit rate KPI (taskHitRate, weightHitRate, bugsHitRate, doneHitRate, finishHitRate) dari row monthly.
+- `getActivityAchievement(activities)`: Menghitung achievement aktivitas dari jumlah project, jumlah evidence item, dan kelengkapan deskripsi aktivitas.
+- `getKpiBasedBareMinimumRatings(kpi, activity)`: Menghitung ulang 7 aspek bare minimum dari kombinasi KPI + aktivitas (tanpa faktor level/grade atau lama bekerja).
+- `getKpiBasedBareMinimumReasons(kpi, activity)`: Menyediakan alasan penilaian per aspek berdasarkan kombinasi hit rate KPI + aktivitas.
 
-Dashboard dan Profile View **keduanya** menerapkan adjustment ini sebelum display, sehingga nilai Bare Minimum identik di semua tempat.
+Dashboard dan Profile View **keduanya** menerapkan re-scoring ini sebelum display, sehingga nilai Bare Minimum identik di semua tempat.
+
+### Roadmap Target from Bare Minimum
+
+- Target roadmap karir diturunkan dari hasil Bare Minimum terbaru menggunakan `getRoadmapGoalFromBareMinimumRatings()`.
+- Goal roadmap dipersonalisasi per engineer menggunakan konteks `needsImprove` dan `softProfile.developmentAreas`, sehingga target tidak seragam antar engineer.
+- Target specialist ditentukan secara spesifik berdasarkan aspek Bare Minimum terkuat tiap engineer (bukan generic specialist).
+- Pada dashboard komparasi, assignment target specialist didistribusikan unik per engineer agar pembacaan diferensiasi roadmap lebih jelas.
+- Potensi engineer untuk menjadi **SPEcialist** diprioritaskan jika memenuhi threshold kelayakan; bila belum layak, goal diarahkan lebih dulu ke peningkatan level Middle/Senior Frontend Engineer.
 
 ### Aspek Profil (Soft Profile)
 
@@ -101,7 +108,7 @@ Urutan section di Dashboard (`src/app/page.tsx`) dirancang untuk memandu pembaca
 
 3. **Bare Minimum Frontend Engineer** (Kualitas)
    - Evaluasi kualitas kompeten per 7 aspek fundamental frontend
-   - Rating disesuaikan dengan KPI achievement TWBE monthly
+   - Rating disesuaikan dengan KPI achievement TWBE monthly + Aktivitas yang Sudah Dilakukan
    - Tujuan: Pembaca tahu kualitas evaluasi setiap engineer secara mendetail
 
 4. **Kelebihan Komparasi** (Strength Highlights)
