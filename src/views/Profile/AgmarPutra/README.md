@@ -142,7 +142,7 @@ Tools AI yang berguna untuk mempersingkat sebuah prompt tanpa mengurangi akurasi
 
 - `Tipe kolaborasi`: Koordinatif-proaktif; aktif memberi update, cepat merespons isu, dan menjaga sinkronisasi lintas tim.
 - `Gaya kerja`: Fast executor dengan orientasi kualitas; bekerja cepat tanpa melepas kontrol terhadap standar teknis.
-- `Kelebihan utama`: Disiplin eksekusi, fokus tinggi, kemampuan riset, komunikasi sopan, dan ownership pada Project besar.
+- `Kelebihan utama`: Disiplin eksekusi, fokus tinggi, kemampuan riset, dan ownership pada Project besar.
 - `Area pengembangan`: Penyederhanaan bahasa teknis dan penguatan storytelling saat menyampaikan argumen secara lisan.
 - `Arah karir berbasis roadmap`: Kandidat kuat menuju `Senior Front End Engineer (II/4)` dengan jalur spesialisasi arsitektur frontend dan AI-enabled engineering.
 - `Potensi / unique selling point`: Mampu menggabungkan stabilitas delivery harian dengan inovasi arsitektural yang berdampak langsung ke efisiensi tim.
