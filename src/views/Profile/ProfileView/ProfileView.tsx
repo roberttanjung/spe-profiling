@@ -389,14 +389,6 @@ export default function ProfileView({
         />
       )}
 
-      {profile.careerRoadmap && profile.careerRoadmap.length > 0 && (
-        <CareerRoadmapSection
-          goal={roadmapGoal}
-          items={profile.careerRoadmap}
-          name={profile.name}
-        />
-      )}
-
       {profile.activities && profile.activities.length > 0 && (
         <ActivitiesSection items={profile.activities} />
       )}
@@ -406,6 +398,14 @@ export default function ProfileView({
       <ProfileMonthlyTable rows={twbeMonthlyRows} />
 
       <ProfileSprintTable rows={twbeRows} />
+
+      {profile.careerRoadmap && profile.careerRoadmap.length > 0 && (
+        <CareerRoadmapSection
+          goal={roadmapGoal}
+          items={profile.careerRoadmap}
+          name={profile.name}
+        />
+      )}
     </section>
   );
 }
