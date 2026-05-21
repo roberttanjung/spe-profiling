@@ -7,10 +7,10 @@ import ProfileView from '@/views/Profile/ProfileView';
 import { allEngineerProfiles, engineerProfileRegistry } from '@/views/Profile';
 import {
   getEngineerRoadmapRows,
-  MONTH_BANDS,
-  TOTAL_TIMELINE_WEEKS,
+  getTimelineWeekCountFromEngineerRows,
   WEEKS_PER_MONTH,
 } from '@/utils/roadmap';
+import { getVisibleRoadmapMonthBands } from '@/utils/roadmapTimeline';
 import {
   ALL_SPECIALIST_TRACKS,
   BARE_MINIMUM_MATRIX,
@@ -288,8 +288,11 @@ export default async function Home({
   const roadmapGoalByEngineer = new Map(
     normalizedSummaryRows.map((row) => [row.name, row.careerRoadmapGoal]),
   );
+  const roadmapRows = getEngineerRoadmapRows();
+  const totalTimelineWeeks = getTimelineWeekCountFromEngineerRows(roadmapRows);
+  const visibleMonthBands = getVisibleRoadmapMonthBands(totalTimelineWeeks);
 
-  const timelineGridTemplate = `repeat(${TOTAL_TIMELINE_WEEKS}, minmax(var(--roadmap-week-min), 1fr))`;
+  const timelineGridTemplate = `repeat(${totalTimelineWeeks}, minmax(var(--roadmap-week-min), 1fr))`;
 
   return (
     <main className={styles.mainContent}>
@@ -547,8 +550,8 @@ export default async function Home({
         <div className={styles.panelHeader}>
           <h2 id="roadmap-title">Roadmap Karir Komparasi</h2>
           <p>
-            Timeline pengembangan karir setiap engineer untuk periode
-            Juni-November 2026 dalam format Gantt chart.
+            Timeline pengembangan karir setiap engineer dalam format Gantt
+            chart, dengan akhir periode mengikuti kebutuhan tahapan aktual.
           </p>
         </div>
         <div className={styles.roadmapGanttWrapper}>
@@ -561,7 +564,7 @@ export default async function Home({
           <div
             className={styles.roadmapGanttHeaderRow}
             style={{
-              gridTemplateColumns: `var(--roadmap-label-col) minmax(calc(var(--roadmap-week-min) * ${TOTAL_TIMELINE_WEEKS}), 1fr)`,
+              gridTemplateColumns: `var(--roadmap-label-col) minmax(calc(var(--roadmap-week-min) * ${totalTimelineWeeks}), 1fr)`,
             }}
           >
             <div className={styles.roadmapGanttLabelCell} aria-hidden="true" />
@@ -571,7 +574,7 @@ export default async function Home({
                 gridTemplateColumns: timelineGridTemplate,
               }}
             >
-              {MONTH_BANDS.map((band, monthIndex) => {
+              {visibleMonthBands.map((band, monthIndex) => {
                 const monthColumnStart = monthIndex * WEEKS_PER_MONTH + 1;
 
                 return (
@@ -595,7 +598,7 @@ export default async function Home({
           <div
             className={styles.roadmapGanttWeekRow}
             style={{
-              gridTemplateColumns: `var(--roadmap-label-col) minmax(calc(var(--roadmap-week-min) * ${TOTAL_TIMELINE_WEEKS}), 1fr)`,
+              gridTemplateColumns: `var(--roadmap-label-col) minmax(calc(var(--roadmap-week-min) * ${totalTimelineWeeks}), 1fr)`,
             }}
           >
             <div className={styles.roadmapGanttLabelCell} aria-hidden="true" />
@@ -605,7 +608,7 @@ export default async function Home({
                 gridTemplateColumns: timelineGridTemplate,
               }}
             >
-              {Array.from({ length: TOTAL_TIMELINE_WEEKS }, (_, weekIndex) => (
+              {Array.from({ length: totalTimelineWeeks }, (_, weekIndex) => (
                 <div
                   key={`week-${weekIndex + 1}`}
                   className={styles.roadmapGanttWeekCell}
@@ -616,7 +619,7 @@ export default async function Home({
             </div>
           </div>
 
-          {getEngineerRoadmapRows().map((engineerRow, engineerIndex) => (
+          {roadmapRows.map((engineerRow, engineerIndex) => (
             <div
               key={`engineer-${engineerRow.engineerName}`}
               className={styles.roadmapEngineerGroup}
@@ -627,7 +630,7 @@ export default async function Home({
               <div
                 className={styles.roadmapEngineerName}
                 style={{
-                  gridTemplateColumns: `var(--roadmap-label-col) minmax(calc(var(--roadmap-week-min) * ${TOTAL_TIMELINE_WEEKS}), 1fr)`,
+                  gridTemplateColumns: `var(--roadmap-label-col) minmax(calc(var(--roadmap-week-min) * ${totalTimelineWeeks}), 1fr)`,
                 }}
               >
                 <div className={styles.roadmapEngineerBadge}>
@@ -649,7 +652,7 @@ export default async function Home({
                     key={`stage-${engineerRow.engineerName}-${stageIndex}`}
                     className={styles.roadmapGanttRow}
                     style={{
-                      gridTemplateColumns: `var(--roadmap-label-col) minmax(calc(var(--roadmap-week-min) * ${TOTAL_TIMELINE_WEEKS}), 1fr)`,
+                      gridTemplateColumns: `var(--roadmap-label-col) minmax(calc(var(--roadmap-week-min) * ${totalTimelineWeeks}), 1fr)`,
                     }}
                   >
                     <div
@@ -667,7 +670,7 @@ export default async function Home({
                       }}
                     >
                       {Array.from(
-                        { length: TOTAL_TIMELINE_WEEKS },
+                        { length: totalTimelineWeeks },
                         (_, index) => (
                           <div
                             key={`gantt-col-${engineerIndex}-${stageIndex}-${index + 1}`}

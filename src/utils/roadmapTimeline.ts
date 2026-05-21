@@ -1,5 +1,13 @@
 export const WEEKS_PER_MONTH = 4;
 export const TOTAL_TIMELINE_WEEKS = 24;
+export const ROADMAP_MONTH_BANDS = [
+  { label: 'Juni', month: 'Juni', monthNumber: 1 },
+  { label: 'Juli', month: 'Juli', monthNumber: 2 },
+  { label: 'Agustus', month: 'Agustus', monthNumber: 3 },
+  { label: 'September', month: 'September', monthNumber: 4 },
+  { label: 'Oktober', month: 'Oktober', monthNumber: 5 },
+  { label: 'November', month: 'November', monthNumber: 6 },
+] as const;
 
 interface RoadmapCourseItem {
   title: string;
@@ -74,13 +82,21 @@ export function buildRoadmapTimeline(stages: RoadmapStageLike[]): Array<{
   weekEnd: number;
   durationWeeks: number;
 }> {
-  return stages.map((stage, index) => {
-    const weekStart = index * WEEKS_PER_MONTH + 1;
+  let nextWeekStart = 1;
+
+  return stages.map((stage) => {
+    const weekStart = Math.max(
+      1,
+      Math.min(TOTAL_TIMELINE_WEEKS, nextWeekStart),
+    );
     const durationWeeks = estimateStageDurationWeeks(stage);
     const weekEnd = Math.min(
       weekStart + durationWeeks - 1,
       TOTAL_TIMELINE_WEEKS,
     );
+
+    const stageOverlapShift = Math.ceil(durationWeeks * 0.85);
+    nextWeekStart = weekStart + stageOverlapShift;
 
     return {
       weekStart,
@@ -88,4 +104,16 @@ export function buildRoadmapTimeline(stages: RoadmapStageLike[]): Array<{
       durationWeeks,
     };
   });
+}
+
+export function getVisibleRoadmapMonthBands(totalTimelineWeeks: number) {
+  const visibleMonthCount = Math.max(
+    1,
+    Math.min(
+      ROADMAP_MONTH_BANDS.length,
+      Math.ceil(totalTimelineWeeks / WEEKS_PER_MONTH),
+    ),
+  );
+
+  return ROADMAP_MONTH_BANDS.slice(0, visibleMonthCount);
 }

@@ -2,18 +2,12 @@ import { allEngineerProfiles } from '@/views/Profile';
 import type { ProfileRoadmapStage } from '@/views/Profile/ProfileView/ProfileView.types';
 import {
   buildRoadmapTimeline,
+  ROADMAP_MONTH_BANDS,
   TOTAL_TIMELINE_WEEKS,
   WEEKS_PER_MONTH,
 } from './roadmapTimeline';
 
-export const MONTH_BANDS = [
-  { label: 'Juni', month: 'Juni', monthNumber: 1 },
-  { label: 'Juli', month: 'Juli', monthNumber: 2 },
-  { label: 'Agustus', month: 'Agustus', monthNumber: 3 },
-  { label: 'September', month: 'September', monthNumber: 4 },
-  { label: 'Oktober', month: 'Oktober', monthNumber: 5 },
-  { label: 'November', month: 'November', monthNumber: 6 },
-];
+export const MONTH_BANDS = ROADMAP_MONTH_BANDS;
 
 export { WEEKS_PER_MONTH, TOTAL_TIMELINE_WEEKS };
 
@@ -31,6 +25,29 @@ export interface EngineerRoadmapStageRow {
 export interface EngineerRoadmapRow {
   engineerName: string;
   stages: EngineerRoadmapStageRow[];
+}
+
+export function getTimelineWeekCountFromEngineerRows(
+  rows: EngineerRoadmapRow[],
+): number {
+  const maxWeek = rows.reduce((weekMax, row) => {
+    const rowMax = row.stages.reduce((stageMax, stage) => {
+      const absoluteStart =
+        (stage.monthNumber - 1) * WEEKS_PER_MONTH + stage.weekStart;
+      const absoluteEnd = absoluteStart + (stage.weekEnd - stage.weekStart);
+
+      return Math.max(stageMax, absoluteEnd);
+    }, 0);
+
+    return Math.max(weekMax, rowMax);
+  }, 0);
+
+  const normalized =
+    maxWeek > 0
+      ? Math.ceil(maxWeek / WEEKS_PER_MONTH) * WEEKS_PER_MONTH
+      : WEEKS_PER_MONTH;
+
+  return Math.max(WEEKS_PER_MONTH, Math.min(TOTAL_TIMELINE_WEEKS, normalized));
 }
 
 export function getEngineerRoadmapRows(): EngineerRoadmapRow[] {

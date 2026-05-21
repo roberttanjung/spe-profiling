@@ -3,6 +3,8 @@ import roadmapStyles from '@/views/Roadmap/RoadmapView.module.css';
 import {
   buildRoadmapTimeline,
   TOTAL_TIMELINE_WEEKS,
+  WEEKS_PER_MONTH,
+  getVisibleRoadmapMonthBands,
 } from '@/utils/roadmapTimeline';
 import styles from './CareerRoadmapSection.module.css';
 import type { CareerRoadmapSectionProps } from './CareerRoadmapSection.types';
@@ -84,7 +86,18 @@ export default function CareerRoadmapSection({
     goal ??
     `Mencapai ${items[items.length - 1]?.objective.toLowerCase() ?? 'target pengembangan karir yang terukur'}.`;
   const ganttRows = buildGanttRows(items);
-  const totalTimelineWeeks = TOTAL_TIMELINE_WEEKS;
+  const maxTimelineWeek = ganttRows.reduce(
+    (maxWeek, row) => Math.max(maxWeek, row.weekEnd),
+    0,
+  );
+  const totalTimelineWeeks = Math.max(
+    WEEKS_PER_MONTH,
+    Math.min(
+      TOTAL_TIMELINE_WEEKS,
+      Math.ceil(maxTimelineWeek / WEEKS_PER_MONTH) * WEEKS_PER_MONTH,
+    ),
+  );
+  const visibleMonthBands = getVisibleRoadmapMonthBands(totalTimelineWeeks);
   const rootClassName = className ? `${styles.root} ${className}` : styles.root;
 
   return (
@@ -125,13 +138,13 @@ export default function CareerRoadmapSection({
                     gridTemplateColumns: `repeat(${totalTimelineWeeks}, minmax(var(--gantt-week-col), 1fr))`,
                   }}
                 >
-                  {items.map((stage, idx) => (
+                  {visibleMonthBands.map((band, idx) => (
                     <div
-                      key={`band-${stage.period}-${idx}`}
+                      key={`band-${band.month}-${idx}`}
                       className={roadmapStyles.ganttHeaderCell}
                       style={{ gridColumn: 'span 4' }}
                     >
-                      {toPeriodLabel(stage.period)}
+                      {toPeriodLabel(band.month)}
                     </div>
                   ))}
                 </div>
