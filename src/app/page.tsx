@@ -336,43 +336,6 @@ export default async function Home({
         </div>
       </section>
 
-      <section className={styles.panel} aria-labelledby="aspek-profil-title">
-        <div className={styles.panelHeader}>
-          <h2 id="aspek-profil-title">Aspek Profil Komparasi</h2>
-          <p>
-            Karakteristik kerja dan potensi kontribusi setiap engineer melalui
-            profil soft skill, gaya kolaborasi, dan unique selling point.
-          </p>
-        </div>
-        <div className={styles.tableWrap}>
-          <table className={`${styles.table} ${styles.profileAspectTable}`}>
-            <caption className={styles.srOnly}>
-              Tabel komparasi aspek profil seluruh engineer frontend
-            </caption>
-            <thead>
-              <tr>
-                <th scope="col">Nama Engineer</th>
-                {SOFT_PROFILE_TEXT_KEYS.map((key) => (
-                  <th key={key} scope="col">
-                    {SOFT_PROFILE_TEXT_LABELS[key]}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {normalizedSummaryRows.map((row) => (
-                <tr key={`${row.name}-aspek-profil`}>
-                  <th scope="row">{renderEngineerName(row.name)}</th>
-                  {SOFT_PROFILE_TEXT_KEYS.map((key) => (
-                    <td key={key}>{row.softProfile[key]}</td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
-
       <section
         className={`${styles.panel} ${styles.panelBareMinimum}`}
         aria-labelledby="bare-minimum-title"
@@ -459,6 +422,43 @@ export default async function Home({
         </div>
       </section>
 
+      <section className={styles.panel} aria-labelledby="aspek-profil-title">
+        <div className={styles.panelHeader}>
+          <h2 id="aspek-profil-title">Aspek Profil Komparasi</h2>
+          <p>
+            Karakteristik kerja dan potensi kontribusi setiap engineer melalui
+            profil soft skill, gaya kolaborasi, dan unique selling point.
+          </p>
+        </div>
+        <div className={styles.tableWrap}>
+          <table className={`${styles.table} ${styles.profileAspectTable}`}>
+            <caption className={styles.srOnly}>
+              Tabel komparasi aspek profil seluruh engineer frontend
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Nama Engineer</th>
+                {SOFT_PROFILE_TEXT_KEYS.map((key) => (
+                  <th key={key} scope="col">
+                    {SOFT_PROFILE_TEXT_LABELS[key]}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {normalizedSummaryRows.map((row) => (
+                <tr key={`${row.name}-aspek-profil`}>
+                  <th scope="row">{renderEngineerName(row.name)}</th>
+                  {SOFT_PROFILE_TEXT_KEYS.map((key) => (
+                    <td key={key}>{row.softProfile[key]}</td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
       <section className={styles.panel} aria-labelledby="kelebihan-title">
         <div className={styles.panelHeader}>
           <h2 id="kelebihan-title">Kelebihan Komparasi</h2>
@@ -506,6 +506,23 @@ export default async function Home({
             </tbody>
           </table>
         </div>
+      </section>
+
+      <section
+        className={`${styles.panel} ${styles.panelComparison}`}
+        aria-labelledby="chart-comparison-title"
+      >
+        <div className={styles.panelHeader}>
+          <h2 id="chart-comparison-title">Performa TWBE Komparasi</h2>
+          <p>
+            Data performa TWBE setiap engineer periode September 2025 - April
+            2026 dalam komparasi visual.
+          </p>
+        </div>
+        <EngineerComparisonChartSection
+          rows={comparisonChartRows}
+          showHeader={false}
+        />
       </section>
 
       <section className={styles.panel} aria-labelledby="roadmap-title">
@@ -658,23 +675,6 @@ export default async function Home({
             </div>
           ))}
         </div>
-      </section>
-
-      <section
-        className={`${styles.panel} ${styles.panelComparison}`}
-        aria-labelledby="chart-comparison-title"
-      >
-        <div className={styles.panelHeader}>
-          <h2 id="chart-comparison-title">Performa TWBE Komparasi</h2>
-          <p>
-            Data performa TWBE setiap engineer periode September 2025 - April
-            2026 dalam komparasi visual.
-          </p>
-        </div>
-        <EngineerComparisonChartSection
-          rows={comparisonChartRows}
-          showHeader={false}
-        />
       </section>
 
       {selectedEngineer ? (

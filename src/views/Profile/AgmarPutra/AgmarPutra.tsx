@@ -273,7 +273,7 @@ export const agmarPutraProfileData: EngineerProfileData = {
         'Stabilisasi arsitektur monorepo dan peningkatan efisiensi pengembangan lintas variant QRISAN.',
       courseOnline: [
         {
-          title: 'Monorepo NX untuk Frontend Multi-Portal',
+          title: 'Monorepo Turborepo untuk Frontend Multi-Portal',
         },
       ],
       successIndicator:
