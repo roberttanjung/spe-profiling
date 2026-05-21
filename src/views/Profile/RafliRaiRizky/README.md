@@ -2,7 +2,7 @@
 
 ## POINTS
 
-Rafli menunjukkan sikap reflektif dalam bekerja karena cepat menyadari kekurangan diri dan terbuka terhadap evaluasi. Sikap ini membantu proses perbaikan berjalan lebih cepat dan membuat kualitas kerja meningkat dari waktu ke waktu.
+-
 
 ## Personal
 

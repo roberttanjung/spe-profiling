@@ -26,6 +26,7 @@ import {
   SOFT_PROFILE_TEXT_LABELS,
 } from '@/db/softProfile';
 import { REFERENCE_DATE } from '@/db/constants';
+import { emphasizeProfileTerms } from '@/utils/textEmphasis';
 import styles from '../ProfileCommon.module.css';
 import type {
   ProfileViewProps,
@@ -159,7 +160,11 @@ function SoftProfileSection({ data }: { data: ProfileSoftAspect }) {
               <td className={styles.softTableKey}>
                 {SOFT_PROFILE_TEXT_LABELS[key]}
               </td>
-              <td className={styles.softTableVal}>{data[key]}</td>
+              <td className={styles.softTableVal}>
+                {key === 'collaborationType'
+                  ? emphasizeProfileTerms(data[key])
+                  : data[key]}
+              </td>
             </tr>
           ))}
         </tbody>

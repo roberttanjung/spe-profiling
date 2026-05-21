@@ -27,6 +27,7 @@ import {
   SOFT_PROFILE_TEXT_KEYS,
   SOFT_PROFILE_TEXT_LABELS,
 } from '@/db/softProfile';
+import { emphasizeProfileTerms } from '@/utils/textEmphasis';
 import { REFERENCE_DATE } from '@/db/constants';
 import type { BareMinimumRatings } from '@/views/Profile/ProfileView/ProfileView.types';
 import styles from './page.module.css';
@@ -328,7 +329,11 @@ export default async function Home({
                   <td className={styles.whiteSpaceNowrap}>
                     {row.bareMinimumAvg.toFixed(2)} / 5
                   </td>
-                  <td>{row.characteristic || '-'}</td>
+                  <td>
+                    {row.characteristic
+                      ? emphasizeProfileTerms(row.characteristic)
+                      : '-'}
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -450,7 +455,11 @@ export default async function Home({
                 <tr key={`${row.name}-aspek-profil`}>
                   <th scope="row">{renderEngineerName(row.name)}</th>
                   {SOFT_PROFILE_TEXT_KEYS.map((key) => (
-                    <td key={key}>{row.softProfile[key]}</td>
+                    <td key={key}>
+                      {key === 'collaborationType'
+                        ? emphasizeProfileTerms(row.softProfile[key])
+                        : row.softProfile[key]}
+                    </td>
                   ))}
                 </tr>
               ))}
@@ -503,6 +512,15 @@ export default async function Home({
                   })}
                 </tr>
               ))}
+              <tr key="good-point-row-unique-selling-point">
+                {normalizedSummaryRows.map((row) => (
+                  <td key={`${row.name}-usp`}>
+                    <strong>Unique Selling Point</strong>
+                    <br />
+                    {row.softProfile.uniqueSellingPoint || '-'}
+                  </td>
+                ))}
+              </tr>
             </tbody>
           </table>
         </div>

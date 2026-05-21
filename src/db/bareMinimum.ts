@@ -331,6 +331,7 @@ export function getKpiBasedBareMinimumReasons(
   kpi: KpiAchievement,
   activity: ActivityAchievement,
 ): BareMinimumReasons {
+  const ratings = getKpiBasedBareMinimumRatings(kpi, activity);
   const task = toHitRateText(kpi.taskHitRate);
   const weight = toHitRateText(kpi.weightHitRate);
   const bugs = toHitRateText(kpi.bugsHitRate);
@@ -344,14 +345,54 @@ export function getKpiBasedBareMinimumReasons(
     activity.evidenceProjectHitRate,
   );
 
+  const withSolution = (
+    key: keyof BareMinimumRatings,
+    reason: string,
+    solution: string,
+  ) => {
+    if (ratings[key] >= 5) {
+      return reason;
+    }
+
+    return `${reason} Solusi menuju 5 bintang: ${solution}`;
+  };
+
   return {
-    fundamentalFrontend: `Dinilai dari kestabilan hasil kerja berdasarkan Weight (${weight}), Finish Rate (${finish}), dan konsistensi aktivitas yang sudah dilakukan (${activityOverall}).`,
-    kualitasKode: `Dinilai dari seberapa kecil masalah yang muncul (Bugs Ratio ${bugs}), ketuntasan kerja (${finish}), dan kelengkapan bukti aktivitas (${activityEvidence}).`,
-    testingReliability: `Dinilai dari rendahnya masalah (Bugs Ratio ${bugs}), konsistensi pekerjaan selesai (${done}), dan bukti aktivitas yang mendukung kualitas kerja (${activityEvidence}).`,
-    kolaborasiKomunikasi: `Dinilai dari kedisiplinan menyelesaikan pekerjaan (Done Rate ${done}, Finish Rate ${finish}) dan kejelasan penjelasan aktivitas (${activityDescriptions}).`,
-    deliveryBisnis: `Dinilai dari ketercapaian target kerja (Task ${task}), konsistensi penyelesaian (${done}, ${finish}), dan cakupan aktivitas di berbagai project (${activityProjects}).`,
-    securityObservability: `Dinilai dari kemampuan menjaga agar masalah tetap rendah (Bugs Ratio ${bugs}), hasil kerja tetap stabil (${finish}), dan adanya bukti aktivitas pencegahan masalah (${activityEvidenceProjects}).`,
-    aiProduktivitas: `Dinilai dari efisiensi hasil kerja (Task ${task}, Weight ${weight}) serta konsistensi aktivitas yang terdokumentasi (${activityOverall}).`,
+    fundamentalFrontend: withSolution(
+      'fundamentalFrontend',
+      `Dinilai dari kestabilan hasil kerja berdasarkan Weight (${weight}), Finish Rate (${finish}), dan konsistensi aktivitas yang sudah dilakukan (${activityOverall}).`,
+      'Perkuat konsistensi hasil lintas modul dengan menaikkan ketercapaian Weight dan Finish Rate ke 100%, lalu dokumentasikan pola implementasi yang bisa direplikasi tim.',
+    ),
+    kualitasKode: withSolution(
+      'kualitasKode',
+      `Dinilai dari seberapa kecil masalah yang muncul (Bugs Ratio ${bugs}), ketuntasan kerja (${finish}), dan kelengkapan bukti aktivitas (${activityEvidence}).`,
+      'Dorong Bugs Ratio tetap rendah di semua sprint, tambah bukti perbaikan kode penting, dan pastikan quality gate (lint, review, dan Sonar) lolos konsisten sebelum rilis.',
+    ),
+    testingReliability: withSolution(
+      'testingReliability',
+      `Dinilai dari rendahnya masalah (Bugs Ratio ${bugs}), konsistensi pekerjaan selesai (${done}), dan bukti aktivitas yang mendukung kualitas kerja (${activityEvidence}).`,
+      'Naikkan reliability lewat cakupan test skenario kritikal, pertahankan stabilitas test per sprint, dan tambah evidence perbaikan bug agar performa konsisten menuju level unggul.',
+    ),
+    kolaborasiKomunikasi: withSolution(
+      'kolaborasiKomunikasi',
+      `Dinilai dari kedisiplinan menyelesaikan pekerjaan (Done Rate ${done}, Finish Rate ${finish}) dan kejelasan penjelasan aktivitas (${activityDescriptions}).`,
+      'Perjelas update progres dengan konteks bisnis, lakukan sinkronisasi blocker lebih dini, dan jaga konsistensi komunikasi lintas fungsi sampai keputusan eksekusi benar-benar align.',
+    ),
+    deliveryBisnis: withSolution(
+      'deliveryBisnis',
+      `Dinilai dari ketercapaian target kerja (Task ${task}), konsistensi penyelesaian (${done}, ${finish}), dan cakupan aktivitas di berbagai project (${activityProjects}).`,
+      'Tingkatkan rasio task selesai tepat waktu pada backlog prioritas tinggi, jaga stabilitas done dan finish rate di setiap sprint, serta perluas dampak delivery pada area bisnis bernilai tinggi.',
+    ),
+    securityObservability: withSolution(
+      'securityObservability',
+      `Dinilai dari kemampuan menjaga agar masalah tetap rendah (Bugs Ratio ${bugs}), hasil kerja tetap stabil (${finish}), dan adanya bukti aktivitas pencegahan masalah (${activityEvidenceProjects}).`,
+      'Perkuat preventive control dengan checklist security dan monitoring error rutin, percepat tindak lanjut temuan risiko, lalu dokumentasikan mitigasi agar standar keamanan konsisten di semua modul.',
+    ),
+    aiProduktivitas: withSolution(
+      'aiProduktivitas',
+      `Dinilai dari efisiensi hasil kerja (Task ${task}, Weight ${weight}) serta konsistensi aktivitas yang terdokumentasi (${activityOverall}).`,
+      'Gunakan workflow AI secara lebih terstruktur pada tugas berulang, ukur dampak efisiensinya per sprint, dan bagikan praktik yang terbukti efektif agar produktivitas tim ikut naik.',
+    ),
   };
 }
 

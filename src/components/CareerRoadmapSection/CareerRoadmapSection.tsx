@@ -1,9 +1,11 @@
 import type { StageStatus } from '@/views/Roadmap/RoadmapView.types';
 import roadmapStyles from '@/views/Roadmap/RoadmapView.module.css';
+import {
+  buildRoadmapTimeline,
+  TOTAL_TIMELINE_WEEKS,
+} from '@/utils/roadmapTimeline';
 import styles from './CareerRoadmapSection.module.css';
 import type { CareerRoadmapSectionProps } from './CareerRoadmapSection.types';
-
-const WEEKS_PER_STAGE = 4;
 
 function getStageStatus(index: number): StageStatus {
   if (index === 0) {
@@ -23,9 +25,10 @@ function buildGanttRows(items: CareerRoadmapSectionProps['items']): Array<{
   weekStart: number;
   weekEnd: number;
 }> {
+  const timelines = buildRoadmapTimeline(items);
+
   return items.map((stage, index) => {
-    const weekStart = index * WEEKS_PER_STAGE + 1;
-    const weekEnd = weekStart + WEEKS_PER_STAGE - 1;
+    const { weekStart, weekEnd } = timelines[index];
 
     return {
       stage,
@@ -81,7 +84,7 @@ export default function CareerRoadmapSection({
     goal ??
     `Mencapai ${items[items.length - 1]?.objective.toLowerCase() ?? 'target pengembangan karir yang terukur'}.`;
   const ganttRows = buildGanttRows(items);
-  const totalTimelineWeeks = ganttRows.length * WEEKS_PER_STAGE;
+  const totalTimelineWeeks = TOTAL_TIMELINE_WEEKS;
   const rootClassName = className ? `${styles.root} ${className}` : styles.root;
 
   return (
@@ -126,7 +129,7 @@ export default function CareerRoadmapSection({
                     <div
                       key={`band-${stage.period}-${idx}`}
                       className={roadmapStyles.ganttHeaderCell}
-                      style={{ gridColumn: `span ${WEEKS_PER_STAGE}` }}
+                      style={{ gridColumn: 'span 4' }}
                     >
                       {toPeriodLabel(stage.period)}
                     </div>
@@ -192,7 +195,7 @@ export default function CareerRoadmapSection({
                     <div
                       className={roadmapStyles.ganttBar}
                       style={{
-                        gridColumn: `${row.weekStart} / span ${WEEKS_PER_STAGE}`,
+                        gridColumn: `${row.weekStart} / span ${row.weekEnd - row.weekStart + 1}`,
                       }}
                       title={`${row.stage.objective} · Minggu ${row.weekStart}-${row.weekEnd}`}
                     >

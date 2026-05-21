@@ -1,5 +1,10 @@
 import { allEngineerProfiles } from '@/views/Profile';
 import type { ProfileRoadmapStage } from '@/views/Profile/ProfileView/ProfileView.types';
+import {
+  buildRoadmapTimeline,
+  TOTAL_TIMELINE_WEEKS,
+  WEEKS_PER_MONTH,
+} from './roadmapTimeline';
 
 export const MONTH_BANDS = [
   { label: 'Juni', month: 'Juni', monthNumber: 1 },
@@ -10,8 +15,7 @@ export const MONTH_BANDS = [
   { label: 'November', month: 'November', monthNumber: 6 },
 ];
 
-export const WEEKS_PER_MONTH = 4;
-export const TOTAL_TIMELINE_WEEKS = 24;
+export { WEEKS_PER_MONTH, TOTAL_TIMELINE_WEEKS };
 
 export interface EngineerRoadmapStageRow {
   stageIndex: number;
@@ -35,10 +39,13 @@ export function getEngineerRoadmapRows(): EngineerRoadmapRow[] {
       (profile) => profile.careerRoadmap && profile.careerRoadmap.length > 0,
     )
     .map((profile) => {
+      const stageTimelines = buildRoadmapTimeline(profile.careerRoadmap!);
       const stages = profile.careerRoadmap!.map((stage, stageIndex) => {
-        const { weekStart, weekEnd, monthNumber } = getWeekRangeForPeriod(
-          stage.period,
-        );
+        const { weekStart, weekEnd, monthNumber } =
+          getWeekRangeForPeriodByStage(
+            stageTimelines[stageIndex].weekStart,
+            stageTimelines[stageIndex].weekEnd,
+          );
         return {
           stageIndex,
           period: stage.period,
@@ -63,14 +70,52 @@ export function getWeekRangeForPeriod(period: string): {
   weekEnd: number;
   monthNumber: number;
 } {
-  const periodLower = period.toLowerCase().trim();
+  const fallbackMonth = getMonthNumberFromPeriod(period);
+  return {
+    weekStart: 1,
+    weekEnd: WEEKS_PER_MONTH,
+    monthNumber: fallbackMonth,
+  };
+}
 
-  // Extract month name from period string
+function getWeekRangeForPeriodByStage(
+  absoluteWeekStart: number,
+  absoluteWeekEnd: number,
+): {
+  weekStart: number;
+  weekEnd: number;
+  monthNumber: number;
+} {
+  const clampedAbsoluteStart = Math.max(
+    1,
+    Math.min(TOTAL_TIMELINE_WEEKS, absoluteWeekStart),
+  );
+  const clampedAbsoluteEnd = Math.max(
+    clampedAbsoluteStart,
+    Math.min(TOTAL_TIMELINE_WEEKS, absoluteWeekEnd),
+  );
+  const monthNumber = Math.min(
+    Math.floor((clampedAbsoluteStart - 1) / WEEKS_PER_MONTH) + 1,
+    MONTH_BANDS.length,
+  );
+  const weekStart = ((clampedAbsoluteStart - 1) % WEEKS_PER_MONTH) + 1;
+  const weekEnd = weekStart + (clampedAbsoluteEnd - clampedAbsoluteStart);
+
+  return {
+    weekStart,
+    weekEnd,
+    monthNumber,
+  };
+}
+
+function getMonthNumberFromPeriod(period: string): number {
+  const periodLower = period.toLowerCase().trim();
   const monthMatch = periodLower.match(
     /\b(juni|juli|agustus|september|oktober|november)\b/,
   );
+
   if (!monthMatch) {
-    return { weekStart: 1, weekEnd: 4, monthNumber: 1 };
+    return 1;
   }
 
   const month = monthMatch[1];
@@ -78,15 +123,7 @@ export function getWeekRangeForPeriod(period: string): {
     band.month.toLowerCase().startsWith(month),
   );
 
-  if (monthBand) {
-    return {
-      weekStart: 1,
-      weekEnd: WEEKS_PER_MONTH,
-      monthNumber: monthBand.monthNumber,
-    };
-  }
-
-  return { weekStart: 1, weekEnd: 4, monthNumber: 1 };
+  return monthBand?.monthNumber ?? 1;
 }
 
 export function getStageForWeekRange(
@@ -96,8 +133,13 @@ export function getStageForWeekRange(
 ): ProfileRoadmapStage | undefined {
   for (const row of rows) {
     for (const stage of row.stages) {
+      const stageAbsoluteStart =
+        (stage.monthNumber - 1) * WEEKS_PER_MONTH + stage.weekStart;
+      const stageAbsoluteEnd =
+        stageAbsoluteStart + (stage.weekEnd - stage.weekStart);
+
       // Check if stage overlaps with week range
-      if (stage.weekStart <= weekEnd && stage.weekEnd >= weekStart) {
+      if (stageAbsoluteStart <= weekEnd && stageAbsoluteEnd >= weekStart) {
         return {
           period: stage.period,
           objective: stage.objective,
@@ -107,5 +149,6 @@ export function getStageForWeekRange(
       }
     }
   }
+
   return undefined;
 }
