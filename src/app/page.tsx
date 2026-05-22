@@ -533,7 +533,7 @@ export default async function Home({
         className={`${styles.panel} ${styles.panelComparison}`}
         aria-labelledby="chart-comparison-title"
       >
-        <div className={styles.panelHeader}>
+        <div className={styles.panelHeader} style={{ marginBottom: '1rem' }}>
           <h2 id="chart-comparison-title">Performa TWBE Komparasi</h2>
           <p>
             Data performa TWBE setiap engineer periode September 2025 - April
