@@ -338,12 +338,6 @@ export function getKpiBasedBareMinimumReasons(
   const done = toHitRateText(kpi.doneHitRate);
   const finish = toHitRateText(kpi.finishHitRate);
   const activityOverall = toHitRateText(activity.overallHitRate);
-  const activityProjects = toHitRateText(activity.projectHitRate);
-  const activityEvidence = toHitRateText(activity.evidenceHitRate);
-  const activityDescriptions = toHitRateText(activity.descriptionHitRate);
-  const activityEvidenceProjects = toHitRateText(
-    activity.evidenceProjectHitRate,
-  );
 
   const withSolution = (
     key: keyof BareMinimumRatings,
@@ -365,32 +359,32 @@ export function getKpiBasedBareMinimumReasons(
     ),
     kualitasKode: withSolution(
       'kualitasKode',
-      `Dinilai dari seberapa kecil masalah yang muncul (Bugs Ratio ${bugs}), ketuntasan kerja (${finish}), dan kelengkapan bukti aktivitas (${activityEvidence}).`,
+      `Dinilai dari seberapa kecil masalah yang muncul (Bugs Ratio ${bugs}), ketuntasan kerja (${finish}), dan kelengkapan bukti aktivitas`,
       'Dorong Bugs Ratio tetap rendah di semua sprint, tambah bukti perbaikan kode penting, dan pastikan quality gate (lint, review, dan Sonar) lolos konsisten sebelum rilis.',
     ),
     testingReliability: withSolution(
       'testingReliability',
-      `Dinilai dari rendahnya masalah (Bugs Ratio ${bugs}), konsistensi pekerjaan selesai (${done}), dan bukti aktivitas yang mendukung kualitas kerja (${activityEvidence}).`,
+      `Dinilai dari rendahnya masalah (Bugs Ratio ${bugs}), konsistensi pekerjaan selesai (${done}), dan bukti aktivitas yang mendukung kualitas kerja`,
       'Naikkan reliability lewat cakupan test skenario kritikal, pertahankan stabilitas test per sprint, dan tambah evidence perbaikan bug agar performa konsisten menuju level unggul.',
     ),
     kolaborasiKomunikasi: withSolution(
       'kolaborasiKomunikasi',
-      `Dinilai dari kedisiplinan menyelesaikan pekerjaan (Done Rate ${done}, Finish Rate ${finish}) dan kejelasan penjelasan aktivitas (${activityDescriptions}).`,
+      `Dinilai dari kedisiplinan menyelesaikan pekerjaan (Done Rate ${done}, Finish Rate ${finish}) dan kejelasan penjelasan aktivitas`,
       'Perjelas update progres dengan konteks bisnis, lakukan sinkronisasi blocker lebih dini, dan jaga konsistensi komunikasi lintas fungsi sampai keputusan eksekusi benar-benar align.',
     ),
     deliveryBisnis: withSolution(
       'deliveryBisnis',
-      `Dinilai dari ketercapaian target kerja (Task ${task}), konsistensi penyelesaian (${done}, ${finish}), dan cakupan aktivitas di berbagai project (${activityProjects}).`,
+      `Dinilai dari ketercapaian target kerja (Task ${task}), konsistensi penyelesaian (${done}, ${finish}), dan cakupan aktivitas di berbagai project`,
       'Tingkatkan rasio task selesai tepat waktu pada backlog prioritas tinggi, jaga stabilitas done dan finish rate di setiap sprint, serta perluas dampak delivery pada area bisnis bernilai tinggi.',
     ),
     securityObservability: withSolution(
       'securityObservability',
-      `Dinilai dari kemampuan menjaga agar masalah tetap rendah (Bugs Ratio ${bugs}), hasil kerja tetap stabil (${finish}), dan adanya bukti aktivitas pencegahan masalah (${activityEvidenceProjects}).`,
+      `Dinilai dari kemampuan menjaga agar masalah tetap rendah (Bugs Ratio ${bugs}) dan hasil kerja tetap stabil (${finish})`,
       'Perkuat preventive control dengan checklist security dan monitoring error rutin, percepat tindak lanjut temuan risiko, lalu dokumentasikan mitigasi agar standar keamanan konsisten di semua modul.',
     ),
     aiProduktivitas: withSolution(
       'aiProduktivitas',
-      `Dinilai dari efisiensi hasil kerja (Task ${task}, Weight ${weight}) serta konsistensi aktivitas yang terdokumentasi (${activityOverall}).`,
+      `Dinilai dari efisiensi hasil kerja (Task ${task}, Weight ${weight}) serta konsistensi aktivitas yang terdokumentasi`,
       'Gunakan workflow AI secara lebih terstruktur pada tugas berulang, ukur dampak efisiensinya per sprint, dan bagikan praktik yang terbukti efektif agar produktivitas tim ikut naik.',
     ),
   };

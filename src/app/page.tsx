@@ -446,7 +446,9 @@ export default async function Home({
             <thead>
               <tr>
                 <th scope="col">Nama Engineer</th>
-                {SOFT_PROFILE_TEXT_KEYS.map((key) => (
+                {SOFT_PROFILE_TEXT_KEYS.filter(
+                  (key) => key !== 'uniqueSellingPoint',
+                ).map((key) => (
                   <th key={key} scope="col">
                     {SOFT_PROFILE_TEXT_LABELS[key]}
                   </th>
@@ -457,7 +459,9 @@ export default async function Home({
               {normalizedSummaryRows.map((row) => (
                 <tr key={`${row.name}-aspek-profil`}>
                   <th scope="row">{renderEngineerName(row.name)}</th>
-                  {SOFT_PROFILE_TEXT_KEYS.map((key) => (
+                  {SOFT_PROFILE_TEXT_KEYS.filter(
+                    (key) => key !== 'uniqueSellingPoint',
+                  ).map((key) => (
                     <td key={key}>
                       {key === 'collaborationType'
                         ? emphasizeProfileTerms(row.softProfile[key])
