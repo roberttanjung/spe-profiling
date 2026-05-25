@@ -351,8 +351,8 @@ export default async function Home({
         <div className={styles.panelHeader}>
           <h2 id="bare-minimum-title">Bare Minimum Frontend Engineer</h2>
           <p>
-            Evaluasi kualitas kompeten setiap engineer berdasarkan tujuh aspek
-            penilaian fundamental frontend.
+            Evaluasi kualitas kompeten setiap engineer berdasarkan fundamental
+            frontend.
           </p>
         </div>
         <div className={`${styles.tableWrap} ${styles.tableWrapBareMinimum}`}>
@@ -435,7 +435,7 @@ export default async function Home({
           <h2 id="aspek-profil-title">Aspek Profil Komparasi</h2>
           <p>
             Karakteristik kerja dan potensi kontribusi setiap engineer melalui
-            profil soft skill, gaya kolaborasi, dan unique selling point.
+            profil soft skill, dan gaya kolaborasi.
           </p>
         </div>
         <div className={styles.tableWrap}>
@@ -561,9 +561,8 @@ export default async function Home({
         <div className={styles.roadmapGanttWrapper}>
           <p className={styles.roadmapGoalHint}>
             Target roadmap diturunkan dari evaluasi Bare Minimum terbaru
-            berbasis KPI TWBE dan Aktivitas yang Sudah Dilakukan (independen
-            dari level grade dan lama bekerja), serta memprioritaskan jalur
-            SPEcialist ketika engineer sudah layak.
+            berbasis KPI TWBE dan Aktivitas yang Sudah Dilakukan, serta
+            memprioritaskan jalur SPEcialist ketika engineer sudah layak.
           </p>
           <div
             className={styles.roadmapGanttHeaderRow}
