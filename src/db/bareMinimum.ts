@@ -337,7 +337,6 @@ export function getKpiBasedBareMinimumReasons(
   const bugs = toHitRateText(kpi.bugsHitRate);
   const done = toHitRateText(kpi.doneHitRate);
   const finish = toHitRateText(kpi.finishHitRate);
-  const activityOverall = toHitRateText(activity.overallHitRate);
 
   const withSolution = (
     key: keyof BareMinimumRatings,
@@ -354,8 +353,8 @@ export function getKpiBasedBareMinimumReasons(
   return {
     fundamentalFrontend: withSolution(
       'fundamentalFrontend',
-      `Dinilai dari kestabilan hasil kerja berdasarkan Weight (${weight}), Finish Rate (${finish}), dan konsistensi aktivitas yang sudah dilakukan (${activityOverall}).`,
-      'Perkuat konsistensi hasil lintas modul dengan menaikkan ketercapaian Weight dan Finish Rate ke 100%, lalu dokumentasikan pola implementasi yang bisa direplikasi tim.',
+      `Dinilai dari kestabilan hasil kerja berdasarkan Weight (${weight}), Finish Rate (${finish}), dan konsistensi aktivitas yang sudah dilakukan.`,
+      'Perkuat konsistensi hasil lintas modul dengan menaikkan ketercapaian Weight dan Finish Rate ke 100%.',
     ),
     kualitasKode: withSolution(
       'kualitasKode',
