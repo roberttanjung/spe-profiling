@@ -36,7 +36,6 @@ function toStringValue(value: unknown): string {
 
   return String(value).trim();
 }
-
 function getCellDisplayValue(
   worksheet: XLSX.WorkSheet,
   cellAddress: string,
