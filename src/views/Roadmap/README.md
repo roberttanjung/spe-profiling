@@ -2,7 +2,7 @@
 
 ## Hasil Kesimpulan Performance Appraisal 2026
 
-### CLARIFY FUNCTION
+### CLARIFY FUNCTION 1
 
 Selama tahun 2025, yang bersangkutan menjalankan peran sebagai Supervisor Frontend dengan fokus
 memastikan tim bekerja sesuai standar SPE dan mencapai KPI yang ditetapkan. Ia secara konsisten
